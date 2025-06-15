@@ -10,6 +10,10 @@ Designed as a generic post-processing plug-in,
 CostFilter-AD can be integrated with either reconstruction-based or embedding-based methods.
 Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benefits of CostFilter-AD for both single- and multi-class UAD tasks. Code and models will be released.
 
+
+
+![ICML8276poster](https://github.com/user-attachments/assets/89ee19e0-f2d3-44ae-9e18-12fa78514414)
+
 🚀 We are very happy to release the codes and model weights. 
 
 💬 We are currently finalizing them, so please stay tuned and feel free to discuss! 
