@@ -9,11 +9,11 @@
 
 # **Update (07/06/2025):**
 
-We have open-sourced  **CostFilter-AD** , built upon the **[Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) ** (CVPR '25) baseline.
+We have open-sourced  **CostFilter-AD** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
 
 It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
 
-👉 See the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
+👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
 
 # **Abstract:**
@@ -35,7 +35,7 @@ Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benef
 💬 We are currently finalizing them, so please stay tuned and feel free to discuss!
 
 
-# 📚 Cite
+📚 Cite
 
 If you think our Costfilter-AD helpful, please cite it using the following reference:@inproceedings{zhang2025costfilter,
 
