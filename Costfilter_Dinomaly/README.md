@@ -1,42 +1,42 @@
-# 🧪 CostFilter-AD Enhances the Baseline Dinomaly
+# CostFilter-AD Enhances the Baseline Dinomaly
 
-### 🧾 Benchmark Results
+## Benchmark Results
 
-#### MVTec-AD
+### MVTec-AD
 
-| Method   | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
-| -------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
-| UniAD    | 97.5        | 99.1     | 97.0        | 96.9        | 44.5     | 50.5        | 90.6     |
-| + Ours   | 99.0        | 99.7     | 98.1        | 97.5        | 60.5     | 59.9        | 91.3     |
-| Dinomaly | **99.6**    | **99.8** | 99.0        | 98.3        | 68.7     | 68.7        | 94.6     |
-| + Ours   | **99.6**    | **99.8** | **99.1**    | **98.7**    | **75.6** | **72.9**    | **95.6** |
+| Method   | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
+| -------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
+| UniAD    | 97.5           | 99.1           | 97.0           | 96.9           | 44.5           | 50.5           | 90.6           |
+| + Ours   | 99.0           | 99.7           | 98.1           | 97.5           | 60.5           | 59.9           | 91.3           |
+| Dinomaly | **99.6** | **99.8** | 99.0           | 98.3           | 68.7           | 68.7           | 94.6           |
+| + Ours   | **99.6** | **99.8** | **99.1** | **98.7** | **75.6** | **72.9** | **95.6** |
 
-#### VisA
+### VisA
 
-| Method   | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
-| -------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
-| UniAD    | 91.5        | 93.6     | 88.5        | 98.0        | 32.7     | 38.4        | 76.1     |
-| + Ours   | 92.1        | 94.0     | 88.9        | 98.6        | 34.0     | 39.0        | 86.4     |
-| Dinomaly | 98.7        | **98.9** | 96.1        | 98.7        | 52.5     | 55.4        | **94.5** |
-| + Ours   | **98.8**    | 98.8     | **96.5**    | **98.9**    | **59.9** | **59.9**    | 94.4     |
+| Method   | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
+| -------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
+| UniAD    | 91.5           | 93.6           | 88.5           | 98.0           | 32.7           | 38.4           | 76.1           |
+| + Ours   | 92.1           | 94.0           | 88.9           | 98.6           | 34.0           | 39.0           | 86.4           |
+| Dinomaly | 98.7           | **98.9** | 96.1           | 98.7           | 52.5           | 55.4           | **94.5** |
+| + Ours   | **98.8** | 98.8           | **96.5** | **98.9** | **59.9** | **59.9** | 94.4           |
 
-#### MPDD
+### MPDD
 
-| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
-| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
-| HVQ-Trans | 86.5        | 87.9     | 85.6        | 96.9        | 26.4     | 30.5        | 88.0     |
-| + Ours    | 93.1        | 95.4     | 90.3        | 97.5        | 34.1     | 37.0        | 82.9     |
-| Dinomaly  | 97.2        | 98.4     | **96.0**    | **99.1**    | 59.5     | **59.4**    | **96.6** |
-| + Ours    | **97.4**    | **98.5** | **96.0**    | **99.1**    | **59.6** | 59.3        | **96.6** |
+| Method    | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
+| --------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
+| HVQ-Trans | 86.5           | 87.9           | 85.6           | 96.9           | 26.4           | 30.5           | 88.0           |
+| + Ours    | 93.1           | 95.4           | 90.3           | 97.5           | 34.1           | 37.0           | 82.9           |
+| Dinomaly  | 97.2           | 98.4           | **96.0** | **99.1** | 59.5           | **59.4** | **96.6** |
+| + Ours    | **97.4** | **98.5** | **96.0** | **99.1** | **59.6** | 59.3           | **96.6** |
 
-#### BTAD
+### BTAD
 
-| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
-| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
-| HVQ-Trans | 90.9        | 97.8     | 94.8        | 96.7        | 43.2     | 48.7        | 75.6     |
-| + Ours    | 93.3        | 98.6     | 96.0        | 97.3        | 47.0     | 50.2        | 76.2     |
-| Dinomaly  | 95.4        | 98.5     | 95.5        | 97.9        | 70.1     | 68.0        | 76.5     |
-| + Ours    | **96.2**    | **98.9** | **96.3**    | **98.2**    | **74.8** | **70.0**    | **81.0** |
+| Method    | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
+| --------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
+| HVQ-Trans | 90.9           | 97.8           | 94.8           | 96.7           | 43.2           | 48.7           | 75.6           |
+| + Ours    | 93.3           | 98.6           | 96.0           | 97.3           | 47.0           | 50.2           | 76.2           |
+| Dinomaly  | 95.4           | 98.5           | 95.5           | 97.9           | 70.1           | 68.0           | 76.5           |
+| + Ours    | **96.2** | **98.9** | **96.3** | **98.2** | **74.8** | **70.0** | **81.0** |
 
 ## 1. Environments
 
@@ -63,8 +63,13 @@ Unzip to: `./hdd/Datasets/MVTec-AD/`
 ```
 |-- mvtec_anomaly_detection
     |-- bottle
+	|-- ground_truth
+            |-- test
+                    |-- good
+                    |-- bad
+            |-- train
+                    |-- good
     |-- cable
-    |-- capsule
     |-- ....
 ```
 
@@ -80,7 +85,7 @@ You can also run the following command for preprocess, which is the same to thei
 python ./prepare_data/prepare_visa.py --split-type 1cls --data-folder ../VisA --save-folder ../VisA_pytorch --split-file ./prepare_data/split_csv/1cls.csv
 ```
 
-`../VisA_pytorch` will be like:
+`./hdd/Datasets/VisA_pytorch/` will be like:
 
 ```
 |-- VisA_pytorch
@@ -99,55 +104,59 @@ python ./prepare_data/prepare_visa.py --split-type 1cls --data-folder ../VisA --
 ### MPDD and BTAD
 
 Download the MPDD dataset from [URL](https://github.com/stepanje/MPDD). Unzip to `./hdd/Datasets/MPDD/`.
+
 Download the BTAD dataset from [URL](https://github.com/pankajmishra000/VT-ADL). Unzip to `./hdd/Datasets/BTAD1/`.
 
 General structure for all datasets:
 
 ```
-Name_of_Dataset
-| -- Category |
-| ----------- || ground_truth |
-| ------------ |  || test |
-| ---- |  || good |
-| ---- |  |  || ... |
-| --- |  |  |...
-| ----- | ----- train |
-| ----- | ----------- ||good
+|-- Name_of_Dataset
+    |-- Category1
+	|-- ground_truth
+            |-- test
+                    |-- good
+                    |-- bad
+            |-- train
+                    |-- good
+    |-- Category2
+    |-- ....
 ```
 
 ## 3. Checkpoints
 
-**🔹 Dino model Weights**
+### 🔹 Dino Model Weights
 
-[dinov2_vitb14_reg4_pretrain](https://drive.google.com/drive/folders/1nhb-mAO_0eyl3pY6-vqlBLJK2rRXoR17?usp=sharing),   save in ./backbones
+|         Description         | Download Link                                                                                     | Save Path       |
+| :-------------------------: | ------------------------------------------------------------------------------------------------- | --------------- |
+| dinov2_vitb14_reg4_pretrain | [Google Drive](https://drive.google.com/drive/folders/1nhb-mAO_0eyl3pY6-vqlBLJK2rRXoR17?usp=sharing) | `./backbones` |
 
-**🔹 Dinomaly Baseline Weights**
+---
 
-[Dinomaly on MVTec-AD](https://drive.google.com/drive/folders/1Obnx0wCHMWu8lE8M9pXhQOuduJol2kPJ?usp=sharing),        save in ./saved_results_mvtec
+### 🔹 Dinomaly Baseline Weights
 
-[Dinomaly on VisA](https://drive.google.com/drive/folders/1COemGeV62HUZ9P4E1JDyF0-x0a0REi7-?usp=sharing),                    save in ./saved_results_visa
+| Dataset | Download Link                                                                                             | Save Path                 |
+| :------: | --------------------------------------------------------------------------------------------------------- | ------------------------- |
+| MVTec-AD | [Dinomaly on MVTec-AD](https://drive.google.com/drive/folders/1Obnx0wCHMWu8lE8M9pXhQOuduJol2kPJ?usp=sharing) | `./saved_results_mvtec` |
+|   VisA   | [Dinomaly on VisA](https://drive.google.com/drive/folders/1COemGeV62HUZ9P4E1JDyF0-x0a0REi7-?usp=sharing)     | `./saved_results_visa`  |
+|   MPDD   | [Dinomaly on MPDD](https://drive.google.com/drive/folders/17dTiCXsW0zghsHBORz2HzvvZQgGDfFnP?usp=sharing)     | `./saved_results_mpdd`  |
+|   BTAD   | [Dinomaly on BTAD](https://drive.google.com/drive/folders/1BBdy_imjjN_T8y55cjE5CHxIehAn25F9?usp=sharing)     | `./saved_results_btad`  |
 
-[Dinomaly on MPDD](https://drive.google.com/drive/folders/17dTiCXsW0zghsHBORz2HzvvZQgGDfFnP?usp=sharing),                save in ./saved_results_mpdd
+---
 
-[Dinomaly on BTAD](https://drive.google.com/drive/folders/1BBdy_imjjN_T8y55cjE5CHxIehAn25F9?usp=sharing),                  save in ./saved_results_btad
+### 🔹 [CostFilter-AD Weights (Ours)](https://drive.google.com/drive/folders/1uFSY8O-nQ_Ji4pT5lNM0CTuI0ZB7L9Ql?usp=sharing)
 
-**🔹 [CostFilter-AD](https://drive.google.com/drive/folders/1uFSY8O-nQ_Ji4pT5lNM0CTuI0ZB7L9Ql?usp=sharing) Weights (ours)**
-
-[CostfilterAD on MVTec-AD](https://drive.google.com/drive/folders/1tMVlel5UMhYzQFT-E7_FZJapIMHyCdNz?usp=sharing), save in ./checkpoint_paths/mvtecad0.0001
-
-[CostfilterADon VisA](https://drive.google.com/drive/folders/1NzjZPYlLExfVht5fAuoU9f8RlXuPDUnk?usp=sharing),              save in ./checkpoint_paths/visaad0.0001
-
-[CostfilterADon MPDD](https://drive.google.com/drive/folders/1xZSTo8f-C6JUc2g909BFIzZtMYbXZEM3?usp=sharing),          save in ./checkpoint_paths/mpddad0.0001
-
-[CostfilterAD on BTAD](https://drive.google.com/drive/folders/1QIdzCuivQvxwHci-A-cFIyr79L8h2Tce?usp=sharing),           save in ./checkpoint_paths/btadad0.0001
-
-**Note:**`0.0001` denotes the learning rate of the filter network.
+| Dataset | Download Link                                                                                                 | Save Path                            |
+| :------: | ------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| MVTec-AD | [CostFilterAD on MVTec-AD](https://drive.google.com/drive/folders/1tMVlel5UMhYzQFT-E7_FZJapIMHyCdNz?usp=sharing) | `./checkpoint_paths/mvtecad0.0001` |
+|   VisA   | [CostFilterAD on VisA](https://drive.google.com/drive/folders/1NzjZPYlLExfVht5fAuoU9f8RlXuPDUnk?usp=sharing)     | `./checkpoint_paths/visaad0.0001`  |
+|   MPDD   | [CostFilterAD on MPDD](https://drive.google.com/drive/folders/1xZSTo8f-C6JUc2g909BFIzZtMYbXZEM3?usp=sharing)     | `./checkpoint_paths/mpddad0.0001`  |
+|   BTAD   | [CostFilterAD on BTAD](https://drive.google.com/drive/folders/1QIdzCuivQvxwHci-A-cFIyr79L8h2Tce?usp=sharing)     | `./checkpoint_paths/btadad0.0001`  |
 
 ## 4. Run Experiments
 
 We study the Multi-Class anomaly detection.
 
-**🔹 Testing (using pretrained weights)**
+### **🔹 Testing (using pretrained weights)**
 
 **MVTec-AD:**
 
@@ -174,7 +183,7 @@ python costfilter_dinomaly_mpdd_uni_my_train_test.py
 python costfilter_dinomaly_btad_uni_my_train_test.py
 ```
 
-**🔹 Train: you can train the cost filtering model as follows.**
+### **🔹 Train: you can train the cost filtering model as follows.**
 
 MVTec-AD:
 
@@ -201,8 +210,7 @@ python costfilter_dinomaly_mpdd_uni_my_train_test.py --train
 python costfilter_dinomaly_btad_uni_my_train_test.py --train
 ```
 
-
-### 📚 Cite
+## 📚 Cite
 
 If you use this dataset or code, please cite it using the following reference:
 

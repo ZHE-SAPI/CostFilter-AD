@@ -7,9 +7,9 @@
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                   |
 
-**Update (07/06/2025):**
+# **Update (07/06/2025):**
 
-We have open-sourced  **CostFilter-AD** , built upon the **Dinomaly** (CVPR '25) baseline.
+We have open-sourced  **CostFilter-AD** , built upon the **[Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) ** (CVPR '25) baseline.
 
 It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
 
@@ -22,6 +22,7 @@ Specifically, we first construct a matching cost volume between the input and no
 Designed as a generic post-processing plug-in,
 CostFilter-AD can be integrated with either reconstruction-based or embedding-based methods.
 Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benefits of CostFilter-AD for both single- and multi-class UAD tasks. Code and models will be released.
+
 
 ![ICML8276poster](https://github.com/user-attachments/assets/89ee19e0-f2d3-44ae-9e18-12fa78514414)
 
