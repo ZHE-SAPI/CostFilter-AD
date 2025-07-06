@@ -189,7 +189,7 @@ python costfilter_dinomaly_btad_uni_my_train_test.py
 
 ### **🔹 Train: you can train the cost filtering model as follows.**
 
-MVTec-AD:
+**MVTec-AD:**
 
 ```
 cd /CostFilterAD/Costfilter_Dinomaly
