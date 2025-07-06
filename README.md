@@ -35,7 +35,7 @@ Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benef
 💬 We are currently finalizing them, so please stay tuned and feel free to discuss!
 
 
-📚 Cite
+# 📚 Cite
 
 If you think our Costfilter-AD helpful, please cite it using the following reference:@inproceedings{zhang2025costfilter,
 
