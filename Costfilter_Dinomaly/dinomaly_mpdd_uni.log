@@ -1,0 +1,273 @@
+nohup: ignoring input
+/home/ZZ/anomaly/Dinomaly-master/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/ZZ/anomaly/Dinomaly-master/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/ZZ/anomaly/Dinomaly-master/dinov2/layers/block.py:38: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+/root/anaconda3/envs/Glad/lib/python3.8/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+cuda:0
+train image number:888
+iter [55/10000], loss:0.3193
+iter [110/10000], loss:0.1246
+iter [165/10000], loss:0.0881
+iter [220/10000], loss:0.0737
+iter [275/10000], loss:0.0653
+iter [330/10000], loss:0.0597
+iter [385/10000], loss:0.0568
+iter [440/10000], loss:0.0550
+iter [495/10000], loss:0.0517
+iter [550/10000], loss:0.0494
+iter [605/10000], loss:0.0480
+iter [660/10000], loss:0.0475
+iter [715/10000], loss:0.0465
+iter [770/10000], loss:0.0470
+iter [825/10000], loss:0.0453
+iter [880/10000], loss:0.0444
+iter [935/10000], loss:0.0435
+iter [990/10000], loss:0.0430
+bracket_black: I-Auroc:0.8903, I-AP:0.9377, I-F1:0.8444, P-AUROC:0.9910, P-AP:0.3492, P-F1:0.4571, P-AUPRO:0.9770
+bracket_brown: I-Auroc:0.9299, I-AP:0.9414, I-F1:0.9320, P-AUROC:0.9759, P-AP:0.3531, P-F1:0.4161, P-AUPRO:0.9593
+bracket_white: I-Auroc:0.9433, I-AP:0.9456, I-F1:0.8955, P-AUROC:0.9914, P-AP:0.0772, P-F1:0.1606, P-AUPRO:0.9222
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9897, P-AP:0.6899, P-F1:0.6489, P-AUPRO:0.9658
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9959, P-AP:0.9796, P-F1:0.9253, P-AUPRO:0.9794
+tubes: I-Auroc:0.9520, I-AP:0.9832, I-F1:0.9552, P-AUROC:0.9911, P-AP:0.8209, P-F1:0.7734, P-AUPRO:0.9666
+Mean: I-Auroc:0.9526, I-AP:0.9680, I-F1:0.9379, P-AUROC:0.9892, P-AP:0.5450, P-F1:0.5636, P-AUPRO:0.9617
+[INFO] Best model saved with I-AUROC 0.9892
+iter [1045/10000], loss:0.0421
+iter [1100/10000], loss:0.0418
+iter [1155/10000], loss:0.0415
+iter [1210/10000], loss:0.0412
+iter [1265/10000], loss:0.0410
+iter [1320/10000], loss:0.0408
+iter [1375/10000], loss:0.0404
+iter [1430/10000], loss:0.0403
+iter [1485/10000], loss:0.0406
+iter [1540/10000], loss:0.0400
+iter [1595/10000], loss:0.0397
+iter [1650/10000], loss:0.0394
+iter [1705/10000], loss:0.0393
+iter [1760/10000], loss:0.0393
+iter [1815/10000], loss:0.0391
+iter [1870/10000], loss:0.0388
+iter [1925/10000], loss:0.0387
+iter [1980/10000], loss:0.0385
+bracket_black: I-Auroc:0.9315, I-AP:0.9626, I-F1:0.8913, P-AUROC:0.9924, P-AP:0.3757, P-F1:0.4694, P-AUPRO:0.9790
+bracket_brown: I-Auroc:0.9404, I-AP:0.9584, I-F1:0.9444, P-AUROC:0.9779, P-AP:0.4209, P-F1:0.4486, P-AUPRO:0.9631
+bracket_white: I-Auroc:0.9889, I-AP:0.9887, I-F1:0.9677, P-AUROC:0.9926, P-AP:0.1351, P-F1:0.1953, P-AUPRO:0.9283
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9920, P-AP:0.7383, P-F1:0.6873, P-AUPRO:0.9724
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9960, P-AP:0.9808, P-F1:0.9265, P-AUPRO:0.9797
+tubes: I-Auroc:0.9751, I-AP:0.9908, I-F1:0.9701, P-AUROC:0.9921, P-AP:0.8344, P-F1:0.7780, P-AUPRO:0.9722
+Mean: I-Auroc:0.9727, I-AP:0.9834, I-F1:0.9623, P-AUROC:0.9905, P-AP:0.5809, P-F1:0.5842, P-AUPRO:0.9658
+[INFO] Best model saved with I-AUROC 0.9905
+iter [2035/10000], loss:0.0383
+iter [2090/10000], loss:0.0381
+iter [2145/10000], loss:0.0378
+iter [2200/10000], loss:0.0377
+iter [2255/10000], loss:0.0375
+iter [2310/10000], loss:0.0374
+iter [2365/10000], loss:0.0373
+iter [2420/10000], loss:0.0372
+iter [2475/10000], loss:0.0370
+iter [2530/10000], loss:0.0368
+iter [2585/10000], loss:0.0368
+iter [2640/10000], loss:0.0365
+iter [2695/10000], loss:0.0364
+iter [2750/10000], loss:0.0362
+iter [2805/10000], loss:0.0361
+iter [2860/10000], loss:0.0359
+iter [2915/10000], loss:0.0358
+iter [2970/10000], loss:0.0357
+bracket_black: I-Auroc:0.9242, I-AP:0.9573, I-F1:0.8776, P-AUROC:0.9928, P-AP:0.3702, P-F1:0.4668, P-AUPRO:0.9800
+bracket_brown: I-Auroc:0.9517, I-AP:0.9671, I-F1:0.9533, P-AUROC:0.9783, P-AP:0.4456, P-F1:0.4574, P-AUPRO:0.9625
+bracket_white: I-Auroc:0.9889, I-AP:0.9893, I-F1:0.9524, P-AUROC:0.9926, P-AP:0.1334, P-F1:0.2003, P-AUPRO:0.9290
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9923, P-AP:0.7407, P-F1:0.6935, P-AUPRO:0.9727
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9959, P-AP:0.9796, P-F1:0.9252, P-AUPRO:0.9788
+tubes: I-Auroc:0.9642, I-AP:0.9865, I-F1:0.9552, P-AUROC:0.9916, P-AP:0.8314, P-F1:0.7754, P-AUPRO:0.9692
+Mean: I-Auroc:0.9715, I-AP:0.9834, I-F1:0.9564, P-AUROC:0.9906, P-AP:0.5835, P-F1:0.5864, P-AUPRO:0.9654
+[INFO] Best model saved with I-AUROC 0.9906
+iter [3025/10000], loss:0.0355
+iter [3080/10000], loss:0.0356
+iter [3135/10000], loss:0.0353
+iter [3190/10000], loss:0.0352
+iter [3245/10000], loss:0.0351
+iter [3300/10000], loss:0.0350
+iter [3355/10000], loss:0.0348
+iter [3410/10000], loss:0.0347
+iter [3465/10000], loss:0.0347
+iter [3520/10000], loss:0.0346
+iter [3575/10000], loss:0.0344
+iter [3630/10000], loss:0.0344
+iter [3685/10000], loss:0.0343
+iter [3740/10000], loss:0.0342
+iter [3795/10000], loss:0.0341
+iter [3850/10000], loss:0.0340
+iter [3905/10000], loss:0.0338
+iter [3960/10000], loss:0.0338
+bracket_black: I-Auroc:0.9235, I-AP:0.9570, I-F1:0.8706, P-AUROC:0.9929, P-AP:0.3712, P-F1:0.4637, P-AUPRO:0.9802
+bracket_brown: I-Auroc:0.9525, I-AP:0.9667, I-F1:0.9623, P-AUROC:0.9799, P-AP:0.4576, P-F1:0.4703, P-AUPRO:0.9657
+bracket_white: I-Auroc:0.9889, I-AP:0.9895, I-F1:0.9375, P-AUROC:0.9935, P-AP:0.1930, P-F1:0.2599, P-AUPRO:0.9353
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9926, P-AP:0.7502, P-F1:0.6981, P-AUPRO:0.9753
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9959, P-AP:0.9797, P-F1:0.9260, P-AUPRO:0.9799
+tubes: I-Auroc:0.9583, I-AP:0.9846, I-F1:0.9552, P-AUROC:0.9913, P-AP:0.8278, P-F1:0.7722, P-AUPRO:0.9669
+Mean: I-Auroc:0.9705, I-AP:0.9830, I-F1:0.9543, P-AUROC:0.9910, P-AP:0.5966, P-F1:0.5984, P-AUPRO:0.9672
+[INFO] Best model saved with I-AUROC 0.9910
+iter [4015/10000], loss:0.0337
+iter [4070/10000], loss:0.0336
+iter [4125/10000], loss:0.0336
+iter [4180/10000], loss:0.0334
+iter [4235/10000], loss:0.0333
+iter [4290/10000], loss:0.0331
+iter [4345/10000], loss:0.0331
+iter [4400/10000], loss:0.0331
+iter [4455/10000], loss:0.0330
+iter [4510/10000], loss:0.0329
+iter [4565/10000], loss:0.0327
+iter [4620/10000], loss:0.0326
+iter [4675/10000], loss:0.0326
+iter [4730/10000], loss:0.0325
+iter [4785/10000], loss:0.0324
+iter [4840/10000], loss:0.0323
+iter [4895/10000], loss:0.0323
+iter [4950/10000], loss:0.0322
+bracket_black: I-Auroc:0.9315, I-AP:0.9610, I-F1:0.8866, P-AUROC:0.9936, P-AP:0.3699, P-F1:0.4692, P-AUPRO:0.9814
+bracket_brown: I-Auroc:0.9555, I-AP:0.9702, I-F1:0.9533, P-AUROC:0.9795, P-AP:0.4858, P-F1:0.4772, P-AUPRO:0.9625
+bracket_white: I-Auroc:0.9856, I-AP:0.9865, I-F1:0.9375, P-AUROC:0.9932, P-AP:0.1740, P-F1:0.2369, P-AUPRO:0.9316
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9925, P-AP:0.7462, P-F1:0.6911, P-AUPRO:0.9744
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9958, P-AP:0.9793, P-F1:0.9254, P-AUPRO:0.9798
+tubes: I-Auroc:0.9615, I-AP:0.9857, I-F1:0.9552, P-AUROC:0.9912, P-AP:0.8258, P-F1:0.7690, P-AUPRO:0.9683
+Mean: I-Auroc:0.9723, I-AP:0.9839, I-F1:0.9554, P-AUROC:0.9910, P-AP:0.5969, P-F1:0.5948, P-AUPRO:0.9663
+[INFO] Best model saved with I-AUROC 0.9910
+iter [5005/10000], loss:0.0321
+iter [5060/10000], loss:0.0321
+iter [5115/10000], loss:0.0320
+iter [5170/10000], loss:0.0318
+iter [5225/10000], loss:0.0318
+iter [5280/10000], loss:0.0318
+iter [5335/10000], loss:0.0317
+iter [5390/10000], loss:0.0316
+iter [5445/10000], loss:0.0315
+iter [5500/10000], loss:0.0315
+iter [5555/10000], loss:0.0314
+iter [5610/10000], loss:0.0313
+iter [5665/10000], loss:0.0313
+iter [5720/10000], loss:0.0312
+iter [5775/10000], loss:0.0311
+iter [5830/10000], loss:0.0311
+iter [5885/10000], loss:0.0310
+iter [5940/10000], loss:0.0310
+iter [5995/10000], loss:0.0309
+bracket_black: I-Auroc:0.9322, I-AP:0.9627, I-F1:0.8936, P-AUROC:0.9938, P-AP:0.3796, P-F1:0.4777, P-AUPRO:0.9829
+bracket_brown: I-Auroc:0.9540, I-AP:0.9692, I-F1:0.9533, P-AUROC:0.9811, P-AP:0.4890, P-F1:0.4824, P-AUPRO:0.9668
+bracket_white: I-Auroc:0.9889, I-AP:0.9895, I-F1:0.9375, P-AUROC:0.9935, P-AP:0.1858, P-F1:0.2516, P-AUPRO:0.9301
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9928, P-AP:0.7473, P-F1:0.6946, P-AUPRO:0.9739
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9957, P-AP:0.9785, P-F1:0.9250, P-AUPRO:0.9779
+tubes: I-Auroc:0.9647, I-AP:0.9867, I-F1:0.9624, P-AUROC:0.9910, P-AP:0.8271, P-F1:0.7706, P-AUPRO:0.9659
+Mean: I-Auroc:0.9733, I-AP:0.9847, I-F1:0.9578, P-AUROC:0.9913, P-AP:0.6012, P-F1:0.6003, P-AUPRO:0.9663
+[INFO] Best model saved with I-AUROC 0.9913
+iter [6050/10000], loss:0.0308
+iter [6105/10000], loss:0.0308
+iter [6160/10000], loss:0.0307
+iter [6215/10000], loss:0.0307
+iter [6270/10000], loss:0.0306
+iter [6325/10000], loss:0.0306
+iter [6380/10000], loss:0.0305
+iter [6435/10000], loss:0.0305
+iter [6490/10000], loss:0.0304
+iter [6545/10000], loss:0.0304
+iter [6600/10000], loss:0.0303
+iter [6655/10000], loss:0.0303
+iter [6710/10000], loss:0.0302
+iter [6765/10000], loss:0.0302
+iter [6820/10000], loss:0.0301
+iter [6875/10000], loss:0.0301
+iter [6930/10000], loss:0.0300
+iter [6985/10000], loss:0.0300
+bracket_black: I-Auroc:0.9355, I-AP:0.9634, I-F1:0.8866, P-AUROC:0.9938, P-AP:0.3755, P-F1:0.4764, P-AUPRO:0.9820
+bracket_brown: I-Auroc:0.9555, I-AP:0.9713, I-F1:0.9533, P-AUROC:0.9813, P-AP:0.5025, P-F1:0.4858, P-AUPRO:0.9666
+bracket_white: I-Auroc:0.9878, I-AP:0.9886, I-F1:0.9375, P-AUROC:0.9934, P-AP:0.1771, P-F1:0.2448, P-AUPRO:0.9348
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9927, P-AP:0.7452, P-F1:0.6947, P-AUPRO:0.9745
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9956, P-AP:0.9778, P-F1:0.9246, P-AUPRO:0.9777
+tubes: I-Auroc:0.9629, I-AP:0.9859, I-F1:0.9552, P-AUROC:0.9907, P-AP:0.8222, P-F1:0.7671, P-AUPRO:0.9636
+Mean: I-Auroc:0.9736, I-AP:0.9849, I-F1:0.9554, P-AUROC:0.9913, P-AP:0.6001, P-F1:0.5989, P-AUPRO:0.9665
+[INFO] Best model saved with I-AUROC 0.9913
+iter [7040/10000], loss:0.0299
+iter [7095/10000], loss:0.0299
+iter [7150/10000], loss:0.0299
+iter [7205/10000], loss:0.0298
+iter [7260/10000], loss:0.0298
+iter [7315/10000], loss:0.0298
+iter [7370/10000], loss:0.0297
+iter [7425/10000], loss:0.0297
+iter [7480/10000], loss:0.0296
+iter [7535/10000], loss:0.0296
+iter [7590/10000], loss:0.0296
+iter [7645/10000], loss:0.0295
+iter [7700/10000], loss:0.0295
+iter [7755/10000], loss:0.0295
+iter [7810/10000], loss:0.0294
+iter [7865/10000], loss:0.0294
+iter [7920/10000], loss:0.0294
+iter [7975/10000], loss:0.0293
+bracket_black: I-Auroc:0.9375, I-AP:0.9652, I-F1:0.8913, P-AUROC:0.9935, P-AP:0.3731, P-F1:0.4693, P-AUPRO:0.9831
+bracket_brown: I-Auroc:0.9532, I-AP:0.9695, I-F1:0.9533, P-AUROC:0.9819, P-AP:0.5018, P-F1:0.4881, P-AUPRO:0.9654
+bracket_white: I-Auroc:0.9900, I-AP:0.9909, I-F1:0.9492, P-AUROC:0.9939, P-AP:0.1898, P-F1:0.2507, P-AUPRO:0.9372
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9927, P-AP:0.7452, P-F1:0.6923, P-AUPRO:0.9756
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9955, P-AP:0.9774, P-F1:0.9240, P-AUPRO:0.9774
+tubes: I-Auroc:0.9606, I-AP:0.9852, I-F1:0.9552, P-AUROC:0.9907, P-AP:0.8227, P-F1:0.7668, P-AUPRO:0.9647
+Mean: I-Auroc:0.9736, I-AP:0.9851, I-F1:0.9582, P-AUROC:0.9914, P-AP:0.6017, P-F1:0.5985, P-AUPRO:0.9672
+[INFO] Best model saved with I-AUROC 0.9914
+iter [8030/10000], loss:0.0293
+iter [8085/10000], loss:0.0293
+iter [8140/10000], loss:0.0293
+iter [8195/10000], loss:0.0292
+iter [8250/10000], loss:0.0292
+iter [8305/10000], loss:0.0292
+iter [8360/10000], loss:0.0292
+iter [8415/10000], loss:0.0291
+iter [8470/10000], loss:0.0291
+iter [8525/10000], loss:0.0291
+iter [8580/10000], loss:0.0291
+iter [8635/10000], loss:0.0290
+iter [8690/10000], loss:0.0290
+iter [8745/10000], loss:0.0290
+iter [8800/10000], loss:0.0290
+iter [8855/10000], loss:0.0289
+iter [8910/10000], loss:0.0289
+iter [8965/10000], loss:0.0289
+bracket_black: I-Auroc:0.9342, I-AP:0.9626, I-F1:0.8817, P-AUROC:0.9938, P-AP:0.3771, P-F1:0.4725, P-AUPRO:0.9829
+bracket_brown: I-Auroc:0.9548, I-AP:0.9709, I-F1:0.9533, P-AUROC:0.9820, P-AP:0.5017, P-F1:0.4838, P-AUPRO:0.9677
+bracket_white: I-Auroc:0.9900, I-AP:0.9907, I-F1:0.9474, P-AUROC:0.9936, P-AP:0.1832, P-F1:0.2483, P-AUPRO:0.9339
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9926, P-AP:0.7443, P-F1:0.6917, P-AUPRO:0.9746
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9955, P-AP:0.9770, P-F1:0.9238, P-AUPRO:0.9774
+tubes: I-Auroc:0.9597, I-AP:0.9849, I-F1:0.9552, P-AUROC:0.9906, P-AP:0.8202, P-F1:0.7645, P-AUPRO:0.9635
+Mean: I-Auroc:0.9731, I-AP:0.9849, I-F1:0.9563, P-AUROC:0.9914, P-AP:0.6006, P-F1:0.5974, P-AUPRO:0.9667
+[INFO] Best model saved with I-AUROC 0.9914
+iter [9020/10000], loss:0.0289
+iter [9075/10000], loss:0.0289
+iter [9130/10000], loss:0.0289
+iter [9185/10000], loss:0.0288
+iter [9240/10000], loss:0.0289
+iter [9295/10000], loss:0.0288
+iter [9350/10000], loss:0.0288
+iter [9405/10000], loss:0.0288
+iter [9460/10000], loss:0.0288
+iter [9515/10000], loss:0.0288
+iter [9570/10000], loss:0.0288
+iter [9625/10000], loss:0.0287
+iter [9680/10000], loss:0.0287
+iter [9735/10000], loss:0.0287
+iter [9790/10000], loss:0.0287
+iter [9845/10000], loss:0.0287
+iter [9900/10000], loss:0.0287
+iter [9955/10000], loss:0.0287
+bracket_black: I-Auroc:0.9342, I-AP:0.9627, I-F1:0.8791, P-AUROC:0.9936, P-AP:0.3750, P-F1:0.4714, P-AUPRO:0.9831
+bracket_brown: I-Auroc:0.9532, I-AP:0.9695, I-F1:0.9533, P-AUROC:0.9823, P-AP:0.5027, P-F1:0.4846, P-AUPRO:0.9673
+bracket_white: I-Auroc:0.9900, I-AP:0.9907, I-F1:0.9474, P-AUROC:0.9939, P-AP:0.1839, P-F1:0.2508, P-AUPRO:0.9343
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9929, P-AP:0.7459, P-F1:0.6926, P-AUPRO:0.9751
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9954, P-AP:0.9766, P-F1:0.9234, P-AUPRO:0.9773
+tubes: I-Auroc:0.9592, I-AP:0.9848, I-F1:0.9552, P-AUROC:0.9905, P-AP:0.8205, P-F1:0.7647, P-AUPRO:0.9651
+Mean: I-Auroc:0.9728, I-AP:0.9846, I-F1:0.9558, P-AUROC:0.9914, P-AP:0.6008, P-F1:0.5979, P-AUPRO:0.9670
+[INFO] Best model saved with I-AUROC 0.9914
+iter [10000/10000], loss:0.0287
