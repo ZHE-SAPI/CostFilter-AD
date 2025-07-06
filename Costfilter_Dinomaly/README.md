@@ -1,34 +1,65 @@
-# Dinomaly (CVPR2025)
+# 🧪 CostFilter-AD Enhances the Baseline Dinomaly
 
-PyTorch Implementation of
-"Dinomaly: The Less Is More Philosophy in Multi-Class Unsupervised Anomaly Detection".
-[paper](https://arxiv.org/abs/2405.14325)
+### 🧾 Benchmark Results
 
-The code is preview version, so it could be really ugly with minor errors. We will try to reformat it after the paper is accepted.
+#### MVTec-AD
 
-Give me a star if you like it!!!
+| Method   | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| -------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| UniAD    | 97.5        | 99.1     | 97.0        | 96.9        | 44.5     | 50.5        | 90.6     |
+| + Ours   | 99.0        | 99.7     | 98.1        | 97.5        | 60.5     | 59.9        | 91.3     |
+| Dinomaly | **99.6**    | **99.8** | 99.0        | 98.3        | 68.7     | 68.7        | 94.6     |
+| + Ours   | **99.6**    | **99.8** | **99.1**    | **98.7**    | **75.6** | **72.9**    | **95.6** |
 
-News 02/27/2025: __Accepted by CVPR2025!!!__ 🤓
+#### VisA
+
+| Method   | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| -------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| UniAD    | 91.5        | 93.6     | 88.5        | 98.0        | 32.7     | 38.4        | 76.1     |
+| + Ours   | 92.1        | 94.0     | 88.9        | 98.6        | 34.0     | 39.0        | 86.4     |
+| Dinomaly | 98.7        | **98.9** | 96.1        | 98.7        | 52.5     | 55.4        | **94.5** |
+| + Ours   | **98.8**    | 98.8     | **96.5**    | **98.9**    | **59.9** | **59.9**    | 94.4     |
+
+#### MPDD
+
+| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 86.5        | 87.9     | 85.6        | 96.9        | 26.4     | 30.5        | 88.0     |
+| + Ours    | 93.1        | 95.4     | 90.3        | 97.5        | 34.1     | 37.0        | 82.9     |
+| Dinomaly  | 97.2        | 98.4     | **96.0**    | **99.1**    | 59.5     | **59.4**    | **96.6** |
+| + Ours    | **97.4**    | **98.5** | **96.0**    | **99.1**    | **59.6** | 59.3        | **96.6** |
+
+#### BTAD
+
+| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 90.9        | 97.8     | 94.8        | 96.7        | 43.2     | 48.7        | 75.6     |
+| + Ours    | 93.3        | 98.6     | 96.0        | 97.3        | 47.0     | 50.2        | 76.2     |
+| Dinomaly  | 95.4        | 98.5     | 95.5        | 97.9        | 70.1     | 68.0        | 76.5     |
+| + Ours    | **96.2**    | **98.9** | **96.3**    | **98.2**    | **74.8** | **70.0**    | **81.0** |
 
 ## 1. Environments
 
 Create a new conda environment and install required packages.
 
 ```
-conda create -n my_env python=3.8.12
-conda activate my_env
+conda create -n cosfilterad python=3.8.20
+conda activate cosfilterad 
 pip install -r requirements.txt
+# This environment is also compatible with CostFilter-AD + other baselines
 ```
-Experiments are conducted on NVIDIA GeForce RTX 3090 (24GB). Same GPU and package version are recommended. 
 
-## 2. Prepare Datasets
-Noted that `../` is the upper directory of Dinomaly code. It is where we keep all the datasets by default.
-You can also alter it according to your need, just remember to modify the `data_path` in the code. 
+Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results are consistent across GPUs.
+
+## 2. Dataset Preparation
+
+Modify the `data_path` in code as needed to point to your local dataset.
 
 ### MVTec AD
 
-Download the MVTec-AD dataset from [URL](https://www.mvtec.com/company/research/datasets/mvtec-ad).
-Unzip the file to `../mvtec_anomaly_detection`.
+Download from [URL](https://www.mvtec.com/company/research/datasets/mvtec-ad).
+Unzip to: `./hdd/Datasets/MVTec-AD/`
+
 ```
 |-- mvtec_anomaly_detection
     |-- bottle
@@ -37,11 +68,10 @@ Unzip the file to `../mvtec_anomaly_detection`.
     |-- ....
 ```
 
-
 ### VisA
 
-Download the VisA dataset from [URL](https://github.com/amazon-science/spot-diff).
-Unzip the file to `../VisA/`. Preprocess the dataset to `../VisA_pytorch/` in 1-class mode by their official splitting 
+Download [URL](https://github.com/amazon-science/spot-diff).
+Unzip to `./hdd/Datasets/VisA/`. Preprocess the dataset to `./hdd/Datasets/VisA_pytorch/` in 1-class mode by their official splitting
 [code](https://github.com/amazon-science/spot-diff).
 
 You can also run the following command for preprocess, which is the same to their official code.
@@ -49,7 +79,9 @@ You can also run the following command for preprocess, which is the same to thei
 ```
 python ./prepare_data/prepare_visa.py --split-type 1cls --data-folder ../VisA --save-folder ../VisA_pytorch --split-file ./prepare_data/split_csv/1cls.csv
 ```
+
 `../VisA_pytorch` will be like:
+
 ```
 |-- VisA_pytorch
     |-- 1cls
@@ -63,52 +95,125 @@ python ./prepare_data/prepare_visa.py --split-type 1cls --data-folder ../VisA --
         |-- capsules
         |-- ....
 ```
- 
-### Real-IAD
-Contact the authors of Real-IAD [URL](https://realiad4ad.github.io/Real-IAD/) to get the net disk link.
 
-Download and unzip `realiad_1024` and `realiad_jsons` in `../Real-IAD`.
-`../Real-IAD` will be like:
-```
-|-- Real-IAD
-    |-- realiad_1024
-        |-- audiokack
-        |-- bottle_cap
-        |-- ....
-    |-- realiad_jsons
-        |-- realiad_jsons
-        |-- realiad_jsons_sv
-        |-- realiad_jsons_fuiad_0.0
-        |-- ....
-```
+### MPDD and BTAD
 
-## 3. Run Experiments
-Multi-Class Setting
+Download the MPDD dataset from [URL](https://github.com/stepanje/MPDD). Unzip to `./hdd/Datasets/MPDD/`.
+Download the BTAD dataset from [URL](https://github.com/pankajmishra000/VT-ADL). Unzip to `./hdd/Datasets/BTAD1/`.
+
+General structure for all datasets:
+
 ```
-python dinomaly_mvtec_uni.py --data_path ../mvtec_anomaly_detection
-```
-```
-python dinomaly_visa_uni.py --data_path ../VisA_pytorch/1cls
-```
-```
-python dinomaly_realiad_uni.py --data_path ../Real-IAD
+Name_of_Dataset
+| -- Category |
+| ----------- || ground_truth |
+| ------------ |  || test |
+| ---- |  || good |
+| ---- |  |  || ... |
+| --- |  |  |...
+| ----- | ----- train |
+| ----- | ----------- ||good
 ```
 
-Conventional Class-Separted Setting
+## 3. Checkpoints
+
+**🔹 Dino model Weights**
+
+[dinov2_vitb14_reg4_pretrain](https://drive.google.com/drive/folders/1nhb-mAO_0eyl3pY6-vqlBLJK2rRXoR17?usp=sharing),   save in ./backbones
+
+**🔹 Dinomaly Baseline Weights**
+
+[Dinomaly on MVTec-AD](https://drive.google.com/drive/folders/1Obnx0wCHMWu8lE8M9pXhQOuduJol2kPJ?usp=sharing),        save in ./saved_results_mvtec
+
+[Dinomaly on VisA](https://drive.google.com/drive/folders/1COemGeV62HUZ9P4E1JDyF0-x0a0REi7-?usp=sharing),                    save in ./saved_results_visa
+
+[Dinomaly on MPDD](https://drive.google.com/drive/folders/17dTiCXsW0zghsHBORz2HzvvZQgGDfFnP?usp=sharing),                save in ./saved_results_mpdd
+
+[Dinomaly on BTAD](https://drive.google.com/drive/folders/1BBdy_imjjN_T8y55cjE5CHxIehAn25F9?usp=sharing),                  save in ./saved_results_btad
+
+**🔹 [CostFilter-AD](https://drive.google.com/drive/folders/1uFSY8O-nQ_Ji4pT5lNM0CTuI0ZB7L9Ql?usp=sharing) Weights (ours)**
+
+[CostfilterAD on MVTec-AD](https://drive.google.com/drive/folders/1tMVlel5UMhYzQFT-E7_FZJapIMHyCdNz?usp=sharing), save in ./checkpoint_paths/mvtecad0.0001
+
+[CostfilterADon VisA](https://drive.google.com/drive/folders/1NzjZPYlLExfVht5fAuoU9f8RlXuPDUnk?usp=sharing),              save in ./checkpoint_paths/visaad0.0001
+
+[CostfilterADon MPDD](https://drive.google.com/drive/folders/1xZSTo8f-C6JUc2g909BFIzZtMYbXZEM3?usp=sharing),          save in ./checkpoint_paths/mpddad0.0001
+
+[CostfilterAD on BTAD](https://drive.google.com/drive/folders/1QIdzCuivQvxwHci-A-cFIyr79L8h2Tce?usp=sharing),           save in ./checkpoint_paths/btadad0.0001
+
+**Note:**`0.0001` denotes the learning rate of the filter network.
+
+## 4. Run Experiments
+
+We study the Multi-Class anomaly detection.
+
+**🔹 Testing (using pretrained weights)**
+
+**MVTec-AD:**
+
 ```
-python dinomaly_mvtec_sep.py --data_path ../mvtec_anomaly_detection
-```
-```
-python dinomaly_visa_sep.py --data_path ../VisA_pytorch/1cls
-```
-```
-python dinomaly_realiad_sep.py --data_path ../Real-IAD
+cd /CostFilterAD/Costfilter_Dinomaly
+python costfilter_dinomaly_mvtec_uni_my_train_test.py
 ```
 
-Training Unstability: The optimization can be unstable with loss spikes (e.g. ...0.05, 0.04, 0.04, **0.32**, **0.23**, 0.08...)
-, which can be harmful to performance. This occurs very very rare. If you see such loss spikes during training, consider change a random seed.
+**VisA**
 
-## Error Anouncement
-In our code, we binarize GT mask by gt.bool(), i.e., gt[gt>0]=1.
-As raised in the issue, this may make it inaccurate (larger than the real mask area by one pixel). The common practice is gt[gt>0.5]=1.
-This error does not affect image-level performance, but slightly affect pixel-level performances. The pixel-wise AP and F1-max reported in the paper (gt[gt>0]=1) is  higher than they should be.
+```
+python costfilter_dinomaly_visa_uni_my_train_test.py
+```
+
+**MPDD**
+
+```
+python costfilter_dinomaly_mpdd_uni_my_train_test.py
+```
+
+**BTAD**
+
+```
+python costfilter_dinomaly_btad_uni_my_train_test.py
+```
+
+**🔹 Train: you can train the cost filtering model as follows.**
+
+MVTec-AD:
+
+```
+cd /CostFilterAD/Costfilter_Dinomaly
+python costfilter_dinomaly_mvtec_uni_my_train_test.py --train
+```
+
+**VisA**
+
+```
+python costfilter_dinomaly_visa_uni_my_train_test.py --train
+```
+
+**MPDD**
+
+```
+python costfilter_dinomaly_mpdd_uni_my_train_test.py --train
+```
+
+**BTAD**
+
+```
+python costfilter_dinomaly_btad_uni_my_train_test.py --train
+```
+
+
+### 📚 Cite
+
+If you use this dataset or code, please cite it using the following reference:
+
+```
+@inproceedings{zhang2025costfilter,
+  author    = {Zhang, Zhe and Cai, Mingxiu and Wang, Hanxiao and Wu, Gaochang and Chai, Tianyou and Zhu, Xiatian},
+  title     = {CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering},
+  booktitle = {42nd International Conference on Machine Learning (ICML)},
+  year      = {2025},
+  month     = {July},
+  location  = {Vancouver, Canada},
+  note      = {arXiv preprint arXiv:2505.01476}
+}python costfilter_dinomaly_btad_uni_my_train_test.py --train
+```

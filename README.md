@@ -2,15 +2,19 @@
 
 [ICML2025] Official Implementation of CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering
 
-[[Paper link]](https://arxiv.org/abs/2505.01476)
 
-[[Slide link]](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_slide_ICML2025.pdf)
+| [📄 Paper](https://arxiv.org/abs/2505.01476)              | [📑 Slide](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_slide_ICML2025.pdf)                                               | [🖼️ Poster](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_poster_ICML2025.pdf) |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                   |
 
-[[Poster link]](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_poster_ICML2025.pdf)
+**Update (07/06/2025):**
 
-[[ICML website  link]](https://icml.cc/virtual/2025/poster/46359)
+We have open-sourced  **CostFilter-AD** , built upon the **Dinomaly** (CVPR '25) baseline.
 
-[[OpenReview (with reviews)]](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1))
+It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
+
+👉 See the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
+
 
 **Abstract:** Unsupervised anomaly detection (UAD) seeks to localize the anomaly mask of an input image with respect to normal samples.
 Either by reconstructing normal counterparts (reconstruction-based) or by learning an image feature embedding space (embedding-based), existing approaches fundamentally rely on image-level or feature-level matching to derive anomaly scores. Often, such a matching process is inaccurate yet overlooked, leading to sub-optimal detection. To address this issue, we introduce the concept of cost filtering, borrowed from classical matching tasks, such as depth and flow estimation, into the UAD problem. We call this approach CostFilter-AD.
@@ -20,15 +24,6 @@ CostFilter-AD can be integrated with either reconstruction-based or embedding-ba
 Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benefits of CostFilter-AD for both single- and multi-class UAD tasks. Code and models will be released.
 
 ![ICML8276poster](https://github.com/user-attachments/assets/89ee19e0-f2d3-44ae-9e18-12fa78514414)
-
-
-**Update (07/06/2025):**
-
-We have open-sourced  **CostFilter-AD** , built upon the **Dinomaly** (CVPR '25) baseline.
-
-It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
-
-👉 See the [`Costfilter_Dinomaly`]() subfolder for code and details.
 
 
 🚀 We are very happy to release the codes and model weights.
