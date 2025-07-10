@@ -38,7 +38,7 @@
 | Dinomaly  | 95.4           | 98.5           | 95.5           | 97.9           | 70.1           | 68.0           | 76.5           |
 | + Ours    | **96.2** | **98.9** | **96.3** | **98.2** | **74.8** | **70.0** | **81.0** |
 
-## **Note:** 
+## **Note:**
 
 CostFilter-AD yields comparable or greater gains when integrated with other baselines such as [GLAD](https://github.com/hyao1/GLAD/tree/main) (ECCV'24), [UniAD](https://github.com/zhiyuanyou/UniAD) (NeurIPS'22), [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS'23), and [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) (WACV'25). Codes are coming.
 
@@ -49,8 +49,12 @@ Create a new conda environment and install required packages.
 ```
 conda create -n cosfilterad python=3.8.20
 conda activate cosfilterad 
-pip install -r requirements.txt
-# This environment is also compatible with CostFilter-AD + other baselines
+pip install -r requirements.txt```
+# This environment is fully compatible with CostFilter-AD + one of five  baselines discussed in this paper.
+```
+
+```
+
 ```
 
 Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results are consistent across GPUs.

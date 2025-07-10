@@ -156,9 +156,7 @@ class HVQ_TR_switch(nn.Module):
 
     def forward(self, inputs, device, out_pred_=False):
         input = inputs['image'].to(device)
-        # print(type(input))
-        # print(input.shape)
-        # print(input)
+        
         label = inputs['clslabel'].to(device)
 
         org_feature = self.extract_feature(inputs, device)
@@ -235,7 +233,6 @@ class HVQ_TR_switch(nn.Module):
             anomaly_map = nn.UpsamplingBilinear2d(scale_factor=64/14)(
                 anomaly_map.reshape(batch_size, 1, H, W)
             )
-            # print("anomaly_map.shape", anomaly_map.shape) # [16, 1, 64, 64]
             min_anomaly_map.append(anomaly_map)
 
 

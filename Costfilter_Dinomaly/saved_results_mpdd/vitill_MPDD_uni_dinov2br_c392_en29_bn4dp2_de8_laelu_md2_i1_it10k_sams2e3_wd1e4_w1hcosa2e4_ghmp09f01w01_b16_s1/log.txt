@@ -1,0 +1,11 @@
+cuda:1
+Evaluating model: /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Dinomaly/checkpoint_paths/mpddad0.0001/costfilter_dinaomaly_mpdd.pth
+bracket_black: I-Auroc:0.9422, I-AP:0.9676, I-F1:0.9011, P-AUROC:0.9936, P-AP:0.3774, P-F1:0.4736, P-AUPRO:0.9817
+cuda:1
+bracket_brown: I-Auroc:0.9495, I-AP:0.9676, I-F1:0.9533, P-AUROC:0.9804, P-AP:0.4831, P-F1:0.4746, P-AUPRO:0.9649
+train image number:6
+bracket_white: I-Auroc:0.9900, I-AP:0.9909, I-F1:0.9492, P-AUROC:0.9936, P-AP:0.1801, P-F1:0.2381, P-AUPRO:0.9331
+connector: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9920, P-AP:0.7320, P-F1:0.6777, P-AUPRO:0.9734
+metal_plate: I-Auroc:1.0000, I-AP:1.0000, I-F1:1.0000, P-AUROC:0.9955, P-AP:0.9777, P-F1:0.9246, P-AUPRO:0.9782
+tubes: I-Auroc:0.9588, I-AP:0.9846, I-F1:0.9545, P-AUROC:0.9908, P-AP:0.8225, P-F1:0.7662, P-AUPRO:0.9654
+Mean: I-Auroc:0.9734, I-AP:0.9851, I-F1:0.9597, P-AUROC:0.9910, P-AP:0.5955, P-F1:0.5925, P-AUPRO:0.9661

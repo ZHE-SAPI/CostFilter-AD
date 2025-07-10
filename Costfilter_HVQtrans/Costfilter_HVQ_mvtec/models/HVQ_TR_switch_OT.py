@@ -247,33 +247,13 @@ class HVQ_TR_switch_OT(nn.Module):
             feature_rec_tokens[:, i, :] = self.output_proj_list[tmp_label](dec[:, i, :])
 
 
-        # print("feature_rec_tokens.shape", feature_rec_tokens.shape) # 196, batch_size, 272
 
         rec_feature = rearrange(
             feature_rec_tokens, "(h w) b c -> b c h w", h=self.feature_size[0]
         )
 
-        # print("rec_feature.shape", rec_feature.shape)  # [batch_size, 272, 14, 14]
-        # print("org_feature.shape", org_feature.shape)  # [batch_size, 272, 14, 14]
-
-        # pi = org_feature.reshape(1, 272,196).permute(0,2,1)
-        # pr = rec_feature.reshape(1, 272,196).permute(0,2,1)
-
-        # pi = pi / torch.norm(pi, p=2, dim=-1, keepdim=True)
-        # pr = pr / torch.norm(pr, p=2, dim=-1, keepdim=True)
-
-        # cos0 = torch.bmm(pi, pr.permute(0, 2, 1))
-        # print("cos0.shape", cos0.shape) # [1, 196, 196]
-        # anomaly_map1, _ = torch.min(1 - cos0, dim=-1)
-        # anomaly_map1 = anomaly_map1.reshape(-1, 1, 14, 14) # [1, 1, 14, 14]
-        # # anomaly_map1 = F.interpolate(anomaly_map1.reshape(-1, 1, 14, 14), size=32, mode='bilinear', align_corners=True)
-        # print("anomaly_map1.shape", anomaly_map1.shape) # [1, 1, 14, 14]
-        # # print("Max value:", anomaly_map1.max().item())  # 0.4336425662040710
-        # # print("Min value:", anomaly_map1.min().item()) # 0.0828830003738403
-
 
         batch_size = rec_feature.shape[0] 
-
 
 
         # 假设已经分解出四层特征
@@ -315,42 +295,18 @@ class HVQ_TR_switch_OT(nn.Module):
             one_minus_cos0 = 1 - cos0 # [batch_size, H*W, H*W]
 
 
-
-
-
-            # print('one_minus_cos0.shape', one_minus_cos0.shape) # [1, 1024, 1024]
             _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
-            # print('indices.shape', indices.shape) # [batch_size, H*W, pre_min_dim]
-            # print('indices', indices)
-            # print('torch.sort(indices, dim=-1)[0]', torch.sort(indices, dim=-1)[0]) # [batch_size, H*W, pre_min_dim]
+           
             selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
-            # print('selected_values.shape', selected_values.shape) # [batch_size, 196, 196]
             anomal_map_3d = selected_values.view(batch_size, 14, 14, pre_min_dim).unsqueeze(1)
             anomaly_map_all_bat.append(anomal_map_3d)
 
 
         # 综合四层的 anomaly_map1
         min_anomaly_map = torch.stack(min_anomaly_map, dim=0).permute(1, 0, 2, 3, 4).squeeze(0) 
-        # print("min_anomaly_map.shape", min_anomaly_map.shape) # [4, batch_size, 32, 32]     batch_size,4,1,64,64
         anomaly_map_all_bat = torch.stack(anomaly_map_all_bat, dim=0).squeeze(2) # [4, batch_size, 14, 14, 196]
         anomaly_map_all_bat = nn.UpsamplingBilinear2d(scale_factor=64/14)(anomaly_map_all_bat.permute(0, 1, 4, 2, 3).view(-1, pre_min_dim, H, W))
         anomaly_map_all_bat = anomaly_map_all_bat.view(4, batch_size, pre_min_dim, 64, 64).permute(1, 0, 2, 3, 4).permute(0, 2, 1, 3, 4)
-        # print("anomaly_map_all_bat.shape", anomaly_map_all_bat.shape) # [batch_size, 196, 4, 64, 64]
-
-
-        
-
-
-
-
-        # train_ = False
-        # if train_:
-        #     print("torch.mean(min_anomaly_map, dim=1).shape", torch.mean(min_anomaly_map, dim=1).shape) # [16, 1, 64, 64]
-        #     min_anomaly_map = nn.UpsamplingBilinear2d(scale_factor=224/64)(torch.mean(min_anomaly_map, dim=1)) # .unsqueeze(1)
-        #     print("min_anomaly_map.shape", min_anomaly_map.shape) # # [16, 1, 224, 224]
-        # else:
-        #     min_anomaly_map = nn.UpsamplingBilinear2d(scale_factor=224/64)(torch.mean(min_anomaly_map, dim=0).unsqueeze(1)) # 
-        #     print("min_anomaly_map.shape", min_anomaly_map.shape) # [1, 1, 224, 224]
 
 
 
@@ -358,53 +314,22 @@ class HVQ_TR_switch_OT(nn.Module):
             torch.sum((rec_feature - org_feature) ** 2, dim=1, keepdim=True)
         )
         pred1 = pred1 + 80.0 * torch.reshape(ot_score, shape=(-1, 14, 14)).unsqueeze(1)
-        # pred = self.upsample(pred1)
-
-        # if train_:
-        #     pred = (min_anomaly_map + 0.1*pred)/170 # [batch_size, 1, 224, 224]
-        # else:
-        #     pred = (min_anomaly_map + 0.1*pred)/17 # [batch_size, 1, 224, 224]
-
-
+       
         
         dino_features = [feat.view(feat.shape[0], feat.shape[1], 196).permute(0,2,1) for feat in rec_features] # [batch_size, 196, C]  [24, 32, 56, 160]
 
-        # print("torch.mean(min_anomaly_map, dim=1).shape", torch.mean(min_anomaly_map, dim=1).shape) # 16, 1, 64, 64]
-        # print("nn.UpsamplingBilinear2d(scale_factor=64/14)(pred1).shape", nn.UpsamplingBilinear2d(scale_factor=64/14)(pred1).shape) # 16,1,64,64
-
-        # print("nn.UpsamplingBilinear2d.shape", (torch.mean(min_anomaly_map, dim=1) + 0.1 * nn.UpsamplingBilinear2d(scale_factor=64/14)(pred1)).squeeze(1).shape) # [16, 64, 64]
-        
         if out_pred_==False:
             min_similarity_map_all_bat = min_anomaly_map.squeeze() # batch_size,4,64,64
-            # print("min_similarity_map_all_bat[:, 0, :, :].shape", min_similarity_map_all_bat[:, 0, :, :].shape) # [16, 64, 64]
             min_similarity_map_all_bat[:, 0, :, :] = ((torch.mean(min_anomaly_map, dim=1) + 0.1 * nn.UpsamplingBilinear2d(scale_factor=64/14)(pred1))/70).squeeze(1)
         else:
             min_similarity_map_all_bat = min_anomaly_map.permute(1,0,2,3) # [1, 4, 32, 32]
-            # print("min_similarity_map_all_bat[:, 0, :, :].shape", min_similarity_map_all_bat[:, 0, :, :].shape) # [16, 64, 64]
-            # print("torch.mean(min_anomaly_map, dim=0).unsqueeze(1).shape", torch.mean(min_anomaly_map, dim=0).shape) # [1, 64, 64]
             min_similarity_map_all_bat[:, 0, :, :] = (torch.mean(min_anomaly_map, dim=0) + 0.1 * nn.UpsamplingBilinear2d(scale_factor=64/14)(pred1).squeeze(1))/40
-        # print("Max value min_similarity_map_all_bat[:, 0, :, :]:", min_similarity_map_all_bat[:, 0, :, :].max().item())  
-        # print("Min value: min_similarity_map_all_bat[:, 0, :, :]", min_similarity_map_all_bat[:, 0, :, :].min().item())  
-
-
-        # print("Max value min_similarity_map_all_bat[:, 1, :, :]:", min_similarity_map_all_bat[:, 1, :, :].max().item())   
-        # print("Min value: min_similarity_map_all_bat[:, 1, :, :]", min_similarity_map_all_bat[:, 1, :, :].min().item())  
-
-
-        # print("min_similarity_map_all_bat.shape", min_similarity_map_all_bat.shape) #  [16, 4, 64, 64]
-        # print("dino_features[0].shape", dino_features[0].shape) #  [16, 196, 24]  [24, 32, 56, 160]
-        # print("anomaly_map_all_bat.shape", anomaly_map_all_bat.shape) #  [16, 196, 4, 64, 64]
-
-        # print("self.training", self.training)
+        
         if out_pred_==True: # test mode
             pred = self.upsample(pred1) # [batch_size, 1, 224, 224]
         else: # train mode
             pred = 0
-        # loss
-        # feature_loss = self.feature_loss(rec_feature, org_feature)
-        # latent_loss = diff.mean()
-        # loss = self.latent_loss_weight * latent_loss + feature_loss
-
+        
         output = {
             # 'feature_rec': rec_feature,
             # 'feature_align': org_feature,

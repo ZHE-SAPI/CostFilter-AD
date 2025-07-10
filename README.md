@@ -2,19 +2,39 @@
 
 [ICML2025] Official Implementation of CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering
 
-
 | [📄 Paper](https://arxiv.org/abs/2505.01476)              | [📑 Slide](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_slide_ICML2025.pdf)                                               | [🖼️ Poster](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/CostFilter-AD_poster_ICML2025.pdf) |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                   |
 
-# **Update (07/06/2025):**
+### **Update (07/10/2025):**
 
-We have open-sourced  **CostFilter-AD** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
+We have open-sourced  **[CostFilter-AD-HVQ-Trans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans)** , built upon the [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS '23) baseline.
+
+It also delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
+
+👉 Please see the [`Costfilter_HVQtrans`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans) subfolder for code and details.
+
+### **Update (07/06/2025):**
+
+We have open-sourced  **[CostFilter-AD-Dinomaly](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly)** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
 
 It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
 
 👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
+
+## Environments
+
+Create a new conda environment and install required packages.
+
+```
+conda create -n cosfilterad python=3.8.20
+conda activate cosfilterad 
+pip install -r requirements.txt
+# This environment is fully compatible with CostFilter-AD + one of five  baselines discussed in this paper.
+```
+
+Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results are consistent across GPUs.
 
 # **Abstract:**
 
@@ -33,7 +53,6 @@ Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benef
 🚀 We are very happy to release the codes and model weights.
 
 💬 We are currently finalizing them, so please stay tuned and feel free to discuss!
-
 
 # 📚 Cite
 

@@ -1,0 +1,1 @@
+0.0001 is the learning rate of the optimizer for unet3d (cost filtering network)

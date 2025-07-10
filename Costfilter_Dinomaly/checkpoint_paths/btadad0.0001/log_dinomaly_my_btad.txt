@@ -1,0 +1,9 @@
+Model: /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Dinomaly/checkpoint_paths/btadad0.0001/costfilter_dinaomaly_btad.pth
+01: I-Auroc:0.9806, I-AP:0.9926, I-F1:0.9691, P-AUROC:0.9777, P-AP:0.6786, P-F1:0.6575, P-AUPRO:0.8210
+
+02: I-Auroc:0.9063, I-AP:0.9852, I-F1:0.9538, P-AUROC:0.9706, P-AP:0.7761, P-F1:0.7070, P-AUPRO:0.6159
+
+03: I-Auroc:0.9983, I-AP:0.9798, I-F1:0.9647, P-AUROC:0.9987, P-AP:0.7907, P-F1:0.7342, P-AUPRO:0.9923
+
+Total testing time: 336.70 seconds
+Mean: I-Auroc:0.9617, I-AP:0.9858, I-F1:0.9625, P-AUROC:0.9823, P-AP:0.7484, P-F1:0.6996, P-AUPRO:0.8097
