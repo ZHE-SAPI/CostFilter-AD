@@ -22,8 +22,19 @@ It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **
 
 👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
+# **Abstract:**
 
-## Environments
+Unsupervised anomaly detection (UAD) seeks to localize the anomaly mask of an input image with respect to normal samples. Either by reconstructing normal counterparts (reconstruction-based) or by learning an image feature embedding space (embedding-based), existing approaches fundamentally rely on image-level or feature-level matching to derive anomaly scores. Often, such a matching process is inaccurate yet overlooked, leading to sub-optimal detection. To address this issue, we introduce the concept of cost filtering, borrowed from classical matching tasks, such as depth and flow estimation, into the UAD problem. We call this approach CostFilter-AD.
+Specifically, we first construct a matching cost volume between the input and normal samples, comprising two spatial dimensions and one matching dimension that encodes potential matches. To refine this, we propose a cost volume filtering network, guided by the input observation as an attention query across multiple feature layers, which effectively suppresses matching noise while preserving edge structures and capturing subtle anomalies.
+Designed as a generic post-processing plug-in,
+CostFilter-AD can be integrated with either reconstruction-based or embedding-based methods.
+Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benefits of CostFilter-AD for both single- and multi-class UAD tasks. Code and models will be released.
+
+# Poster:
+
+![ICML8276poster](https://github.com/user-attachments/assets/89ee19e0-f2d3-44ae-9e18-12fa78514414)
+
+# Environments
 
 Create a new conda environment and install required packages.
 
@@ -35,18 +46,6 @@ pip install -r requirements.txt
 ```
 
 Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results are consistent across GPUs.
-
-# **Abstract:**
-
-Unsupervised anomaly detection (UAD) seeks to localize the anomaly mask of an input image with respect to normal samples. Either by reconstructing normal counterparts (reconstruction-based) or by learning an image feature embedding space (embedding-based), existing approaches fundamentally rely on image-level or feature-level matching to derive anomaly scores. Often, such a matching process is inaccurate yet overlooked, leading to sub-optimal detection. To address this issue, we introduce the concept of cost filtering, borrowed from classical matching tasks, such as depth and flow estimation, into the UAD problem. We call this approach CostFilter-AD.
-Specifically, we first construct a matching cost volume between the input and normal samples, comprising two spatial dimensions and one matching dimension that encodes potential matches. To refine this, we propose a cost volume filtering network, guided by the input observation as an attention query across multiple feature layers, which effectively suppresses matching noise while preserving edge structures and capturing subtle anomalies.
-Designed as a generic post-processing plug-in,
-CostFilter-AD can be integrated with either reconstruction-based or embedding-based methods.
-Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benefits of CostFilter-AD for both single- and multi-class UAD tasks. Code and models will be released.
-
-
-![ICML8276poster](https://github.com/user-attachments/assets/89ee19e0-f2d3-44ae-9e18-12fa78514414)
-
 
 # Welcome to discuss
 
