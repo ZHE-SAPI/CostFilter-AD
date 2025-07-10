@@ -224,9 +224,10 @@ bash ./train_btad.sh
 
 ## 📚 Cite
 
-If you think our Costfilter-AD helpful, please cite it using the following reference:@inproceedings{zhang2025costfilter,
+If you find our work helpful, please consider **citing our paper** and giving us a ⭐. Thank you!
 
 ```
+  @inproceedings{zhang2025costfilter,
   author    = {Zhang, Zhe and Cai, Mingxiu and Wang, Hanxiao and Wu, Gaochang and Chai, Tianyou and Zhu, Xiatian},
   title     = {CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering},
   booktitle = {42nd International Conference on Machine Learning (ICML)},

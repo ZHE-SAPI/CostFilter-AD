@@ -2,9 +2,9 @@
 
 [ICML2025] Official Implementation of CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering
 
-| [📄 Paper](https://arxiv.org/abs/2505.01476)              | [📑 Slide](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_slide_ICML2025.pdf)                                               | [🖼️ Poster](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_poster_ICML2025.pdf) |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                   |
+| [📄 Paper](https://arxiv.org/abs/2505.01476)              | [📑 Slide](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_slide_ICML2025.pdf)                                     | [🖼️ Poster](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_poster_ICML2025.pdf) |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                             |
 
 ### **Update (07/10/2025):**
 
@@ -38,12 +38,11 @@ Extensive experiments on MVTec-AD and VisA benchmarks validate the generic benef
 # Overview:
 
 ![Overview](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/overview.png)
-**Overview of CostFilter-AD.** We reformulate UAD as a matching cost filtering process:  
-**(i)** First, we employ a pre-trained encoder to extract features from both the input image and the templates (reconstructed normal images or randomly selected normal samples).  
-**(ii)** Second, we construct an anomaly cost volume based on global similarity matching.  
-**(iii)** Thirdly, we learn a cost volume filtering network, guided by attention queries derived from the input features and an initial anomaly map, to refine the volume and generate the final detection results.  
+**Overview of CostFilter-AD.** We reformulate UAD as a matching cost filtering process:
+**(i)** First, we employ a pre-trained encoder to extract features from both the input image and the templates (reconstructed normal images or randomly selected normal samples).
+**(ii)** Second, we construct an anomaly cost volume based on global similarity matching.
+**(iii)** Thirdly, we learn a cost volume filtering network, guided by attention queries derived from the input features and an initial anomaly map, to refine the volume and generate the final detection results.
 **(iv)** Further, we integrate a class-aware adaptor to tackle class imbalance and enhance the ability to deal with multiple anomaly classes simultaneously.
-
 
 # Environments
 
@@ -66,9 +65,13 @@ Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results ar
 
 # 📚 Cite
 
-If you think our Costfilter-AD helpful, please cite it using the following reference:@inproceedings{zhang2025costfilter,
+
+## 📚 Cite
+
+If you find our work helpful, please consider **citing our paper** and giving us a ⭐. Thank you!
 
 ```
+  @inproceedings{zhang2025costfilter,
   author    = {Zhang, Zhe and Cai, Mingxiu and Wang, Hanxiao and Wu, Gaochang and Chai, Tianyou and Zhu, Xiatian},
   title     = {CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering},
   booktitle = {42nd International Conference on Machine Learning (ICML)},
