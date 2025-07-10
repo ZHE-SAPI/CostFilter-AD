@@ -220,9 +220,6 @@ python costfilter_dinomaly_btad_uni_my_train_test.py --train
 
 ## 📚 Cite
 
-
-## 📚 Cite
-
 If you find our work helpful, please consider **citing our paper** and giving us a ⭐. Thank you!
 
 ```

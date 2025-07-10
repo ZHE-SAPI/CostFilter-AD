@@ -65,9 +65,6 @@ Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results ar
 
 # 📚 Cite
 
-
-## 📚 Cite
-
 If you find our work helpful, please consider **citing our paper** and giving us a ⭐. Thank you!
 
 ```
