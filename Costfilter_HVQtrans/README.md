@@ -4,31 +4,31 @@
 
 ### MVTec-AD
 
-|  Method  | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
-| :-------: | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
-| HVQ-Trans | 97.9           | 99.3           | 97.4           | 97.4           | 49.4           | 54.3           | 91.5           |
-|  + Ours  | **99.0** | **99.7** | **98.6** | **98.0** | **58.1** | **61.2** | **93.3** |
+|  Method   | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| :-------: | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 97.9        | 99.3     | 97.4        | 97.4        | 49.4     | 54.3        | 91.5     |
+|  + Ours   | **99.0**    | **99.7** | **98.6**    | **98.0**    | **58.1** | **61.2**    | **93.3** |
 
 ### VisA
 
-| Method    | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
-| --------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
-| HVQ-Trans | 91.5           | 93.4           | 88.1           | 98.5           | 35.5           | 39.6           | 86.4           |
-| + Ours    | **98.6** | **95.3** | **89.3** | **98.6** | **41.4** | **45.0** | **86.8** |
+| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 91.5        | 93.4     | 88.1        | 98.5        | 35.5     | 39.6        | 86.4     |
+| + Ours    | **98.6**    | **95.3** | **89.3**    | **98.6**    | **41.4** | **45.0**    | **86.8** |
 
 ### MPDD
 
-| Method    | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
-| --------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
-| HVQ-Trans | 86.5           | 87.9           | 85.6           | 96.9           | 26.4           | 30.5           | **88.0** |
-| + Ours    | **93.1** | **95.4** | **90.3** | **97.5** | **34.1** | **37.0** | 82.9           |
+| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 86.5        | 87.9     | 85.6        | 96.9        | 26.4     | 30.5        | **88.0** |
+| + Ours    | **93.1**    | **95.4** | **90.3**    | **97.5**    | **34.1** | **37.0**    | 82.9     |
 
 ### BTAD
 
-| Method    | Image AUROC    | Image AP       | Image F1max    | Pixel AUROC    | Pixel AP       | Pixel F1max    | AUPRO          |
-| --------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
-| HVQ-Trans | 90.9           | 97.8           | 94.8           | 96.7           | 43.2           | 48.7           | **75.6** |
-| + Ours    | **93.4** | **98.6** | **96.0** | **97.3** | **47.0** | **50.2** | 74.4           |
+| Method    | Image AUROC | Image AP | Image F1max | Pixel AUROC | Pixel AP | Pixel F1max | AUPRO    |
+| --------- | ----------- | -------- | ----------- | ----------- | -------- | ----------- | -------- |
+| HVQ-Trans | 90.9        | 97.8     | 94.8        | 96.7        | 43.2     | 48.7        | **75.6** |
+| + Ours    | **93.4**    | **98.6** | **96.0**    | **97.3**    | **47.0** | **50.2**    | 74.4     |
 
 ## 1. Environments
 
@@ -120,8 +120,8 @@ General structure for all datasets:
 
 ### 🔹 HVQ-Trans Baseline Weights
 
-| Dataset | Download Link                                                                                                 | Save Path                                                    |
-| :------: | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Dataset  | Download Link                                                                                                    | Save Path                                                  |
+| :------: | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | MVTec-AD | [HVQ-Trans on MVTec-AD](https://drive.google.com/drive/folders/1hIXu-szb7MpkZsxGTWaqd3A_fvJVuatk?usp=drive_link) | `./Costfilter_HVQ_mvtec/experiments/MVTec-AD/checkpoints/` |
 |   VisA   | [HVQ-Trans on VisA](https://drive.google.com/drive/folders/1ziM-4a1aNSiGEGBGB5jYpqfPJlUJDi1q?usp=drive_link)     | `./Costfilter_HVQ_visa/experiments/VISA/checkpoints/`      |
 |   MPDD   | [HVQ-Trans on MPDD](https://drive.google.com/drive/folders/1ZB7wRiXxEAfA_D9ND1_llATJ4Dwc5Stl?usp=drive_link)     | `./Costfilter_HVQ_mpdd/experiments/MVTec-AD/checkpoints/`  |
@@ -129,10 +129,10 @@ General structure for all datasets:
 
 ---
 
-### 🔹 [CostFilter-AD Weights (Ours)](https://drive.google.com/drive/folders/1uFSY8O-nQ_Ji4pT5lNM0CTuI0ZB7L9Ql?usp=sharing)
+### 🔹 [CostFilter-AD Weights (Ours)](https://drive.google.com/drive/folders/1GtSaI93i_ZxCre83kqcgu85TxMxvsHwf?usp=sharing)
 
-| Dataset | Download Link                                                                                                     | Save Path                                                         |
-| :------: | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Dataset  | Download Link                                                                                                        | Save Path                                                       |
+| :------: | -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | MVTec-AD | [CostFilterAD-HVQ on MVTec-AD](https://drive.google.com/drive/folders/1vp-Sp0LUFsRYHlz2KlQnQ03gh6DyZRO8?usp=sharing) | `./Costfilter_HVQ_mvtec/experiments/MVTec-AD/checkpoint_paths/` |
 |   VisA   | [CostFilterAD-HVQ on VisA](https://drive.google.com/drive/folders/1HBblSDN25vj_x8PVSIOdiXwZUJZbWnlu?usp=drive_link)  | `./Costfilter_HVQ_visa/experiments/VISA/checkpoint_paths/`      |
 |   MPDD   | [CostFilterAD-HVQ on MPDD](https://drive.google.com/drive/folders/1NXy18oGZVYx0TubiZQwneM6WEM9ThWPc?usp=drive_link)  | `./Costfilter_HVQ_mpdd/experiments/MVTec-AD/checkpoint_paths/`  |
@@ -158,10 +158,6 @@ cd /CostFilter-AD-main/Costfilter_HVQ_trans/Costfilter_HVQ_visa/experiments/VISA
 bash ./eval.sh
 ```
 
-```
-
-```
-
 **MPDD**
 
 ```
@@ -169,19 +165,11 @@ cd /CostFilter-AD-main/Costfilter_HVQ_trans/Costfilter_HVQ_mpdd/experiments/MVTe
 bash ./eva_mpdd.sh
 ```
 
-```
-
-```
-
 **BTAD**
 
 ```
 cd /CostFilter-AD-main/Costfilter_HVQ_trans/Costfilter_HVQ_btad/experiments/MVTec-AD
 bash ./eva_btad.sh
-```
-
-```
-
 ```
 
 ### **🔹 Train: you can train the cost filtering model as follows.**
@@ -207,19 +195,11 @@ cd /CostFilter-AD-main/Costfilter_HVQ_trans/Costfilter_HVQ_mpdd/experiments/MVTe
 bash ./train_mpdd.sh
 ```
 
-```
-
-```
-
 **BTAD**
 
 ```
 cd /CostFilter-AD-main/Costfilter_HVQ_trans/Costfilter_HVQ_btad/experiments/MVTec-AD
 bash ./train_btad.sh
-```
-
-```
-
 ```
 
 ## 📚 Cite
