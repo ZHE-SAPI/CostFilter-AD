@@ -1,0 +1,140 @@
+[2025-03-27 05:40:17,156][train_val_withOT_mpdd.py][line:  90][    INFO] args: Namespace(config='./config_mpdd_withOT.yaml', evaluate=False, local_rank=None, train_only_four_decoder=False)
+[2025-03-27 05:40:17,158][train_val_withOT_mpdd.py][line:  91][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/ZZ/anomaly/GLAD-main/hdd/Datasets/MPDD'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/MPDD/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/MPDD/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_MPDD_from0_withOT',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'}]},
+               'save_dir': 'result_eval_temp_MPDD_from0_withOT',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_MPDD_from0/vis_compound_HVQ_TR_switch/visual_MPDD_from0_withOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_MPDD_from0_withOT'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_MPDD_from0_withOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': False,
+           'save_dir': 'checkpoints/HVQ_TR_switch_MPDD_from0_withOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 1000,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 50,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2025-03-27 05:40:17,488][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-03-27 05:40:17,602][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-03-27 05:40:21,756][train_val_withOT_mpdd.py][line: 121][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-03-27 05:40:21,756][train_val_withOT_mpdd.py][line: 122][    INFO] active layers: ['reconstruction', 'neck']
+[2025-03-27 05:40:21,759][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/MPDD/train.json
+[2025-03-27 05:40:21,763][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/MPDD/test.json
+[2025-03-27 05:40:23,590][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [1/1000]	Iter: [1/56000]	Time 1.82 (1.82)	Data 1.29 (1.29)	Loss 51.30620 (51.30620)	LR 0.00010	
+[2025-03-27 05:40:32,545][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [1/1000]	Iter: [51/56000]	Time 0.18 (0.18)	Data 0.00 (0.00)	Loss 35.54197 (37.57650)	LR 0.00010	
+[2025-03-27 05:40:43,155][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [2/1000]	Iter: [101/56000]	Time 0.17 (0.21)	Data 0.00 (0.03)	Loss 33.70065 (34.09886)	LR 0.00010	
+[2025-03-27 05:40:53,568][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [3/1000]	Iter: [151/56000]	Time 0.17 (0.22)	Data 0.00 (0.03)	Loss 33.53910 (33.27220)	LR 0.00010	
+[2025-03-27 05:41:04,027][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [4/1000]	Iter: [201/56000]	Time 0.29 (0.22)	Data 0.10 (0.04)	Loss 32.39464 (32.55710)	LR 0.00010	
+[2025-03-27 05:41:14,280][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [5/1000]	Iter: [251/56000]	Time 0.17 (0.22)	Data 0.00 (0.05)	Loss 33.45406 (32.39888)	LR 0.00010	
+[2025-03-27 05:41:24,653][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [6/1000]	Iter: [301/56000]	Time 0.23 (0.25)	Data 0.03 (0.06)	Loss 31.75153 (32.13858)	LR 0.00010	
+[2025-03-27 05:41:34,890][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [7/1000]	Iter: [351/56000]	Time 0.16 (0.26)	Data 0.00 (0.09)	Loss 33.61613 (32.05636)	LR 0.00010	
+[2025-03-27 05:41:45,100][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [8/1000]	Iter: [401/56000]	Time 0.23 (0.32)	Data 0.04 (0.14)	Loss 31.37031 (31.85905)	LR 0.00010	
+[2025-03-27 05:41:55,307][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [9/1000]	Iter: [451/56000]	Time 0.21 (0.60)	Data 0.00 (0.40)	Loss 32.51214 (32.29561)	LR 0.00010	
+[2025-03-27 05:42:04,228][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [9/1000]	Iter: [501/56000]	Time 0.16 (0.18)	Data 0.01 (0.00)	Loss 31.72161 (31.49378)	LR 0.00010	
+[2025-03-27 05:42:14,568][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [10/1000]	Iter: [551/56000]	Time 0.19 (0.21)	Data 0.00 (0.03)	Loss 32.76284 (31.50303)	LR 0.00010	
+[2025-03-27 05:42:24,721][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [11/1000]	Iter: [601/56000]	Time 0.17 (0.21)	Data 0.00 (0.03)	Loss 31.57038 (31.36008)	LR 0.00010	
+[2025-03-27 05:42:35,122][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [12/1000]	Iter: [651/56000]	Time 0.16 (0.21)	Data 0.00 (0.04)	Loss 31.52298 (31.07566)	LR 0.00010	
+[2025-03-27 05:42:45,357][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [13/1000]	Iter: [701/56000]	Time 0.26 (0.22)	Data 0.08 (0.05)	Loss 28.68783 (30.21856)	LR 0.00010	
+[2025-03-27 05:42:55,929][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [14/1000]	Iter: [751/56000]	Time 0.16 (0.24)	Data 0.00 (0.06)	Loss 29.96764 (29.20079)	LR 0.00010	
+[2025-03-27 05:43:06,105][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [15/1000]	Iter: [801/56000]	Time 0.22 (0.26)	Data 0.05 (0.08)	Loss 28.07440 (27.87260)	LR 0.00010	
+[2025-03-27 05:43:16,589][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [16/1000]	Iter: [851/56000]	Time 0.16 (0.30)	Data 0.00 (0.11)	Loss 27.94785 (27.20459)	LR 0.00010	
+[2025-03-27 05:43:26,855][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [17/1000]	Iter: [901/56000]	Time 0.28 (0.44)	Data 0.11 (0.27)	Loss 26.85404 (26.41549)	LR 0.00010	
+[2025-03-27 05:43:35,670][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [17/1000]	Iter: [951/56000]	Time 0.12 (0.18)	Data 0.00 (0.00)	Loss 26.88718 (26.54874)	LR 0.00010	
+[2025-03-27 05:43:45,879][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [18/1000]	Iter: [1001/56000]	Time 0.15 (0.20)	Data 0.00 (0.03)	Loss 26.10530 (26.06727)	LR 0.00010	
+[2025-03-27 05:43:56,178][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [19/1000]	Iter: [1051/56000]	Time 0.16 (0.21)	Data 0.00 (0.03)	Loss 24.49518 (25.62937)	LR 0.00010	
+[2025-03-27 05:44:06,799][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [20/1000]	Iter: [1101/56000]	Time 0.18 (0.22)	Data 0.00 (0.03)	Loss 24.14571 (25.12369)	LR 0.00010	
+[2025-03-27 05:44:17,242][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [21/1000]	Iter: [1151/56000]	Time 0.19 (0.23)	Data 0.00 (0.05)	Loss 24.72983 (24.91691)	LR 0.00010	
+[2025-03-27 05:44:27,429][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [22/1000]	Iter: [1201/56000]	Time 0.23 (0.23)	Data 0.04 (0.05)	Loss 24.90206 (24.84185)	LR 0.00010	
+[2025-03-27 05:44:37,655][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [23/1000]	Iter: [1251/56000]	Time 0.17 (0.25)	Data 0.00 (0.07)	Loss 24.34165 (24.34659)	LR 0.00010	
+[2025-03-27 05:44:47,990][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [24/1000]	Iter: [1301/56000]	Time 0.18 (0.28)	Data 0.00 (0.11)	Loss 24.14051 (23.99745)	LR 0.00010	
+[2025-03-27 05:44:58,198][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [25/1000]	Iter: [1351/56000]	Time 0.14 (0.36)	Data 0.00 (0.19)	Loss 23.42787 (23.65858)	LR 0.00010	
+[2025-03-27 05:45:08,582][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [26/1000]	Iter: [1401/56000]	Time 1.40 (1.40)	Data 1.21 (1.21)	Loss 24.13781 (24.13781)	LR 0.00010	
+[2025-03-27 05:45:17,462][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [26/1000]	Iter: [1451/56000]	Time 0.15 (0.18)	Data 0.00 (0.00)	Loss 23.67094 (23.33721)	LR 0.00010	
+[2025-03-27 05:45:31,267][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [27/1000]	Iter: [1501/56000]	Time 0.18 (0.21)	Data 0.00 (0.03)	Loss 23.02553 (23.07069)	LR 0.00010	
+[2025-03-27 05:45:41,521][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [28/1000]	Iter: [1551/56000]	Time 0.16 (0.21)	Data 0.00 (0.04)	Loss 22.97074 (22.72231)	LR 0.00010	
+[2025-03-27 05:45:51,837][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [29/1000]	Iter: [1601/56000]	Time 0.18 (0.22)	Data 0.00 (0.04)	Loss 21.91187 (22.41278)	LR 0.00010	
+[2025-03-27 05:46:05,225][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [100/458]	Time 0.116 (0.090)
+[2025-03-27 05:46:14,198][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [200/458]	Time 0.111 (0.090)
+[2025-03-27 05:46:22,336][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [300/458]	Time 0.075 (0.087)
+[2025-03-27 05:46:31,730][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [400/458]	Time 0.078 (0.089)
+[2025-03-27 05:46:36,549][train_val_withOT_mpdd.py][line: 393][    INFO] Gathering final results ...
+[2025-03-27 05:46:36,549][train_val_withOT_mpdd.py][line: 395][    INFO]  * Loss 22.28981	total_num=458
+[2025-03-27 05:46:43,484][ eval_helper.py][line: 228][    INFO] 
+|    clsname    |   max    |  pixel   |   std    |
+|:-------------:|:--------:|:--------:|:--------:|
+| bracket_white | 0.662222 | 0.919378 | 0.742222 |
+|  metal_plate  | 0.505959 | 0.820418 | 0.58234  |
+| bracket_black | 0.644947 | 0.931666 | 0.660239 |
+| bracket_brown | 0.643288 | 0.954453 | 0.733032 |
+|   connector   | 0.635714 | 0.922502 | 0.821429 |
+|     tubes     | 0.509964 | 0.907329 | 0.715127 |
+|     mean      | 0.600349 | 0.909291 | 0.709065 |
+[2025-03-27 05:46:50,566][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [30/1000]	Iter: [1651/56000]	Time 0.18 (0.23)	Data 0.00 (0.05)	Loss 21.79332 (21.99738)	LR 0.00010	
+[2025-03-27 05:47:00,844][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [31/1000]	Iter: [1701/56000]	Time 0.19 (0.24)	Data 0.00 (0.06)	Loss 22.64131 (21.88562)	LR 0.00010	
+[2025-03-27 05:47:10,974][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [32/1000]	Iter: [1751/56000]	Time 0.16 (0.26)	Data 0.00 (0.09)	Loss 22.22568 (21.60043)	LR 0.00010	
+[2025-03-27 05:47:21,936][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [33/1000]	Iter: [1801/56000]	Time 0.15 (0.33)	Data 0.00 (0.14)	Loss 21.06000 (21.39250)	LR 0.00010	
+[2025-03-27 05:47:32,061][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [34/1000]	Iter: [1851/56000]	Time 0.16 (0.58)	Data 0.00 (0.41)	Loss 20.61906 (20.70815)	LR 0.00010	
+[2025-03-27 05:47:41,105][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [34/1000]	Iter: [1901/56000]	Time 0.26 (0.18)	Data 0.10 (0.00)	Loss 20.11516 (21.11078)	LR 0.00010	
+[2025-03-27 05:47:51,549][train_val_withOT_mpdd.py][line: 311][    INFO] Epoch: [35/1000]	Iter: [1951/56000]	Time 0.16 (0.21)	Data 0.00 (0.03)	Loss 21.17679 (20.91618)	LR 0.00010	

@@ -1,0 +1,114 @@
+[2024-12-29 17:39:59,223][   train_val.py][line:  88][    INFO] args: Namespace(config='./config_visa.yaml', evaluate=False, local_rank=None, train_only_four_decoder=False)
+[2024-12-29 17:39:59,226][   train_val.py][line:  89][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/customer/Desktop/ZZ/anomaly/GLAD-main/hdd/Datasets/VisA_pytorch'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/VISA/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/VISA/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'}]},
+               'save_dir': 'result_eval_temp',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_OT/vis_compound_HVQ_TR_switch_OT/visual_VisA'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 133,
+ 'save_path': './checkpoints/HVQ_TR_switch_OT_VisA',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': 'None',
+           'save_dir': 'checkpoints/HVQ_TR_switch_OT_VisA'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 1000,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 80,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2024-12-29 17:40:11,431][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2024-12-29 17:40:12,568][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2024-12-29 17:40:20,101][   train_val.py][line: 119][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2024-12-29 17:40:20,102][   train_val.py][line: 120][    INFO] active layers: ['reconstruction', 'neck']
+[2024-12-29 17:40:20,105][custom_dataset.py][line:  41][    INFO] building CustomDataset from: ../../data/VISA/train.json
+[2024-12-29 17:40:20,145][custom_dataset.py][line:  41][    INFO] building CustomDataset from: ../../data/VISA/test.json
+[2024-12-29 17:40:21,993][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [1/542000]	Time 1.83 (1.83)	Data 0.88 (0.88)	Loss 52.50764 (52.50764)	LR 0.00010	
+[2024-12-29 17:40:40,609][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [81/542000]	Time 0.22 (0.23)	Data 0.00 (0.00)	Loss 33.45953 (36.90703)	LR 0.00010	
+[2024-12-29 17:40:58,439][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [161/542000]	Time 0.25 (0.22)	Data 0.00 (0.00)	Loss 32.67503 (33.34267)	LR 0.00010	
+[2024-12-29 17:41:16,211][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [241/542000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 33.63892 (32.84478)	LR 0.00010	
+[2024-12-29 17:41:34,389][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [321/542000]	Time 0.21 (0.23)	Data 0.00 (0.00)	Loss 32.85786 (32.54843)	LR 0.00010	
+[2024-12-29 17:41:51,910][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [401/542000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 33.02171 (32.40837)	LR 0.00010	
+[2024-12-29 17:42:09,248][   train_val.py][line: 306][    INFO] Epoch: [1/1000]	Iter: [481/542000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 32.04237 (32.28965)	LR 0.00010	
+[2024-12-29 17:42:36,710][   train_val.py][line: 367][    INFO] Test: [100/2162]	Time 0.065 (0.134)
+[2024-12-29 17:42:49,168][   train_val.py][line: 367][    INFO] Test: [200/2162]	Time 0.066 (0.130)
+[2024-12-29 17:43:02,114][   train_val.py][line: 367][    INFO] Test: [300/2162]	Time 0.103 (0.130)
+[2024-12-29 17:43:14,826][   train_val.py][line: 367][    INFO] Test: [400/2162]	Time 0.101 (0.129)
+[2024-12-29 17:43:28,083][   train_val.py][line: 367][    INFO] Test: [500/2162]	Time 0.191 (0.130)
+[2024-12-29 17:43:40,406][   train_val.py][line: 367][    INFO] Test: [600/2162]	Time 0.190 (0.129)
+[2024-12-29 17:43:53,102][   train_val.py][line: 367][    INFO] Test: [700/2162]	Time 0.144 (0.128)
+[2024-12-29 17:44:05,902][   train_val.py][line: 367][    INFO] Test: [800/2162]	Time 0.144 (0.128)
+[2024-12-29 17:44:18,545][   train_val.py][line: 367][    INFO] Test: [900/2162]	Time 0.083 (0.128)
+[2024-12-29 17:44:31,671][   train_val.py][line: 367][    INFO] Test: [1000/2162]	Time 0.125 (0.128)
+[2024-12-29 17:44:44,143][   train_val.py][line: 367][    INFO] Test: [1100/2162]	Time 0.088 (0.128)
+[2024-12-29 17:44:56,675][   train_val.py][line: 367][    INFO] Test: [1200/2162]	Time 0.083 (0.128)
+[2024-12-29 17:45:09,603][   train_val.py][line: 367][    INFO] Test: [1300/2162]	Time 0.093 (0.128)
+[2024-12-29 17:45:22,102][   train_val.py][line: 367][    INFO] Test: [1400/2162]	Time 0.144 (0.128)
+[2024-12-29 17:45:35,295][   train_val.py][line: 367][    INFO] Test: [1500/2162]	Time 0.176 (0.128)
+[2024-12-29 17:45:48,060][   train_val.py][line: 367][    INFO] Test: [1600/2162]	Time 0.096 (0.128)
+[2024-12-29 17:46:00,647][   train_val.py][line: 367][    INFO] Test: [1700/2162]	Time 0.095 (0.128)
+[2024-12-29 17:46:13,769][   train_val.py][line: 367][    INFO] Test: [1800/2162]	Time 0.138 (0.128)
+[2024-12-29 17:46:26,104][   train_val.py][line: 367][    INFO] Test: [1900/2162]	Time 0.141 (0.128)
+[2024-12-29 17:46:38,037][   train_val.py][line: 367][    INFO] Test: [2000/2162]	Time 0.149 (0.127)
+[2024-12-29 17:46:50,789][   train_val.py][line: 367][    INFO] Test: [2100/2162]	Time 0.137 (0.127)
+[2024-12-29 17:46:59,302][   train_val.py][line: 388][    INFO] Gathering final results ...
+[2024-12-29 17:46:59,303][   train_val.py][line: 390][    INFO]  * Loss 30.45004	total_num=2162

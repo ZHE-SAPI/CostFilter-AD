@@ -1,0 +1,108 @@
+[2025-03-28 12:48:48,155][train_val_withOT_mpdd.py][line:  90][    INFO] args: Namespace(config='./config_mpdd_withOT.yaml', evaluate=True, local_rank=None, train_only_four_decoder=False)
+[2025-03-28 12:48:48,157][train_val_withOT_mpdd.py][line:  91][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/ZZ/anomaly/GLAD-main/hdd/Datasets/MPDD'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/MPDD/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/MPDD/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_MPDD_from0_withOT',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'},
+                                   {'name': 'top250'},
+                                   {'name': 'IImageap'},
+                                   {'name': 'IImagef1max'},
+                                   {'name': 'IImageauroc'},
+                                   {'name': 'PPixelap'},
+                                   {'name': 'PPixelf1max'},
+                                   {'name': 'PPixelpro'},
+                                   {'name': 'PPixelauroc'}]},
+               'save_dir': 'result_eval_temp_MPDD_from0_withOT',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_MPDD_from0/vis_compound_HVQ_TR_switch/visual_MPDD_from0_withOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_MPDD_from0_withOT'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_MPDD_from0_withOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': '/home/ZZ/anomaly/HVQ-Trans-master/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_MPDD_from0_withOT/ckpt_best.pth.tar',
+           'save_dir': 'checkpoints/HVQ_TR_switch_MPDD_from0_withOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 1000,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 50,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2025-03-28 12:48:49,011][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-03-28 12:48:49,584][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-03-28 12:48:56,729][train_val_withOT_mpdd.py][line: 121][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-03-28 12:48:56,729][train_val_withOT_mpdd.py][line: 122][    INFO] active layers: ['neck', 'reconstruction']
+[2025-03-28 12:49:04,155][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/MPDD/train.json
+[2025-03-28 12:49:04,158][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/MPDD/test.json
+[2025-03-28 12:49:18,653][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [100/458]	Time 0.100 (0.141)
+[2025-03-28 12:49:31,692][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [200/458]	Time 0.145 (0.136)
+[2025-03-28 12:49:43,751][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [300/458]	Time 0.138 (0.131)
+[2025-03-28 12:49:57,876][train_val_withOT_mpdd.py][line: 372][    INFO] Test: [400/458]	Time 0.117 (0.133)
+[2025-03-28 12:50:05,514][train_val_withOT_mpdd.py][line: 393][    INFO] Gathering final results ...
+[2025-03-28 12:50:05,514][train_val_withOT_mpdd.py][line: 395][    INFO]  * Loss 10.92659	total_num=458
+[2025-03-28 12:52:52,269][eval_helper1.py][line: 444][    INFO] 
+|    clsname    |  PPixelauroc  |  IImagef1max  |   max    |   std    |  top250  |  IImageauroc  |  PPixelf1max  |  PPixelpro  |  IImageap  |  PPixelap  |  pixel   |
+|:-------------:|:-------------:|:-------------:|:--------:|:--------:|:--------:|:-------------:|:-------------:|:-----------:|:----------:|:----------:|:--------:|
+|   connector   |   0.975227    |    0.8125     | 0.895238 | 0.607143 | 0.892857 |   0.892857    |   0.271288    |  0.911205   |  0.692553  |  0.165813  | 0.975227 |
+| bracket_black |   0.970139    |   0.897959    | 0.930186 | 0.685505 | 0.927527 |   0.927527    |   0.0353125   |  0.901191   |  0.955712  | 0.0146363  | 0.970139 |
+|  metal_plate  |   0.966048    |   0.957746    | 0.982665 | 0.990791 | 0.975623 |   0.975623    |   0.743878    |  0.866262   |  0.990836  |  0.736415  | 0.966042 |
+| bracket_white |   0.951569    |   0.746667    | 0.787778 | 0.527778 | 0.792222 |   0.792222    |   0.026362    |  0.841587   |  0.826194  | 0.00698395 | 0.951569 |
+| bracket_brown |   0.982752    |   0.902655    | 0.892911 | 0.567119 | 0.893665 |   0.893665    |   0.366992    |  0.885925   |  0.934319  |  0.315295  | 0.98275  |
+|     tubes     |   0.966883    |   0.816568    | 0.700634 | 0.808877 | 0.706069 |   0.706069    |   0.384865    |  0.875053   |  0.872088  |  0.343786  | 0.966878 |
+|     mean      |    0.96877    |   0.855683    | 0.864902 | 0.697869 | 0.86466  |    0.86466    |   0.304783    |  0.880204   |  0.878617  |  0.263821  | 0.968767 |

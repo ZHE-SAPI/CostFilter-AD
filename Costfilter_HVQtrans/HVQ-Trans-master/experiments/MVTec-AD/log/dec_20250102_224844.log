@@ -1,0 +1,702 @@
+[2025-01-02 22:48:44,824][   train_val.py][line:  90][    INFO] args: Namespace(config='./config_visa.yaml', evaluate=False, local_rank=None, train_only_four_decoder=False)
+[2025-01-02 22:48:44,825][   train_val.py][line:  91][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/customer/Desktop/ZZ/anomaly/GLAD-main/hdd/Datasets/VisA_pytorch'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/VISA/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/VISA/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_VisA_from0',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'}]},
+               'save_dir': 'result_eval_temp_VisA_from0',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_OT_VisA_from0/vis_compound_HVQ_TR_switch_OT/visual_VisA_from0'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_VisA_from0'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_OT_VisA_from0',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': '/home/customer/Desktop/ZZ/anomaly/HVQ-Trans-master/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_OT_VisA/ckpt_best.pth.tar',
+           'save_dir': 'checkpoints/HVQ_TR_switch_OT_VisA_from0'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 1000,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 80,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2025-01-02 22:49:25,706][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-01-02 22:49:28,689][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-01-02 22:49:42,606][   train_val.py][line: 121][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-01-02 22:49:42,606][   train_val.py][line: 122][    INFO] active layers: ['reconstruction', 'neck']
+[2025-01-02 22:49:50,849][custom_dataset.py][line:  41][    INFO] building CustomDataset from: ../../data/VISA/train.json
+[2025-01-02 22:49:50,876][custom_dataset.py][line:  41][    INFO] building CustomDataset from: ../../data/VISA/test.json
+[2025-01-02 22:49:52,943][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [1/542000]	Time 2.04 (2.04)	Data 0.97 (0.97)	Loss 10.32390 (10.32390)	LR 0.00010	
+[2025-01-02 22:50:13,790][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [81/542000]	Time 0.29 (0.26)	Data 0.00 (0.00)	Loss 9.93342 (10.01609)	LR 0.00010	
+[2025-01-02 22:50:33,824][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [161/542000]	Time 0.30 (0.25)	Data 0.00 (0.00)	Loss 10.38274 (10.10456)	LR 0.00010	
+[2025-01-02 22:51:01,256][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [241/542000]	Time 0.34 (0.34)	Data 0.00 (0.00)	Loss 8.96064 (9.92674)	LR 0.00010	
+[2025-01-02 22:51:30,166][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [321/542000]	Time 0.47 (0.36)	Data 0.00 (0.00)	Loss 10.34316 (9.93116)	LR 0.00010	
+[2025-01-02 22:51:58,084][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [401/542000]	Time 0.33 (0.35)	Data 0.00 (0.00)	Loss 11.00282 (9.99068)	LR 0.00010	
+[2025-01-02 22:52:26,582][   train_val.py][line: 308][    INFO] Epoch: [1/1000]	Iter: [481/542000]	Time 0.35 (0.36)	Data 0.00 (0.00)	Loss 10.18814 (9.90332)	LR 0.00010	
+[2025-01-02 22:52:58,365][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [561/542000]	Time 0.34 (0.42)	Data 0.00 (0.05)	Loss 9.27304 (9.85254)	LR 0.00010	
+[2025-01-02 22:53:28,835][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [641/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 9.90358 (10.00849)	LR 0.00010	
+[2025-01-02 22:53:59,062][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [721/542000]	Time 0.37 (0.38)	Data 0.00 (0.00)	Loss 10.83251 (9.90308)	LR 0.00010	
+[2025-01-02 22:54:32,779][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [801/542000]	Time 0.39 (0.42)	Data 0.02 (0.00)	Loss 9.88827 (9.86934)	LR 0.00010	
+[2025-01-02 22:55:06,614][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [881/542000]	Time 0.48 (0.42)	Data 0.00 (0.00)	Loss 11.58539 (10.16778)	LR 0.00010	
+[2025-01-02 22:55:40,607][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [961/542000]	Time 0.48 (0.42)	Data 0.00 (0.00)	Loss 10.63552 (10.02727)	LR 0.00010	
+[2025-01-02 22:56:13,060][   train_val.py][line: 308][    INFO] Epoch: [2/1000]	Iter: [1041/542000]	Time 0.43 (0.41)	Data 0.00 (0.00)	Loss 9.20883 (10.08301)	LR 0.00010	
+[2025-01-02 22:56:43,541][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1121/542000]	Time 0.36 (0.40)	Data 0.01 (0.03)	Loss 10.21329 (10.25450)	LR 0.00010	
+[2025-01-02 22:57:13,190][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1201/542000]	Time 0.40 (0.37)	Data 0.00 (0.00)	Loss 9.25430 (9.81958)	LR 0.00010	
+[2025-01-02 22:57:42,430][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1281/542000]	Time 0.21 (0.37)	Data 0.00 (0.00)	Loss 9.70427 (10.04981)	LR 0.00010	
+[2025-01-02 22:58:11,516][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1361/542000]	Time 0.36 (0.36)	Data 0.00 (0.00)	Loss 8.80487 (9.94195)	LR 0.00010	
+[2025-01-02 22:58:41,565][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1441/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 10.16115 (10.08825)	LR 0.00010	
+[2025-01-02 22:59:10,633][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1521/542000]	Time 0.31 (0.36)	Data 0.00 (0.00)	Loss 10.85353 (10.01919)	LR 0.00010	
+[2025-01-02 22:59:40,508][   train_val.py][line: 308][    INFO] Epoch: [3/1000]	Iter: [1601/542000]	Time 0.35 (0.37)	Data 0.01 (0.00)	Loss 9.24515 (9.93465)	LR 0.00010	
+[2025-01-02 23:00:12,021][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [1681/542000]	Time 0.41 (0.41)	Data 0.00 (0.02)	Loss 9.36456 (9.94290)	LR 0.00010	
+[2025-01-02 23:00:44,535][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [1761/542000]	Time 0.37 (0.41)	Data 0.00 (0.00)	Loss 9.18126 (10.00348)	LR 0.00010	
+[2025-01-02 23:01:16,838][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [1841/542000]	Time 0.56 (0.40)	Data 0.00 (0.00)	Loss 9.28016 (9.93506)	LR 0.00010	
+[2025-01-02 23:01:50,642][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [1921/542000]	Time 0.36 (0.42)	Data 0.00 (0.00)	Loss 9.17278 (9.95837)	LR 0.00010	
+[2025-01-02 23:02:24,742][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [2001/542000]	Time 0.36 (0.43)	Data 0.00 (0.00)	Loss 9.97269 (9.96791)	LR 0.00010	
+[2025-01-02 23:02:55,158][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [2081/542000]	Time 0.48 (0.38)	Data 0.00 (0.00)	Loss 9.27631 (9.95846)	LR 0.00010	
+[2025-01-02 23:03:24,475][   train_val.py][line: 308][    INFO] Epoch: [4/1000]	Iter: [2161/542000]	Time 0.33 (0.37)	Data 0.00 (0.00)	Loss 9.67962 (10.04240)	LR 0.00010	
+[2025-01-02 23:03:55,209][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2241/542000]	Time 0.42 (0.39)	Data 0.00 (0.01)	Loss 9.55942 (9.85294)	LR 0.00010	
+[2025-01-02 23:04:24,543][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2321/542000]	Time 0.39 (0.37)	Data 0.00 (0.00)	Loss 10.96777 (9.85633)	LR 0.00010	
+[2025-01-02 23:04:54,019][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2401/542000]	Time 0.34 (0.37)	Data 0.00 (0.00)	Loss 10.45802 (10.01874)	LR 0.00010	
+[2025-01-02 23:05:21,870][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2481/542000]	Time 0.32 (0.35)	Data 0.00 (0.00)	Loss 10.04690 (9.94574)	LR 0.00010	
+[2025-01-02 23:05:52,265][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2561/542000]	Time 0.36 (0.38)	Data 0.01 (0.00)	Loss 10.48286 (10.00010)	LR 0.00010	
+[2025-01-02 23:06:22,675][   train_val.py][line: 308][    INFO] Epoch: [5/1000]	Iter: [2641/542000]	Time 0.48 (0.38)	Data 0.00 (0.00)	Loss 9.23402 (9.95191)	LR 0.00010	
+[2025-01-02 23:06:56,873][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [2721/542000]	Time 0.36 (0.50)	Data 0.00 (0.08)	Loss 10.93613 (10.13787)	LR 0.00010	
+[2025-01-02 23:07:30,259][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [2801/542000]	Time 0.36 (0.42)	Data 0.00 (0.00)	Loss 10.10214 (10.06720)	LR 0.00010	
+[2025-01-02 23:08:05,035][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [2881/542000]	Time 0.56 (0.43)	Data 0.00 (0.00)	Loss 10.60211 (10.03417)	LR 0.00010	
+[2025-01-02 23:08:37,705][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [2961/542000]	Time 0.37 (0.41)	Data 0.00 (0.00)	Loss 9.47935 (9.90805)	LR 0.00010	
+[2025-01-02 23:09:07,507][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [3041/542000]	Time 0.34 (0.37)	Data 0.00 (0.00)	Loss 9.47604 (9.96483)	LR 0.00010	
+[2025-01-02 23:09:37,387][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [3121/542000]	Time 0.42 (0.37)	Data 0.00 (0.00)	Loss 9.76998 (10.02530)	LR 0.00010	
+[2025-01-02 23:10:06,290][   train_val.py][line: 308][    INFO] Epoch: [6/1000]	Iter: [3201/542000]	Time 0.40 (0.36)	Data 0.00 (0.00)	Loss 9.45162 (9.96216)	LR 0.00010	
+[2025-01-02 23:10:36,405][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3281/542000]	Time 0.33 (0.40)	Data 0.00 (0.04)	Loss 9.18613 (9.94898)	LR 0.00010	
+[2025-01-02 23:11:05,825][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3361/542000]	Time 0.31 (0.37)	Data 0.00 (0.00)	Loss 10.09340 (9.89601)	LR 0.00010	
+[2025-01-02 23:11:35,360][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3441/542000]	Time 0.32 (0.37)	Data 0.00 (0.00)	Loss 9.57584 (10.00717)	LR 0.00010	
+[2025-01-02 23:12:04,209][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3521/542000]	Time 0.45 (0.36)	Data 0.00 (0.00)	Loss 10.75887 (9.93185)	LR 0.00010	
+[2025-01-02 23:12:35,816][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3601/542000]	Time 0.46 (0.39)	Data 0.00 (0.00)	Loss 9.85825 (10.10194)	LR 0.00010	
+[2025-01-02 23:13:06,292][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3681/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 10.46070 (9.99053)	LR 0.00010	
+[2025-01-02 23:13:40,094][   train_val.py][line: 308][    INFO] Epoch: [7/1000]	Iter: [3761/542000]	Time 0.49 (0.42)	Data 0.00 (0.00)	Loss 8.99768 (9.95528)	LR 0.00010	
+[2025-01-02 23:14:14,940][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [3841/542000]	Time 0.36 (0.45)	Data 0.00 (0.02)	Loss 10.03803 (9.77005)	LR 0.00010	
+[2025-01-02 23:14:49,810][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [3921/542000]	Time 0.43 (0.44)	Data 0.00 (0.00)	Loss 10.61565 (9.94497)	LR 0.00010	
+[2025-01-02 23:15:21,826][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [4001/542000]	Time 0.35 (0.40)	Data 0.00 (0.00)	Loss 9.14813 (9.84030)	LR 0.00010	
+[2025-01-02 23:15:51,080][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [4081/542000]	Time 0.36 (0.37)	Data 0.03 (0.00)	Loss 9.14558 (10.00284)	LR 0.00010	
+[2025-01-02 23:16:20,400][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [4161/542000]	Time 0.40 (0.37)	Data 0.00 (0.00)	Loss 8.90485 (10.00240)	LR 0.00010	
+[2025-01-02 23:16:50,548][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [4241/542000]	Time 0.44 (0.38)	Data 0.00 (0.00)	Loss 9.98739 (9.99713)	LR 0.00010	
+[2025-01-02 23:17:20,713][   train_val.py][line: 308][    INFO] Epoch: [8/1000]	Iter: [4321/542000]	Time 0.41 (0.38)	Data 0.00 (0.00)	Loss 9.06583 (9.99106)	LR 0.00010	
+[2025-01-02 23:17:51,152][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4401/542000]	Time 0.36 (0.38)	Data 0.00 (0.02)	Loss 10.11487 (9.85791)	LR 0.00010	
+[2025-01-02 23:18:20,393][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4481/542000]	Time 0.34 (0.37)	Data 0.00 (0.00)	Loss 9.51515 (10.10112)	LR 0.00010	
+[2025-01-02 23:18:49,535][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4561/542000]	Time 0.35 (0.36)	Data 0.00 (0.00)	Loss 10.91308 (9.82222)	LR 0.00010	
+[2025-01-02 23:19:19,095][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4641/542000]	Time 0.38 (0.37)	Data 0.00 (0.00)	Loss 9.79000 (10.00060)	LR 0.00010	
+[2025-01-02 23:19:48,219][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4721/542000]	Time 0.35 (0.36)	Data 0.00 (0.00)	Loss 9.04232 (9.91987)	LR 0.00010	
+[2025-01-02 23:20:19,968][   train_val.py][line: 308][    INFO] Epoch: [9/1000]	Iter: [4801/542000]	Time 0.44 (0.40)	Data 0.00 (0.00)	Loss 9.16456 (9.97578)	LR 0.00010	
+[2025-01-02 23:21:15,506][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.148 (0.234)
+[2025-01-02 23:21:38,088][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.241 (0.230)
+[2025-01-02 23:22:00,345][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.290 (0.227)
+[2025-01-02 23:22:21,618][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.354 (0.224)
+[2025-01-02 23:22:41,739][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.208 (0.219)
+[2025-01-02 23:22:59,409][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.259 (0.212)
+[2025-01-02 23:23:16,794][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.084 (0.207)
+[2025-01-02 23:23:33,842][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.154 (0.202)
+[2025-01-02 23:23:50,786][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.139 (0.199)
+[2025-01-02 23:24:07,610][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.118 (0.196)
+[2025-01-02 23:24:24,922][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.310 (0.193)
+[2025-01-02 23:24:42,266][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.139 (0.192)
+[2025-01-02 23:25:00,637][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.191 (0.191)
+[2025-01-02 23:25:22,156][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.282 (0.193)
+[2025-01-02 23:25:41,391][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.120 (0.193)
+[2025-01-02 23:26:01,650][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.163 (0.193)
+[2025-01-02 23:26:20,967][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.238 (0.193)
+[2025-01-02 23:26:41,228][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.155 (0.194)
+[2025-01-02 23:27:01,156][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.141 (0.194)
+[2025-01-02 23:27:21,978][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.170 (0.195)
+[2025-01-02 23:27:45,189][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.260 (0.197)
+[2025-01-02 23:28:01,279][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-02 23:28:01,279][   train_val.py][line: 392][    INFO]  * Loss 5.81880	total_num=2162
+[2025-01-02 23:29:05,941][ eval_helper.py][line: 228][    INFO] 
+|  clsname   |  pixel   |   max    |   std    |
+|:----------:|:--------:|:--------:|:--------:|
+|    pcb4    | 0.977338 | 0.991782 | 0.984356 |
+|    pcb2    | 0.951917 |  0.9098  |  0.8252  |
+| macaroni1  | 0.964437 |  0.8352  |  0.7039  |
+|  capsules  | 0.976592 | 0.784833 |  0.7515  |
+| pipe_fryum | 0.992649 |  0.9722  |  0.8946  |
+|    pcb1    | 0.984909 |  0.9424  |  0.6292  |
+|   candle   | 0.985952 |  0.9503  |  0.8825  |
+|    pcb3    | 0.973826 | 0.872475 | 0.799604 |
+| chewinggum | 0.986949 |  0.9774  |  0.862   |
+|   fryum    | 0.968388 |  0.8676  |  0.8564  |
+|   cashew   | 0.990145 |  0.9262  |  0.8834  |
+| macaroni2  | 0.963843 |  0.7931  |  0.6644  |
+|    mean    | 0.976412 | 0.901941 | 0.811422 |
+[2025-01-02 23:29:10,123][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [4881/542000]	Time 0.42 (0.83)	Data 0.00 (0.39)	Loss 9.34173 (9.25753)	LR 0.00010	
+[2025-01-02 23:29:44,153][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [4961/542000]	Time 0.45 (0.42)	Data 0.00 (0.00)	Loss 11.59937 (9.93537)	LR 0.00010	
+[2025-01-02 23:30:18,006][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [5041/542000]	Time 0.38 (0.42)	Data 0.00 (0.00)	Loss 8.96909 (10.12644)	LR 0.00010	
+[2025-01-02 23:30:47,597][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [5121/542000]	Time 0.44 (0.37)	Data 0.00 (0.00)	Loss 10.20821 (9.98042)	LR 0.00010	
+[2025-01-02 23:31:16,337][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [5201/542000]	Time 0.26 (0.36)	Data 0.00 (0.00)	Loss 9.12621 (10.01670)	LR 0.00010	
+[2025-01-02 23:31:45,096][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [5281/542000]	Time 0.40 (0.36)	Data 0.00 (0.00)	Loss 9.05254 (10.10918)	LR 0.00010	
+[2025-01-02 23:32:14,431][   train_val.py][line: 308][    INFO] Epoch: [10/1000]	Iter: [5361/542000]	Time 0.56 (0.37)	Data 0.00 (0.00)	Loss 8.99536 (9.93273)	LR 0.00010	
+[2025-01-02 23:32:44,496][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5441/542000]	Time 0.28 (0.42)	Data 0.00 (0.06)	Loss 8.96281 (9.68817)	LR 0.00010	
+[2025-01-02 23:33:10,399][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5521/542000]	Time 0.20 (0.32)	Data 0.00 (0.00)	Loss 9.73526 (10.08086)	LR 0.00010	
+[2025-01-02 23:33:30,857][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5601/542000]	Time 0.22 (0.26)	Data 0.00 (0.00)	Loss 9.56774 (10.03342)	LR 0.00010	
+[2025-01-02 23:33:51,439][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5681/542000]	Time 0.23 (0.26)	Data 0.00 (0.00)	Loss 9.64131 (9.92776)	LR 0.00010	
+[2025-01-02 23:34:19,962][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5761/542000]	Time 0.48 (0.36)	Data 0.00 (0.00)	Loss 9.04973 (9.99355)	LR 0.00010	
+[2025-01-02 23:34:54,424][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5841/542000]	Time 0.43 (0.43)	Data 0.00 (0.00)	Loss 9.79922 (10.04838)	LR 0.00010	
+[2025-01-02 23:35:28,612][   train_val.py][line: 308][    INFO] Epoch: [11/1000]	Iter: [5921/542000]	Time 0.39 (0.43)	Data 0.00 (0.00)	Loss 9.79858 (9.95751)	LR 0.00010	
+[2025-01-02 23:36:01,894][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6001/542000]	Time 0.39 (0.41)	Data 0.00 (0.02)	Loss 9.70589 (9.95345)	LR 0.00010	
+[2025-01-02 23:36:32,265][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6081/542000]	Time 0.41 (0.38)	Data 0.00 (0.00)	Loss 9.12175 (9.87705)	LR 0.00010	
+[2025-01-02 23:37:02,509][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6161/542000]	Time 0.44 (0.38)	Data 0.00 (0.00)	Loss 10.79906 (9.97031)	LR 0.00010	
+[2025-01-02 23:37:32,188][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6241/542000]	Time 0.47 (0.37)	Data 0.00 (0.00)	Loss 9.42312 (9.97690)	LR 0.00010	
+[2025-01-02 23:38:02,755][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6321/542000]	Time 0.53 (0.38)	Data 0.00 (0.00)	Loss 10.47769 (9.97460)	LR 0.00010	
+[2025-01-02 23:38:34,861][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6401/542000]	Time 0.38 (0.40)	Data 0.00 (0.00)	Loss 10.36431 (9.92552)	LR 0.00010	
+[2025-01-02 23:39:09,839][   train_val.py][line: 308][    INFO] Epoch: [12/1000]	Iter: [6481/542000]	Time 0.37 (0.44)	Data 0.00 (0.00)	Loss 9.67054 (9.96966)	LR 0.00010	
+[2025-01-02 23:39:45,745][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6561/542000]	Time 0.42 (0.46)	Data 0.00 (0.02)	Loss 9.06341 (10.01645)	LR 0.00010	
+[2025-01-02 23:40:17,090][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6641/542000]	Time 0.24 (0.39)	Data 0.00 (0.00)	Loss 9.70455 (10.03359)	LR 0.00010	
+[2025-01-02 23:40:47,217][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6721/542000]	Time 0.38 (0.38)	Data 0.00 (0.00)	Loss 9.53600 (9.92913)	LR 0.00010	
+[2025-01-02 23:41:17,028][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6801/542000]	Time 0.43 (0.37)	Data 0.03 (0.00)	Loss 10.43493 (9.87646)	LR 0.00010	
+[2025-01-02 23:41:46,942][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6881/542000]	Time 0.31 (0.37)	Data 0.00 (0.00)	Loss 9.95741 (10.06320)	LR 0.00010	
+[2025-01-02 23:42:16,687][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [6961/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 10.08528 (9.90868)	LR 0.00010	
+[2025-01-02 23:42:46,141][   train_val.py][line: 308][    INFO] Epoch: [13/1000]	Iter: [7041/542000]	Time 0.33 (0.37)	Data 0.00 (0.00)	Loss 10.18575 (9.98330)	LR 0.00010	
+[2025-01-02 23:43:17,218][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7121/542000]	Time 0.33 (0.39)	Data 0.00 (0.02)	Loss 10.23745 (9.92024)	LR 0.00010	
+[2025-01-02 23:43:47,697][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7201/542000]	Time 0.40 (0.38)	Data 0.00 (0.00)	Loss 9.00142 (9.91687)	LR 0.00010	
+[2025-01-02 23:44:17,840][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7281/542000]	Time 0.33 (0.38)	Data 0.00 (0.00)	Loss 10.15111 (9.85922)	LR 0.00010	
+[2025-01-02 23:44:47,789][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7361/542000]	Time 0.39 (0.37)	Data 0.00 (0.00)	Loss 8.79106 (10.04790)	LR 0.00010	
+[2025-01-02 23:45:17,708][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7441/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 10.16507 (9.99447)	LR 0.00010	
+[2025-01-02 23:45:47,145][   train_val.py][line: 308][    INFO] Epoch: [14/1000]	Iter: [7521/542000]	Time 0.39 (0.37)	Data 0.02 (0.00)	Loss 9.35918 (9.88902)	LR 0.00010	
+[2025-01-02 23:46:18,903][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [7601/542000]	Time 0.38 (0.45)	Data 0.00 (0.07)	Loss 10.43860 (9.82528)	LR 0.00010	
+[2025-01-02 23:46:50,986][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [7681/542000]	Time 0.36 (0.40)	Data 0.00 (0.00)	Loss 9.47566 (9.97406)	LR 0.00010	
+[2025-01-02 23:47:24,248][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [7761/542000]	Time 0.45 (0.42)	Data 0.00 (0.00)	Loss 9.33282 (9.98636)	LR 0.00010	
+[2025-01-02 23:47:58,158][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [7841/542000]	Time 0.43 (0.42)	Data 0.00 (0.00)	Loss 8.87741 (9.96418)	LR 0.00010	
+[2025-01-02 23:48:31,785][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [7921/542000]	Time 0.39 (0.42)	Data 0.00 (0.00)	Loss 8.87978 (10.00840)	LR 0.00010	
+[2025-01-02 23:49:02,579][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [8001/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 9.60649 (9.98036)	LR 0.00010	
+[2025-01-02 23:49:32,116][   train_val.py][line: 308][    INFO] Epoch: [15/1000]	Iter: [8081/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.60678 (9.94155)	LR 0.00010	
+[2025-01-02 23:50:01,783][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8161/542000]	Time 0.34 (0.39)	Data 0.00 (0.03)	Loss 9.16974 (9.97374)	LR 0.00010	
+[2025-01-02 23:50:31,671][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8241/542000]	Time 0.38 (0.37)	Data 0.01 (0.00)	Loss 10.81361 (10.04169)	LR 0.00010	
+[2025-01-02 23:51:01,462][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8321/542000]	Time 0.37 (0.37)	Data 0.00 (0.00)	Loss 9.89246 (9.98324)	LR 0.00010	
+[2025-01-02 23:51:31,904][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8401/542000]	Time 0.40 (0.38)	Data 0.00 (0.00)	Loss 9.11948 (9.95366)	LR 0.00010	
+[2025-01-02 23:52:00,744][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8481/542000]	Time 0.34 (0.36)	Data 0.00 (0.00)	Loss 9.68514 (10.03692)	LR 0.00010	
+[2025-01-02 23:52:34,473][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8561/542000]	Time 0.43 (0.42)	Data 0.01 (0.00)	Loss 9.89095 (10.01671)	LR 0.00010	
+[2025-01-02 23:53:10,002][   train_val.py][line: 308][    INFO] Epoch: [16/1000]	Iter: [8641/542000]	Time 0.38 (0.44)	Data 0.00 (0.00)	Loss 10.06880 (10.06732)	LR 0.00010	
+[2025-01-02 23:53:44,643][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [8721/542000]	Time 0.37 (0.44)	Data 0.00 (0.02)	Loss 9.44462 (9.83614)	LR 0.00010	
+[2025-01-02 23:54:14,773][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [8801/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 10.15949 (9.86198)	LR 0.00010	
+[2025-01-02 23:54:43,700][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [8881/542000]	Time 0.36 (0.36)	Data 0.00 (0.00)	Loss 11.56911 (10.14493)	LR 0.00010	
+[2025-01-02 23:55:13,107][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [8961/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 9.42616 (9.85183)	LR 0.00010	
+[2025-01-02 23:55:42,107][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [9041/542000]	Time 0.42 (0.36)	Data 0.00 (0.00)	Loss 10.64602 (10.05196)	LR 0.00010	
+[2025-01-02 23:56:13,561][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [9121/542000]	Time 0.37 (0.39)	Data 0.00 (0.00)	Loss 9.91035 (10.01620)	LR 0.00010	
+[2025-01-02 23:56:48,646][   train_val.py][line: 308][    INFO] Epoch: [17/1000]	Iter: [9201/542000]	Time 0.41 (0.44)	Data 0.00 (0.00)	Loss 11.21052 (10.02609)	LR 0.00010	
+[2025-01-02 23:57:24,660][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9281/542000]	Time 0.39 (0.46)	Data 0.00 (0.02)	Loss 9.15907 (9.98474)	LR 0.00010	
+[2025-01-02 23:57:59,647][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9361/542000]	Time 0.51 (0.44)	Data 0.00 (0.00)	Loss 9.66869 (9.93823)	LR 0.00010	
+[2025-01-02 23:58:29,992][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9441/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 9.97427 (10.00568)	LR 0.00010	
+[2025-01-02 23:59:00,288][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9521/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 9.84372 (9.92041)	LR 0.00010	
+[2025-01-02 23:59:29,596][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9601/542000]	Time 0.45 (0.37)	Data 0.00 (0.00)	Loss 10.53886 (10.06683)	LR 0.00010	
+[2025-01-03 00:00:00,423][   train_val.py][line: 308][    INFO] Epoch: [18/1000]	Iter: [9681/542000]	Time 0.39 (0.39)	Data 0.00 (0.00)	Loss 10.21107 (9.84401)	LR 0.00010	
+[2025-01-03 00:00:32,857][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [9761/542000]	Time 0.41 (0.63)	Data 0.00 (0.22)	Loss 10.78398 (9.94890)	LR 0.00010	
+[2025-01-03 00:01:07,947][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [9841/542000]	Time 0.42 (0.44)	Data 0.01 (0.00)	Loss 9.47998 (9.96396)	LR 0.00010	
+[2025-01-03 00:01:42,222][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [9921/542000]	Time 0.39 (0.43)	Data 0.00 (0.00)	Loss 10.45846 (10.00289)	LR 0.00010	
+[2025-01-03 00:02:15,406][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [10001/542000]	Time 0.39 (0.41)	Data 0.00 (0.00)	Loss 10.79580 (9.90842)	LR 0.00010	
+[2025-01-03 00:02:45,369][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [10081/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 9.26815 (9.97917)	LR 0.00010	
+[2025-01-03 00:03:15,240][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [10161/542000]	Time 0.36 (0.37)	Data 0.02 (0.00)	Loss 10.65174 (10.01823)	LR 0.00010	
+[2025-01-03 00:03:45,274][   train_val.py][line: 308][    INFO] Epoch: [19/1000]	Iter: [10241/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 10.89190 (9.94848)	LR 0.00010	
+[2025-01-03 00:04:26,050][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.137 (0.209)
+[2025-01-03 00:04:43,068][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.220 (0.189)
+[2025-01-03 00:05:02,310][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.227 (0.190)
+[2025-01-03 00:05:17,918][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.152 (0.182)
+[2025-01-03 00:05:35,048][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.168 (0.180)
+[2025-01-03 00:05:50,584][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.131 (0.176)
+[2025-01-03 00:06:07,412][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.125 (0.175)
+[2025-01-03 00:06:25,525][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.153 (0.175)
+[2025-01-03 00:06:43,383][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.141 (0.176)
+[2025-01-03 00:07:07,651][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.181 (0.182)
+[2025-01-03 00:07:26,252][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.214 (0.183)
+[2025-01-03 00:07:48,352][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.164 (0.186)
+[2025-01-03 00:08:10,049][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.410 (0.188)
+[2025-01-03 00:08:31,573][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.247 (0.190)
+[2025-01-03 00:08:52,817][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.104 (0.192)
+[2025-01-03 00:09:14,780][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.130 (0.193)
+[2025-01-03 00:09:36,023][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.264 (0.195)
+[2025-01-03 00:09:56,780][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.291 (0.195)
+[2025-01-03 00:10:18,366][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.144 (0.196)
+[2025-01-03 00:10:40,281][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.233 (0.198)
+[2025-01-03 00:11:01,243][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.186 (0.198)
+[2025-01-03 00:11:14,241][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-03 00:11:14,241][   train_val.py][line: 392][    INFO]  * Loss 5.81769	total_num=2162
+[2025-01-03 00:12:09,539][ eval_helper.py][line: 228][    INFO] 
+|  clsname   |  pixel   |   max    |   std    |
+|:----------:|:--------:|:--------:|:--------:|
+|    pcb4    | 0.977106 | 0.991683 | 0.978911 |
+|    pcb2    | 0.951519 |  0.9103  |  0.8222  |
+| macaroni1  | 0.967055 |  0.8415  |  0.6743  |
+|  capsules  | 0.97749  |  0.786   |  0.7445  |
+| pipe_fryum | 0.992731 |  0.9658  |  0.8952  |
+|    pcb1    | 0.984572 |  0.9407  |  0.6036  |
+|   candle   | 0.985219 |  0.9456  |  0.8868  |
+|    pcb3    | 0.973467 | 0.862871 | 0.794455 |
+| chewinggum | 0.986864 |  0.9862  |  0.865   |
+|   fryum    | 0.966185 |  0.8732  |  0.8708  |
+|   cashew   | 0.990143 |  0.9258  |  0.8834  |
+| macaroni2  | 0.962843 |  0.7624  |  0.6542  |
+|    mean    | 0.976266 | 0.899338 | 0.806114 |
+[2025-01-03 00:12:21,992][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10321/542000]	Time 0.41 (0.39)	Data 0.00 (0.05)	Loss 10.54654 (10.00631)	LR 0.00010	
+[2025-01-03 00:12:48,448][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10401/542000]	Time 0.29 (0.33)	Data 0.00 (0.00)	Loss 9.64966 (9.92454)	LR 0.00010	
+[2025-01-03 00:13:12,733][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10481/542000]	Time 0.32 (0.30)	Data 0.00 (0.00)	Loss 9.80672 (9.96217)	LR 0.00010	
+[2025-01-03 00:13:38,041][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10561/542000]	Time 0.33 (0.32)	Data 0.00 (0.00)	Loss 8.84121 (9.92543)	LR 0.00010	
+[2025-01-03 00:14:04,157][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10641/542000]	Time 0.28 (0.33)	Data 0.00 (0.00)	Loss 9.92380 (10.06704)	LR 0.00010	
+[2025-01-03 00:14:29,017][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10721/542000]	Time 0.39 (0.31)	Data 0.00 (0.00)	Loss 11.29608 (9.90022)	LR 0.00010	
+[2025-01-03 00:14:58,513][   train_val.py][line: 308][    INFO] Epoch: [20/1000]	Iter: [10801/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.49995 (10.08973)	LR 0.00010	
+[2025-01-03 00:15:29,698][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [10881/542000]	Time 0.32 (0.41)	Data 0.00 (0.03)	Loss 10.29670 (9.78578)	LR 0.00010	
+[2025-01-03 00:16:02,521][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [10961/542000]	Time 0.49 (0.41)	Data 0.02 (0.00)	Loss 9.45701 (9.89661)	LR 0.00010	
+[2025-01-03 00:16:35,071][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [11041/542000]	Time 0.27 (0.41)	Data 0.00 (0.01)	Loss 11.79925 (10.03427)	LR 0.00010	
+[2025-01-03 00:16:59,994][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [11121/542000]	Time 0.32 (0.31)	Data 0.00 (0.00)	Loss 10.68153 (9.89864)	LR 0.00010	
+[2025-01-03 00:17:25,027][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [11201/542000]	Time 0.31 (0.31)	Data 0.01 (0.00)	Loss 9.67567 (9.94708)	LR 0.00010	
+[2025-01-03 00:17:51,744][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [11281/542000]	Time 0.36 (0.33)	Data 0.00 (0.00)	Loss 10.19465 (10.03033)	LR 0.00010	
+[2025-01-03 00:18:22,038][   train_val.py][line: 308][    INFO] Epoch: [21/1000]	Iter: [11361/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 10.45954 (10.14528)	LR 0.00010	
+[2025-01-03 00:18:52,600][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11441/542000]	Time 0.41 (0.38)	Data 0.00 (0.02)	Loss 10.45282 (10.01118)	LR 0.00010	
+[2025-01-03 00:19:22,866][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11521/542000]	Time 0.42 (0.38)	Data 0.00 (0.00)	Loss 10.28707 (9.87613)	LR 0.00010	
+[2025-01-03 00:19:52,725][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11601/542000]	Time 0.37 (0.37)	Data 0.01 (0.00)	Loss 10.76990 (9.81165)	LR 0.00010	
+[2025-01-03 00:20:21,604][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11681/542000]	Time 0.38 (0.36)	Data 0.00 (0.00)	Loss 10.94019 (10.09104)	LR 0.00010	
+[2025-01-03 00:20:51,237][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11761/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.96891 (9.94001)	LR 0.00010	
+[2025-01-03 00:21:19,606][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11841/542000]	Time 0.36 (0.35)	Data 0.00 (0.00)	Loss 11.04567 (10.13586)	LR 0.00010	
+[2025-01-03 00:21:50,380][   train_val.py][line: 308][    INFO] Epoch: [22/1000]	Iter: [11921/542000]	Time 0.31 (0.38)	Data 0.00 (0.00)	Loss 9.46673 (9.99097)	LR 0.00010	
+[2025-01-03 00:22:24,756][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12001/542000]	Time 0.40 (0.43)	Data 0.00 (0.01)	Loss 8.73397 (9.91152)	LR 0.00010	
+[2025-01-03 00:22:58,709][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12081/542000]	Time 0.48 (0.42)	Data 0.00 (0.00)	Loss 9.27547 (10.02944)	LR 0.00010	
+[2025-01-03 00:23:34,109][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12161/542000]	Time 0.38 (0.44)	Data 0.00 (0.00)	Loss 10.30108 (9.88869)	LR 0.00010	
+[2025-01-03 00:24:08,521][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12241/542000]	Time 0.38 (0.43)	Data 0.00 (0.00)	Loss 9.79780 (9.95482)	LR 0.00010	
+[2025-01-03 00:24:38,778][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12321/542000]	Time 0.42 (0.38)	Data 0.00 (0.00)	Loss 10.00596 (10.02968)	LR 0.00010	
+[2025-01-03 00:25:09,225][   train_val.py][line: 308][    INFO] Epoch: [23/1000]	Iter: [12401/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 9.31587 (10.00508)	LR 0.00010	
+[2025-01-03 00:25:40,423][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12481/542000]	Time 0.36 (0.45)	Data 0.00 (0.07)	Loss 9.62070 (9.66377)	LR 0.00010	
+[2025-01-03 00:26:10,926][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12561/542000]	Time 0.38 (0.38)	Data 0.00 (0.00)	Loss 11.24474 (10.05197)	LR 0.00010	
+[2025-01-03 00:26:40,834][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12641/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 11.04498 (9.96965)	LR 0.00010	
+[2025-01-03 00:27:10,393][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12721/542000]	Time 0.44 (0.37)	Data 0.00 (0.00)	Loss 9.71131 (10.00768)	LR 0.00010	
+[2025-01-03 00:27:39,830][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12801/542000]	Time 0.46 (0.37)	Data 0.03 (0.00)	Loss 9.76678 (10.00910)	LR 0.00010	
+[2025-01-03 00:28:09,414][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12881/542000]	Time 0.42 (0.37)	Data 0.00 (0.00)	Loss 10.77342 (9.87693)	LR 0.00010	
+[2025-01-03 00:28:40,111][   train_val.py][line: 308][    INFO] Epoch: [24/1000]	Iter: [12961/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 9.49103 (10.01023)	LR 0.00010	
+[2025-01-03 00:29:13,487][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13041/542000]	Time 0.33 (0.46)	Data 0.00 (0.04)	Loss 9.53541 (9.89073)	LR 0.00010	
+[2025-01-03 00:29:49,322][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13121/542000]	Time 0.37 (0.45)	Data 0.00 (0.00)	Loss 9.10076 (9.89325)	LR 0.00010	
+[2025-01-03 00:30:25,222][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13201/542000]	Time 0.49 (0.45)	Data 0.02 (0.00)	Loss 9.25999 (9.99649)	LR 0.00010	
+[2025-01-03 00:30:59,913][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13281/542000]	Time 0.53 (0.43)	Data 0.02 (0.00)	Loss 9.21679 (9.89099)	LR 0.00010	
+[2025-01-03 00:31:29,915][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13361/542000]	Time 0.38 (0.37)	Data 0.00 (0.00)	Loss 10.58445 (9.98776)	LR 0.00010	
+[2025-01-03 00:31:59,549][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13441/542000]	Time 0.38 (0.37)	Data 0.03 (0.00)	Loss 8.81536 (9.96531)	LR 0.00010	
+[2025-01-03 00:32:29,449][   train_val.py][line: 308][    INFO] Epoch: [25/1000]	Iter: [13521/542000]	Time 0.34 (0.37)	Data 0.00 (0.00)	Loss 9.97520 (9.96550)	LR 0.00010	
+[2025-01-03 00:33:00,340][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [13601/542000]	Time 0.34 (0.39)	Data 0.00 (0.02)	Loss 10.53272 (10.15692)	LR 0.00010	
+[2025-01-03 00:33:30,819][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [13681/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 9.06985 (9.87844)	LR 0.00010	
+[2025-01-03 00:33:59,956][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [13761/542000]	Time 0.43 (0.36)	Data 0.00 (0.00)	Loss 9.78790 (10.03753)	LR 0.00010	
+[2025-01-03 00:34:29,683][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [13841/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.45061 (9.97593)	LR 0.00010	
+[2025-01-03 00:35:00,903][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [13921/542000]	Time 0.37 (0.39)	Data 0.00 (0.00)	Loss 9.56718 (10.03359)	LR 0.00010	
+[2025-01-03 00:35:32,813][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [14001/542000]	Time 0.40 (0.40)	Data 0.00 (0.00)	Loss 9.12711 (9.88102)	LR 0.00010	
+[2025-01-03 00:36:06,877][   train_val.py][line: 308][    INFO] Epoch: [26/1000]	Iter: [14081/542000]	Time 0.41 (0.43)	Data 0.00 (0.00)	Loss 9.09067 (10.00826)	LR 0.00010	
+[2025-01-03 00:36:42,683][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14161/542000]	Time 0.41 (0.44)	Data 0.00 (0.02)	Loss 8.99721 (9.99639)	LR 0.00010	
+[2025-01-03 00:37:16,766][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14241/542000]	Time 0.35 (0.43)	Data 0.02 (0.00)	Loss 10.38630 (9.93753)	LR 0.00010	
+[2025-01-03 00:37:46,695][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14321/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.82793 (9.83490)	LR 0.00010	
+[2025-01-03 00:38:16,563][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14401/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 11.24863 (10.12187)	LR 0.00010	
+[2025-01-03 00:38:46,954][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14481/542000]	Time 0.41 (0.38)	Data 0.00 (0.00)	Loss 12.12423 (10.04347)	LR 0.00010	
+[2025-01-03 00:39:16,115][   train_val.py][line: 308][    INFO] Epoch: [27/1000]	Iter: [14561/542000]	Time 0.33 (0.36)	Data 0.00 (0.00)	Loss 10.25006 (10.02166)	LR 0.00010	
+[2025-01-03 00:39:47,670][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [14641/542000]	Time 0.30 (0.54)	Data 0.00 (0.15)	Loss 9.96433 (9.40731)	LR 0.00010	
+[2025-01-03 00:40:16,462][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [14721/542000]	Time 0.36 (0.36)	Data 0.00 (0.00)	Loss 9.30919 (10.00145)	LR 0.00010	
+[2025-01-03 00:40:45,612][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [14801/542000]	Time 0.33 (0.36)	Data 0.00 (0.00)	Loss 10.18854 (9.86488)	LR 0.00010	
+[2025-01-03 00:41:16,695][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [14881/542000]	Time 0.36 (0.39)	Data 0.00 (0.00)	Loss 9.77073 (9.94808)	LR 0.00010	
+[2025-01-03 00:41:46,921][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [14961/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 10.00924 (10.01386)	LR 0.00010	
+[2025-01-03 00:42:17,859][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [15041/542000]	Time 0.37 (0.39)	Data 0.00 (0.00)	Loss 10.17536 (10.01183)	LR 0.00010	
+[2025-01-03 00:42:51,468][   train_val.py][line: 308][    INFO] Epoch: [28/1000]	Iter: [15121/542000]	Time 0.40 (0.42)	Data 0.00 (0.00)	Loss 10.63360 (10.05696)	LR 0.00010	
+[2025-01-03 00:43:27,565][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15201/542000]	Time 0.40 (0.47)	Data 0.00 (0.04)	Loss 9.22224 (9.82744)	LR 0.00010	
+[2025-01-03 00:44:02,445][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15281/542000]	Time 0.35 (0.44)	Data 0.00 (0.00)	Loss 9.79700 (9.89132)	LR 0.00010	
+[2025-01-03 00:44:31,865][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15361/542000]	Time 0.34 (0.37)	Data 0.00 (0.00)	Loss 9.76054 (9.97408)	LR 0.00010	
+[2025-01-03 00:45:01,624][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15441/542000]	Time 0.41 (0.37)	Data 0.00 (0.00)	Loss 9.95663 (10.09835)	LR 0.00010	
+[2025-01-03 00:45:31,213][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15521/542000]	Time 0.46 (0.37)	Data 0.00 (0.00)	Loss 9.21163 (9.97417)	LR 0.00010	
+[2025-01-03 00:46:01,768][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15601/542000]	Time 0.33 (0.38)	Data 0.00 (0.00)	Loss 10.02579 (10.06328)	LR 0.00010	
+[2025-01-03 00:46:31,874][   train_val.py][line: 308][    INFO] Epoch: [29/1000]	Iter: [15681/542000]	Time 0.37 (0.38)	Data 0.00 (0.00)	Loss 9.51667 (9.98904)	LR 0.00010	
+[2025-01-03 00:47:05,585][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.119 (0.206)
+[2025-01-03 00:47:27,548][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.180 (0.213)
+[2025-01-03 00:47:49,262][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.268 (0.214)
+[2025-01-03 00:48:11,026][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.122 (0.215)
+[2025-01-03 00:48:32,302][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.266 (0.215)
+[2025-01-03 00:48:52,742][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.279 (0.213)
+[2025-01-03 00:49:11,972][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.215 (0.210)
+[2025-01-03 00:49:30,426][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.189 (0.207)
+[2025-01-03 00:49:47,880][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.242 (0.203)
+[2025-01-03 00:50:05,141][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.168 (0.200)
+[2025-01-03 00:50:23,583][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.181 (0.199)
+[2025-01-03 00:50:41,067][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.127 (0.197)
+[2025-01-03 00:51:01,586][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.157 (0.197)
+[2025-01-03 00:51:22,296][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.190 (0.198)
+[2025-01-03 00:51:42,428][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.170 (0.198)
+[2025-01-03 00:52:01,122][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.199 (0.198)
+[2025-01-03 00:52:21,620][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.142 (0.198)
+[2025-01-03 00:52:44,336][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.191 (0.200)
+[2025-01-03 00:53:05,111][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.317 (0.200)
+[2025-01-03 00:53:27,111][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.266 (0.201)
+[2025-01-03 00:53:52,518][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.198 (0.204)
+[2025-01-03 00:54:07,746][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-03 00:54:07,746][   train_val.py][line: 392][    INFO]  * Loss 5.85561	total_num=2162
+[2025-01-03 00:55:05,526][ eval_helper.py][line: 228][    INFO] 
+|  clsname   |  pixel   |   max    |   std    |
+|:----------:|:--------:|:--------:|:--------:|
+|    pcb4    | 0.976508 | 0.992277 | 0.975644 |
+|    pcb2    | 0.950111 |  0.9037  |  0.8041  |
+| macaroni1  | 0.963766 |  0.8424  |  0.6608  |
+|  capsules  | 0.977104 | 0.786167 |   0.74   |
+| pipe_fryum | 0.992483 |  0.9692  |  0.8882  |
+|    pcb1    | 0.983992 |  0.9419  |  0.5667  |
+|   candle   | 0.984467 |  0.9461  |  0.8725  |
+|    pcb3    | 0.970721 | 0.874554 |   0.8    |
+| chewinggum | 0.986947 |  0.9846  |  0.8658  |
+|   fryum    | 0.965268 |  0.8736  |  0.8676  |
+|   cashew   | 0.990392 |  0.9294  |  0.876   |
+| macaroni2  | 0.961831 |  0.7682  |  0.6403  |
+|    mean    | 0.975299 | 0.901008 | 0.79647  |
+[2025-01-03 00:55:24,549][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [15761/542000]	Time 0.33 (0.38)	Data 0.00 (0.03)	Loss 10.74695 (9.86733)	LR 0.00010	
+[2025-01-03 00:55:54,670][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [15841/542000]	Time 0.53 (0.38)	Data 0.04 (0.00)	Loss 9.96683 (10.08162)	LR 0.00010	
+[2025-01-03 00:56:23,507][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [15921/542000]	Time 0.40 (0.36)	Data 0.00 (0.00)	Loss 9.56448 (9.98648)	LR 0.00010	
+[2025-01-03 00:56:52,580][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [16001/542000]	Time 0.51 (0.36)	Data 0.01 (0.01)	Loss 9.84215 (9.93231)	LR 0.00010	
+[2025-01-03 00:57:18,899][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [16081/542000]	Time 0.32 (0.33)	Data 0.02 (0.00)	Loss 10.10038 (10.19286)	LR 0.00010	
+[2025-01-03 00:57:44,542][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [16161/542000]	Time 0.29 (0.32)	Data 0.02 (0.00)	Loss 11.29567 (9.90534)	LR 0.00010	
+[2025-01-03 00:58:10,715][   train_val.py][line: 308][    INFO] Epoch: [30/1000]	Iter: [16241/542000]	Time 0.30 (0.33)	Data 0.00 (0.00)	Loss 12.05137 (10.02433)	LR 0.00010	
+[2025-01-03 00:58:37,603][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16321/542000]	Time 0.40 (0.34)	Data 0.00 (0.02)	Loss 9.74045 (10.05089)	LR 0.00010	
+[2025-01-03 00:59:03,547][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16401/542000]	Time 0.30 (0.32)	Data 0.00 (0.00)	Loss 10.16805 (9.82769)	LR 0.00010	
+[2025-01-03 00:59:29,302][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16481/542000]	Time 0.34 (0.32)	Data 0.00 (0.00)	Loss 10.42721 (9.98458)	LR 0.00010	
+[2025-01-03 00:59:52,669][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16561/542000]	Time 0.23 (0.29)	Data 0.00 (0.00)	Loss 11.59359 (9.98498)	LR 0.00010	
+[2025-01-03 01:00:12,889][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16641/542000]	Time 0.21 (0.25)	Data 0.00 (0.00)	Loss 8.98929 (9.89910)	LR 0.00010	
+[2025-01-03 01:00:35,433][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16721/542000]	Time 0.48 (0.28)	Data 0.00 (0.00)	Loss 12.69632 (10.16291)	LR 0.00010	
+[2025-01-03 01:01:09,929][   train_val.py][line: 308][    INFO] Epoch: [31/1000]	Iter: [16801/542000]	Time 0.41 (0.43)	Data 0.00 (0.00)	Loss 8.92443 (9.97169)	LR 0.00010	
+[2025-01-03 01:01:45,878][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [16881/542000]	Time 0.46 (0.45)	Data 0.00 (0.02)	Loss 12.30886 (9.95452)	LR 0.00010	
+[2025-01-03 01:02:22,760][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [16961/542000]	Time 0.66 (0.46)	Data 0.00 (0.00)	Loss 9.68547 (9.91119)	LR 0.00010	
+[2025-01-03 01:02:53,972][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [17041/542000]	Time 0.40 (0.39)	Data 0.00 (0.00)	Loss 10.56121 (9.92332)	LR 0.00010	
+[2025-01-03 01:03:23,769][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [17121/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.73524 (10.10566)	LR 0.00010	
+[2025-01-03 01:03:53,151][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [17201/542000]	Time 0.36 (0.37)	Data 0.01 (0.00)	Loss 13.31742 (10.02550)	LR 0.00010	
+[2025-01-03 01:04:22,739][   train_val.py][line: 308][    INFO] Epoch: [32/1000]	Iter: [17281/542000]	Time 0.45 (0.37)	Data 0.00 (0.00)	Loss 10.69374 (9.97780)	LR 0.00010	
+[2025-01-03 01:04:52,736][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17361/542000]	Time 0.41 (0.42)	Data 0.00 (0.05)	Loss 10.36416 (9.72773)	LR 0.00010	
+[2025-01-03 01:05:22,499][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17441/542000]	Time 0.37 (0.37)	Data 0.00 (0.00)	Loss 9.92155 (9.90447)	LR 0.00010	
+[2025-01-03 01:05:54,645][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17521/542000]	Time 0.72 (0.40)	Data 0.00 (0.00)	Loss 10.18434 (9.91790)	LR 0.00010	
+[2025-01-03 01:06:30,105][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17601/542000]	Time 0.44 (0.44)	Data 0.00 (0.00)	Loss 9.31178 (10.03295)	LR 0.00010	
+[2025-01-03 01:07:06,487][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17681/542000]	Time 0.51 (0.45)	Data 0.01 (0.00)	Loss 9.79134 (10.13107)	LR 0.00010	
+[2025-01-03 01:07:39,985][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17761/542000]	Time 0.43 (0.42)	Data 0.02 (0.00)	Loss 9.97952 (9.84861)	LR 0.00010	
+[2025-01-03 01:08:09,683][   train_val.py][line: 308][    INFO] Epoch: [33/1000]	Iter: [17841/542000]	Time 0.39 (0.37)	Data 0.00 (0.00)	Loss 10.49853 (10.01300)	LR 0.00010	
+[2025-01-03 01:08:40,433][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [17921/542000]	Time 0.35 (0.40)	Data 0.00 (0.03)	Loss 10.76324 (9.98744)	LR 0.00010	
+[2025-01-03 01:09:10,697][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18001/542000]	Time 0.35 (0.38)	Data 0.00 (0.00)	Loss 9.60595 (9.96939)	LR 0.00010	
+[2025-01-03 01:09:40,522][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18081/542000]	Time 0.49 (0.37)	Data 0.00 (0.00)	Loss 10.09697 (10.02947)	LR 0.00010	
+[2025-01-03 01:10:11,317][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18161/542000]	Time 0.39 (0.38)	Data 0.00 (0.00)	Loss 10.20358 (10.15568)	LR 0.00010	
+[2025-01-03 01:10:46,667][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18241/542000]	Time 0.34 (0.44)	Data 0.00 (0.00)	Loss 12.80556 (10.14214)	LR 0.00010	
+[2025-01-03 01:11:22,103][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18321/542000]	Time 0.47 (0.44)	Data 0.00 (0.00)	Loss 10.31409 (9.87608)	LR 0.00010	
+[2025-01-03 01:11:56,268][   train_val.py][line: 308][    INFO] Epoch: [34/1000]	Iter: [18401/542000]	Time 0.49 (0.43)	Data 0.00 (0.00)	Loss 9.35527 (10.04027)	LR 0.00010	
+[2025-01-03 01:12:26,806][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18481/542000]	Time 0.33 (0.40)	Data 0.00 (0.02)	Loss 10.17056 (9.81124)	LR 0.00010	
+[2025-01-03 01:12:56,360][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18561/542000]	Time 0.44 (0.37)	Data 0.00 (0.00)	Loss 10.10571 (9.89407)	LR 0.00010	
+[2025-01-03 01:13:27,095][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18641/542000]	Time 0.33 (0.38)	Data 0.00 (0.00)	Loss 10.37804 (10.14360)	LR 0.00010	
+[2025-01-03 01:13:56,473][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18721/542000]	Time 0.35 (0.37)	Data 0.00 (0.00)	Loss 9.90524 (9.79905)	LR 0.00010	
+[2025-01-03 01:14:28,775][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18801/542000]	Time 0.29 (0.40)	Data 0.00 (0.00)	Loss 10.11944 (10.13254)	LR 0.00010	
+[2025-01-03 01:15:02,292][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18881/542000]	Time 0.43 (0.42)	Data 0.00 (0.00)	Loss 9.73264 (9.81517)	LR 0.00010	
+[2025-01-03 01:15:37,484][   train_val.py][line: 308][    INFO] Epoch: [35/1000]	Iter: [18961/542000]	Time 0.41 (0.44)	Data 0.00 (0.00)	Loss 9.94945 (10.11969)	LR 0.00010	
+[2025-01-03 01:16:13,059][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19041/542000]	Time 0.37 (0.44)	Data 0.00 (0.02)	Loss 8.87237 (10.06413)	LR 0.00010	
+[2025-01-03 01:16:43,025][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19121/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 10.43803 (9.91120)	LR 0.00010	
+[2025-01-03 01:17:13,118][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19201/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 10.46995 (10.00539)	LR 0.00010	
+[2025-01-03 01:17:43,608][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19281/542000]	Time 0.52 (0.38)	Data 0.00 (0.00)	Loss 9.70781 (9.96405)	LR 0.00010	
+[2025-01-03 01:18:13,679][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19361/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 9.93610 (10.01058)	LR 0.00010	
+[2025-01-03 01:18:43,103][   train_val.py][line: 308][    INFO] Epoch: [36/1000]	Iter: [19441/542000]	Time 0.37 (0.37)	Data 0.00 (0.00)	Loss 9.26383 (10.04264)	LR 0.00010	
+[2025-01-03 01:19:12,356][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19521/542000]	Time 0.35 (0.45)	Data 0.00 (0.11)	Loss 8.56283 (10.11470)	LR 0.00010	
+[2025-01-03 01:19:41,174][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19601/542000]	Time 0.42 (0.36)	Data 0.01 (0.00)	Loss 9.17804 (9.96756)	LR 0.00010	
+[2025-01-03 01:20:10,421][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19681/542000]	Time 0.33 (0.37)	Data 0.00 (0.00)	Loss 10.35509 (9.91650)	LR 0.00010	
+[2025-01-03 01:20:40,758][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19761/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 10.81859 (10.13731)	LR 0.00010	
+[2025-01-03 01:21:12,112][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19841/542000]	Time 0.39 (0.39)	Data 0.00 (0.00)	Loss 10.70069 (10.05743)	LR 0.00010	
+[2025-01-03 01:21:45,956][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [19921/542000]	Time 0.54 (0.42)	Data 0.00 (0.00)	Loss 10.11433 (9.99470)	LR 0.00010	
+[2025-01-03 01:22:21,564][   train_val.py][line: 308][    INFO] Epoch: [37/1000]	Iter: [20001/542000]	Time 0.48 (0.44)	Data 0.00 (0.00)	Loss 10.43912 (9.86179)	LR 0.00010	
+[2025-01-03 01:22:57,167][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20081/542000]	Time 0.41 (0.45)	Data 0.00 (0.04)	Loss 9.02967 (9.94567)	LR 0.00010	
+[2025-01-03 01:23:28,642][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20161/542000]	Time 0.34 (0.39)	Data 0.00 (0.00)	Loss 9.89493 (10.02889)	LR 0.00010	
+[2025-01-03 01:23:58,476][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20241/542000]	Time 0.32 (0.37)	Data 0.00 (0.00)	Loss 9.74752 (9.98424)	LR 0.00010	
+[2025-01-03 01:24:28,538][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20321/542000]	Time 0.37 (0.38)	Data 0.00 (0.00)	Loss 10.15219 (10.05721)	LR 0.00010	
+[2025-01-03 01:24:59,060][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20401/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 9.72164 (10.01400)	LR 0.00010	
+[2025-01-03 01:25:29,518][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20481/542000]	Time 0.36 (0.38)	Data 0.00 (0.00)	Loss 8.68893 (10.07748)	LR 0.00010	
+[2025-01-03 01:25:58,521][   train_val.py][line: 308][    INFO] Epoch: [38/1000]	Iter: [20561/542000]	Time 0.37 (0.36)	Data 0.00 (0.00)	Loss 9.56484 (9.95534)	LR 0.00010	
+[2025-01-03 01:26:27,888][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [20641/542000]	Time 0.47 (0.38)	Data 0.00 (0.02)	Loss 9.57191 (9.90242)	LR 0.00010	
+[2025-01-03 01:26:57,574][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [20721/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 10.67018 (9.99444)	LR 0.00010	
+[2025-01-03 01:27:27,841][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [20801/542000]	Time 0.34 (0.38)	Data 0.00 (0.00)	Loss 9.57574 (9.83303)	LR 0.00010	
+[2025-01-03 01:27:59,649][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [20881/542000]	Time 0.37 (0.40)	Data 0.00 (0.00)	Loss 9.37246 (9.95287)	LR 0.00010	
+[2025-01-03 01:28:33,085][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [20961/542000]	Time 0.42 (0.42)	Data 0.00 (0.00)	Loss 10.29247 (10.01938)	LR 0.00010	
+[2025-01-03 01:29:06,702][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [21041/542000]	Time 0.44 (0.42)	Data 0.00 (0.00)	Loss 9.51933 (9.94662)	LR 0.00010	
+[2025-01-03 01:29:41,241][   train_val.py][line: 308][    INFO] Epoch: [39/1000]	Iter: [21121/542000]	Time 0.45 (0.43)	Data 0.00 (0.00)	Loss 10.44126 (10.02823)	LR 0.00010	
+[2025-01-03 01:30:08,660][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.225 (0.205)
+[2025-01-03 01:30:27,204][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.151 (0.195)
+[2025-01-03 01:30:45,620][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.182 (0.191)
+[2025-01-03 01:31:03,467][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.156 (0.188)
+[2025-01-03 01:31:21,300][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.133 (0.186)
+[2025-01-03 01:31:39,202][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.263 (0.185)
+[2025-01-03 01:31:57,048][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.167 (0.184)
+[2025-01-03 01:32:15,312][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.144 (0.184)
+[2025-01-03 01:32:46,824][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.279 (0.199)
+[2025-01-03 01:33:14,832][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.114 (0.207)
+[2025-01-03 01:33:38,785][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.119 (0.210)
+[2025-01-03 01:34:01,344][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.151 (0.211)
+[2025-01-03 01:34:17,368][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.149 (0.207)
+[2025-01-03 01:34:35,617][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.084 (0.205)
+[2025-01-03 01:34:53,823][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.105 (0.204)
+[2025-01-03 01:35:10,639][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.204 (0.202)
+[2025-01-03 01:35:27,641][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.232 (0.200)
+[2025-01-03 01:35:49,240][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.178 (0.201)
+[2025-01-03 01:36:13,101][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.436 (0.203)
+[2025-01-03 01:36:38,482][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.294 (0.205)
+[2025-01-03 01:37:04,138][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.194 (0.208)
+[2025-01-03 01:37:19,593][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-03 01:37:19,593][   train_val.py][line: 392][    INFO]  * Loss 5.83984	total_num=2162
+[2025-01-03 01:38:25,158][ eval_helper.py][line: 228][    INFO] 
+|  clsname   |  pixel   |   max    |   std    |
+|:----------:|:--------:|:--------:|:--------:|
+|    pcb4    | 0.97607  | 0.991584 | 0.972178 |
+|    pcb2    | 0.947875 |  0.9032  |  0.7995  |
+| macaroni1  | 0.961417 |  0.8366  |  0.6634  |
+|  capsules  | 0.973962 |  0.7885  | 0.727833 |
+| pipe_fryum | 0.992433 |  0.959   |  0.8874  |
+|    pcb1    | 0.983717 |  0.943   |  0.529   |
+|   candle   | 0.981989 |  0.9427  |  0.8649  |
+|    pcb3    | 0.971053 | 0.878218 | 0.798713 |
+| chewinggum | 0.986803 |  0.9802  |  0.8556  |
+|   fryum    | 0.963921 |  0.876   |  0.8714  |
+|   cashew   | 0.990194 |  0.9278  |  0.8882  |
+| macaroni2  | 0.963438 |  0.7638  |  0.6399  |
+|    mean    | 0.974406 | 0.899217 | 0.791502 |
+[2025-01-03 01:38:52,156][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21201/542000]	Time 0.27 (0.39)	Data 0.00 (0.02)	Loss 9.70894 (9.98119)	LR 0.00010	
+[2025-01-03 01:39:21,965][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21281/542000]	Time 0.27 (0.37)	Data 0.01 (0.00)	Loss 10.57885 (9.78726)	LR 0.00010	
+[2025-01-03 01:39:51,494][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21361/542000]	Time 0.45 (0.37)	Data 0.00 (0.00)	Loss 8.67329 (9.88287)	LR 0.00010	
+[2025-01-03 01:40:21,191][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21441/542000]	Time 0.42 (0.37)	Data 0.00 (0.00)	Loss 9.52991 (10.01293)	LR 0.00010	
+[2025-01-03 01:40:49,446][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21521/542000]	Time 0.37 (0.35)	Data 0.00 (0.00)	Loss 10.21799 (10.01758)	LR 0.00010	
+[2025-01-03 01:41:18,822][   train_val.py][line: 308][    INFO] Epoch: [40/1000]	Iter: [21601/542000]	Time 0.36 (0.37)	Data 0.02 (0.00)	Loss 9.64463 (9.99760)	LR 0.00010	
+[2025-01-03 01:41:46,820][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [21681/542000]	Time 2.15 (2.15)	Data 1.71 (1.71)	Loss 10.24693 (10.24693)	LR 0.00010	
+[2025-01-03 01:42:16,640][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [21761/542000]	Time 0.36 (0.37)	Data 0.00 (0.00)	Loss 10.61283 (9.99255)	LR 0.00010	
+[2025-01-03 01:42:45,714][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [21841/542000]	Time 0.32 (0.36)	Data 0.00 (0.00)	Loss 10.01943 (9.98292)	LR 0.00010	
+[2025-01-03 01:43:15,045][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [21921/542000]	Time 0.41 (0.37)	Data 0.00 (0.00)	Loss 10.15563 (9.92778)	LR 0.00010	
+[2025-01-03 01:43:48,012][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [22001/542000]	Time 0.38 (0.41)	Data 0.00 (0.01)	Loss 8.74758 (9.97146)	LR 0.00010	
+[2025-01-03 01:44:22,786][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [22081/542000]	Time 0.38 (0.43)	Data 0.00 (0.01)	Loss 10.12094 (9.95765)	LR 0.00010	
+[2025-01-03 01:45:02,114][   train_val.py][line: 308][    INFO] Epoch: [41/1000]	Iter: [22161/542000]	Time 0.54 (0.49)	Data 0.00 (0.01)	Loss 10.28443 (9.97806)	LR 0.00010	
+[2025-01-03 01:45:44,257][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22241/542000]	Time 0.39 (0.61)	Data 0.00 (0.08)	Loss 10.30900 (9.77063)	LR 0.00010	
+[2025-01-03 01:46:19,354][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22321/542000]	Time 0.33 (0.44)	Data 0.00 (0.00)	Loss 10.82066 (9.94153)	LR 0.00010	
+[2025-01-03 01:46:54,294][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22401/542000]	Time 0.44 (0.44)	Data 0.00 (0.00)	Loss 10.01808 (9.92241)	LR 0.00010	
+[2025-01-03 01:47:28,358][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22481/542000]	Time 0.53 (0.43)	Data 0.00 (0.00)	Loss 10.52911 (10.01326)	LR 0.00010	
+[2025-01-03 01:48:03,357][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22561/542000]	Time 0.38 (0.44)	Data 0.00 (0.00)	Loss 11.13955 (10.04740)	LR 0.00010	
+[2025-01-03 01:48:41,233][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22641/542000]	Time 0.54 (0.47)	Data 0.00 (0.01)	Loss 10.65867 (9.97204)	LR 0.00010	
+[2025-01-03 01:49:16,751][   train_val.py][line: 308][    INFO] Epoch: [42/1000]	Iter: [22721/542000]	Time 0.35 (0.44)	Data 0.00 (0.01)	Loss 9.83980 (10.02421)	LR 0.00010	
+[2025-01-03 01:49:54,068][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [22801/542000]	Time 0.39 (0.50)	Data 0.01 (0.04)	Loss 9.10227 (9.98728)	LR 0.00010	
+[2025-01-03 01:50:25,207][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [22881/542000]	Time 0.35 (0.39)	Data 0.00 (0.00)	Loss 10.23416 (10.02891)	LR 0.00010	
+[2025-01-03 01:50:56,604][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [22961/542000]	Time 0.38 (0.39)	Data 0.00 (0.00)	Loss 10.51954 (10.00956)	LR 0.00010	
+[2025-01-03 01:51:27,353][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [23041/542000]	Time 0.30 (0.38)	Data 0.00 (0.00)	Loss 10.83127 (9.89147)	LR 0.00010	
+[2025-01-03 01:52:00,346][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [23121/542000]	Time 0.46 (0.41)	Data 0.00 (0.00)	Loss 11.23226 (9.94392)	LR 0.00010	
+[2025-01-03 01:52:35,379][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [23201/542000]	Time 0.36 (0.44)	Data 0.00 (0.00)	Loss 10.29424 (10.11100)	LR 0.00010	
+[2025-01-03 01:53:13,128][   train_val.py][line: 308][    INFO] Epoch: [43/1000]	Iter: [23281/542000]	Time 0.53 (0.47)	Data 0.00 (0.00)	Loss 10.44638 (9.90997)	LR 0.00010	
+[2025-01-03 01:53:56,235][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23361/542000]	Time 0.54 (0.55)	Data 0.00 (0.03)	Loss 9.84067 (10.00918)	LR 0.00010	
+[2025-01-03 01:54:37,171][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23441/542000]	Time 0.29 (0.51)	Data 0.00 (0.01)	Loss 10.99822 (9.95891)	LR 0.00010	
+[2025-01-03 01:55:12,999][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23521/542000]	Time 0.38 (0.45)	Data 0.00 (0.00)	Loss 10.42755 (10.08786)	LR 0.00010	
+[2025-01-03 01:55:48,928][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23601/542000]	Time 0.35 (0.45)	Data 0.00 (0.00)	Loss 10.25543 (10.09045)	LR 0.00010	
+[2025-01-03 01:56:26,940][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23681/542000]	Time 0.41 (0.48)	Data 0.01 (0.00)	Loss 10.44840 (9.84975)	LR 0.00010	
+[2025-01-03 01:57:04,422][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23761/542000]	Time 0.46 (0.47)	Data 0.00 (0.00)	Loss 11.42140 (10.01741)	LR 0.00010	
+[2025-01-03 01:57:39,492][   train_val.py][line: 308][    INFO] Epoch: [44/1000]	Iter: [23841/542000]	Time 0.41 (0.44)	Data 0.00 (0.00)	Loss 10.24334 (9.91684)	LR 0.00010	
+[2025-01-03 01:58:13,705][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [23921/542000]	Time 0.35 (0.43)	Data 0.00 (0.01)	Loss 11.65035 (10.02562)	LR 0.00010	
+[2025-01-03 01:58:47,244][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [24001/542000]	Time 0.37 (0.42)	Data 0.00 (0.00)	Loss 10.08667 (9.99337)	LR 0.00010	
+[2025-01-03 01:59:22,310][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [24081/542000]	Time 0.64 (0.44)	Data 0.00 (0.00)	Loss 9.89839 (9.99680)	LR 0.00010	
+[2025-01-03 02:00:01,389][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [24161/542000]	Time 0.40 (0.49)	Data 0.00 (0.00)	Loss 11.59154 (10.07453)	LR 0.00010	
+[2025-01-03 02:00:36,744][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [24241/542000]	Time 0.52 (0.44)	Data 0.00 (0.00)	Loss 9.27981 (10.13699)	LR 0.00010	
+[2025-01-03 02:01:11,790][   train_val.py][line: 308][    INFO] Epoch: [45/1000]	Iter: [24321/542000]	Time 0.29 (0.44)	Data 0.00 (0.00)	Loss 9.49905 (9.94819)	LR 0.00010	
+[2025-01-03 02:01:49,039][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24401/542000]	Time 0.64 (0.63)	Data 0.00 (0.11)	Loss 10.40210 (10.14556)	LR 0.00010	
+[2025-01-03 02:02:24,003][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24481/542000]	Time 0.40 (0.44)	Data 0.00 (0.00)	Loss 9.35974 (10.07054)	LR 0.00010	
+[2025-01-03 02:02:58,724][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24561/542000]	Time 0.45 (0.43)	Data 0.00 (0.00)	Loss 9.64381 (10.10852)	LR 0.00010	
+[2025-01-03 02:03:38,653][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24641/542000]	Time 0.64 (0.50)	Data 0.01 (0.01)	Loss 10.30701 (10.10430)	LR 0.00010	
+[2025-01-03 02:04:19,498][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24721/542000]	Time 0.47 (0.51)	Data 0.00 (0.01)	Loss 8.99582 (9.85376)	LR 0.00010	
+[2025-01-03 02:04:58,628][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24801/542000]	Time 0.40 (0.49)	Data 0.00 (0.00)	Loss 9.97665 (9.98529)	LR 0.00010	
+[2025-01-03 02:05:36,570][   train_val.py][line: 308][    INFO] Epoch: [46/1000]	Iter: [24881/542000]	Time 0.50 (0.47)	Data 0.00 (0.00)	Loss 10.16253 (10.00631)	LR 0.00010	
+[2025-01-03 02:06:20,272][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [24961/542000]	Time 0.42 (0.57)	Data 0.00 (0.04)	Loss 9.45500 (10.08740)	LR 0.00010	
+[2025-01-03 02:07:04,046][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25041/542000]	Time 0.50 (0.55)	Data 0.02 (0.00)	Loss 10.78885 (10.00896)	LR 0.00010	
+[2025-01-03 02:07:48,150][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25121/542000]	Time 0.53 (0.55)	Data 0.01 (0.01)	Loss 10.74177 (9.98318)	LR 0.00010	
+[2025-01-03 02:08:31,802][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25201/542000]	Time 0.45 (0.55)	Data 0.01 (0.01)	Loss 9.53506 (10.09184)	LR 0.00010	
+[2025-01-03 02:09:18,278][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25281/542000]	Time 0.58 (0.58)	Data 0.03 (0.01)	Loss 10.65559 (9.98720)	LR 0.00010	
+[2025-01-03 02:10:02,713][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25361/542000]	Time 0.50 (0.56)	Data 0.02 (0.01)	Loss 10.11048 (9.94345)	LR 0.00010	
+[2025-01-03 02:10:48,844][   train_val.py][line: 308][    INFO] Epoch: [47/1000]	Iter: [25441/542000]	Time 0.66 (0.58)	Data 0.00 (0.01)	Loss 10.09517 (9.96804)	LR 0.00010	
+[2025-01-03 02:11:35,692][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25521/542000]	Time 0.55 (0.59)	Data 0.00 (0.05)	Loss 9.84897 (9.92074)	LR 0.00010	
+[2025-01-03 02:12:22,282][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25601/542000]	Time 0.63 (0.58)	Data 0.02 (0.01)	Loss 9.25785 (9.94766)	LR 0.00010	
+[2025-01-03 02:13:15,005][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25681/542000]	Time 0.85 (0.66)	Data 0.00 (0.01)	Loss 9.55165 (9.99061)	LR 0.00010	
+[2025-01-03 02:14:06,364][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25761/542000]	Time 0.48 (0.64)	Data 0.00 (0.01)	Loss 8.90415 (9.93886)	LR 0.00010	
+[2025-01-03 02:14:59,581][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25841/542000]	Time 0.61 (0.66)	Data 0.02 (0.01)	Loss 11.16487 (10.09292)	LR 0.00010	
+[2025-01-03 02:15:53,660][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [25921/542000]	Time 0.63 (0.68)	Data 0.00 (0.01)	Loss 10.12482 (9.95704)	LR 0.00010	
+[2025-01-03 02:16:40,446][   train_val.py][line: 308][    INFO] Epoch: [48/1000]	Iter: [26001/542000]	Time 0.78 (0.58)	Data 0.00 (0.01)	Loss 10.43988 (9.97374)	LR 0.00010	
+[2025-01-03 02:17:27,523][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26081/542000]	Time 0.58 (0.60)	Data 0.00 (0.03)	Loss 9.31779 (9.98278)	LR 0.00010	
+[2025-01-03 02:18:13,516][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26161/542000]	Time 0.54 (0.57)	Data 0.00 (0.01)	Loss 9.20083 (10.00732)	LR 0.00010	
+[2025-01-03 02:18:59,101][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26241/542000]	Time 0.71 (0.57)	Data 0.02 (0.01)	Loss 8.68505 (10.00295)	LR 0.00010	
+[2025-01-03 02:19:43,956][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26321/542000]	Time 0.47 (0.56)	Data 0.01 (0.01)	Loss 11.28869 (9.94489)	LR 0.00010	
+[2025-01-03 02:20:30,176][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26401/542000]	Time 0.53 (0.58)	Data 0.00 (0.01)	Loss 10.09024 (10.15772)	LR 0.00010	
+[2025-01-03 02:21:14,743][   train_val.py][line: 308][    INFO] Epoch: [49/1000]	Iter: [26481/542000]	Time 0.45 (0.56)	Data 0.00 (0.01)	Loss 10.28268 (9.99579)	LR 0.00010	
+[2025-01-03 02:22:29,089][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.281 (0.309)
+[2025-01-03 02:22:54,371][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.241 (0.281)
+[2025-01-03 02:23:19,395][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.234 (0.271)
+[2025-01-03 02:23:45,660][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.321 (0.269)
+[2025-01-03 02:24:12,742][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.279 (0.269)
+[2025-01-03 02:24:38,299][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.300 (0.267)
+[2025-01-03 02:25:05,083][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.243 (0.267)
+[2025-01-03 02:25:29,959][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.222 (0.265)
+[2025-01-03 02:25:53,872][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.264 (0.262)
+[2025-01-03 02:26:19,042][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.287 (0.261)
+[2025-01-03 02:26:39,999][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.094 (0.256)
+[2025-01-03 02:26:59,696][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.212 (0.251)
+[2025-01-03 02:27:21,446][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.129 (0.249)
+[2025-01-03 02:27:44,390][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.190 (0.247)
+[2025-01-03 02:28:06,794][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.199 (0.246)
+[2025-01-03 02:28:28,214][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.243 (0.244)
+[2025-01-03 02:28:49,866][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.163 (0.242)
+[2025-01-03 02:29:11,305][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.147 (0.241)
+[2025-01-03 02:29:33,890][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.147 (0.240)
+[2025-01-03 02:29:52,739][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.094 (0.237)
+[2025-01-03 02:30:10,719][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.120 (0.235)
+[2025-01-03 02:30:22,491][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-03 02:30:22,491][   train_val.py][line: 392][    INFO]  * Loss 5.76935	total_num=2162
+[2025-01-03 02:31:32,611][ eval_helper.py][line: 228][    INFO] 
+|  clsname   |  pixel   |   max    |   std    |
+|:----------:|:--------:|:--------:|:--------:|
+|    pcb4    | 0.975656 | 0.991683 | 0.963168 |
+|    pcb2    | 0.94808  |  0.908   |  0.7987  |
+| macaroni1  | 0.960951 |  0.8373  |  0.6571  |
+|  capsules  | 0.974409 | 0.793667 | 0.748333 |
+| pipe_fryum | 0.99205  |  0.9578  |  0.8848  |
+|    pcb1    | 0.981942 |  0.9419  |  0.5327  |
+|   candle   | 0.982898 |  0.9524  |  0.8777  |
+|    pcb3    | 0.969805 | 0.871584 | 0.802772 |
+| chewinggum | 0.986809 |  0.9838  |  0.861   |
+|   fryum    | 0.962099 |  0.8718  |  0.877   |
+|   cashew   | 0.990027 |  0.9284  |  0.8842  |
+| macaroni2  | 0.961032 |  0.764   |  0.6603  |
+|    mean    | 0.973813 | 0.900194 | 0.795648 |
+[2025-01-03 02:31:38,144][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26561/542000]	Time 0.42 (0.92)	Data 0.01 (0.47)	Loss 11.48405 (10.71754)	LR 0.00010	
+[2025-01-03 02:32:07,875][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26641/542000]	Time 0.30 (0.37)	Data 0.00 (0.00)	Loss 9.31999 (9.99558)	LR 0.00010	
+[2025-01-03 02:32:48,740][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26721/542000]	Time 0.46 (0.51)	Data 0.00 (0.01)	Loss 11.24207 (9.85615)	LR 0.00010	
+[2025-01-03 02:33:34,407][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26801/542000]	Time 0.38 (0.57)	Data 0.00 (0.01)	Loss 10.36091 (10.15721)	LR 0.00010	
+[2025-01-03 02:34:17,810][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26881/542000]	Time 0.73 (0.54)	Data 0.00 (0.01)	Loss 11.32627 (9.96336)	LR 0.00010	
+[2025-01-03 02:35:07,338][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [26961/542000]	Time 0.73 (0.62)	Data 0.00 (0.01)	Loss 11.09607 (10.07218)	LR 0.00010	
+[2025-01-03 02:35:54,489][   train_val.py][line: 308][    INFO] Epoch: [50/1000]	Iter: [27041/542000]	Time 0.47 (0.59)	Data 0.00 (0.01)	Loss 10.41856 (10.08950)	LR 0.00010	
+[2025-01-03 02:36:41,834][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27121/542000]	Time 0.30 (0.69)	Data 0.00 (0.11)	Loss 8.90607 (9.97147)	LR 0.00010	
+[2025-01-03 02:37:24,310][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27201/542000]	Time 0.72 (0.53)	Data 0.02 (0.01)	Loss 9.72410 (10.00380)	LR 0.00010	
+[2025-01-03 02:38:08,087][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27281/542000]	Time 0.52 (0.55)	Data 0.04 (0.01)	Loss 9.77918 (9.89925)	LR 0.00010	
+[2025-01-03 02:38:51,329][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27361/542000]	Time 0.68 (0.54)	Data 0.02 (0.01)	Loss 9.34185 (9.87433)	LR 0.00010	
+[2025-01-03 02:39:33,401][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27441/542000]	Time 0.73 (0.53)	Data 0.00 (0.01)	Loss 9.39980 (10.03133)	LR 0.00010	
+[2025-01-03 02:40:15,308][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27521/542000]	Time 0.58 (0.52)	Data 0.02 (0.01)	Loss 9.98246 (10.05602)	LR 0.00010	
+[2025-01-03 02:40:56,898][   train_val.py][line: 308][    INFO] Epoch: [51/1000]	Iter: [27601/542000]	Time 0.49 (0.52)	Data 0.02 (0.01)	Loss 10.21600 (10.09486)	LR 0.00010	
+[2025-01-03 02:41:41,606][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [27681/542000]	Time 0.50 (0.60)	Data 0.02 (0.06)	Loss 11.53222 (10.03239)	LR 0.00010	
+[2025-01-03 02:42:21,747][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [27761/542000]	Time 0.34 (0.50)	Data 0.00 (0.01)	Loss 8.76468 (9.87695)	LR 0.00010	
+[2025-01-03 02:43:04,895][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [27841/542000]	Time 0.66 (0.54)	Data 0.00 (0.01)	Loss 9.77427 (10.03331)	LR 0.00010	
+[2025-01-03 02:43:50,470][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [27921/542000]	Time 0.61 (0.57)	Data 0.02 (0.01)	Loss 10.46079 (10.02854)	LR 0.00010	
+[2025-01-03 02:44:28,038][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [28001/542000]	Time 0.43 (0.47)	Data 0.00 (0.01)	Loss 10.22489 (10.01438)	LR 0.00010	
+[2025-01-03 02:45:00,970][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [28081/542000]	Time 0.42 (0.41)	Data 0.00 (0.00)	Loss 8.60361 (9.98666)	LR 0.00010	
+[2025-01-03 02:45:32,655][   train_val.py][line: 308][    INFO] Epoch: [52/1000]	Iter: [28161/542000]	Time 0.34 (0.40)	Data 0.00 (0.00)	Loss 10.05229 (9.95003)	LR 0.00010	
+[2025-01-03 02:46:04,822][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28241/542000]	Time 0.37 (0.41)	Data 0.00 (0.02)	Loss 11.49595 (10.11480)	LR 0.00010	
+[2025-01-03 02:46:36,312][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28321/542000]	Time 0.32 (0.39)	Data 0.00 (0.00)	Loss 11.82284 (10.03796)	LR 0.00010	
+[2025-01-03 02:47:10,049][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28401/542000]	Time 0.49 (0.42)	Data 0.00 (0.00)	Loss 9.13614 (10.02225)	LR 0.00010	
+[2025-01-03 02:47:45,285][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28481/542000]	Time 0.56 (0.44)	Data 0.00 (0.00)	Loss 9.14705 (9.96613)	LR 0.00010	
+[2025-01-03 02:48:21,577][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28561/542000]	Time 0.38 (0.45)	Data 0.00 (0.00)	Loss 9.57671 (9.99731)	LR 0.00010	
+[2025-01-03 02:48:54,713][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28641/542000]	Time 0.28 (0.41)	Data 0.00 (0.00)	Loss 10.10341 (10.01581)	LR 0.00010	
+[2025-01-03 02:49:26,462][   train_val.py][line: 308][    INFO] Epoch: [53/1000]	Iter: [28721/542000]	Time 0.40 (0.40)	Data 0.00 (0.00)	Loss 9.74925 (9.98167)	LR 0.00010	
+[2025-01-03 02:49:59,284][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [28801/542000]	Time 0.45 (0.41)	Data 0.00 (0.02)	Loss 9.91723 (9.82912)	LR 0.00010	
+[2025-01-03 02:50:28,865][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [28881/542000]	Time 0.37 (0.37)	Data 0.00 (0.00)	Loss 9.56553 (9.99791)	LR 0.00010	
+[2025-01-03 02:50:57,922][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [28961/542000]	Time 0.43 (0.36)	Data 0.00 (0.00)	Loss 9.03063 (9.99144)	LR 0.00010	
+[2025-01-03 02:51:27,744][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [29041/542000]	Time 0.37 (0.37)	Data 0.00 (0.00)	Loss 10.50752 (10.03715)	LR 0.00010	
+[2025-01-03 02:51:59,039][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [29121/542000]	Time 0.41 (0.39)	Data 0.00 (0.00)	Loss 9.12636 (10.14841)	LR 0.00010	
+[2025-01-03 02:52:29,137][   train_val.py][line: 308][    INFO] Epoch: [54/1000]	Iter: [29201/542000]	Time 0.43 (0.38)	Data 0.00 (0.00)	Loss 9.64368 (9.94582)	LR 0.00010	
+[2025-01-03 02:53:00,816][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29281/542000]	Time 0.39 (0.46)	Data 0.00 (0.08)	Loss 9.48129 (10.17739)	LR 0.00010	
+[2025-01-03 02:53:31,618][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29361/542000]	Time 0.48 (0.38)	Data 0.00 (0.00)	Loss 9.23680 (9.99151)	LR 0.00010	
+[2025-01-03 02:54:03,298][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29441/542000]	Time 0.38 (0.40)	Data 0.00 (0.00)	Loss 9.40344 (10.03884)	LR 0.00010	
+[2025-01-03 02:54:37,496][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29521/542000]	Time 0.48 (0.43)	Data 0.00 (0.00)	Loss 9.98133 (9.94338)	LR 0.00010	
+[2025-01-03 02:55:13,866][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29601/542000]	Time 0.47 (0.45)	Data 0.02 (0.00)	Loss 8.86946 (9.99318)	LR 0.00010	
+[2025-01-03 02:55:49,984][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29681/542000]	Time 0.43 (0.45)	Data 0.00 (0.00)	Loss 9.83814 (9.90114)	LR 0.00010	
+[2025-01-03 02:56:24,042][   train_val.py][line: 308][    INFO] Epoch: [55/1000]	Iter: [29761/542000]	Time 0.32 (0.43)	Data 0.00 (0.00)	Loss 9.19610 (9.96525)	LR 0.00010	
+[2025-01-03 02:56:56,027][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [29841/542000]	Time 0.35 (0.43)	Data 0.00 (0.04)	Loss 8.83104 (10.04117)	LR 0.00010	
+[2025-01-03 02:57:27,547][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [29921/542000]	Time 0.33 (0.39)	Data 0.00 (0.00)	Loss 9.81246 (9.92974)	LR 0.00010	
+[2025-01-03 02:57:58,583][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [30001/542000]	Time 0.47 (0.39)	Data 0.00 (0.00)	Loss 9.84690 (10.09784)	LR 0.00010	
+[2025-01-03 02:58:30,538][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [30081/542000]	Time 0.40 (0.40)	Data 0.00 (0.00)	Loss 9.25374 (9.87288)	LR 0.00010	
+[2025-01-03 02:59:05,972][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [30161/542000]	Time 0.59 (0.44)	Data 0.03 (0.00)	Loss 9.52007 (9.99986)	LR 0.00010	
+[2025-01-03 02:59:39,824][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [30241/542000]	Time 0.40 (0.42)	Data 0.00 (0.01)	Loss 9.09301 (9.97017)	LR 0.00010	
+[2025-01-03 03:00:17,649][   train_val.py][line: 308][    INFO] Epoch: [56/1000]	Iter: [30321/542000]	Time 0.42 (0.47)	Data 0.00 (0.00)	Loss 9.50665 (9.95447)	LR 0.00010	
+[2025-01-03 03:01:04,784][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30401/542000]	Time 0.61 (0.60)	Data 0.02 (0.04)	Loss 10.50958 (9.84550)	LR 0.00010	
+[2025-01-03 03:01:50,828][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30481/542000]	Time 0.65 (0.58)	Data 0.02 (0.01)	Loss 9.65934 (10.04442)	LR 0.00010	
+[2025-01-03 03:02:38,801][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30561/542000]	Time 0.64 (0.60)	Data 0.00 (0.01)	Loss 8.96242 (9.81678)	LR 0.00010	
+[2025-01-03 03:03:23,438][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30641/542000]	Time 0.72 (0.56)	Data 0.00 (0.01)	Loss 8.88865 (10.11753)	LR 0.00010	
+[2025-01-03 03:04:12,736][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30721/542000]	Time 0.49 (0.62)	Data 0.04 (0.01)	Loss 9.81700 (10.01508)	LR 0.00010	
+[2025-01-03 03:05:01,282][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30801/542000]	Time 0.62 (0.61)	Data 0.01 (0.01)	Loss 10.89057 (10.02055)	LR 0.00010	
+[2025-01-03 03:05:43,077][   train_val.py][line: 308][    INFO] Epoch: [57/1000]	Iter: [30881/542000]	Time 0.62 (0.52)	Data 0.00 (0.01)	Loss 11.89950 (9.82459)	LR 0.00010	
+[2025-01-03 03:06:25,300][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [30961/542000]	Time 0.45 (0.53)	Data 0.00 (0.03)	Loss 9.80244 (9.83961)	LR 0.00010	
+[2025-01-03 03:07:07,813][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [31041/542000]	Time 0.71 (0.53)	Data 0.01 (0.01)	Loss 10.60127 (9.96475)	LR 0.00010	
+[2025-01-03 03:07:47,528][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [31121/542000]	Time 0.47 (0.50)	Data 0.00 (0.01)	Loss 10.08832 (10.04201)	LR 0.00010	
+[2025-01-03 03:08:29,828][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [31201/542000]	Time 0.57 (0.53)	Data 0.00 (0.01)	Loss 8.89950 (9.87618)	LR 0.00010	
+[2025-01-03 03:09:08,048][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [31281/542000]	Time 0.38 (0.48)	Data 0.00 (0.01)	Loss 9.93821 (10.00290)	LR 0.00010	
+[2025-01-03 03:09:38,716][   train_val.py][line: 308][    INFO] Epoch: [58/1000]	Iter: [31361/542000]	Time 0.45 (0.38)	Data 0.00 (0.00)	Loss 9.51645 (9.98680)	LR 0.00010	
+[2025-01-03 03:10:10,918][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31441/542000]	Time 0.43 (0.62)	Data 0.00 (0.21)	Loss 9.89689 (9.68336)	LR 0.00010	
+[2025-01-03 03:10:44,072][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31521/542000]	Time 0.57 (0.41)	Data 0.00 (0.00)	Loss 9.48023 (9.90964)	LR 0.00010	
+[2025-01-03 03:11:17,731][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31601/542000]	Time 0.48 (0.42)	Data 0.00 (0.00)	Loss 10.09219 (9.94137)	LR 0.00010	
+[2025-01-03 03:11:53,718][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31681/542000]	Time 0.37 (0.45)	Data 0.00 (0.00)	Loss 8.87440 (9.95542)	LR 0.00010	
+[2025-01-03 03:12:30,448][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31761/542000]	Time 0.63 (0.46)	Data 0.00 (0.00)	Loss 9.02045 (9.99004)	LR 0.00010	
+[2025-01-03 03:13:07,099][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31841/542000]	Time 0.50 (0.46)	Data 0.01 (0.00)	Loss 9.02279 (10.00495)	LR 0.00010	
+[2025-01-03 03:13:41,195][   train_val.py][line: 308][    INFO] Epoch: [59/1000]	Iter: [31921/542000]	Time 0.44 (0.43)	Data 0.00 (0.00)	Loss 9.46786 (9.97933)	LR 0.00010	
+[2025-01-03 03:14:23,424][   train_val.py][line: 369][    INFO] Test: [100/2162]	Time 0.290 (0.199)
+[2025-01-03 03:14:42,273][   train_val.py][line: 369][    INFO] Test: [200/2162]	Time 0.232 (0.194)
+[2025-01-03 03:15:01,192][   train_val.py][line: 369][    INFO] Test: [300/2162]	Time 0.326 (0.192)
+[2025-01-03 03:15:20,150][   train_val.py][line: 369][    INFO] Test: [400/2162]	Time 0.233 (0.191)
+[2025-01-03 03:15:38,099][   train_val.py][line: 369][    INFO] Test: [500/2162]	Time 0.153 (0.189)
+[2025-01-03 03:15:56,398][   train_val.py][line: 369][    INFO] Test: [600/2162]	Time 0.269 (0.188)
+[2025-01-03 03:16:16,045][   train_val.py][line: 369][    INFO] Test: [700/2162]	Time 0.176 (0.189)
+[2025-01-03 03:16:36,091][   train_val.py][line: 369][    INFO] Test: [800/2162]	Time 0.198 (0.191)
+[2025-01-03 03:16:53,858][   train_val.py][line: 369][    INFO] Test: [900/2162]	Time 0.176 (0.189)
+[2025-01-03 03:17:09,209][   train_val.py][line: 369][    INFO] Test: [1000/2162]	Time 0.216 (0.186)
+[2025-01-03 03:17:26,568][   train_val.py][line: 369][    INFO] Test: [1100/2162]	Time 0.115 (0.185)
+[2025-01-03 03:17:45,742][   train_val.py][line: 369][    INFO] Test: [1200/2162]	Time 0.201 (0.185)
+[2025-01-03 03:18:04,759][   train_val.py][line: 369][    INFO] Test: [1300/2162]	Time 0.220 (0.186)
+[2025-01-03 03:18:25,404][   train_val.py][line: 369][    INFO] Test: [1400/2162]	Time 0.201 (0.187)
+[2025-01-03 03:18:46,827][   train_val.py][line: 369][    INFO] Test: [1500/2162]	Time 0.235 (0.189)
+[2025-01-03 03:19:10,382][   train_val.py][line: 369][    INFO] Test: [1600/2162]	Time 0.136 (0.192)
+[2025-01-03 03:19:34,581][   train_val.py][line: 369][    INFO] Test: [1700/2162]	Time 0.190 (0.195)
+[2025-01-03 03:19:59,619][   train_val.py][line: 369][    INFO] Test: [1800/2162]	Time 0.281 (0.198)
+[2025-01-03 03:20:25,289][   train_val.py][line: 369][    INFO] Test: [1900/2162]	Time 0.239 (0.201)
+[2025-01-03 03:20:49,682][   train_val.py][line: 369][    INFO] Test: [2000/2162]	Time 0.293 (0.203)
+[2025-01-03 03:21:14,871][   train_val.py][line: 369][    INFO] Test: [2100/2162]	Time 0.261 (0.205)
+[2025-01-03 03:21:31,124][   train_val.py][line: 390][    INFO] Gathering final results ...
+[2025-01-03 03:21:31,124][   train_val.py][line: 392][    INFO]  * Loss 5.71796	total_num=2162

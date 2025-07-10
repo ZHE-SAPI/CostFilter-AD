@@ -1,0 +1,870 @@
+nohup: ignoring input
+Available GPUs: 1
+GPU 0: NVIDIA A100 80GB PCIe
+config.save_path ./checkpoints/HVQ_TR_switch_BTAD_from0_withOT
+[2025-07-09 14:10:18,653][train_val_withOT_btad.py][line: 112][    INFO] args: Namespace(config='./config_btad_withOT.yaml', evaluate=True, lamda=0.02, local_rank=None, train_only_four_decoder=False)
+[2025-07-09 14:10:18,655][train_val_withOT_btad.py][line: 113][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/sysmanager/customer/Desktop/ZZ/anomaly/GLAD-main/hdd/Datasets/BTAD'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/BTAD/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/BTAD/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_BTAD_from0_withOT',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'},
+                                   {'name': 'top250'},
+                                   {'name': 'IImageap'},
+                                   {'name': 'IImagef1max'},
+                                   {'name': 'PPixelap'},
+                                   {'name': 'PPixelf1max'},
+                                   {'name': 'PPixelpro'}]},
+               'save_dir': 'result_eval_temp_BTAD_from0_withOT',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0/vis_compound_HVQ_TR_switch/visual_BTAD_from0_withOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_BTAD_from0_withOT'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_BTAD_from0_withOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': '/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_BTAD_from0_withOT/ckpt_best.pth.tar',
+           'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0_withOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 5,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 50,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[W NNPACK.cpp:53] Could not initialize NNPACK! Reason: Unsupported hardware.
+[2025-07-09 14:10:24,574][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-07-09 14:10:25,014][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-07-09 14:10:30,345][train_val_withOT_btad.py][line: 142][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-07-09 14:10:30,345][train_val_withOT_btad.py][line: 143][    INFO] active layers: ['neck', 'reconstruction']
+resume_model_HVQ_TR_switch /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_BTAD_from0_withOT/ckpt_best.pth.tar
+HVQ_TR_switch
+=> loading checkpoint '/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_BTAD_from0_withOT/ckpt_best.pth.tar'
+[2025-07-09 14:10:41,052][custom_dataset.py][line:  56][    INFO] building CustomDataset from: ../../data/BTAD/train.json
+[2025-07-09 14:10:41,066][custom_dataset.py][line:  56][    INFO] building CustomDataset from: ../../data/BTAD/test.json
+Output saved to ./model_comparison.txt
+尝试加载模型: /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoint_paths/epoch_4_hvq_my_btad_0.0001.pth
+✅ 模型加载成功: /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoint_paths/epoch_4_hvq_my_btad_0.0001.pth
+Validation Progress:   0%|          | 0/741 [00:00<?, ?it/s]args.lamda 0.02
+Validation Progress:   0%|          | 1/741 [00:13<2:50:12, 13.80s/it]args.lamda 0.02
+Validation Progress:   0%|          | 2/741 [00:13<1:10:54,  5.76s/it]args.lamda 0.02
+Validation Progress:   0%|          | 3/741 [00:14<39:05,  3.18s/it]  args.lamda 0.02
+Validation Progress:   1%|          | 4/741 [00:14<25:30,  2.08s/it]args.lamda 0.02
+Validation Progress:   1%|          | 5/741 [00:14<16:59,  1.38s/it]args.lamda 0.02
+Validation Progress:   1%|          | 6/741 [00:14<12:37,  1.03s/it]args.lamda 0.02
+Validation Progress:   1%|          | 7/741 [00:15<09:39,  1.27it/s]args.lamda 0.02
+Validation Progress:   1%|          | 8/741 [00:15<07:14,  1.69it/s]args.lamda 0.02
+Validation Progress:   1%|          | 9/741 [00:15<05:34,  2.19it/s]args.lamda 0.02
+Validation Progress:   1%|▏         | 10/741 [00:15<04:22,  2.78it/s]args.lamda 0.02
+Validation Progress:   1%|▏         | 11/741 [00:15<03:34,  3.40it/s]args.lamda 0.02
+Validation Progress:   2%|▏         | 12/741 [00:15<02:56,  4.13it/s]args.lamda 0.02
+Validation Progress:   2%|▏         | 13/741 [00:16<02:28,  4.91it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   2%|▏         | 15/741 [00:16<01:55,  6.26it/s]args.lamda 0.02
+Validation Progress:   2%|▏         | 16/741 [00:16<01:47,  6.73it/s]args.lamda 0.02
+Validation Progress:   2%|▏         | 17/741 [00:16<01:42,  7.09it/s]args.lamda 0.02
+Validation Progress:   2%|▏         | 18/741 [00:16<01:35,  7.55it/s]args.lamda 0.02
+Validation Progress:   3%|▎         | 19/741 [00:16<01:30,  8.01it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   3%|▎         | 21/741 [00:16<01:24,  8.49it/s]args.lamda 0.02
+Validation Progress:   3%|▎         | 22/741 [00:17<01:22,  8.69it/s]args.lamda 0.02
+Validation Progress:   3%|▎         | 23/741 [00:17<01:20,  8.91it/s]args.lamda 0.02
+Validation Progress:   3%|▎         | 24/741 [00:17<01:22,  8.67it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   4%|▎         | 26/741 [00:17<01:19,  8.98it/s]args.lamda 0.02
+Validation Progress:   4%|▎         | 27/741 [00:17<01:20,  8.91it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   4%|▍         | 29/741 [00:17<01:14,  9.60it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   4%|▍         | 31/741 [00:18<01:12,  9.82it/s]args.lamda 0.02
+Validation Progress:   4%|▍         | 32/741 [00:18<01:16,  9.32it/s]args.lamda 0.02
+Validation Progress:   4%|▍         | 33/741 [00:18<01:23,  8.49it/s]args.lamda 0.02
+Validation Progress:   5%|▍         | 34/741 [00:18<01:29,  7.88it/s]args.lamda 0.02
+Validation Progress:   5%|▍         | 35/741 [00:18<01:29,  7.91it/s]args.lamda 0.02
+Validation Progress:   5%|▍         | 36/741 [00:18<01:27,  8.02it/s]args.lamda 0.02
+Validation Progress:   5%|▍         | 37/741 [00:18<01:28,  7.98it/s]args.lamda 0.02
+Validation Progress:   5%|▌         | 38/741 [00:18<01:37,  7.19it/s]args.lamda 0.02
+Validation Progress:   5%|▌         | 39/741 [00:19<01:52,  6.25it/s]args.lamda 0.02
+Validation Progress:   5%|▌         | 40/741 [00:19<01:49,  6.43it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 41/741 [00:19<01:52,  6.24it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 42/741 [00:19<02:31,  4.62it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 43/741 [00:20<02:30,  4.62it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 44/741 [00:20<02:34,  4.50it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 45/741 [00:20<02:36,  4.45it/s]args.lamda 0.02
+Validation Progress:   6%|▌         | 46/741 [00:20<02:22,  4.88it/s]args.lamda 0.02
+Validation Progress:   6%|▋         | 47/741 [00:20<02:09,  5.38it/s]args.lamda 0.02
+Validation Progress:   6%|▋         | 48/741 [00:20<01:51,  6.20it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 49/741 [00:21<01:42,  6.74it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 50/741 [00:21<01:44,  6.62it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 51/741 [00:21<01:46,  6.50it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 52/741 [00:21<01:40,  6.85it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 53/741 [00:21<01:31,  7.54it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 54/741 [00:21<01:38,  6.97it/s]args.lamda 0.02
+Validation Progress:   7%|▋         | 55/741 [00:21<01:36,  7.12it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   8%|▊         | 57/741 [00:22<01:29,  7.62it/s]args.lamda 0.02
+Validation Progress:   8%|▊         | 58/741 [00:22<01:28,  7.68it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   8%|▊         | 60/741 [00:22<01:24,  8.05it/s]args.lamda 0.02
+Validation Progress:   8%|▊         | 61/741 [00:22<01:32,  7.36it/s]args.lamda 0.02
+Validation Progress:   8%|▊         | 62/741 [00:22<01:30,  7.50it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   9%|▊         | 64/741 [00:22<01:17,  8.75it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   9%|▉         | 66/741 [00:23<01:12,  9.26it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:   9%|▉         | 68/741 [00:23<01:14,  9.01it/s]args.lamda 0.02
+Validation Progress:   9%|▉         | 69/741 [00:23<01:13,  9.17it/s]args.lamda 0.02
+Validation Progress:   9%|▉         | 70/741 [00:23<01:12,  9.27it/s]args.lamda 0.02
+Validation Progress:  10%|▉         | 71/741 [00:23<01:52,  5.94it/s]args.lamda 0.02
+Validation Progress:  10%|▉         | 72/741 [00:24<01:45,  6.37it/s]args.lamda 0.02
+Validation Progress:  10%|▉         | 73/741 [00:24<01:43,  6.44it/s]args.lamda 0.02
+Validation Progress:  10%|▉         | 74/741 [00:24<01:42,  6.53it/s]args.lamda 0.02
+Validation Progress:  10%|█         | 75/741 [00:24<01:40,  6.60it/s]args.lamda 0.02
+Validation Progress:  10%|█         | 76/741 [00:24<01:32,  7.15it/s]args.lamda 0.02
+Validation Progress:  10%|█         | 77/741 [00:24<01:25,  7.79it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 78/741 [00:24<01:20,  8.22it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 79/741 [00:24<01:20,  8.17it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 80/741 [00:25<01:34,  6.99it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 81/741 [00:25<01:30,  7.26it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 82/741 [00:25<01:29,  7.40it/s]args.lamda 0.02
+Validation Progress:  11%|█         | 83/741 [00:25<01:23,  7.84it/s]args.lamda 0.02
+Validation Progress:  11%|█▏        | 84/741 [00:25<01:25,  7.70it/s]args.lamda 0.02
+Validation Progress:  11%|█▏        | 85/741 [00:25<01:21,  8.05it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 86/741 [00:25<01:20,  8.09it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 87/741 [00:26<01:18,  8.29it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 88/741 [00:26<01:20,  8.07it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 89/741 [00:26<01:53,  5.73it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 90/741 [00:26<01:39,  6.51it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 91/741 [00:26<01:30,  7.16it/s]args.lamda 0.02
+Validation Progress:  12%|█▏        | 92/741 [00:26<01:28,  7.34it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 93/741 [00:26<01:26,  7.45it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 94/741 [00:27<01:20,  7.99it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 95/741 [00:27<01:26,  7.48it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 96/741 [00:27<01:43,  6.24it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 97/741 [00:27<01:40,  6.42it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 98/741 [00:27<01:41,  6.35it/s]args.lamda 0.02
+Validation Progress:  13%|█▎        | 99/741 [00:27<01:42,  6.25it/s]args.lamda 0.02
+[2025-07-09 14:11:11,757][train_val_withOT_btad.py][line: 630][    INFO] Test: [100/741]	Time 0.091 (0.280)
+args.lamda 0.02
+Validation Progress:  14%|█▎        | 101/741 [00:28<01:24,  7.53it/s]args.lamda 0.02
+Validation Progress:  14%|█▍        | 102/741 [00:28<01:30,  7.04it/s]args.lamda 0.02
+Validation Progress:  14%|█▍        | 103/741 [00:28<01:27,  7.30it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  14%|█▍        | 105/741 [00:28<01:16,  8.31it/s]args.lamda 0.02
+Validation Progress:  14%|█▍        | 106/741 [00:28<01:13,  8.59it/s]args.lamda 0.02
+Validation Progress:  14%|█▍        | 107/741 [00:28<01:12,  8.73it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  15%|█▍        | 109/741 [00:28<01:03,  9.94it/s]args.lamda 0.02
+Validation Progress:  15%|█▍        | 110/741 [00:29<01:08,  9.24it/s]args.lamda 0.02
+Validation Progress:  15%|█▍        | 111/741 [00:29<01:12,  8.71it/s]args.lamda 0.02
+Validation Progress:  15%|█▌        | 112/741 [00:29<01:10,  8.93it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  15%|█▌        | 114/741 [00:29<01:04,  9.69it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  16%|█▌        | 116/741 [00:29<01:01, 10.20it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  16%|█▌        | 118/741 [00:29<01:04,  9.60it/s]args.lamda 0.02
+Validation Progress:  16%|█▌        | 119/741 [00:30<01:09,  8.93it/s]args.lamda 0.02
+Validation Progress:  16%|█▌        | 120/741 [00:30<01:11,  8.68it/s]args.lamda 0.02
+Validation Progress:  16%|█▋        | 121/741 [00:30<01:30,  6.83it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  17%|█▋        | 123/741 [00:30<01:32,  6.69it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 124/741 [00:31<02:03,  5.02it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 125/741 [00:31<02:33,  4.02it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 126/741 [00:31<02:21,  4.34it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 127/741 [00:31<02:15,  4.52it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 128/741 [00:32<02:10,  4.69it/s]args.lamda 0.02
+Validation Progress:  17%|█▋        | 129/741 [00:32<02:00,  5.07it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 130/741 [00:32<01:51,  5.48it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 131/741 [00:32<01:44,  5.86it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  18%|█▊        | 133/741 [00:32<01:24,  7.19it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 134/741 [00:32<01:20,  7.57it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 135/741 [00:33<01:27,  6.89it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 136/741 [00:33<01:22,  7.30it/s]args.lamda 0.02
+Validation Progress:  18%|█▊        | 137/741 [00:33<01:18,  7.69it/s]args.lamda 0.02
+Validation Progress:  19%|█▊        | 138/741 [00:33<01:22,  7.29it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  19%|█▉        | 140/741 [00:33<01:14,  8.11it/s]args.lamda 0.02
+Validation Progress:  19%|█▉        | 141/741 [00:33<01:29,  6.72it/s]args.lamda 0.02
+Validation Progress:  19%|█▉        | 142/741 [00:33<01:24,  7.10it/s]args.lamda 0.02
+Validation Progress:  19%|█▉        | 143/741 [00:34<01:26,  6.92it/s]args.lamda 0.02
+Validation Progress:  19%|█▉        | 144/741 [00:34<01:26,  6.93it/s]args.lamda 0.02
+Validation Progress:  20%|█▉        | 145/741 [00:34<01:27,  6.78it/s]args.lamda 0.02
+Validation Progress:  20%|█▉        | 146/741 [00:34<01:21,  7.30it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  20%|█▉        | 148/741 [00:34<01:10,  8.47it/s]args.lamda 0.02
+Validation Progress:  20%|██        | 149/741 [00:34<01:15,  7.88it/s]args.lamda 0.02
+Validation Progress:  20%|██        | 150/741 [00:35<01:22,  7.20it/s]args.lamda 0.02
+Validation Progress:  20%|██        | 151/741 [00:35<01:20,  7.34it/s]args.lamda 0.02
+Validation Progress:  21%|██        | 152/741 [00:35<01:24,  6.94it/s]args.lamda 0.02
+Validation Progress:  21%|██        | 153/741 [00:35<01:24,  6.97it/s]args.lamda 0.02
+Validation Progress:  21%|██        | 154/741 [00:35<01:19,  7.39it/s]args.lamda 0.02
+Validation Progress:  21%|██        | 155/741 [00:35<01:14,  7.92it/s]args.lamda 0.02
+Validation Progress:  21%|██        | 156/741 [00:35<01:19,  7.37it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  21%|██▏       | 158/741 [00:36<01:17,  7.48it/s]args.lamda 0.02
+Validation Progress:  21%|██▏       | 159/741 [00:36<01:52,  5.17it/s]args.lamda 0.02
+Validation Progress:  22%|██▏       | 160/741 [00:36<01:58,  4.90it/s]args.lamda 0.02
+Validation Progress:  22%|██▏       | 161/741 [00:36<01:55,  5.01it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  22%|██▏       | 163/741 [00:37<01:29,  6.46it/s]args.lamda 0.02
+Validation Progress:  22%|██▏       | 164/741 [00:37<01:26,  6.65it/s]args.lamda 0.02
+Validation Progress:  22%|██▏       | 165/741 [00:37<01:22,  7.02it/s]args.lamda 0.02
+Validation Progress:  22%|██▏       | 166/741 [00:37<01:18,  7.35it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 167/741 [00:37<01:22,  7.00it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  23%|██▎       | 169/741 [00:37<01:10,  8.13it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 170/741 [00:37<01:08,  8.33it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 171/741 [00:38<01:15,  7.54it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 172/741 [00:38<01:10,  8.03it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 173/741 [00:38<01:08,  8.25it/s]args.lamda 0.02
+Validation Progress:  23%|██▎       | 174/741 [00:38<01:08,  8.26it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  24%|██▍       | 176/741 [00:38<01:02,  8.98it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  24%|██▍       | 178/741 [00:38<01:11,  7.86it/s]args.lamda 0.02
+Validation Progress:  24%|██▍       | 179/741 [00:39<01:10,  8.01it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  24%|██▍       | 181/741 [00:39<01:03,  8.82it/s]args.lamda 0.02
+Validation Progress:  25%|██▍       | 182/741 [00:39<01:02,  9.01it/s]args.lamda 0.02
+Validation Progress:  25%|██▍       | 183/741 [00:39<01:00,  9.22it/s]args.lamda 0.02
+Validation Progress:  25%|██▍       | 184/741 [00:39<01:03,  8.83it/s]args.lamda 0.02
+Validation Progress:  25%|██▍       | 185/741 [00:39<01:02,  8.91it/s]args.lamda 0.02
+Validation Progress:  25%|██▌       | 186/741 [00:39<01:07,  8.23it/s]args.lamda 0.02
+Validation Progress:  25%|██▌       | 187/741 [00:39<01:04,  8.58it/s]args.lamda 0.02
+Validation Progress:  25%|██▌       | 188/741 [00:40<01:02,  8.88it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  26%|██▌       | 190/741 [00:40<00:59,  9.32it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  26%|██▌       | 192/741 [00:40<00:55,  9.96it/s]args.lamda 0.02
+Validation Progress:  26%|██▌       | 193/741 [00:40<00:55,  9.95it/s]args.lamda 0.02
+Validation Progress:  26%|██▌       | 194/741 [00:40<01:11,  7.63it/s]args.lamda 0.02
+Validation Progress:  26%|██▋       | 195/741 [00:40<01:18,  6.97it/s]args.lamda 0.02
+Validation Progress:  26%|██▋       | 196/741 [00:41<01:17,  7.05it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  27%|██▋       | 198/741 [00:41<01:01,  8.78it/s]args.lamda 0.02
+Validation Progress:  27%|██▋       | 199/741 [00:41<01:07,  7.99it/s]args.lamda 0.02
+[2025-07-09 14:11:25,304][train_val_withOT_btad.py][line: 630][    INFO] Test: [200/741]	Time 0.123 (0.208)
+Validation Progress:  27%|██▋       | 200/741 [00:41<01:07,  8.03it/s]args.lamda 0.02
+Validation Progress:  27%|██▋       | 201/741 [00:41<01:12,  7.41it/s]args.lamda 0.02
+Validation Progress:  27%|██▋       | 202/741 [00:41<01:16,  7.05it/s]args.lamda 0.02
+Validation Progress:  27%|██▋       | 203/741 [00:41<01:18,  6.83it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 204/741 [00:42<01:21,  6.61it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 205/741 [00:42<01:21,  6.62it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 206/741 [00:42<01:23,  6.39it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 207/741 [00:42<01:25,  6.21it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 208/741 [00:42<01:24,  6.34it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 209/741 [00:42<01:24,  6.33it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 210/741 [00:43<01:17,  6.81it/s]args.lamda 0.02
+Validation Progress:  28%|██▊       | 211/741 [00:43<01:15,  7.03it/s]args.lamda 0.02
+Validation Progress:  29%|██▊       | 212/741 [00:43<01:18,  6.78it/s]args.lamda 0.02
+Validation Progress:  29%|██▊       | 213/741 [00:43<01:13,  7.15it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  29%|██▉       | 215/741 [00:43<00:58,  9.00it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  29%|██▉       | 217/741 [00:43<00:56,  9.25it/s]args.lamda 0.02
+Validation Progress:  29%|██▉       | 218/741 [00:43<00:59,  8.82it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  30%|██▉       | 220/741 [00:44<00:55,  9.41it/s]args.lamda 0.02
+Validation Progress:  30%|██▉       | 221/741 [00:44<01:00,  8.53it/s]args.lamda 0.02
+Validation Progress:  30%|██▉       | 222/741 [00:44<01:03,  8.22it/s]args.lamda 0.02
+Validation Progress:  30%|███       | 223/741 [00:44<01:06,  7.84it/s]args.lamda 0.02
+Validation Progress:  30%|███       | 224/741 [00:44<01:03,  8.17it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  30%|███       | 226/741 [00:44<00:55,  9.30it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  31%|███       | 228/741 [00:45<00:50, 10.11it/s]args.lamda 0.02
+Validation Progress:  31%|███       | 229/741 [00:45<00:55,  9.24it/s]args.lamda 0.02
+Validation Progress:  31%|███       | 230/741 [00:45<00:58,  8.69it/s]args.lamda 0.02
+Validation Progress:  31%|███       | 231/741 [00:45<01:01,  8.26it/s]args.lamda 0.02
+Validation Progress:  31%|███▏      | 232/741 [00:45<01:03,  8.01it/s]args.lamda 0.02
+Validation Progress:  31%|███▏      | 233/741 [00:45<01:09,  7.26it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 234/741 [00:45<01:09,  7.34it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 235/741 [00:46<01:08,  7.40it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 236/741 [00:46<01:03,  8.00it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 237/741 [00:46<01:00,  8.31it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 238/741 [00:46<01:12,  6.94it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 239/741 [00:46<01:16,  6.53it/s]args.lamda 0.02
+Validation Progress:  32%|███▏      | 240/741 [00:47<01:50,  4.53it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 241/741 [00:47<02:00,  4.14it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 242/741 [00:47<01:58,  4.23it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 243/741 [00:47<01:49,  4.55it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 244/741 [00:47<01:34,  5.26it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 245/741 [00:47<01:21,  6.05it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 246/741 [00:48<01:14,  6.64it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 247/741 [00:48<01:16,  6.47it/s]args.lamda 0.02
+Validation Progress:  33%|███▎      | 248/741 [00:48<01:17,  6.37it/s]args.lamda 0.02
+Validation Progress:  34%|███▎      | 249/741 [00:48<01:12,  6.83it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  34%|███▍      | 251/741 [00:48<01:06,  7.37it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  34%|███▍      | 253/741 [00:48<01:01,  7.99it/s]args.lamda 0.02
+Validation Progress:  34%|███▍      | 254/741 [00:49<01:01,  7.91it/s]args.lamda 0.02
+Validation Progress:  34%|███▍      | 255/741 [00:49<01:03,  7.65it/s]args.lamda 0.02
+Validation Progress:  35%|███▍      | 256/741 [00:49<01:02,  7.77it/s]args.lamda 0.02
+Validation Progress:  35%|███▍      | 257/741 [00:49<00:58,  8.25it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  35%|███▍      | 259/741 [00:49<00:55,  8.63it/s]args.lamda 0.02
+Validation Progress:  35%|███▌      | 260/741 [00:49<00:54,  8.76it/s]args.lamda 0.02
+Validation Progress:  35%|███▌      | 261/741 [00:49<00:53,  8.95it/s]args.lamda 0.02
+Validation Progress:  35%|███▌      | 262/741 [00:50<01:00,  7.93it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  36%|███▌      | 264/741 [00:50<00:59,  7.98it/s]args.lamda 0.02
+Validation Progress:  36%|███▌      | 265/741 [00:50<00:57,  8.23it/s]args.lamda 0.02
+Validation Progress:  36%|███▌      | 266/741 [00:50<00:57,  8.25it/s]args.lamda 0.02
+Validation Progress:  36%|███▌      | 267/741 [00:50<01:01,  7.71it/s]args.lamda 0.02
+Validation Progress:  36%|███▌      | 268/741 [00:50<00:58,  8.04it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  36%|███▋      | 270/741 [00:51<01:00,  7.73it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 271/741 [00:51<01:08,  6.87it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 272/741 [00:51<01:12,  6.51it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 273/741 [00:51<01:34,  4.96it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 274/741 [00:52<01:36,  4.84it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 275/741 [00:52<01:36,  4.84it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 276/741 [00:52<01:35,  4.88it/s]args.lamda 0.02
+Validation Progress:  37%|███▋      | 277/741 [00:52<01:38,  4.71it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 278/741 [00:52<01:30,  5.09it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 279/741 [00:52<01:20,  5.70it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 280/741 [00:53<01:15,  6.09it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 281/741 [00:53<01:07,  6.83it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 282/741 [00:53<01:36,  4.77it/s]args.lamda 0.02
+Validation Progress:  38%|███▊      | 283/741 [00:53<01:36,  4.73it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  38%|███▊      | 285/741 [00:53<01:11,  6.40it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  39%|███▊      | 287/741 [00:54<00:59,  7.58it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  39%|███▉      | 289/741 [00:54<00:52,  8.69it/s]args.lamda 0.02
+Validation Progress:  39%|███▉      | 290/741 [00:54<00:51,  8.72it/s]args.lamda 0.02
+Validation Progress:  39%|███▉      | 291/741 [00:54<00:52,  8.60it/s]args.lamda 0.02
+Validation Progress:  39%|███▉      | 292/741 [00:54<01:14,  6.05it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  40%|███▉      | 294/741 [00:55<01:22,  5.39it/s]args.lamda 0.02
+Validation Progress:  40%|███▉      | 295/741 [00:55<01:24,  5.28it/s]args.lamda 0.02
+Validation Progress:  40%|███▉      | 296/741 [00:55<01:19,  5.57it/s]args.lamda 0.02
+Validation Progress:  40%|████      | 297/741 [00:55<01:12,  6.13it/s]args.lamda 0.02
+Validation Progress:  40%|████      | 298/741 [00:55<01:12,  6.14it/s]args.lamda 0.02
+Validation Progress:  40%|████      | 299/741 [00:56<01:06,  6.62it/s]args.lamda 0.02
+[2025-07-09 14:11:39,936][train_val_withOT_btad.py][line: 630][    INFO] Test: [300/741]	Time 0.120 (0.187)
+Validation Progress:  40%|████      | 300/741 [00:56<01:02,  7.04it/s]args.lamda 0.02
+Validation Progress:  41%|████      | 301/741 [00:56<01:21,  5.38it/s]args.lamda 0.02
+Validation Progress:  41%|████      | 302/741 [00:56<01:24,  5.22it/s]args.lamda 0.02
+Validation Progress:  41%|████      | 303/741 [00:56<01:23,  5.26it/s]args.lamda 0.02
+Validation Progress:  41%|████      | 304/741 [00:57<01:25,  5.10it/s]args.lamda 0.02
+Validation Progress:  41%|████      | 305/741 [00:57<01:23,  5.20it/s]args.lamda 0.02
+Validation Progress:  41%|████▏     | 306/741 [00:57<01:21,  5.36it/s]args.lamda 0.02
+Validation Progress:  41%|████▏     | 307/741 [00:57<01:14,  5.83it/s]args.lamda 0.02
+Validation Progress:  42%|████▏     | 308/741 [00:57<01:06,  6.56it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  42%|████▏     | 310/741 [00:57<00:56,  7.67it/s]args.lamda 0.02
+Validation Progress:  42%|████▏     | 311/741 [00:57<00:54,  7.84it/s]args.lamda 0.02
+Validation Progress:  42%|████▏     | 312/741 [00:58<00:51,  8.31it/s]args.lamda 0.02
+Validation Progress:  42%|████▏     | 313/741 [00:58<00:49,  8.61it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  43%|████▎     | 315/741 [00:58<00:47,  8.97it/s]args.lamda 0.02
+Validation Progress:  43%|████▎     | 316/741 [00:58<00:49,  8.65it/s]args.lamda 0.02
+Validation Progress:  43%|████▎     | 317/741 [00:58<00:49,  8.60it/s]args.lamda 0.02
+Validation Progress:  43%|████▎     | 318/741 [00:58<00:47,  8.89it/s]args.lamda 0.02
+Validation Progress:  43%|████▎     | 319/741 [00:58<00:51,  8.15it/s]args.lamda 0.02
+Validation Progress:  43%|████▎     | 320/741 [00:59<00:52,  8.00it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  43%|████▎     | 322/741 [00:59<00:45,  9.24it/s]args.lamda 0.02
+Validation Progress:  44%|████▎     | 323/741 [00:59<00:44,  9.39it/s]args.lamda 0.02
+Validation Progress:  44%|████▎     | 324/741 [00:59<00:43,  9.52it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  44%|████▍     | 326/741 [00:59<00:40, 10.31it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  44%|████▍     | 328/741 [00:59<00:41, 10.02it/s]args.lamda 0.02
+Validation Progress:  44%|████▍     | 329/741 [00:59<00:41,  9.85it/s]args.lamda 0.02
+Validation Progress:  45%|████▍     | 330/741 [01:00<00:50,  8.12it/s]args.lamda 0.02
+Validation Progress:  45%|████▍     | 331/741 [01:00<00:54,  7.49it/s]args.lamda 0.02
+Validation Progress:  45%|████▍     | 332/741 [01:00<00:53,  7.72it/s]args.lamda 0.02
+Validation Progress:  45%|████▍     | 333/741 [01:00<00:57,  7.09it/s]args.lamda 0.02
+Validation Progress:  45%|████▌     | 334/741 [01:00<00:58,  6.91it/s]args.lamda 0.02
+Validation Progress:  45%|████▌     | 335/741 [01:00<01:02,  6.49it/s]args.lamda 0.02
+Validation Progress:  45%|████▌     | 336/741 [01:00<00:59,  6.76it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  46%|████▌     | 338/741 [01:01<00:51,  7.80it/s]args.lamda 0.02
+Validation Progress:  46%|████▌     | 339/741 [01:01<00:50,  7.92it/s]args.lamda 0.02
+Validation Progress:  46%|████▌     | 340/741 [01:01<00:50,  7.96it/s]args.lamda 0.02
+Validation Progress:  46%|████▌     | 341/741 [01:01<00:48,  8.18it/s]args.lamda 0.02
+Validation Progress:  46%|████▌     | 342/741 [01:01<00:47,  8.32it/s]args.lamda 0.02
+Validation Progress:  46%|████▋     | 343/741 [01:01<00:48,  8.25it/s]args.lamda 0.02
+Validation Progress:  46%|████▋     | 344/741 [01:01<00:48,  8.20it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 345/741 [01:02<00:47,  8.31it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 346/741 [01:02<01:08,  5.73it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 347/741 [01:02<01:03,  6.18it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 348/741 [01:02<01:05,  6.02it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 349/741 [01:02<01:04,  6.08it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 350/741 [01:02<01:00,  6.51it/s]args.lamda 0.02
+Validation Progress:  47%|████▋     | 351/741 [01:03<00:58,  6.64it/s]args.lamda 0.02
+Validation Progress:  48%|████▊     | 352/741 [01:03<00:52,  7.37it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  48%|████▊     | 354/741 [01:03<00:46,  8.37it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  48%|████▊     | 356/741 [01:03<00:45,  8.54it/s]args.lamda 0.02
+Validation Progress:  48%|████▊     | 357/741 [01:03<00:51,  7.39it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  48%|████▊     | 359/741 [01:04<00:46,  8.21it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  49%|████▊     | 361/741 [01:04<00:40,  9.49it/s]args.lamda 0.02
+Validation Progress:  49%|████▉     | 362/741 [01:04<00:43,  8.68it/s]args.lamda 0.02
+Validation Progress:  49%|████▉     | 363/741 [01:04<00:50,  7.44it/s]args.lamda 0.02
+Validation Progress:  49%|████▉     | 364/741 [01:04<00:48,  7.81it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  49%|████▉     | 366/741 [01:04<00:41,  9.02it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  50%|████▉     | 368/741 [01:04<00:39,  9.45it/s]args.lamda 0.02
+Validation Progress:  50%|████▉     | 369/741 [01:05<00:42,  8.80it/s]args.lamda 0.02
+Validation Progress:  50%|████▉     | 370/741 [01:05<00:48,  7.58it/s]args.lamda 0.02
+Validation Progress:  50%|█████     | 371/741 [01:05<00:51,  7.16it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  50%|█████     | 373/741 [01:05<00:48,  7.64it/s]args.lamda 0.02
+Validation Progress:  50%|█████     | 374/741 [01:06<01:02,  5.87it/s]args.lamda 0.02
+Validation Progress:  51%|█████     | 375/741 [01:06<01:08,  5.36it/s]args.lamda 0.02
+Validation Progress:  51%|█████     | 376/741 [01:06<01:06,  5.46it/s]args.lamda 0.02
+Validation Progress:  51%|█████     | 377/741 [01:06<01:06,  5.47it/s]args.lamda 0.02
+Validation Progress:  51%|█████     | 378/741 [01:06<01:00,  5.97it/s]args.lamda 0.02
+Validation Progress:  51%|█████     | 379/741 [01:06<01:03,  5.71it/s]args.lamda 0.02
+Validation Progress:  51%|█████▏    | 380/741 [01:07<00:58,  6.21it/s]args.lamda 0.02
+Validation Progress:  51%|█████▏    | 381/741 [01:07<00:53,  6.73it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 382/741 [01:07<00:48,  7.35it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 383/741 [01:07<00:47,  7.48it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 384/741 [01:07<00:46,  7.68it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 385/741 [01:07<00:47,  7.48it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 386/741 [01:07<00:45,  7.74it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 387/741 [01:07<00:44,  8.03it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 388/741 [01:08<00:45,  7.76it/s]args.lamda 0.02
+Validation Progress:  52%|█████▏    | 389/741 [01:08<00:48,  7.20it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  53%|█████▎    | 391/741 [01:08<00:40,  8.60it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  53%|█████▎    | 393/741 [01:08<00:38,  9.05it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  53%|█████▎    | 395/741 [01:08<00:37,  9.12it/s]args.lamda 0.02
+Validation Progress:  53%|█████▎    | 396/741 [01:08<00:41,  8.37it/s]args.lamda 0.02
+Validation Progress:  54%|█████▎    | 397/741 [01:09<00:40,  8.56it/s]args.lamda 0.02
+Validation Progress:  54%|█████▎    | 398/741 [01:09<00:39,  8.63it/s]args.lamda 0.02
+Validation Progress:  54%|█████▍    | 399/741 [01:09<00:40,  8.48it/s]args.lamda 0.02
+[2025-07-09 14:11:53,214][train_val_withOT_btad.py][line: 630][    INFO] Test: [400/741]	Time 0.097 (0.174)
+args.lamda 0.02
+Validation Progress:  54%|█████▍    | 401/741 [01:09<00:40,  8.38it/s]args.lamda 0.02
+Validation Progress:  54%|█████▍    | 402/741 [01:09<00:39,  8.55it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  55%|█████▍    | 404/741 [01:09<00:38,  8.82it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  55%|█████▍    | 406/741 [01:10<00:35,  9.47it/s]args.lamda 0.02
+Validation Progress:  55%|█████▍    | 407/741 [01:10<00:34,  9.55it/s]args.lamda 0.02
+Validation Progress:  55%|█████▌    | 408/741 [01:10<00:35,  9.51it/s]args.lamda 0.02
+Validation Progress:  55%|█████▌    | 409/741 [01:10<00:35,  9.38it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  55%|█████▌    | 411/741 [01:10<00:32, 10.05it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  56%|█████▌    | 413/741 [01:10<00:30, 10.85it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  56%|█████▌    | 415/741 [01:10<00:32,  9.97it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  56%|█████▋    | 417/741 [01:11<00:34,  9.27it/s]args.lamda 0.02
+Validation Progress:  56%|█████▋    | 418/741 [01:11<00:45,  7.12it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 419/741 [01:11<00:43,  7.38it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 420/741 [01:11<00:41,  7.81it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  57%|█████▋    | 422/741 [01:11<00:35,  9.00it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 423/741 [01:12<00:36,  8.60it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 424/741 [01:12<00:36,  8.60it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 425/741 [01:12<00:36,  8.61it/s]args.lamda 0.02
+Validation Progress:  57%|█████▋    | 426/741 [01:12<00:35,  8.88it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  58%|█████▊    | 428/741 [01:12<00:34,  9.15it/s]args.lamda 0.02
+Validation Progress:  58%|█████▊    | 429/741 [01:12<00:40,  7.75it/s]args.lamda 0.02
+Validation Progress:  58%|█████▊    | 430/741 [01:12<00:42,  7.33it/s]args.lamda 0.02
+Validation Progress:  58%|█████▊    | 431/741 [01:13<00:47,  6.59it/s]args.lamda 0.02
+Validation Progress:  58%|█████▊    | 432/741 [01:13<00:49,  6.27it/s]args.lamda 0.02
+Validation Progress:  58%|█████▊    | 433/741 [01:13<00:48,  6.35it/s]args.lamda 0.02
+Validation Progress:  59%|█████▊    | 434/741 [01:13<00:49,  6.25it/s]args.lamda 0.02
+Validation Progress:  59%|█████▊    | 435/741 [01:13<00:47,  6.46it/s]args.lamda 0.02
+Validation Progress:  59%|█████▉    | 436/741 [01:13<00:45,  6.78it/s]args.lamda 0.02
+Validation Progress:  59%|█████▉    | 437/741 [01:14<00:44,  6.76it/s]args.lamda 0.02
+Validation Progress:  59%|█████▉    | 438/741 [01:14<00:43,  6.97it/s]args.lamda 0.02
+Validation Progress:  59%|█████▉    | 439/741 [01:14<00:49,  6.14it/s]args.lamda 0.02
+Validation Progress:  59%|█████▉    | 440/741 [01:14<00:45,  6.69it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  60%|█████▉    | 442/741 [01:14<00:39,  7.64it/s]args.lamda 0.02
+Validation Progress:  60%|█████▉    | 443/741 [01:14<00:39,  7.64it/s]args.lamda 0.02
+Validation Progress:  60%|█████▉    | 444/741 [01:15<00:55,  5.34it/s]args.lamda 0.02
+Validation Progress:  60%|██████    | 445/741 [01:15<00:51,  5.80it/s]args.lamda 0.02
+Validation Progress:  60%|██████    | 446/741 [01:15<00:49,  5.92it/s]args.lamda 0.02
+Validation Progress:  60%|██████    | 447/741 [01:15<00:51,  5.74it/s]args.lamda 0.02
+Validation Progress:  60%|██████    | 448/741 [01:15<00:46,  6.28it/s]args.lamda 0.02
+Validation Progress:  61%|██████    | 449/741 [01:15<00:44,  6.53it/s]args.lamda 0.02
+Validation Progress:  61%|██████    | 450/741 [01:16<00:47,  6.19it/s]args.lamda 0.02
+Validation Progress:  61%|██████    | 451/741 [01:16<00:43,  6.72it/s]args.lamda 0.02
+Validation Progress:  61%|██████    | 452/741 [01:16<00:41,  7.03it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  61%|██████▏   | 454/741 [01:16<00:37,  7.65it/s]args.lamda 0.02
+Validation Progress:  61%|██████▏   | 455/741 [01:16<00:35,  7.97it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 456/741 [01:16<00:33,  8.39it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 457/741 [01:16<00:34,  8.32it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 458/741 [01:17<00:34,  8.28it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 459/741 [01:17<00:37,  7.52it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 460/741 [01:17<00:43,  6.47it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 461/741 [01:17<00:46,  6.02it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 462/741 [01:17<00:49,  5.63it/s]args.lamda 0.02
+Validation Progress:  62%|██████▏   | 463/741 [01:17<00:48,  5.79it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 464/741 [01:18<01:01,  4.49it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 465/741 [01:18<00:58,  4.69it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 466/741 [01:18<00:51,  5.37it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 467/741 [01:18<00:46,  5.89it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 468/741 [01:18<00:41,  6.62it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 469/741 [01:19<00:40,  6.75it/s]args.lamda 0.02
+Validation Progress:  63%|██████▎   | 470/741 [01:19<00:37,  7.17it/s]args.lamda 0.02
+Validation Progress:  64%|██████▎   | 471/741 [01:19<00:35,  7.66it/s]args.lamda 0.02
+Validation Progress:  64%|██████▎   | 472/741 [01:19<00:33,  8.05it/s]args.lamda 0.02
+Validation Progress:  64%|██████▍   | 473/741 [01:19<00:36,  7.34it/s]args.lamda 0.02
+Validation Progress:  64%|██████▍   | 474/741 [01:19<00:37,  7.14it/s]args.lamda 0.02
+Validation Progress:  64%|██████▍   | 475/741 [01:19<00:40,  6.51it/s]args.lamda 0.02
+Validation Progress:  64%|██████▍   | 476/741 [01:19<00:38,  6.81it/s]args.lamda 0.02
+Validation Progress:  64%|██████▍   | 477/741 [01:20<00:37,  7.01it/s]args.lamda 0.02
+Validation Progress:  65%|██████▍   | 478/741 [01:20<00:39,  6.65it/s]args.lamda 0.02
+Validation Progress:  65%|██████▍   | 479/741 [01:20<00:39,  6.67it/s]args.lamda 0.02
+Validation Progress:  65%|██████▍   | 480/741 [01:20<00:36,  7.11it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  65%|██████▌   | 482/741 [01:20<00:31,  8.35it/s]args.lamda 0.02
+Validation Progress:  65%|██████▌   | 483/741 [01:20<00:31,  8.22it/s]args.lamda 0.02
+Validation Progress:  65%|██████▌   | 484/741 [01:21<00:39,  6.58it/s]args.lamda 0.02
+Validation Progress:  65%|██████▌   | 485/741 [01:21<00:37,  6.90it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  66%|██████▌   | 487/741 [01:21<00:32,  7.85it/s]args.lamda 0.02
+Validation Progress:  66%|██████▌   | 488/741 [01:21<00:31,  7.94it/s]args.lamda 0.02
+Validation Progress:  66%|██████▌   | 489/741 [01:21<00:31,  7.95it/s]args.lamda 0.02
+Validation Progress:  66%|██████▌   | 490/741 [01:21<00:31,  7.97it/s]args.lamda 0.02
+Validation Progress:  66%|██████▋   | 491/741 [01:21<00:32,  7.70it/s]args.lamda 0.02
+Validation Progress:  66%|██████▋   | 492/741 [01:22<00:34,  7.26it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 493/741 [01:22<00:33,  7.47it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 494/741 [01:22<00:35,  6.92it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 495/741 [01:22<00:46,  5.32it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 496/741 [01:22<00:49,  4.94it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 497/741 [01:23<00:51,  4.75it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 498/741 [01:23<00:47,  5.11it/s]args.lamda 0.02
+Validation Progress:  67%|██████▋   | 499/741 [01:23<00:53,  4.50it/s]args.lamda 0.02
+[2025-07-09 14:12:07,555][train_val_withOT_btad.py][line: 630][    INFO] Test: [500/741]	Time 0.159 (0.168)
+Validation Progress:  67%|██████▋   | 500/741 [01:23<00:49,  4.92it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 501/741 [01:23<00:46,  5.19it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 502/741 [01:24<00:44,  5.34it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 503/741 [01:24<00:40,  5.83it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 504/741 [01:24<00:39,  6.01it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 505/741 [01:24<00:40,  5.86it/s]args.lamda 0.02
+Validation Progress:  68%|██████▊   | 506/741 [01:24<00:35,  6.67it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  69%|██████▊   | 508/741 [01:24<00:29,  8.01it/s]args.lamda 0.02
+Validation Progress:  69%|██████▊   | 509/741 [01:24<00:27,  8.33it/s]args.lamda 0.02
+Validation Progress:  69%|██████▉   | 510/741 [01:25<00:27,  8.40it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  69%|██████▉   | 512/741 [01:25<00:23,  9.58it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  69%|██████▉   | 514/741 [01:25<00:22,  9.97it/s]args.lamda 0.02
+Validation Progress:  70%|██████▉   | 515/741 [01:25<00:22,  9.97it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  70%|██████▉   | 517/741 [01:25<00:21, 10.38it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  70%|███████   | 519/741 [01:25<00:22,  9.81it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  70%|███████   | 521/741 [01:26<00:25,  8.59it/s]args.lamda 0.02
+Validation Progress:  70%|███████   | 522/741 [01:26<00:26,  8.34it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  71%|███████   | 524/741 [01:26<00:25,  8.65it/s]args.lamda 0.02
+Validation Progress:  71%|███████   | 525/741 [01:26<00:25,  8.49it/s]args.lamda 0.02
+Validation Progress:  71%|███████   | 526/741 [01:26<00:25,  8.59it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  71%|███████▏  | 528/741 [01:27<00:22,  9.28it/s]args.lamda 0.02
+Validation Progress:  71%|███████▏  | 529/741 [01:27<00:24,  8.62it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 530/741 [01:27<00:27,  7.69it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 531/741 [01:27<00:28,  7.37it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 532/741 [01:27<00:29,  7.02it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 533/741 [01:27<00:29,  7.08it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 534/741 [01:27<00:30,  6.86it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 535/741 [01:28<00:30,  6.77it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 536/741 [01:28<00:30,  6.75it/s]args.lamda 0.02
+Validation Progress:  72%|███████▏  | 537/741 [01:28<00:32,  6.33it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 538/741 [01:28<00:32,  6.20it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 539/741 [01:28<00:34,  5.91it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 540/741 [01:28<00:32,  6.28it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 541/741 [01:29<00:30,  6.50it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 542/741 [01:29<00:28,  6.94it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 543/741 [01:29<00:28,  7.02it/s]args.lamda 0.02
+Validation Progress:  73%|███████▎  | 544/741 [01:29<00:25,  7.58it/s]args.lamda 0.02
+Validation Progress:  74%|███████▎  | 545/741 [01:29<00:26,  7.39it/s]args.lamda 0.02
+Validation Progress:  74%|███████▎  | 546/741 [01:29<00:26,  7.33it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  74%|███████▍  | 548/741 [01:29<00:24,  7.79it/s]args.lamda 0.02
+Validation Progress:  74%|███████▍  | 549/741 [01:30<00:25,  7.53it/s]args.lamda 0.02
+Validation Progress:  74%|███████▍  | 550/741 [01:30<00:26,  7.11it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  74%|███████▍  | 552/741 [01:30<00:22,  8.38it/s]args.lamda 0.02
+Validation Progress:  75%|███████▍  | 553/741 [01:30<00:21,  8.62it/s]args.lamda 0.02
+Validation Progress:  75%|███████▍  | 554/741 [01:30<00:21,  8.74it/s]args.lamda 0.02
+Validation Progress:  75%|███████▍  | 555/741 [01:30<00:20,  9.01it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  75%|███████▌  | 557/741 [01:30<00:19,  9.24it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  75%|███████▌  | 559/741 [01:31<00:18,  9.76it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  76%|███████▌  | 561/741 [01:31<00:18,  9.79it/s]args.lamda 0.02
+Validation Progress:  76%|███████▌  | 562/741 [01:31<00:20,  8.52it/s]args.lamda 0.02
+Validation Progress:  76%|███████▌  | 563/741 [01:31<00:20,  8.49it/s]args.lamda 0.02
+Validation Progress:  76%|███████▌  | 564/741 [01:31<00:21,  8.36it/s]args.lamda 0.02
+Validation Progress:  76%|███████▌  | 565/741 [01:31<00:20,  8.66it/s]args.lamda 0.02
+Validation Progress:  76%|███████▋  | 566/741 [01:31<00:19,  8.87it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 567/741 [01:32<00:19,  9.11it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 568/741 [01:32<00:21,  7.93it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 569/741 [01:32<00:20,  8.26it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  77%|███████▋  | 571/741 [01:32<00:19,  8.76it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 572/741 [01:32<00:21,  7.86it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 573/741 [01:32<00:25,  6.62it/s]args.lamda 0.02
+Validation Progress:  77%|███████▋  | 574/741 [01:33<00:26,  6.29it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 575/741 [01:33<00:31,  5.29it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 576/741 [01:33<00:35,  4.67it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 577/741 [01:33<00:32,  5.08it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 578/741 [01:33<00:29,  5.60it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 579/741 [01:34<00:27,  5.79it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 580/741 [01:34<00:28,  5.59it/s]args.lamda 0.02
+Validation Progress:  78%|███████▊  | 581/741 [01:34<00:26,  6.08it/s]args.lamda 0.02
+Validation Progress:  79%|███████▊  | 582/741 [01:34<00:25,  6.34it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  79%|███████▉  | 584/741 [01:34<00:21,  7.33it/s]args.lamda 0.02
+Validation Progress:  79%|███████▉  | 585/741 [01:34<00:20,  7.55it/s]args.lamda 0.02
+Validation Progress:  79%|███████▉  | 586/741 [01:35<00:20,  7.53it/s]args.lamda 0.02
+Validation Progress:  79%|███████▉  | 587/741 [01:35<00:19,  7.86it/s]args.lamda 0.02
+Validation Progress:  79%|███████▉  | 588/741 [01:35<00:18,  8.25it/s]args.lamda 0.02
+Validation Progress:  79%|███████▉  | 589/741 [01:35<00:18,  8.14it/s]args.lamda 0.02
+Validation Progress:  80%|███████▉  | 590/741 [01:35<00:18,  8.26it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  80%|███████▉  | 592/741 [01:35<00:16,  8.86it/s]args.lamda 0.02
+Validation Progress:  80%|████████  | 593/741 [01:35<00:16,  8.86it/s]args.lamda 0.02
+Validation Progress:  80%|████████  | 594/741 [01:35<00:17,  8.45it/s]args.lamda 0.02
+Validation Progress:  80%|████████  | 595/741 [01:36<00:20,  7.27it/s]args.lamda 0.02
+Validation Progress:  80%|████████  | 596/741 [01:36<00:20,  7.06it/s]args.lamda 0.02
+Validation Progress:  81%|████████  | 597/741 [01:36<00:19,  7.24it/s]args.lamda 0.02
+Validation Progress:  81%|████████  | 598/741 [01:36<00:20,  7.14it/s]args.lamda 0.02
+args.lamda 0.02
+[2025-07-09 14:12:20,597][train_val_withOT_btad.py][line: 630][    INFO] Test: [600/741]	Time 0.096 (0.161)
+Validation Progress:  81%|████████  | 600/741 [01:36<00:17,  8.28it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  81%|████████  | 602/741 [01:37<00:15,  8.84it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  82%|████████▏ | 604/741 [01:37<00:15,  8.70it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  82%|████████▏ | 606/741 [01:37<00:14,  9.18it/s]args.lamda 0.02
+Validation Progress:  82%|████████▏ | 607/741 [01:37<00:14,  9.24it/s]args.lamda 0.02
+Validation Progress:  82%|████████▏ | 608/741 [01:37<00:14,  9.00it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  82%|████████▏ | 610/741 [01:37<00:14,  8.87it/s]args.lamda 0.02
+Validation Progress:  82%|████████▏ | 611/741 [01:38<00:15,  8.14it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 612/741 [01:38<00:17,  7.30it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 613/741 [01:38<00:18,  7.08it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 614/741 [01:38<00:18,  6.69it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 615/741 [01:38<00:18,  6.67it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 616/741 [01:38<00:19,  6.38it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 617/741 [01:39<00:18,  6.74it/s]args.lamda 0.02
+Validation Progress:  83%|████████▎ | 618/741 [01:39<00:19,  6.43it/s]args.lamda 0.02
+Validation Progress:  84%|████████▎ | 619/741 [01:39<00:18,  6.42it/s]args.lamda 0.02
+Validation Progress:  84%|████████▎ | 620/741 [01:39<00:19,  6.20it/s]args.lamda 0.02
+Validation Progress:  84%|████████▍ | 621/741 [01:39<00:20,  5.97it/s]args.lamda 0.02
+Validation Progress:  84%|████████▍ | 622/741 [01:39<00:19,  5.95it/s]args.lamda 0.02
+Validation Progress:  84%|████████▍ | 623/741 [01:40<00:19,  5.91it/s]args.lamda 0.02
+Validation Progress:  84%|████████▍ | 624/741 [01:40<00:19,  5.85it/s]args.lamda 0.02
+Validation Progress:  84%|████████▍ | 625/741 [01:40<00:17,  6.64it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  85%|████████▍ | 627/741 [01:40<00:14,  8.10it/s]args.lamda 0.02
+Validation Progress:  85%|████████▍ | 628/741 [01:40<00:14,  7.84it/s]args.lamda 0.02
+Validation Progress:  85%|████████▍ | 629/741 [01:40<00:14,  7.93it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  85%|████████▌ | 631/741 [01:40<00:12,  9.13it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  85%|████████▌ | 633/741 [01:41<00:13,  8.17it/s]args.lamda 0.02
+Validation Progress:  86%|████████▌ | 634/741 [01:41<00:14,  7.32it/s]args.lamda 0.02
+Validation Progress:  86%|████████▌ | 635/741 [01:41<00:15,  6.80it/s]args.lamda 0.02
+Validation Progress:  86%|████████▌ | 636/741 [01:41<00:15,  6.86it/s]args.lamda 0.02
+Validation Progress:  86%|████████▌ | 637/741 [01:41<00:15,  6.77it/s]args.lamda 0.02
+Validation Progress:  86%|████████▌ | 638/741 [01:42<00:13,  7.41it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  86%|████████▋ | 640/741 [01:42<00:12,  8.39it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  87%|████████▋ | 642/741 [01:42<00:10,  9.52it/s]args.lamda 0.02
+Validation Progress:  87%|████████▋ | 643/741 [01:42<00:10,  9.46it/s]args.lamda 0.02
+Validation Progress:  87%|████████▋ | 644/741 [01:42<00:10,  9.52it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  87%|████████▋ | 646/741 [01:42<00:09, 10.12it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  87%|████████▋ | 648/741 [01:42<00:08, 10.37it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  88%|████████▊ | 650/741 [01:43<00:09,  9.45it/s]args.lamda 0.02
+Validation Progress:  88%|████████▊ | 651/741 [01:43<00:09,  9.38it/s]args.lamda 0.02
+Validation Progress:  88%|████████▊ | 652/741 [01:43<00:10,  8.44it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  88%|████████▊ | 654/741 [01:43<00:12,  7.10it/s]args.lamda 0.02
+Validation Progress:  88%|████████▊ | 655/741 [01:43<00:12,  6.97it/s]args.lamda 0.02
+Validation Progress:  89%|████████▊ | 656/741 [01:44<00:12,  6.79it/s]args.lamda 0.02
+Validation Progress:  89%|████████▊ | 657/741 [01:44<00:11,  7.08it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 658/741 [01:44<00:12,  6.57it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 659/741 [01:44<00:12,  6.39it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 660/741 [01:44<00:12,  6.50it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 661/741 [01:44<00:13,  6.14it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 662/741 [01:45<00:13,  5.97it/s]args.lamda 0.02
+Validation Progress:  89%|████████▉ | 663/741 [01:45<00:12,  6.28it/s]args.lamda 0.02
+Validation Progress:  90%|████████▉ | 664/741 [01:45<00:12,  5.93it/s]args.lamda 0.02
+Validation Progress:  90%|████████▉ | 665/741 [01:45<00:12,  6.32it/s]args.lamda 0.02
+Validation Progress:  90%|████████▉ | 666/741 [01:45<00:11,  6.70it/s]args.lamda 0.02
+Validation Progress:  90%|█████████ | 667/741 [01:45<00:10,  7.35it/s]args.lamda 0.02
+Validation Progress:  90%|█████████ | 668/741 [01:45<00:10,  7.08it/s]args.lamda 0.02
+Validation Progress:  90%|█████████ | 669/741 [01:46<00:09,  7.55it/s]args.lamda 0.02
+Validation Progress:  90%|█████████ | 670/741 [01:46<00:10,  6.99it/s]args.lamda 0.02
+Validation Progress:  91%|█████████ | 671/741 [01:46<00:09,  7.06it/s]args.lamda 0.02
+Validation Progress:  91%|█████████ | 672/741 [01:46<00:09,  7.33it/s]args.lamda 0.02
+Validation Progress:  91%|█████████ | 673/741 [01:46<00:08,  7.83it/s]args.lamda 0.02
+Validation Progress:  91%|█████████ | 674/741 [01:46<00:09,  7.26it/s]args.lamda 0.02
+Validation Progress:  91%|█████████ | 675/741 [01:46<00:08,  7.90it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  91%|█████████▏| 677/741 [01:47<00:06,  9.28it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  92%|█████████▏| 679/741 [01:47<00:06,  9.59it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  92%|█████████▏| 681/741 [01:47<00:06,  9.88it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  92%|█████████▏| 683/741 [01:47<00:05, 10.17it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  92%|█████████▏| 685/741 [01:47<00:05, 10.60it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  93%|█████████▎| 687/741 [01:48<00:05, 10.18it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  93%|█████████▎| 689/741 [01:48<00:04, 10.47it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  93%|█████████▎| 691/741 [01:48<00:05,  9.50it/s]args.lamda 0.02
+Validation Progress:  93%|█████████▎| 692/741 [01:48<00:05,  8.36it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▎| 693/741 [01:48<00:05,  8.36it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▎| 694/741 [01:48<00:05,  8.63it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▍| 695/741 [01:48<00:05,  8.22it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▍| 696/741 [01:49<00:05,  8.60it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▍| 697/741 [01:49<00:05,  7.50it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▍| 698/741 [01:49<00:06,  7.06it/s]args.lamda 0.02
+Validation Progress:  94%|█████████▍| 699/741 [01:49<00:06,  6.78it/s]args.lamda 0.02
+[2025-07-09 14:12:33,541][train_val_withOT_btad.py][line: 630][    INFO] Test: [700/741]	Time 0.165 (0.157)
+Validation Progress:  94%|█████████▍| 700/741 [01:49<00:06,  6.55it/s]args.lamda 0.02
+Validation Progress:  95%|█████████▍| 701/741 [01:49<00:06,  5.93it/s]args.lamda 0.02
+Validation Progress:  95%|█████████▍| 702/741 [01:50<00:06,  5.87it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  95%|█████████▌| 704/741 [01:50<00:06,  6.08it/s]args.lamda 0.02
+Validation Progress:  95%|█████████▌| 705/741 [01:50<00:05,  6.07it/s]args.lamda 0.02
+Validation Progress:  95%|█████████▌| 706/741 [01:50<00:06,  5.62it/s]args.lamda 0.02
+Validation Progress:  95%|█████████▌| 707/741 [01:50<00:05,  6.20it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▌| 708/741 [01:51<00:04,  6.66it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▌| 709/741 [01:51<00:04,  6.85it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▌| 710/741 [01:51<00:04,  7.32it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  96%|█████████▌| 712/741 [01:51<00:03,  7.78it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▌| 713/741 [01:51<00:03,  7.17it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▋| 714/741 [01:51<00:04,  6.55it/s]args.lamda 0.02
+Validation Progress:  96%|█████████▋| 715/741 [01:52<00:04,  6.50it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 716/741 [01:52<00:03,  6.66it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 717/741 [01:52<00:03,  6.94it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 718/741 [01:52<00:03,  6.97it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 719/741 [01:52<00:03,  6.79it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 720/741 [01:52<00:03,  6.89it/s]args.lamda 0.02
+Validation Progress:  97%|█████████▋| 721/741 [01:52<00:02,  7.57it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  98%|█████████▊| 723/741 [01:53<00:02,  8.48it/s]args.lamda 0.02
+Validation Progress:  98%|█████████▊| 724/741 [01:53<00:02,  8.16it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress:  98%|█████████▊| 726/741 [01:53<00:01,  9.47it/s]args.lamda 0.02
+Validation Progress:  98%|█████████▊| 727/741 [01:53<00:01,  9.51it/s]args.lamda 0.02
+Validation Progress:  98%|█████████▊| 728/741 [01:53<00:01,  9.48it/s]args.lamda 0.02
+Validation Progress:  98%|█████████▊| 729/741 [01:53<00:01,  9.51it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▊| 730/741 [01:53<00:01,  9.61it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▊| 731/741 [01:53<00:01,  9.15it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▉| 732/741 [01:54<00:00,  9.32it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▉| 733/741 [01:54<00:00,  8.30it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▉| 734/741 [01:54<00:00,  7.50it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▉| 735/741 [01:54<00:00,  7.44it/s]args.lamda 0.02
+Validation Progress:  99%|█████████▉| 736/741 [01:54<00:00,  7.88it/s]args.lamda 0.02
+args.lamda 0.02
+Validation Progress: 100%|█████████▉| 738/741 [01:54<00:00,  8.98it/s]args.lamda 0.02
+Validation Progress: 100%|█████████▉| 739/741 [01:54<00:00,  9.04it/s]args.lamda 0.02
+Validation Progress: 100%|█████████▉| 740/741 [01:54<00:00,  9.00it/s]args.lamda 0.02
+Validation Progress: 100%|██████████| 741/741 [01:55<00:00,  6.43it/s]
+[2025-07-09 14:12:39,078][train_val_withOT_btad.py][line: 657][    INFO] Gathering final results ...
+
+evalname std
+evalname max
+evalname pixel
+evalname top250
+evalname IImageap
+evalname IImagef1max
+evalname PPixelap
+evalname PPixelf1max
+evalname PPixelpro
+evalnames ['std', 'max', 'IImageap', 'pixel', 'PPixelf1max', 'PPixelpro', 'IImagef1max', 'top250', 'PPixelap']
+[2025-07-09 14:17:18,075][eval_helper1.py][line: 445][    INFO] 
+|  clsname  |   std    |   max    |  IImageap  |  pixel   |  PPixelf1max  |  PPixelpro  |  IImagef1max  |  top250  |  PPixelap  |
+|:---------:|:--------:|:--------:|:----------:|:--------:|:-------------:|:-----------:|:-------------:|:--------:|:----------:|
+|    03     | 0.999528 | 0.999685 |  0.995764  | 0.994542 |    0.45664    |  0.977905   |   0.984127    | 0.999685 |  0.45548   |
+|    02     | 0.783271 | 0.814881 |  0.969818  | 0.946062 |   0.512456    |  0.513589   |   0.927739    | 0.817637 |  0.440728  |
+|    01     | 0.952381 | 0.980564 |  0.993679  | 0.966945 |   0.537678    |  0.739058   |   0.969072    | 0.983479 |  0.513356  |
+|   mean    | 0.911727 | 0.93171  |  0.98642   | 0.969183 |   0.502258    |  0.743517   |   0.960313    |  0.9336  |  0.469855  |
+

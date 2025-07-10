@@ -1,0 +1,130 @@
+[2025-07-07 09:09:29,338][train_val_woOT.py][line:  97][    INFO] args: Namespace(config='./config_visa_woOT.yaml', evaluate=True, local_rank=None, train_only_four_decoder=False)
+[2025-07-07 09:09:29,340][train_val_woOT.py][line:  98][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/sysmanager/customer/Desktop/ZZ/anomaly/GLAD-main/hdd/Datasets/VisA_pytorch'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/VISA/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/VISA/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_VisA_from0_my',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'},
+                                   {'name': 'top250'},
+                                   {'name': 'IImageap'},
+                                   {'name': 'IImagef1max'},
+                                   {'name': 'IImageauroc'},
+                                   {'name': 'PPixelap'},
+                                   {'name': 'PPixelf1max'},
+                                   {'name': 'PPixelpro'},
+                                   {'name': 'PPixelauroc'}]},
+               'save_dir': 'result_eval_temp_VisA_from0_my',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_VisA_from0/vis_compound_HVQ_TR_switch/visual_VisA_from0_woOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_VisA_from0'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_VisA_from0_woOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': '/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_visa/experiments/VISA/checkpoints/HVQ_TR_switch_VisA_from0_woOT/ckpt_best.pth.tar',
+           'save_dir': 'checkpoints/HVQ_TR_switch_VisA_from0_woOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 200,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 80,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 2},
+ 'version': 'v1.0.0'}
+[2025-07-07 09:09:33,753][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-07-07 09:09:34,336][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-07-07 09:09:36,885][train_val_woOT.py][line: 118][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-07-07 09:09:36,885][train_val_woOT.py][line: 119][    INFO] active layers: ['reconstruction', 'neck']
+[2025-07-07 09:09:45,163][custom_dataset.py][line:  48][    INFO] building CustomDataset from: ../../data/VISA/train.json
+[2025-07-07 09:09:45,197][custom_dataset.py][line:  48][    INFO] building CustomDataset from: ../../data/VISA/test.json
+[2025-07-07 09:09:57,214][train_val_woOT.py][line: 417][    INFO] Test: [100/2162]	Time 0.069 (0.112)
+[2025-07-07 09:10:04,818][train_val_woOT.py][line: 417][    INFO] Test: [200/2162]	Time 0.074 (0.094)
+[2025-07-07 09:10:11,933][train_val_woOT.py][line: 417][    INFO] Test: [300/2162]	Time 0.072 (0.086)
+[2025-07-07 09:10:19,275][train_val_woOT.py][line: 417][    INFO] Test: [400/2162]	Time 0.067 (0.083)
+[2025-07-07 09:10:26,765][train_val_woOT.py][line: 417][    INFO] Test: [500/2162]	Time 0.067 (0.082)
+[2025-07-07 09:10:33,965][train_val_woOT.py][line: 417][    INFO] Test: [600/2162]	Time 0.067 (0.080)
+[2025-07-07 09:10:41,038][train_val_woOT.py][line: 417][    INFO] Test: [700/2162]	Time 0.077 (0.079)
+[2025-07-07 09:10:49,553][train_val_woOT.py][line: 417][    INFO] Test: [800/2162]	Time 0.070 (0.079)
+[2025-07-07 09:10:56,994][train_val_woOT.py][line: 417][    INFO] Test: [900/2162]	Time 0.065 (0.079)
+[2025-07-07 09:11:05,521][train_val_woOT.py][line: 417][    INFO] Test: [1000/2162]	Time 0.083 (0.080)
+[2025-07-07 09:11:16,015][train_val_woOT.py][line: 417][    INFO] Test: [1100/2162]	Time 0.071 (0.082)
+[2025-07-07 09:11:24,871][train_val_woOT.py][line: 417][    INFO] Test: [1200/2162]	Time 0.069 (0.082)
+[2025-07-07 09:11:32,393][train_val_woOT.py][line: 417][    INFO] Test: [1300/2162]	Time 0.069 (0.082)
+[2025-07-07 09:11:39,674][train_val_woOT.py][line: 417][    INFO] Test: [1400/2162]	Time 0.075 (0.081)
+[2025-07-07 09:11:47,272][train_val_woOT.py][line: 417][    INFO] Test: [1500/2162]	Time 0.069 (0.081)
+[2025-07-07 09:11:55,130][train_val_woOT.py][line: 417][    INFO] Test: [1600/2162]	Time 0.065 (0.081)
+[2025-07-07 09:12:03,162][train_val_woOT.py][line: 417][    INFO] Test: [1700/2162]	Time 0.070 (0.081)
+[2025-07-07 09:12:10,917][train_val_woOT.py][line: 417][    INFO] Test: [1800/2162]	Time 0.072 (0.081)
+[2025-07-07 09:12:18,269][train_val_woOT.py][line: 417][    INFO] Test: [1900/2162]	Time 0.067 (0.080)
+[2025-07-07 09:12:25,913][train_val_woOT.py][line: 417][    INFO] Test: [2000/2162]	Time 0.070 (0.080)
+[2025-07-07 09:12:33,185][train_val_woOT.py][line: 417][    INFO] Test: [2100/2162]	Time 0.066 (0.080)
+[2025-07-07 09:12:37,968][train_val_woOT.py][line: 426][    INFO] Gathering final results ...
+[2025-07-07 09:29:59,851][eval_helper1.py][line: 428][    INFO] 
+|  clsname   |  PPixelpro  |  IImagef1max  |   std    |  pixel   |  IImageap  |   max    |  PPixelauroc  |  IImageauroc  |  PPixelf1max  |  top250  |  PPixelap  |
+|:----------:|:-----------:|:-------------:|:--------:|:--------:|:----------:|:--------:|:-------------:|:-------------:|:-------------:|:--------:|:----------:|
+| macaroni2  |  0.941692   |   0.814815    |  0.7793  | 0.984535 |  0.892907  |  0.8821  |   0.984535    |    0.8832     |   0.154617    |  0.8832  | 0.0653855  |
+| pipe_fryum |  0.944716   |   0.935323    |  0.9164  | 0.994704 |  0.98268   |  0.9692  |   0.994704    |    0.9656     |   0.713277    |  0.9656  |  0.715192  |
+| chewinggum |   0.88465   |   0.969388    |  0.981   | 0.994779 |  0.996535  |  0.993   |   0.994779    |    0.9928     |   0.647064    |  0.9928  |  0.702377  |
+|    pcb2    |  0.854046   |    0.92228    |  0.9536  | 0.980249 |  0.971271  |  0.9694  |   0.980249    |     0.97      |   0.211281    |   0.97   |  0.123034  |
+| macaroni1  |  0.964003   |   0.866667    |  0.8128  | 0.993633 |  0.941508  |  0.9368  |   0.993633    |    0.9369     |   0.197187    |  0.9369  |  0.114567  |
+|    pcb1    |  0.882894   |   0.916256    |  0.9604  | 0.993152 |  0.953624  |  0.9638  |   0.993152    |    0.9628     |   0.669425    |  0.9628  |  0.715519  |
+|    pcb3    |   0.75567   |   0.820513    | 0.865545 | 0.977473 |  0.904032  | 0.895644 |   0.977473    |   0.897426    |   0.286137    | 0.897426 |  0.255262  |
+|   candle   |  0.951595   |   0.924623    |  0.9814  | 0.991741 |  0.979826  |  0.9761  |   0.991741    |     0.978     |    0.40952    |  0.978   |  0.299287  |
+|    pcb4    |  0.843938   |   0.970874    | 0.986337 | 0.978406 |  0.983546  | 0.986931 |   0.978406    |   0.987426    |   0.394942    | 0.987426 |   0.3824   |
+|   fryum    |  0.868782   |    0.86758    |  0.8908  | 0.977102 |  0.948898  |  0.8852  |   0.977102    |    0.8892     |   0.540921    |  0.8892  |  0.495441  |
+|   cashew   |  0.904787   |   0.915423    |  0.7686  | 0.993033 |  0.975043  |  0.9408  |   0.993033    |    0.9406     |   0.660865    |  0.9406  |  0.646146  |
+|  capsules  |  0.618644   |    0.79397    | 0.776333 | 0.975996 |  0.900282  | 0.799167 |   0.975996    |     0.802     |   0.514398    |  0.802   |  0.45856   |
+|    mean    |  0.867952   |   0.893143    | 0.889376 | 0.986234 |  0.952513  | 0.933178 |   0.986234    |   0.933829    |   0.449969    | 0.933829 |  0.414431  |

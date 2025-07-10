@@ -1,0 +1,115 @@
+[2025-07-08 04:58:19,784][train_val_withOT_btad.py][line: 112][    INFO] args: Namespace(config='./config_btad_withOT.yaml', evaluate=True, lamda=0.01, local_rank=None, train_only_four_decoder=False)
+[2025-07-08 04:58:19,786][train_val_withOT_btad.py][line: 113][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/sysmanager/customer/Desktop/ZZ/anomaly/GLAD-main/hdd/Datasets/BTAD'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/BTAD/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/BTAD/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_BTAD_from0_withOT',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'},
+                                   {'name': 'top250'},
+                                   {'name': 'IImageap'},
+                                   {'name': 'IImagef1max'},
+                                   {'name': 'IImageauroc'},
+                                   {'name': 'PPixelap'},
+                                   {'name': 'PPixelf1max'},
+                                   {'name': 'PPixelpro'},
+                                   {'name': 'PPixelauroc'}]},
+               'save_dir': 'result_eval_temp_BTAD_from0_withOT',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0/vis_compound_HVQ_TR_switch/visual_BTAD_from0_withOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_BTAD_from0_withOT'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_BTAD_from0_withOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': '/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_hvqtrans/Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoints/HVQ_TR_switch_BTAD_from0_withOT/ckpt_best.pth.tar',
+           'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0_withOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 200,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 50,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2025-07-08 04:58:29,680][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-07-08 04:58:30,434][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-07-08 04:58:36,165][train_val_withOT_btad.py][line: 142][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-07-08 04:58:36,166][train_val_withOT_btad.py][line: 143][    INFO] active layers: ['neck', 'reconstruction']
+[2025-07-08 04:58:50,455][custom_dataset.py][line:  56][    INFO] building CustomDataset from: ../../data/BTAD/train.json
+[2025-07-08 04:58:50,469][custom_dataset.py][line:  56][    INFO] building CustomDataset from: ../../data/BTAD/test.json
+[2025-07-08 05:00:34,769][train_val_withOT_btad.py][line: 630][    INFO] Test: [100/741]	Time 0.372 (0.410)
+[2025-07-08 05:01:02,794][train_val_withOT_btad.py][line: 630][    INFO] Test: [200/741]	Time 0.272 (0.345)
+[2025-07-08 05:01:34,072][train_val_withOT_btad.py][line: 630][    INFO] Test: [300/741]	Time 0.307 (0.334)
+[2025-07-08 05:02:04,451][train_val_withOT_btad.py][line: 630][    INFO] Test: [400/741]	Time 0.458 (0.327)
+[2025-07-08 05:02:39,415][train_val_withOT_btad.py][line: 630][    INFO] Test: [500/741]	Time 0.288 (0.331)
+[2025-07-08 05:03:10,929][train_val_withOT_btad.py][line: 630][    INFO] Test: [600/741]	Time 0.304 (0.329)
+[2025-07-08 05:03:46,968][train_val_withOT_btad.py][line: 630][    INFO] Test: [700/741]	Time 0.457 (0.333)
+[2025-07-08 05:03:57,432][train_val_withOT_btad.py][line: 657][    INFO] Gathering final results ...
+[2025-07-08 05:04:37,238][eval_helper1.py][line: 445][    INFO] 
+|  clsname  |  PPixelf1max  |  IImagef1max  |  IImageap  |  PPixelap  |  top250  |   std    |  PPixelpro  |  PPixelauroc  |   max    |  IImageauroc  |  pixel   |
+|:---------:|:-------------:|:-------------:|:----------:|:----------:|:--------:|:--------:|:-----------:|:-------------:|:--------:|:-------------:|:--------:|
+|    01     |    0.55528    |   0.923077    |  0.97619   |  0.554381  | 0.944444 | 0.888889 |  0.632117   |   0.971536    | 0.944444 |   0.944444    | 0.971536 |
+|    02     |   0.512808    |    0.93617    |  0.986699  |  0.441622  | 0.893939 | 0.939394 |  0.608151   |    0.94306    | 0.878788 |   0.893939    | 0.94306  |
+|    03     |   0.487455    |       1       |     1      |  0.362205  |    1     |    1     |  0.997541   |   0.998841    |    1     |       1       | 0.998841 |
+|   mean    |   0.518514    |   0.953082    |  0.98763   |  0.452736  | 0.946128 | 0.942761 |  0.745936   |   0.971146    | 0.941077 |   0.946128    | 0.971146 |
+[2025-07-08 05:05:02,121][train_val_withOT_btad.py][line: 630][    INFO] Test: [100/741]	Time 0.236 (0.317)
+[2025-07-08 05:05:26,733][train_val_withOT_btad.py][line: 630][    INFO] Test: [200/741]	Time 0.363 (0.310)
+[2025-07-08 05:05:49,896][train_val_withOT_btad.py][line: 630][    INFO] Test: [300/741]	Time 0.152 (0.302)
+[2025-07-08 05:06:13,442][train_val_withOT_btad.py][line: 630][    INFO] Test: [400/741]	Time 0.216 (0.296)
+[2025-07-08 05:06:38,120][train_val_withOT_btad.py][line: 630][    INFO] Test: [500/741]	Time 0.243 (0.292)
+[2025-07-08 05:07:03,612][train_val_withOT_btad.py][line: 630][    INFO] Test: [600/741]	Time 0.215 (0.289)
+[2025-07-08 05:07:25,846][train_val_withOT_btad.py][line: 630][    INFO] Test: [700/741]	Time 0.139 (0.285)
+[2025-07-08 05:07:36,390][train_val_withOT_btad.py][line: 657][    INFO] Gathering final results ...

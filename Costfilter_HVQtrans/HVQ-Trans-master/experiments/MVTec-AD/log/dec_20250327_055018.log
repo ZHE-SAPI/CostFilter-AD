@@ -1,0 +1,166 @@
+[2025-03-27 05:50:18,934][train_val_withOT_btad.py][line:  90][    INFO] args: Namespace(config='./config_btad_withOT.yaml', evaluate=False, local_rank=None, train_only_four_decoder=False)
+[2025-03-27 05:50:18,935][train_val_withOT_btad.py][line:  91][    INFO] config: {'criterion': [{'kwargs': {'weight': 1.0},
+                'name': 'FeatureMSELoss',
+                'type': 'FeatureMSELoss'}],
+ 'dataset': {'batch_size': 16,
+             'image_reader': {'kwargs': {'color_mode': 'RGB',
+                                         'image_dir': '/home/ZZ/anomaly/GLAD-main/hdd/Datasets/BTAD'},
+                              'type': 'opencv'},
+             'input_size': [224, 224],
+             'pixel_mean': [0.485, 0.456, 0.406],
+             'pixel_std': [0.229, 0.224, 0.225],
+             'test': {'meta_file': '../../data/BTAD/test.json'},
+             'train': {'hflip': False,
+                       'meta_file': '../../data/BTAD/train.json',
+                       'rebalance': False,
+                       'rotate': False,
+                       'vflip': False},
+             'type': 'custom',
+             'workers': 4},
+ 'evaluator': {'eval_dir': './result_eval_temp_BTAD_from0_withOT',
+               'key_metric': 'mean_max_auc',
+               'metrics': {'auc': [{'name': 'std'},
+                                   {'kwargs': {'avgpool_size': [16, 16]},
+                                    'name': 'max'},
+                                   {'name': 'pixel'}]},
+               'save_dir': 'result_eval_temp_BTAD_from0_withOT',
+               'vis_compound': {'max_score': None,
+                                'min_score': None,
+                                'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0/vis_compound_HVQ_TR_switch/visual_BTAD_from0_withOT'}},
+ 'exp_path': '.',
+ 'frozen_layers': ['backbone'],
+ 'log_path': './log/',
+ 'net': [{'frozen': True,
+          'kwargs': {'outlayers': [1, 2, 3, 4], 'pretrained': True},
+          'name': 'backbone',
+          'type': 'models.backbones.efficientnet_b4'},
+         {'kwargs': {'outstrides': [16]},
+          'name': 'neck',
+          'prev': 'backbone',
+          'type': 'models.necks.MFCN'},
+         {'kwargs': {'activation': 'relu',
+                     'dim_feedforward': 1024,
+                     'dropout': 0.1,
+                     'feature_jitter': {'prob': 1.0, 'scale': 20.0},
+                     'hidden_dim': 256,
+                     'initializer': {'method': 'xavier_uniform'},
+                     'neighbor_mask': {'mask': [True, True, True],
+                                       'neighbor_size': [7, 7]},
+                     'nhead': 8,
+                     'normalize_before': False,
+                     'num_decoder_layers': 4,
+                     'num_encoder_layers': 4,
+                     'pos_embed_type': 'learned',
+                     'save_recon': {'save_dir': 'result_recon_BTAD_from0_withOT'}},
+          'name': 'reconstruction',
+          'prev': 'neck',
+          'type': 'models.reconstructions.HVQ_TR_switch_OT'}],
+ 'port': 11111,
+ 'random_seed': 1234,
+ 'save_path': './checkpoints/HVQ_TR_switch_BTAD_from0_withOT',
+ 'saver': {'always_save': False,
+           'auto_resume': False,
+           'load_path': 'checkpoints',
+           'log_dir': 'log/',
+           'resume_model': False,
+           'save_dir': 'checkpoints/HVQ_TR_switch_BTAD_from0_withOT'},
+ 'trainer': {'clip_max_norm': 0.1,
+             'lr_scheduler': {'kwargs': {'gamma': 0.1, 'step_size': 800},
+                              'type': 'StepLR'},
+             'max_epoch': 1000,
+             'optimizer': {'kwargs': {'betas': [0.9, 0.999],
+                                      'lr': 0.0001,
+                                      'weight_decay': 0.0001},
+                           'type': 'AdamW'},
+             'print_freq_step': 40,
+             'tb_freq_step': 1,
+             'val_freq_epoch': 10},
+ 'version': 'v1.0.0'}
+[2025-03-27 05:50:19,389][       utils.py][line: 719][    INFO]  not exist, load from https://github.com/lukemelas/EfficientNet-PyTorch/releases/download/1.0/efficientnet-b4-6ed6700e.pth
+[2025-03-27 05:50:19,514][       utils.py][line: 740][    INFO] Loaded ImageNet pretrained efficientnet-b4
+[2025-03-27 05:50:24,785][train_val_withOT_btad.py][line: 121][    INFO] layers: ['backbone', 'neck', 'reconstruction']
+[2025-03-27 05:50:24,786][train_val_withOT_btad.py][line: 122][    INFO] active layers: ['neck', 'reconstruction']
+[2025-03-27 05:50:24,790][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/BTAD/train.json
+[2025-03-27 05:50:24,797][custom_dataset.py][line:  47][    INFO] building CustomDataset from: ../../data/BTAD/test.json
+[2025-03-27 05:50:26,125][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [1/1000]	Iter: [1/113000]	Time 1.32 (1.32)	Data 0.78 (0.78)	Loss 51.29862 (51.29862)	LR 0.00010	
+[2025-03-27 05:50:34,954][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [1/1000]	Iter: [41/113000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 41.10981 (41.82047)	LR 0.00010	
+[2025-03-27 05:50:43,272][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [1/1000]	Iter: [81/113000]	Time 0.24 (0.21)	Data 0.00 (0.00)	Loss 40.31521 (38.46872)	LR 0.00010	
+[2025-03-27 05:50:52,993][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [2/1000]	Iter: [121/113000]	Time 0.19 (0.27)	Data 0.00 (0.07)	Loss 37.33886 (37.01180)	LR 0.00010	
+[2025-03-27 05:51:01,960][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [2/1000]	Iter: [161/113000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 36.59755 (37.18109)	LR 0.00010	
+[2025-03-27 05:51:10,627][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [2/1000]	Iter: [201/113000]	Time 0.23 (0.22)	Data 0.00 (0.00)	Loss 36.81237 (37.46201)	LR 0.00010	
+[2025-03-27 05:51:20,162][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [3/1000]	Iter: [241/113000]	Time 0.20 (0.26)	Data 0.00 (0.05)	Loss 35.09945 (36.41130)	LR 0.00010	
+[2025-03-27 05:51:28,991][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [3/1000]	Iter: [281/113000]	Time 0.19 (0.22)	Data 0.00 (0.00)	Loss 37.90807 (37.32626)	LR 0.00010	
+[2025-03-27 05:51:37,695][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [3/1000]	Iter: [321/113000]	Time 0.23 (0.22)	Data 0.00 (0.00)	Loss 37.62815 (36.65467)	LR 0.00010	
+[2025-03-27 05:51:47,100][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [4/1000]	Iter: [361/113000]	Time 0.20 (0.24)	Data 0.00 (0.03)	Loss 35.79470 (36.38501)	LR 0.00010	
+[2025-03-27 05:51:56,142][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [4/1000]	Iter: [401/113000]	Time 0.24 (0.23)	Data 0.00 (0.00)	Loss 38.99255 (36.76705)	LR 0.00010	
+[2025-03-27 05:52:05,014][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [4/1000]	Iter: [441/113000]	Time 0.23 (0.22)	Data 0.00 (0.00)	Loss 35.70450 (36.98771)	LR 0.00010	
+[2025-03-27 05:52:14,579][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [5/1000]	Iter: [481/113000]	Time 0.21 (0.24)	Data 0.00 (0.03)	Loss 37.40522 (36.79332)	LR 0.00010	
+[2025-03-27 05:52:23,679][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [5/1000]	Iter: [521/113000]	Time 0.23 (0.23)	Data 0.00 (0.00)	Loss 38.01310 (36.88810)	LR 0.00010	
+[2025-03-27 05:52:32,486][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [5/1000]	Iter: [561/113000]	Time 0.20 (0.22)	Data 0.00 (0.00)	Loss 36.87586 (36.78983)	LR 0.00010	
+[2025-03-27 05:52:42,287][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [6/1000]	Iter: [601/113000]	Time 0.24 (0.25)	Data 0.00 (0.02)	Loss 36.37811 (36.64335)	LR 0.00010	
+[2025-03-27 05:52:51,320][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [6/1000]	Iter: [641/113000]	Time 0.20 (0.23)	Data 0.00 (0.00)	Loss 37.02271 (36.72909)	LR 0.00010	
+[2025-03-27 05:53:00,866][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [7/1000]	Iter: [681/113000]	Time 0.23 (0.54)	Data 0.00 (0.29)	Loss 36.05970 (35.89288)	LR 0.00010	
+[2025-03-27 05:53:09,683][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [7/1000]	Iter: [721/113000]	Time 0.19 (0.22)	Data 0.00 (0.00)	Loss 33.10507 (34.93273)	LR 0.00010	
+[2025-03-27 05:53:18,817][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [7/1000]	Iter: [761/113000]	Time 0.21 (0.23)	Data 0.00 (0.00)	Loss 32.14799 (33.63388)	LR 0.00010	
+[2025-03-27 05:53:28,324][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [8/1000]	Iter: [801/113000]	Time 0.22 (0.31)	Data 0.00 (0.08)	Loss 33.48717 (32.56102)	LR 0.00010	
+[2025-03-27 05:53:37,123][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [8/1000]	Iter: [841/113000]	Time 0.19 (0.22)	Data 0.00 (0.00)	Loss 30.25129 (31.66445)	LR 0.00010	
+[2025-03-27 05:53:46,001][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [8/1000]	Iter: [881/113000]	Time 0.21 (0.22)	Data 0.00 (0.00)	Loss 30.43853 (30.60501)	LR 0.00010	
+[2025-03-27 05:53:55,572][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [9/1000]	Iter: [921/113000]	Time 0.24 (0.27)	Data 0.00 (0.05)	Loss 32.15147 (30.20313)	LR 0.00010	
+[2025-03-27 05:54:04,233][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [9/1000]	Iter: [961/113000]	Time 0.20 (0.22)	Data 0.00 (0.00)	Loss 29.91065 (29.72057)	LR 0.00010	
+[2025-03-27 05:54:13,120][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [9/1000]	Iter: [1001/113000]	Time 0.17 (0.22)	Data 0.00 (0.00)	Loss 28.16569 (29.21603)	LR 0.00010	
+[2025-03-27 05:54:22,779][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [10/1000]	Iter: [1041/113000]	Time 0.20 (0.26)	Data 0.00 (0.03)	Loss 30.46884 (28.78270)	LR 0.00010	
+[2025-03-27 05:54:31,404][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [10/1000]	Iter: [1081/113000]	Time 0.25 (0.22)	Data 0.00 (0.00)	Loss 27.29914 (28.12077)	LR 0.00010	
+[2025-03-27 05:54:40,273][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [10/1000]	Iter: [1121/113000]	Time 0.19 (0.22)	Data 0.00 (0.00)	Loss 26.95747 (27.64500)	LR 0.00010	
+[2025-03-27 05:54:51,794][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [11/1000]	Iter: [1161/113000]	Time 0.28 (0.30)	Data 0.00 (0.04)	Loss 27.07269 (27.40236)	LR 0.00010	
+[2025-03-27 05:55:02,289][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [11/1000]	Iter: [1201/113000]	Time 0.25 (0.26)	Data 0.00 (0.00)	Loss 26.11600 (26.67229)	LR 0.00010	
+[2025-03-27 05:55:12,672][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [11/1000]	Iter: [1241/113000]	Time 0.22 (0.26)	Data 0.00 (0.00)	Loss 25.89497 (26.34925)	LR 0.00010	
+[2025-03-27 05:55:23,837][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [12/1000]	Iter: [1281/113000]	Time 0.18 (0.28)	Data 0.00 (0.03)	Loss 25.74218 (26.20521)	LR 0.00010	
+[2025-03-27 05:55:31,376][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [12/1000]	Iter: [1321/113000]	Time 0.19 (0.19)	Data 0.00 (0.00)	Loss 26.64152 (25.84698)	LR 0.00010	
+[2025-03-27 05:55:40,717][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [13/1000]	Iter: [1361/113000]	Time 0.22 (0.38)	Data 0.00 (0.15)	Loss 26.56310 (25.48927)	LR 0.00010	
+[2025-03-27 05:55:49,347][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [13/1000]	Iter: [1401/113000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 24.99651 (25.32615)	LR 0.00010	
+[2025-03-27 05:55:58,217][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [13/1000]	Iter: [1441/113000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 25.52509 (25.22029)	LR 0.00010	
+[2025-03-27 05:56:07,637][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [14/1000]	Iter: [1481/113000]	Time 0.21 (0.29)	Data 0.00 (0.07)	Loss 24.48451 (24.72572)	LR 0.00010	
+[2025-03-27 05:56:16,381][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [14/1000]	Iter: [1521/113000]	Time 0.21 (0.22)	Data 0.00 (0.00)	Loss 24.55758 (24.65860)	LR 0.00010	
+[2025-03-27 05:56:25,247][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [14/1000]	Iter: [1561/113000]	Time 0.20 (0.22)	Data 0.00 (0.00)	Loss 24.22696 (24.40991)	LR 0.00010	
+[2025-03-27 05:56:35,015][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [15/1000]	Iter: [1601/113000]	Time 0.22 (0.27)	Data 0.00 (0.04)	Loss 24.41877 (24.04112)	LR 0.00010	
+[2025-03-27 05:56:43,767][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [15/1000]	Iter: [1641/113000]	Time 0.21 (0.22)	Data 0.00 (0.00)	Loss 23.58328 (23.84936)	LR 0.00010	
+[2025-03-27 05:56:52,886][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [15/1000]	Iter: [1681/113000]	Time 0.21 (0.23)	Data 0.00 (0.00)	Loss 23.78709 (23.79931)	LR 0.00010	
+[2025-03-27 05:57:02,385][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [16/1000]	Iter: [1721/113000]	Time 0.24 (0.26)	Data 0.00 (0.03)	Loss 23.26765 (23.34000)	LR 0.00010	
+[2025-03-27 05:57:11,071][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [16/1000]	Iter: [1761/113000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 22.23474 (23.16028)	LR 0.00010	
+[2025-03-27 05:57:19,882][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [16/1000]	Iter: [1801/113000]	Time 0.15 (0.22)	Data 0.00 (0.00)	Loss 23.03962 (22.91924)	LR 0.00010	
+[2025-03-27 05:57:29,258][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [17/1000]	Iter: [1841/113000]	Time 0.23 (0.25)	Data 0.00 (0.02)	Loss 23.09631 (22.58777)	LR 0.00010	
+[2025-03-27 05:57:37,954][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [17/1000]	Iter: [1881/113000]	Time 0.23 (0.22)	Data 0.00 (0.00)	Loss 22.62382 (22.68157)	LR 0.00010	
+[2025-03-27 05:57:46,608][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [17/1000]	Iter: [1921/113000]	Time 0.13 (0.22)	Data 0.00 (0.00)	Loss 22.33324 (22.59140)	LR 0.00010	
+[2025-03-27 05:57:58,214][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [18/1000]	Iter: [1961/113000]	Time 0.28 (0.29)	Data 0.00 (0.03)	Loss 22.54664 (22.24816)	LR 0.00010	
+[2025-03-27 05:58:08,897][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [18/1000]	Iter: [2001/113000]	Time 0.20 (0.27)	Data 0.00 (0.00)	Loss 21.36094 (22.30318)	LR 0.00010	
+[2025-03-27 05:58:20,196][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [19/1000]	Iter: [2041/113000]	Time 0.26 (0.42)	Data 0.00 (0.12)	Loss 21.95934 (22.15843)	LR 0.00010	
+[2025-03-27 05:58:30,511][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [19/1000]	Iter: [2081/113000]	Time 0.17 (0.26)	Data 0.00 (0.00)	Loss 21.41044 (21.73620)	LR 0.00010	
+[2025-03-27 05:58:37,698][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [19/1000]	Iter: [2121/113000]	Time 0.19 (0.18)	Data 0.00 (0.00)	Loss 21.54765 (21.52314)	LR 0.00010	
+[2025-03-27 05:58:46,749][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [20/1000]	Iter: [2161/113000]	Time 0.22 (0.28)	Data 0.00 (0.05)	Loss 21.87054 (21.68592)	LR 0.00010	
+[2025-03-27 05:58:55,162][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [20/1000]	Iter: [2201/113000]	Time 0.19 (0.21)	Data 0.00 (0.00)	Loss 21.21212 (21.26836)	LR 0.00010	
+[2025-03-27 05:59:03,732][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [20/1000]	Iter: [2241/113000]	Time 0.21 (0.21)	Data 0.00 (0.00)	Loss 20.40885 (21.24436)	LR 0.00010	
+[2025-03-27 05:59:12,976][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [21/1000]	Iter: [2281/113000]	Time 0.24 (0.25)	Data 0.00 (0.03)	Loss 21.39454 (21.20064)	LR 0.00010	
+[2025-03-27 05:59:21,247][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [21/1000]	Iter: [2321/113000]	Time 0.19 (0.21)	Data 0.00 (0.00)	Loss 20.55006 (20.92001)	LR 0.00010	
+[2025-03-27 05:59:30,851][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [21/1000]	Iter: [2361/113000]	Time 0.19 (0.22)	Data 0.00 (0.00)	Loss 20.63657 (20.85404)	LR 0.00010	
+[2025-03-27 05:59:40,246][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [22/1000]	Iter: [2401/113000]	Time 0.25 (0.24)	Data 0.00 (0.02)	Loss 21.64559 (20.67291)	LR 0.00010	
+[2025-03-27 05:59:48,933][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [22/1000]	Iter: [2441/113000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 20.10979 (20.47371)	LR 0.00010	
+[2025-03-27 05:59:57,791][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [22/1000]	Iter: [2481/113000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 20.17330 (20.44052)	LR 0.00010	
+[2025-03-27 06:00:07,244][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [23/1000]	Iter: [2521/113000]	Time 0.19 (0.24)	Data 0.00 (0.02)	Loss 19.91289 (20.20471)	LR 0.00010	
+[2025-03-27 06:00:15,738][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [23/1000]	Iter: [2561/113000]	Time 0.20 (0.21)	Data 0.00 (0.00)	Loss 19.78932 (19.97945)	LR 0.00010	
+[2025-03-27 06:00:25,613][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [24/1000]	Iter: [2601/113000]	Time 0.22 (0.69)	Data 0.00 (0.45)	Loss 19.58821 (19.70614)	LR 0.00010	
+[2025-03-27 06:00:34,153][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [24/1000]	Iter: [2641/113000]	Time 0.21 (0.21)	Data 0.00 (0.00)	Loss 20.19917 (19.73570)	LR 0.00010	
+[2025-03-27 06:00:42,998][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [24/1000]	Iter: [2681/113000]	Time 0.24 (0.22)	Data 0.00 (0.00)	Loss 20.04732 (19.51305)	LR 0.00010	
+[2025-03-27 06:00:52,865][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [25/1000]	Iter: [2721/113000]	Time 0.22 (0.32)	Data 0.00 (0.09)	Loss 19.04674 (19.36017)	LR 0.00010	
+[2025-03-27 06:01:02,437][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [25/1000]	Iter: [2761/113000]	Time 0.20 (0.24)	Data 0.00 (0.00)	Loss 19.99014 (19.16295)	LR 0.00010	
+[2025-03-27 06:01:12,588][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [25/1000]	Iter: [2801/113000]	Time 0.24 (0.25)	Data 0.00 (0.00)	Loss 19.29602 (19.08774)	LR 0.00010	
+[2025-03-27 06:01:23,829][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [26/1000]	Iter: [2841/113000]	Time 0.30 (0.32)	Data 0.00 (0.05)	Loss 17.83896 (19.07829)	LR 0.00010	
+[2025-03-27 06:01:34,229][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [26/1000]	Iter: [2881/113000]	Time 0.31 (0.26)	Data 0.01 (0.00)	Loss 18.05855 (18.57560)	LR 0.00010	
+[2025-03-27 06:01:42,706][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [26/1000]	Iter: [2921/113000]	Time 0.20 (0.21)	Data 0.00 (0.00)	Loss 20.73195 (18.62030)	LR 0.00010	
+[2025-03-27 06:01:51,532][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [27/1000]	Iter: [2961/113000]	Time 0.22 (0.25)	Data 0.00 (0.03)	Loss 17.85093 (18.25399)	LR 0.00010	
+[2025-03-27 06:02:00,209][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [27/1000]	Iter: [3001/113000]	Time 0.18 (0.22)	Data 0.00 (0.00)	Loss 18.37497 (18.23397)	LR 0.00010	
+[2025-03-27 06:02:08,983][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [27/1000]	Iter: [3041/113000]	Time 0.22 (0.22)	Data 0.00 (0.00)	Loss 18.44891 (18.16795)	LR 0.00010	
+[2025-03-27 06:02:18,381][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [28/1000]	Iter: [3081/113000]	Time 0.20 (0.24)	Data 0.00 (0.03)	Loss 17.46459 (18.08833)	LR 0.00010	
+[2025-03-27 06:02:27,186][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [28/1000]	Iter: [3121/113000]	Time 0.15 (0.22)	Data 0.00 (0.00)	Loss 17.63775 (17.81220)	LR 0.00010	
+[2025-03-27 06:02:35,985][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [28/1000]	Iter: [3161/113000]	Time 0.21 (0.22)	Data 0.00 (0.00)	Loss 18.16167 (17.62201)	LR 0.00010	
+[2025-03-27 06:02:45,268][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [29/1000]	Iter: [3201/113000]	Time 0.21 (0.23)	Data 0.00 (0.02)	Loss 17.01668 (17.37771)	LR 0.00010	
+[2025-03-27 06:02:54,047][train_val_withOT_btad.py][line: 311][    INFO] Epoch: [29/1000]	Iter: [3241/113000]	Time 0.18 (0.22)	Data 0.00 (0.00)	Loss 16.70461 (17.41409)	LR 0.00010	

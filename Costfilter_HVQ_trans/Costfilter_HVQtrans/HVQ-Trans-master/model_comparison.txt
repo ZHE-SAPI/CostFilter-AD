@@ -1,0 +1,1673 @@
+Model structure:
+Layer: enc._conv_stem.weight | Size: torch.Size([48, 3, 3, 3]) | Requires Grad: False
+Layer: enc._bn0.weight | Size: torch.Size([48]) | Requires Grad: False
+Layer: enc._bn0.bias | Size: torch.Size([48]) | Requires Grad: False
+Layer: enc._blocks.0._depthwise_conv.weight | Size: torch.Size([48, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.0._bn1.weight | Size: torch.Size([48]) | Requires Grad: False
+Layer: enc._blocks.0._bn1.bias | Size: torch.Size([48]) | Requires Grad: False
+Layer: enc._blocks.0._se_reduce.weight | Size: torch.Size([12, 48, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.0._se_reduce.bias | Size: torch.Size([12]) | Requires Grad: False
+Layer: enc._blocks.0._se_expand.weight | Size: torch.Size([48, 12, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.0._se_expand.bias | Size: torch.Size([48]) | Requires Grad: False
+Layer: enc._blocks.0._project_conv.weight | Size: torch.Size([24, 48, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.0._bn2.weight | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.0._bn2.bias | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.1._depthwise_conv.weight | Size: torch.Size([24, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.1._bn1.weight | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.1._bn1.bias | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.1._se_reduce.weight | Size: torch.Size([6, 24, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.1._se_reduce.bias | Size: torch.Size([6]) | Requires Grad: False
+Layer: enc._blocks.1._se_expand.weight | Size: torch.Size([24, 6, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.1._se_expand.bias | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.1._project_conv.weight | Size: torch.Size([24, 24, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.1._bn2.weight | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.1._bn2.bias | Size: torch.Size([24]) | Requires Grad: False
+Layer: enc._blocks.2._expand_conv.weight | Size: torch.Size([144, 24, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.2._bn0.weight | Size: torch.Size([144]) | Requires Grad: False
+Layer: enc._blocks.2._bn0.bias | Size: torch.Size([144]) | Requires Grad: False
+Layer: enc._blocks.2._depthwise_conv.weight | Size: torch.Size([144, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.2._bn1.weight | Size: torch.Size([144]) | Requires Grad: False
+Layer: enc._blocks.2._bn1.bias | Size: torch.Size([144]) | Requires Grad: False
+Layer: enc._blocks.2._se_reduce.weight | Size: torch.Size([6, 144, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.2._se_reduce.bias | Size: torch.Size([6]) | Requires Grad: False
+Layer: enc._blocks.2._se_expand.weight | Size: torch.Size([144, 6, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.2._se_expand.bias | Size: torch.Size([144]) | Requires Grad: False
+Layer: enc._blocks.2._project_conv.weight | Size: torch.Size([32, 144, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.2._bn2.weight | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.2._bn2.bias | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.3._expand_conv.weight | Size: torch.Size([192, 32, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.3._bn0.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.3._bn0.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.3._depthwise_conv.weight | Size: torch.Size([192, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.3._bn1.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.3._bn1.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.3._se_reduce.weight | Size: torch.Size([8, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.3._se_reduce.bias | Size: torch.Size([8]) | Requires Grad: False
+Layer: enc._blocks.3._se_expand.weight | Size: torch.Size([192, 8, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.3._se_expand.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.3._project_conv.weight | Size: torch.Size([32, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.3._bn2.weight | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.3._bn2.bias | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.4._expand_conv.weight | Size: torch.Size([192, 32, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.4._bn0.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.4._bn0.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.4._depthwise_conv.weight | Size: torch.Size([192, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.4._bn1.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.4._bn1.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.4._se_reduce.weight | Size: torch.Size([8, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.4._se_reduce.bias | Size: torch.Size([8]) | Requires Grad: False
+Layer: enc._blocks.4._se_expand.weight | Size: torch.Size([192, 8, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.4._se_expand.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.4._project_conv.weight | Size: torch.Size([32, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.4._bn2.weight | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.4._bn2.bias | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.5._expand_conv.weight | Size: torch.Size([192, 32, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.5._bn0.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.5._bn0.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.5._depthwise_conv.weight | Size: torch.Size([192, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.5._bn1.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.5._bn1.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.5._se_reduce.weight | Size: torch.Size([8, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.5._se_reduce.bias | Size: torch.Size([8]) | Requires Grad: False
+Layer: enc._blocks.5._se_expand.weight | Size: torch.Size([192, 8, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.5._se_expand.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.5._project_conv.weight | Size: torch.Size([32, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.5._bn2.weight | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.5._bn2.bias | Size: torch.Size([32]) | Requires Grad: False
+Layer: enc._blocks.6._expand_conv.weight | Size: torch.Size([192, 32, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.6._bn0.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.6._bn0.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.6._depthwise_conv.weight | Size: torch.Size([192, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.6._bn1.weight | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.6._bn1.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.6._se_reduce.weight | Size: torch.Size([8, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.6._se_reduce.bias | Size: torch.Size([8]) | Requires Grad: False
+Layer: enc._blocks.6._se_expand.weight | Size: torch.Size([192, 8, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.6._se_expand.bias | Size: torch.Size([192]) | Requires Grad: False
+Layer: enc._blocks.6._project_conv.weight | Size: torch.Size([56, 192, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.6._bn2.weight | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.6._bn2.bias | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.7._expand_conv.weight | Size: torch.Size([336, 56, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.7._bn0.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.7._bn0.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.7._depthwise_conv.weight | Size: torch.Size([336, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.7._bn1.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.7._bn1.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.7._se_reduce.weight | Size: torch.Size([14, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.7._se_reduce.bias | Size: torch.Size([14]) | Requires Grad: False
+Layer: enc._blocks.7._se_expand.weight | Size: torch.Size([336, 14, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.7._se_expand.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.7._project_conv.weight | Size: torch.Size([56, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.7._bn2.weight | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.7._bn2.bias | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.8._expand_conv.weight | Size: torch.Size([336, 56, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.8._bn0.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.8._bn0.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.8._depthwise_conv.weight | Size: torch.Size([336, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.8._bn1.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.8._bn1.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.8._se_reduce.weight | Size: torch.Size([14, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.8._se_reduce.bias | Size: torch.Size([14]) | Requires Grad: False
+Layer: enc._blocks.8._se_expand.weight | Size: torch.Size([336, 14, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.8._se_expand.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.8._project_conv.weight | Size: torch.Size([56, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.8._bn2.weight | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.8._bn2.bias | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.9._expand_conv.weight | Size: torch.Size([336, 56, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.9._bn0.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.9._bn0.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.9._depthwise_conv.weight | Size: torch.Size([336, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.9._bn1.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.9._bn1.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.9._se_reduce.weight | Size: torch.Size([14, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.9._se_reduce.bias | Size: torch.Size([14]) | Requires Grad: False
+Layer: enc._blocks.9._se_expand.weight | Size: torch.Size([336, 14, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.9._se_expand.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.9._project_conv.weight | Size: torch.Size([56, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.9._bn2.weight | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.9._bn2.bias | Size: torch.Size([56]) | Requires Grad: False
+Layer: enc._blocks.10._expand_conv.weight | Size: torch.Size([336, 56, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.10._bn0.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.10._bn0.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.10._depthwise_conv.weight | Size: torch.Size([336, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.10._bn1.weight | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.10._bn1.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.10._se_reduce.weight | Size: torch.Size([14, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.10._se_reduce.bias | Size: torch.Size([14]) | Requires Grad: False
+Layer: enc._blocks.10._se_expand.weight | Size: torch.Size([336, 14, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.10._se_expand.bias | Size: torch.Size([336]) | Requires Grad: False
+Layer: enc._blocks.10._project_conv.weight | Size: torch.Size([112, 336, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.10._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.10._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.11._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.11._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.11._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.11._depthwise_conv.weight | Size: torch.Size([672, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.11._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.11._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.11._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.11._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.11._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.11._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.11._project_conv.weight | Size: torch.Size([112, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.11._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.11._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.12._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.12._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.12._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.12._depthwise_conv.weight | Size: torch.Size([672, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.12._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.12._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.12._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.12._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.12._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.12._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.12._project_conv.weight | Size: torch.Size([112, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.12._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.12._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.13._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.13._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.13._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.13._depthwise_conv.weight | Size: torch.Size([672, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.13._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.13._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.13._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.13._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.13._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.13._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.13._project_conv.weight | Size: torch.Size([112, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.13._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.13._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.14._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.14._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.14._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.14._depthwise_conv.weight | Size: torch.Size([672, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.14._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.14._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.14._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.14._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.14._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.14._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.14._project_conv.weight | Size: torch.Size([112, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.14._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.14._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.15._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.15._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.15._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.15._depthwise_conv.weight | Size: torch.Size([672, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.15._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.15._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.15._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.15._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.15._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.15._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.15._project_conv.weight | Size: torch.Size([112, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.15._bn2.weight | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.15._bn2.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.16._expand_conv.weight | Size: torch.Size([672, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.16._bn0.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.16._bn0.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.16._depthwise_conv.weight | Size: torch.Size([672, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.16._bn1.weight | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.16._bn1.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.16._se_reduce.weight | Size: torch.Size([28, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.16._se_reduce.bias | Size: torch.Size([28]) | Requires Grad: False
+Layer: enc._blocks.16._se_expand.weight | Size: torch.Size([672, 28, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.16._se_expand.bias | Size: torch.Size([672]) | Requires Grad: False
+Layer: enc._blocks.16._project_conv.weight | Size: torch.Size([160, 672, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.16._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.16._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.17._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.17._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.17._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.17._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.17._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.17._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.17._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.17._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.17._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.17._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.17._project_conv.weight | Size: torch.Size([160, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.17._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.17._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.18._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.18._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.18._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.18._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.18._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.18._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.18._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.18._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.18._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.18._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.18._project_conv.weight | Size: torch.Size([160, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.18._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.18._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.19._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.19._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.19._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.19._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.19._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.19._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.19._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.19._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.19._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.19._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.19._project_conv.weight | Size: torch.Size([160, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.19._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.19._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.20._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.20._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.20._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.20._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.20._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.20._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.20._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.20._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.20._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.20._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.20._project_conv.weight | Size: torch.Size([160, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.20._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.20._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.21._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.21._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.21._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.21._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.21._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.21._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.21._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.21._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.21._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.21._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.21._project_conv.weight | Size: torch.Size([160, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.21._bn2.weight | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.21._bn2.bias | Size: torch.Size([160]) | Requires Grad: False
+Layer: enc._blocks.22._expand_conv.weight | Size: torch.Size([960, 160, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.22._bn0.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.22._bn0.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.22._depthwise_conv.weight | Size: torch.Size([960, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.22._bn1.weight | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.22._bn1.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.22._se_reduce.weight | Size: torch.Size([40, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.22._se_reduce.bias | Size: torch.Size([40]) | Requires Grad: False
+Layer: enc._blocks.22._se_expand.weight | Size: torch.Size([960, 40, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.22._se_expand.bias | Size: torch.Size([960]) | Requires Grad: False
+Layer: enc._blocks.22._project_conv.weight | Size: torch.Size([272, 960, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.22._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.22._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.23._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.23._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.23._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.23._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.23._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.23._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.23._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.23._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.23._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.23._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.23._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.23._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.23._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.24._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.24._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.24._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.24._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.24._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.24._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.24._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.24._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.24._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.24._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.24._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.24._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.24._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.25._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.25._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.25._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.25._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.25._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.25._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.25._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.25._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.25._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.25._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.25._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.25._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.25._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.26._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.26._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.26._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.26._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.26._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.26._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.26._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.26._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.26._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.26._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.26._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.26._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.26._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.27._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.27._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.27._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.27._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.27._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.27._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.27._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.27._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.27._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.27._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.27._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.27._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.27._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.28._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.28._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.28._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.28._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.28._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.28._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.28._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.28._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.28._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.28._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.28._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.28._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.28._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.29._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.29._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.29._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.29._depthwise_conv.weight | Size: torch.Size([1632, 1, 5, 5]) | Requires Grad: False
+Layer: enc._blocks.29._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.29._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.29._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.29._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.29._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.29._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.29._project_conv.weight | Size: torch.Size([272, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.29._bn2.weight | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.29._bn2.bias | Size: torch.Size([272]) | Requires Grad: False
+Layer: enc._blocks.30._expand_conv.weight | Size: torch.Size([1632, 272, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.30._bn0.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.30._bn0.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.30._depthwise_conv.weight | Size: torch.Size([1632, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.30._bn1.weight | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.30._bn1.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.30._se_reduce.weight | Size: torch.Size([68, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.30._se_reduce.bias | Size: torch.Size([68]) | Requires Grad: False
+Layer: enc._blocks.30._se_expand.weight | Size: torch.Size([1632, 68, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.30._se_expand.bias | Size: torch.Size([1632]) | Requires Grad: False
+Layer: enc._blocks.30._project_conv.weight | Size: torch.Size([448, 1632, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.30._bn2.weight | Size: torch.Size([448]) | Requires Grad: False
+Layer: enc._blocks.30._bn2.bias | Size: torch.Size([448]) | Requires Grad: False
+Layer: enc._blocks.31._expand_conv.weight | Size: torch.Size([2688, 448, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.31._bn0.weight | Size: torch.Size([2688]) | Requires Grad: False
+Layer: enc._blocks.31._bn0.bias | Size: torch.Size([2688]) | Requires Grad: False
+Layer: enc._blocks.31._depthwise_conv.weight | Size: torch.Size([2688, 1, 3, 3]) | Requires Grad: False
+Layer: enc._blocks.31._bn1.weight | Size: torch.Size([2688]) | Requires Grad: False
+Layer: enc._blocks.31._bn1.bias | Size: torch.Size([2688]) | Requires Grad: False
+Layer: enc._blocks.31._se_reduce.weight | Size: torch.Size([112, 2688, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.31._se_reduce.bias | Size: torch.Size([112]) | Requires Grad: False
+Layer: enc._blocks.31._se_expand.weight | Size: torch.Size([2688, 112, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.31._se_expand.bias | Size: torch.Size([2688]) | Requires Grad: False
+Layer: enc._blocks.31._project_conv.weight | Size: torch.Size([448, 2688, 1, 1]) | Requires Grad: False
+Layer: enc._blocks.31._bn2.weight | Size: torch.Size([448]) | Requires Grad: False
+Layer: enc._blocks.31._bn2.bias | Size: torch.Size([448]) | Requires Grad: False
+Layer: enc._conv_head.weight | Size: torch.Size([1792, 448, 1, 1]) | Requires Grad: False
+Layer: enc._bn1.weight | Size: torch.Size([1792]) | Requires Grad: False
+Layer: enc._bn1.bias | Size: torch.Size([1792]) | Requires Grad: False
+Layer: enc._fc.weight | Size: torch.Size([1000, 1792]) | Requires Grad: False
+Layer: enc._fc.bias | Size: torch.Size([1000]) | Requires Grad: False
+Layer: quantize_conv_t.weight | Size: torch.Size([256, 272, 1, 1]) | Requires Grad: True
+Layer: quantize_conv_t.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.self_attn.in_proj_weight | Size: torch.Size([768, 256]) | Requires Grad: True
+Layer: encoder.layers.0.self_attn.in_proj_bias | Size: torch.Size([768]) | Requires Grad: True
+Layer: encoder.layers.0.self_attn.out_proj.weight | Size: torch.Size([256, 256]) | Requires Grad: True
+Layer: encoder.layers.0.self_attn.out_proj.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.linear1.weight | Size: torch.Size([1024, 256]) | Requires Grad: True
+Layer: encoder.layers.0.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: encoder.layers.0.linear2.weight | Size: torch.Size([256, 1024]) | Requires Grad: True
+Layer: encoder.layers.0.linear2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.norm1.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.norm1.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.norm2.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.0.norm2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.self_attn.in_proj_weight | Size: torch.Size([768, 256]) | Requires Grad: True
+Layer: encoder.layers.1.self_attn.in_proj_bias | Size: torch.Size([768]) | Requires Grad: True
+Layer: encoder.layers.1.self_attn.out_proj.weight | Size: torch.Size([256, 256]) | Requires Grad: True
+Layer: encoder.layers.1.self_attn.out_proj.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.linear1.weight | Size: torch.Size([1024, 256]) | Requires Grad: True
+Layer: encoder.layers.1.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: encoder.layers.1.linear2.weight | Size: torch.Size([256, 1024]) | Requires Grad: True
+Layer: encoder.layers.1.linear2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.norm1.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.norm1.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.norm2.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.1.norm2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.self_attn.in_proj_weight | Size: torch.Size([768, 256]) | Requires Grad: True
+Layer: encoder.layers.2.self_attn.in_proj_bias | Size: torch.Size([768]) | Requires Grad: True
+Layer: encoder.layers.2.self_attn.out_proj.weight | Size: torch.Size([256, 256]) | Requires Grad: True
+Layer: encoder.layers.2.self_attn.out_proj.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.linear1.weight | Size: torch.Size([1024, 256]) | Requires Grad: True
+Layer: encoder.layers.2.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: encoder.layers.2.linear2.weight | Size: torch.Size([256, 1024]) | Requires Grad: True
+Layer: encoder.layers.2.linear2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.norm1.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.norm1.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.norm2.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.2.norm2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.self_attn.in_proj_weight | Size: torch.Size([768, 256]) | Requires Grad: True
+Layer: encoder.layers.3.self_attn.in_proj_bias | Size: torch.Size([768]) | Requires Grad: True
+Layer: encoder.layers.3.self_attn.out_proj.weight | Size: torch.Size([256, 256]) | Requires Grad: True
+Layer: encoder.layers.3.self_attn.out_proj.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.linear1.weight | Size: torch.Size([1024, 256]) | Requires Grad: True
+Layer: encoder.layers.3.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: encoder.layers.3.linear2.weight | Size: torch.Size([256, 1024]) | Requires Grad: True
+Layer: encoder.layers.3.linear2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.norm1.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.norm1.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.norm2.weight | Size: torch.Size([256]) | Requires Grad: True
+Layer: encoder.layers.3.norm2.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: pos_embed.row_embed.weight | Size: torch.Size([14, 128]) | Requires Grad: True
+Layer: pos_embed.col_embed.weight | Size: torch.Size([14, 128]) | Requires Grad: True
+Layer: decoder.layers.0.self_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.0.self_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.0.self_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.0.self_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.multihead_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.0.multihead_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.0.multihead_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.0.multihead_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.linear1.weight | Size: torch.Size([1024, 512]) | Requires Grad: True
+Layer: decoder.layers.0.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: decoder.layers.0.linear2.weight | Size: torch.Size([512, 1024]) | Requires Grad: True
+Layer: decoder.layers.0.linear2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm1.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm1.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm2.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm3.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.0.norm3.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.self_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.1.self_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.1.self_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.1.self_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.multihead_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.1.multihead_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.1.multihead_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.1.multihead_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.linear1.weight | Size: torch.Size([1024, 512]) | Requires Grad: True
+Layer: decoder.layers.1.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: decoder.layers.1.linear2.weight | Size: torch.Size([512, 1024]) | Requires Grad: True
+Layer: decoder.layers.1.linear2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm1.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm1.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm2.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm3.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.1.norm3.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.self_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.2.self_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.2.self_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.2.self_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.multihead_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.2.multihead_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.2.multihead_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.2.multihead_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.linear1.weight | Size: torch.Size([1024, 512]) | Requires Grad: True
+Layer: decoder.layers.2.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: decoder.layers.2.linear2.weight | Size: torch.Size([512, 1024]) | Requires Grad: True
+Layer: decoder.layers.2.linear2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm1.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm1.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm2.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm3.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.2.norm3.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.self_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.3.self_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.3.self_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.3.self_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.multihead_attn.in_proj_weight | Size: torch.Size([1536, 512]) | Requires Grad: True
+Layer: decoder.layers.3.multihead_attn.in_proj_bias | Size: torch.Size([1536]) | Requires Grad: True
+Layer: decoder.layers.3.multihead_attn.out_proj.weight | Size: torch.Size([512, 512]) | Requires Grad: True
+Layer: decoder.layers.3.multihead_attn.out_proj.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.linear1.weight | Size: torch.Size([1024, 512]) | Requires Grad: True
+Layer: decoder.layers.3.linear1.bias | Size: torch.Size([1024]) | Requires Grad: True
+Layer: decoder.layers.3.linear2.weight | Size: torch.Size([512, 1024]) | Requires Grad: True
+Layer: decoder.layers.3.linear2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm1.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm1.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm2.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm2.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm3.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.layers.3.norm3.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.norm.weight | Size: torch.Size([512]) | Requires Grad: True
+Layer: decoder.norm.bias | Size: torch.Size([512]) | Requires Grad: True
+Layer: input_proj.weight | Size: torch.Size([256, 272]) | Requires Grad: True
+Layer: input_proj.bias | Size: torch.Size([256]) | Requires Grad: True
+Layer: output_proj_list.0.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.0.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.1.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.1.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.2.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.2.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.3.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.3.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.4.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.4.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.5.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.5.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.6.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.6.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.7.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.7.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.8.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.8.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.9.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.9.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.10.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.10.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.11.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.11.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.12.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.12.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.13.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.13.bias | Size: torch.Size([272]) | Requires Grad: True
+Layer: output_proj_list.14.weight | Size: torch.Size([272, 512]) | Requires Grad: True
+Layer: output_proj_list.14.bias | Size: torch.Size([272]) | Requires Grad: True
+
+Model parameters in file:
+Param name in file: enc._conv_stem.weight
+Param name in file: enc._bn0.weight
+Param name in file: enc._bn0.bias
+Param name in file: enc._bn0.running_mean
+Param name in file: enc._bn0.running_var
+Param name in file: enc._bn0.num_batches_tracked
+Param name in file: enc._blocks.0._depthwise_conv.weight
+Param name in file: enc._blocks.0._bn1.weight
+Param name in file: enc._blocks.0._bn1.bias
+Param name in file: enc._blocks.0._bn1.running_mean
+Param name in file: enc._blocks.0._bn1.running_var
+Param name in file: enc._blocks.0._bn1.num_batches_tracked
+Param name in file: enc._blocks.0._se_reduce.weight
+Param name in file: enc._blocks.0._se_reduce.bias
+Param name in file: enc._blocks.0._se_expand.weight
+Param name in file: enc._blocks.0._se_expand.bias
+Param name in file: enc._blocks.0._project_conv.weight
+Param name in file: enc._blocks.0._bn2.weight
+Param name in file: enc._blocks.0._bn2.bias
+Param name in file: enc._blocks.0._bn2.running_mean
+Param name in file: enc._blocks.0._bn2.running_var
+Param name in file: enc._blocks.0._bn2.num_batches_tracked
+Param name in file: enc._blocks.1._depthwise_conv.weight
+Param name in file: enc._blocks.1._bn1.weight
+Param name in file: enc._blocks.1._bn1.bias
+Param name in file: enc._blocks.1._bn1.running_mean
+Param name in file: enc._blocks.1._bn1.running_var
+Param name in file: enc._blocks.1._bn1.num_batches_tracked
+Param name in file: enc._blocks.1._se_reduce.weight
+Param name in file: enc._blocks.1._se_reduce.bias
+Param name in file: enc._blocks.1._se_expand.weight
+Param name in file: enc._blocks.1._se_expand.bias
+Param name in file: enc._blocks.1._project_conv.weight
+Param name in file: enc._blocks.1._bn2.weight
+Param name in file: enc._blocks.1._bn2.bias
+Param name in file: enc._blocks.1._bn2.running_mean
+Param name in file: enc._blocks.1._bn2.running_var
+Param name in file: enc._blocks.1._bn2.num_batches_tracked
+Param name in file: enc._blocks.2._expand_conv.weight
+Param name in file: enc._blocks.2._bn0.weight
+Param name in file: enc._blocks.2._bn0.bias
+Param name in file: enc._blocks.2._bn0.running_mean
+Param name in file: enc._blocks.2._bn0.running_var
+Param name in file: enc._blocks.2._bn0.num_batches_tracked
+Param name in file: enc._blocks.2._depthwise_conv.weight
+Param name in file: enc._blocks.2._bn1.weight
+Param name in file: enc._blocks.2._bn1.bias
+Param name in file: enc._blocks.2._bn1.running_mean
+Param name in file: enc._blocks.2._bn1.running_var
+Param name in file: enc._blocks.2._bn1.num_batches_tracked
+Param name in file: enc._blocks.2._se_reduce.weight
+Param name in file: enc._blocks.2._se_reduce.bias
+Param name in file: enc._blocks.2._se_expand.weight
+Param name in file: enc._blocks.2._se_expand.bias
+Param name in file: enc._blocks.2._project_conv.weight
+Param name in file: enc._blocks.2._bn2.weight
+Param name in file: enc._blocks.2._bn2.bias
+Param name in file: enc._blocks.2._bn2.running_mean
+Param name in file: enc._blocks.2._bn2.running_var
+Param name in file: enc._blocks.2._bn2.num_batches_tracked
+Param name in file: enc._blocks.3._expand_conv.weight
+Param name in file: enc._blocks.3._bn0.weight
+Param name in file: enc._blocks.3._bn0.bias
+Param name in file: enc._blocks.3._bn0.running_mean
+Param name in file: enc._blocks.3._bn0.running_var
+Param name in file: enc._blocks.3._bn0.num_batches_tracked
+Param name in file: enc._blocks.3._depthwise_conv.weight
+Param name in file: enc._blocks.3._bn1.weight
+Param name in file: enc._blocks.3._bn1.bias
+Param name in file: enc._blocks.3._bn1.running_mean
+Param name in file: enc._blocks.3._bn1.running_var
+Param name in file: enc._blocks.3._bn1.num_batches_tracked
+Param name in file: enc._blocks.3._se_reduce.weight
+Param name in file: enc._blocks.3._se_reduce.bias
+Param name in file: enc._blocks.3._se_expand.weight
+Param name in file: enc._blocks.3._se_expand.bias
+Param name in file: enc._blocks.3._project_conv.weight
+Param name in file: enc._blocks.3._bn2.weight
+Param name in file: enc._blocks.3._bn2.bias
+Param name in file: enc._blocks.3._bn2.running_mean
+Param name in file: enc._blocks.3._bn2.running_var
+Param name in file: enc._blocks.3._bn2.num_batches_tracked
+Param name in file: enc._blocks.4._expand_conv.weight
+Param name in file: enc._blocks.4._bn0.weight
+Param name in file: enc._blocks.4._bn0.bias
+Param name in file: enc._blocks.4._bn0.running_mean
+Param name in file: enc._blocks.4._bn0.running_var
+Param name in file: enc._blocks.4._bn0.num_batches_tracked
+Param name in file: enc._blocks.4._depthwise_conv.weight
+Param name in file: enc._blocks.4._bn1.weight
+Param name in file: enc._blocks.4._bn1.bias
+Param name in file: enc._blocks.4._bn1.running_mean
+Param name in file: enc._blocks.4._bn1.running_var
+Param name in file: enc._blocks.4._bn1.num_batches_tracked
+Param name in file: enc._blocks.4._se_reduce.weight
+Param name in file: enc._blocks.4._se_reduce.bias
+Param name in file: enc._blocks.4._se_expand.weight
+Param name in file: enc._blocks.4._se_expand.bias
+Param name in file: enc._blocks.4._project_conv.weight
+Param name in file: enc._blocks.4._bn2.weight
+Param name in file: enc._blocks.4._bn2.bias
+Param name in file: enc._blocks.4._bn2.running_mean
+Param name in file: enc._blocks.4._bn2.running_var
+Param name in file: enc._blocks.4._bn2.num_batches_tracked
+Param name in file: enc._blocks.5._expand_conv.weight
+Param name in file: enc._blocks.5._bn0.weight
+Param name in file: enc._blocks.5._bn0.bias
+Param name in file: enc._blocks.5._bn0.running_mean
+Param name in file: enc._blocks.5._bn0.running_var
+Param name in file: enc._blocks.5._bn0.num_batches_tracked
+Param name in file: enc._blocks.5._depthwise_conv.weight
+Param name in file: enc._blocks.5._bn1.weight
+Param name in file: enc._blocks.5._bn1.bias
+Param name in file: enc._blocks.5._bn1.running_mean
+Param name in file: enc._blocks.5._bn1.running_var
+Param name in file: enc._blocks.5._bn1.num_batches_tracked
+Param name in file: enc._blocks.5._se_reduce.weight
+Param name in file: enc._blocks.5._se_reduce.bias
+Param name in file: enc._blocks.5._se_expand.weight
+Param name in file: enc._blocks.5._se_expand.bias
+Param name in file: enc._blocks.5._project_conv.weight
+Param name in file: enc._blocks.5._bn2.weight
+Param name in file: enc._blocks.5._bn2.bias
+Param name in file: enc._blocks.5._bn2.running_mean
+Param name in file: enc._blocks.5._bn2.running_var
+Param name in file: enc._blocks.5._bn2.num_batches_tracked
+Param name in file: enc._blocks.6._expand_conv.weight
+Param name in file: enc._blocks.6._bn0.weight
+Param name in file: enc._blocks.6._bn0.bias
+Param name in file: enc._blocks.6._bn0.running_mean
+Param name in file: enc._blocks.6._bn0.running_var
+Param name in file: enc._blocks.6._bn0.num_batches_tracked
+Param name in file: enc._blocks.6._depthwise_conv.weight
+Param name in file: enc._blocks.6._bn1.weight
+Param name in file: enc._blocks.6._bn1.bias
+Param name in file: enc._blocks.6._bn1.running_mean
+Param name in file: enc._blocks.6._bn1.running_var
+Param name in file: enc._blocks.6._bn1.num_batches_tracked
+Param name in file: enc._blocks.6._se_reduce.weight
+Param name in file: enc._blocks.6._se_reduce.bias
+Param name in file: enc._blocks.6._se_expand.weight
+Param name in file: enc._blocks.6._se_expand.bias
+Param name in file: enc._blocks.6._project_conv.weight
+Param name in file: enc._blocks.6._bn2.weight
+Param name in file: enc._blocks.6._bn2.bias
+Param name in file: enc._blocks.6._bn2.running_mean
+Param name in file: enc._blocks.6._bn2.running_var
+Param name in file: enc._blocks.6._bn2.num_batches_tracked
+Param name in file: enc._blocks.7._expand_conv.weight
+Param name in file: enc._blocks.7._bn0.weight
+Param name in file: enc._blocks.7._bn0.bias
+Param name in file: enc._blocks.7._bn0.running_mean
+Param name in file: enc._blocks.7._bn0.running_var
+Param name in file: enc._blocks.7._bn0.num_batches_tracked
+Param name in file: enc._blocks.7._depthwise_conv.weight
+Param name in file: enc._blocks.7._bn1.weight
+Param name in file: enc._blocks.7._bn1.bias
+Param name in file: enc._blocks.7._bn1.running_mean
+Param name in file: enc._blocks.7._bn1.running_var
+Param name in file: enc._blocks.7._bn1.num_batches_tracked
+Param name in file: enc._blocks.7._se_reduce.weight
+Param name in file: enc._blocks.7._se_reduce.bias
+Param name in file: enc._blocks.7._se_expand.weight
+Param name in file: enc._blocks.7._se_expand.bias
+Param name in file: enc._blocks.7._project_conv.weight
+Param name in file: enc._blocks.7._bn2.weight
+Param name in file: enc._blocks.7._bn2.bias
+Param name in file: enc._blocks.7._bn2.running_mean
+Param name in file: enc._blocks.7._bn2.running_var
+Param name in file: enc._blocks.7._bn2.num_batches_tracked
+Param name in file: enc._blocks.8._expand_conv.weight
+Param name in file: enc._blocks.8._bn0.weight
+Param name in file: enc._blocks.8._bn0.bias
+Param name in file: enc._blocks.8._bn0.running_mean
+Param name in file: enc._blocks.8._bn0.running_var
+Param name in file: enc._blocks.8._bn0.num_batches_tracked
+Param name in file: enc._blocks.8._depthwise_conv.weight
+Param name in file: enc._blocks.8._bn1.weight
+Param name in file: enc._blocks.8._bn1.bias
+Param name in file: enc._blocks.8._bn1.running_mean
+Param name in file: enc._blocks.8._bn1.running_var
+Param name in file: enc._blocks.8._bn1.num_batches_tracked
+Param name in file: enc._blocks.8._se_reduce.weight
+Param name in file: enc._blocks.8._se_reduce.bias
+Param name in file: enc._blocks.8._se_expand.weight
+Param name in file: enc._blocks.8._se_expand.bias
+Param name in file: enc._blocks.8._project_conv.weight
+Param name in file: enc._blocks.8._bn2.weight
+Param name in file: enc._blocks.8._bn2.bias
+Param name in file: enc._blocks.8._bn2.running_mean
+Param name in file: enc._blocks.8._bn2.running_var
+Param name in file: enc._blocks.8._bn2.num_batches_tracked
+Param name in file: enc._blocks.9._expand_conv.weight
+Param name in file: enc._blocks.9._bn0.weight
+Param name in file: enc._blocks.9._bn0.bias
+Param name in file: enc._blocks.9._bn0.running_mean
+Param name in file: enc._blocks.9._bn0.running_var
+Param name in file: enc._blocks.9._bn0.num_batches_tracked
+Param name in file: enc._blocks.9._depthwise_conv.weight
+Param name in file: enc._blocks.9._bn1.weight
+Param name in file: enc._blocks.9._bn1.bias
+Param name in file: enc._blocks.9._bn1.running_mean
+Param name in file: enc._blocks.9._bn1.running_var
+Param name in file: enc._blocks.9._bn1.num_batches_tracked
+Param name in file: enc._blocks.9._se_reduce.weight
+Param name in file: enc._blocks.9._se_reduce.bias
+Param name in file: enc._blocks.9._se_expand.weight
+Param name in file: enc._blocks.9._se_expand.bias
+Param name in file: enc._blocks.9._project_conv.weight
+Param name in file: enc._blocks.9._bn2.weight
+Param name in file: enc._blocks.9._bn2.bias
+Param name in file: enc._blocks.9._bn2.running_mean
+Param name in file: enc._blocks.9._bn2.running_var
+Param name in file: enc._blocks.9._bn2.num_batches_tracked
+Param name in file: enc._blocks.10._expand_conv.weight
+Param name in file: enc._blocks.10._bn0.weight
+Param name in file: enc._blocks.10._bn0.bias
+Param name in file: enc._blocks.10._bn0.running_mean
+Param name in file: enc._blocks.10._bn0.running_var
+Param name in file: enc._blocks.10._bn0.num_batches_tracked
+Param name in file: enc._blocks.10._depthwise_conv.weight
+Param name in file: enc._blocks.10._bn1.weight
+Param name in file: enc._blocks.10._bn1.bias
+Param name in file: enc._blocks.10._bn1.running_mean
+Param name in file: enc._blocks.10._bn1.running_var
+Param name in file: enc._blocks.10._bn1.num_batches_tracked
+Param name in file: enc._blocks.10._se_reduce.weight
+Param name in file: enc._blocks.10._se_reduce.bias
+Param name in file: enc._blocks.10._se_expand.weight
+Param name in file: enc._blocks.10._se_expand.bias
+Param name in file: enc._blocks.10._project_conv.weight
+Param name in file: enc._blocks.10._bn2.weight
+Param name in file: enc._blocks.10._bn2.bias
+Param name in file: enc._blocks.10._bn2.running_mean
+Param name in file: enc._blocks.10._bn2.running_var
+Param name in file: enc._blocks.10._bn2.num_batches_tracked
+Param name in file: enc._blocks.11._expand_conv.weight
+Param name in file: enc._blocks.11._bn0.weight
+Param name in file: enc._blocks.11._bn0.bias
+Param name in file: enc._blocks.11._bn0.running_mean
+Param name in file: enc._blocks.11._bn0.running_var
+Param name in file: enc._blocks.11._bn0.num_batches_tracked
+Param name in file: enc._blocks.11._depthwise_conv.weight
+Param name in file: enc._blocks.11._bn1.weight
+Param name in file: enc._blocks.11._bn1.bias
+Param name in file: enc._blocks.11._bn1.running_mean
+Param name in file: enc._blocks.11._bn1.running_var
+Param name in file: enc._blocks.11._bn1.num_batches_tracked
+Param name in file: enc._blocks.11._se_reduce.weight
+Param name in file: enc._blocks.11._se_reduce.bias
+Param name in file: enc._blocks.11._se_expand.weight
+Param name in file: enc._blocks.11._se_expand.bias
+Param name in file: enc._blocks.11._project_conv.weight
+Param name in file: enc._blocks.11._bn2.weight
+Param name in file: enc._blocks.11._bn2.bias
+Param name in file: enc._blocks.11._bn2.running_mean
+Param name in file: enc._blocks.11._bn2.running_var
+Param name in file: enc._blocks.11._bn2.num_batches_tracked
+Param name in file: enc._blocks.12._expand_conv.weight
+Param name in file: enc._blocks.12._bn0.weight
+Param name in file: enc._blocks.12._bn0.bias
+Param name in file: enc._blocks.12._bn0.running_mean
+Param name in file: enc._blocks.12._bn0.running_var
+Param name in file: enc._blocks.12._bn0.num_batches_tracked
+Param name in file: enc._blocks.12._depthwise_conv.weight
+Param name in file: enc._blocks.12._bn1.weight
+Param name in file: enc._blocks.12._bn1.bias
+Param name in file: enc._blocks.12._bn1.running_mean
+Param name in file: enc._blocks.12._bn1.running_var
+Param name in file: enc._blocks.12._bn1.num_batches_tracked
+Param name in file: enc._blocks.12._se_reduce.weight
+Param name in file: enc._blocks.12._se_reduce.bias
+Param name in file: enc._blocks.12._se_expand.weight
+Param name in file: enc._blocks.12._se_expand.bias
+Param name in file: enc._blocks.12._project_conv.weight
+Param name in file: enc._blocks.12._bn2.weight
+Param name in file: enc._blocks.12._bn2.bias
+Param name in file: enc._blocks.12._bn2.running_mean
+Param name in file: enc._blocks.12._bn2.running_var
+Param name in file: enc._blocks.12._bn2.num_batches_tracked
+Param name in file: enc._blocks.13._expand_conv.weight
+Param name in file: enc._blocks.13._bn0.weight
+Param name in file: enc._blocks.13._bn0.bias
+Param name in file: enc._blocks.13._bn0.running_mean
+Param name in file: enc._blocks.13._bn0.running_var
+Param name in file: enc._blocks.13._bn0.num_batches_tracked
+Param name in file: enc._blocks.13._depthwise_conv.weight
+Param name in file: enc._blocks.13._bn1.weight
+Param name in file: enc._blocks.13._bn1.bias
+Param name in file: enc._blocks.13._bn1.running_mean
+Param name in file: enc._blocks.13._bn1.running_var
+Param name in file: enc._blocks.13._bn1.num_batches_tracked
+Param name in file: enc._blocks.13._se_reduce.weight
+Param name in file: enc._blocks.13._se_reduce.bias
+Param name in file: enc._blocks.13._se_expand.weight
+Param name in file: enc._blocks.13._se_expand.bias
+Param name in file: enc._blocks.13._project_conv.weight
+Param name in file: enc._blocks.13._bn2.weight
+Param name in file: enc._blocks.13._bn2.bias
+Param name in file: enc._blocks.13._bn2.running_mean
+Param name in file: enc._blocks.13._bn2.running_var
+Param name in file: enc._blocks.13._bn2.num_batches_tracked
+Param name in file: enc._blocks.14._expand_conv.weight
+Param name in file: enc._blocks.14._bn0.weight
+Param name in file: enc._blocks.14._bn0.bias
+Param name in file: enc._blocks.14._bn0.running_mean
+Param name in file: enc._blocks.14._bn0.running_var
+Param name in file: enc._blocks.14._bn0.num_batches_tracked
+Param name in file: enc._blocks.14._depthwise_conv.weight
+Param name in file: enc._blocks.14._bn1.weight
+Param name in file: enc._blocks.14._bn1.bias
+Param name in file: enc._blocks.14._bn1.running_mean
+Param name in file: enc._blocks.14._bn1.running_var
+Param name in file: enc._blocks.14._bn1.num_batches_tracked
+Param name in file: enc._blocks.14._se_reduce.weight
+Param name in file: enc._blocks.14._se_reduce.bias
+Param name in file: enc._blocks.14._se_expand.weight
+Param name in file: enc._blocks.14._se_expand.bias
+Param name in file: enc._blocks.14._project_conv.weight
+Param name in file: enc._blocks.14._bn2.weight
+Param name in file: enc._blocks.14._bn2.bias
+Param name in file: enc._blocks.14._bn2.running_mean
+Param name in file: enc._blocks.14._bn2.running_var
+Param name in file: enc._blocks.14._bn2.num_batches_tracked
+Param name in file: enc._blocks.15._expand_conv.weight
+Param name in file: enc._blocks.15._bn0.weight
+Param name in file: enc._blocks.15._bn0.bias
+Param name in file: enc._blocks.15._bn0.running_mean
+Param name in file: enc._blocks.15._bn0.running_var
+Param name in file: enc._blocks.15._bn0.num_batches_tracked
+Param name in file: enc._blocks.15._depthwise_conv.weight
+Param name in file: enc._blocks.15._bn1.weight
+Param name in file: enc._blocks.15._bn1.bias
+Param name in file: enc._blocks.15._bn1.running_mean
+Param name in file: enc._blocks.15._bn1.running_var
+Param name in file: enc._blocks.15._bn1.num_batches_tracked
+Param name in file: enc._blocks.15._se_reduce.weight
+Param name in file: enc._blocks.15._se_reduce.bias
+Param name in file: enc._blocks.15._se_expand.weight
+Param name in file: enc._blocks.15._se_expand.bias
+Param name in file: enc._blocks.15._project_conv.weight
+Param name in file: enc._blocks.15._bn2.weight
+Param name in file: enc._blocks.15._bn2.bias
+Param name in file: enc._blocks.15._bn2.running_mean
+Param name in file: enc._blocks.15._bn2.running_var
+Param name in file: enc._blocks.15._bn2.num_batches_tracked
+Param name in file: enc._blocks.16._expand_conv.weight
+Param name in file: enc._blocks.16._bn0.weight
+Param name in file: enc._blocks.16._bn0.bias
+Param name in file: enc._blocks.16._bn0.running_mean
+Param name in file: enc._blocks.16._bn0.running_var
+Param name in file: enc._blocks.16._bn0.num_batches_tracked
+Param name in file: enc._blocks.16._depthwise_conv.weight
+Param name in file: enc._blocks.16._bn1.weight
+Param name in file: enc._blocks.16._bn1.bias
+Param name in file: enc._blocks.16._bn1.running_mean
+Param name in file: enc._blocks.16._bn1.running_var
+Param name in file: enc._blocks.16._bn1.num_batches_tracked
+Param name in file: enc._blocks.16._se_reduce.weight
+Param name in file: enc._blocks.16._se_reduce.bias
+Param name in file: enc._blocks.16._se_expand.weight
+Param name in file: enc._blocks.16._se_expand.bias
+Param name in file: enc._blocks.16._project_conv.weight
+Param name in file: enc._blocks.16._bn2.weight
+Param name in file: enc._blocks.16._bn2.bias
+Param name in file: enc._blocks.16._bn2.running_mean
+Param name in file: enc._blocks.16._bn2.running_var
+Param name in file: enc._blocks.16._bn2.num_batches_tracked
+Param name in file: enc._blocks.17._expand_conv.weight
+Param name in file: enc._blocks.17._bn0.weight
+Param name in file: enc._blocks.17._bn0.bias
+Param name in file: enc._blocks.17._bn0.running_mean
+Param name in file: enc._blocks.17._bn0.running_var
+Param name in file: enc._blocks.17._bn0.num_batches_tracked
+Param name in file: enc._blocks.17._depthwise_conv.weight
+Param name in file: enc._blocks.17._bn1.weight
+Param name in file: enc._blocks.17._bn1.bias
+Param name in file: enc._blocks.17._bn1.running_mean
+Param name in file: enc._blocks.17._bn1.running_var
+Param name in file: enc._blocks.17._bn1.num_batches_tracked
+Param name in file: enc._blocks.17._se_reduce.weight
+Param name in file: enc._blocks.17._se_reduce.bias
+Param name in file: enc._blocks.17._se_expand.weight
+Param name in file: enc._blocks.17._se_expand.bias
+Param name in file: enc._blocks.17._project_conv.weight
+Param name in file: enc._blocks.17._bn2.weight
+Param name in file: enc._blocks.17._bn2.bias
+Param name in file: enc._blocks.17._bn2.running_mean
+Param name in file: enc._blocks.17._bn2.running_var
+Param name in file: enc._blocks.17._bn2.num_batches_tracked
+Param name in file: enc._blocks.18._expand_conv.weight
+Param name in file: enc._blocks.18._bn0.weight
+Param name in file: enc._blocks.18._bn0.bias
+Param name in file: enc._blocks.18._bn0.running_mean
+Param name in file: enc._blocks.18._bn0.running_var
+Param name in file: enc._blocks.18._bn0.num_batches_tracked
+Param name in file: enc._blocks.18._depthwise_conv.weight
+Param name in file: enc._blocks.18._bn1.weight
+Param name in file: enc._blocks.18._bn1.bias
+Param name in file: enc._blocks.18._bn1.running_mean
+Param name in file: enc._blocks.18._bn1.running_var
+Param name in file: enc._blocks.18._bn1.num_batches_tracked
+Param name in file: enc._blocks.18._se_reduce.weight
+Param name in file: enc._blocks.18._se_reduce.bias
+Param name in file: enc._blocks.18._se_expand.weight
+Param name in file: enc._blocks.18._se_expand.bias
+Param name in file: enc._blocks.18._project_conv.weight
+Param name in file: enc._blocks.18._bn2.weight
+Param name in file: enc._blocks.18._bn2.bias
+Param name in file: enc._blocks.18._bn2.running_mean
+Param name in file: enc._blocks.18._bn2.running_var
+Param name in file: enc._blocks.18._bn2.num_batches_tracked
+Param name in file: enc._blocks.19._expand_conv.weight
+Param name in file: enc._blocks.19._bn0.weight
+Param name in file: enc._blocks.19._bn0.bias
+Param name in file: enc._blocks.19._bn0.running_mean
+Param name in file: enc._blocks.19._bn0.running_var
+Param name in file: enc._blocks.19._bn0.num_batches_tracked
+Param name in file: enc._blocks.19._depthwise_conv.weight
+Param name in file: enc._blocks.19._bn1.weight
+Param name in file: enc._blocks.19._bn1.bias
+Param name in file: enc._blocks.19._bn1.running_mean
+Param name in file: enc._blocks.19._bn1.running_var
+Param name in file: enc._blocks.19._bn1.num_batches_tracked
+Param name in file: enc._blocks.19._se_reduce.weight
+Param name in file: enc._blocks.19._se_reduce.bias
+Param name in file: enc._blocks.19._se_expand.weight
+Param name in file: enc._blocks.19._se_expand.bias
+Param name in file: enc._blocks.19._project_conv.weight
+Param name in file: enc._blocks.19._bn2.weight
+Param name in file: enc._blocks.19._bn2.bias
+Param name in file: enc._blocks.19._bn2.running_mean
+Param name in file: enc._blocks.19._bn2.running_var
+Param name in file: enc._blocks.19._bn2.num_batches_tracked
+Param name in file: enc._blocks.20._expand_conv.weight
+Param name in file: enc._blocks.20._bn0.weight
+Param name in file: enc._blocks.20._bn0.bias
+Param name in file: enc._blocks.20._bn0.running_mean
+Param name in file: enc._blocks.20._bn0.running_var
+Param name in file: enc._blocks.20._bn0.num_batches_tracked
+Param name in file: enc._blocks.20._depthwise_conv.weight
+Param name in file: enc._blocks.20._bn1.weight
+Param name in file: enc._blocks.20._bn1.bias
+Param name in file: enc._blocks.20._bn1.running_mean
+Param name in file: enc._blocks.20._bn1.running_var
+Param name in file: enc._blocks.20._bn1.num_batches_tracked
+Param name in file: enc._blocks.20._se_reduce.weight
+Param name in file: enc._blocks.20._se_reduce.bias
+Param name in file: enc._blocks.20._se_expand.weight
+Param name in file: enc._blocks.20._se_expand.bias
+Param name in file: enc._blocks.20._project_conv.weight
+Param name in file: enc._blocks.20._bn2.weight
+Param name in file: enc._blocks.20._bn2.bias
+Param name in file: enc._blocks.20._bn2.running_mean
+Param name in file: enc._blocks.20._bn2.running_var
+Param name in file: enc._blocks.20._bn2.num_batches_tracked
+Param name in file: enc._blocks.21._expand_conv.weight
+Param name in file: enc._blocks.21._bn0.weight
+Param name in file: enc._blocks.21._bn0.bias
+Param name in file: enc._blocks.21._bn0.running_mean
+Param name in file: enc._blocks.21._bn0.running_var
+Param name in file: enc._blocks.21._bn0.num_batches_tracked
+Param name in file: enc._blocks.21._depthwise_conv.weight
+Param name in file: enc._blocks.21._bn1.weight
+Param name in file: enc._blocks.21._bn1.bias
+Param name in file: enc._blocks.21._bn1.running_mean
+Param name in file: enc._blocks.21._bn1.running_var
+Param name in file: enc._blocks.21._bn1.num_batches_tracked
+Param name in file: enc._blocks.21._se_reduce.weight
+Param name in file: enc._blocks.21._se_reduce.bias
+Param name in file: enc._blocks.21._se_expand.weight
+Param name in file: enc._blocks.21._se_expand.bias
+Param name in file: enc._blocks.21._project_conv.weight
+Param name in file: enc._blocks.21._bn2.weight
+Param name in file: enc._blocks.21._bn2.bias
+Param name in file: enc._blocks.21._bn2.running_mean
+Param name in file: enc._blocks.21._bn2.running_var
+Param name in file: enc._blocks.21._bn2.num_batches_tracked
+Param name in file: enc._blocks.22._expand_conv.weight
+Param name in file: enc._blocks.22._bn0.weight
+Param name in file: enc._blocks.22._bn0.bias
+Param name in file: enc._blocks.22._bn0.running_mean
+Param name in file: enc._blocks.22._bn0.running_var
+Param name in file: enc._blocks.22._bn0.num_batches_tracked
+Param name in file: enc._blocks.22._depthwise_conv.weight
+Param name in file: enc._blocks.22._bn1.weight
+Param name in file: enc._blocks.22._bn1.bias
+Param name in file: enc._blocks.22._bn1.running_mean
+Param name in file: enc._blocks.22._bn1.running_var
+Param name in file: enc._blocks.22._bn1.num_batches_tracked
+Param name in file: enc._blocks.22._se_reduce.weight
+Param name in file: enc._blocks.22._se_reduce.bias
+Param name in file: enc._blocks.22._se_expand.weight
+Param name in file: enc._blocks.22._se_expand.bias
+Param name in file: enc._blocks.22._project_conv.weight
+Param name in file: enc._blocks.22._bn2.weight
+Param name in file: enc._blocks.22._bn2.bias
+Param name in file: enc._blocks.22._bn2.running_mean
+Param name in file: enc._blocks.22._bn2.running_var
+Param name in file: enc._blocks.22._bn2.num_batches_tracked
+Param name in file: enc._blocks.23._expand_conv.weight
+Param name in file: enc._blocks.23._bn0.weight
+Param name in file: enc._blocks.23._bn0.bias
+Param name in file: enc._blocks.23._bn0.running_mean
+Param name in file: enc._blocks.23._bn0.running_var
+Param name in file: enc._blocks.23._bn0.num_batches_tracked
+Param name in file: enc._blocks.23._depthwise_conv.weight
+Param name in file: enc._blocks.23._bn1.weight
+Param name in file: enc._blocks.23._bn1.bias
+Param name in file: enc._blocks.23._bn1.running_mean
+Param name in file: enc._blocks.23._bn1.running_var
+Param name in file: enc._blocks.23._bn1.num_batches_tracked
+Param name in file: enc._blocks.23._se_reduce.weight
+Param name in file: enc._blocks.23._se_reduce.bias
+Param name in file: enc._blocks.23._se_expand.weight
+Param name in file: enc._blocks.23._se_expand.bias
+Param name in file: enc._blocks.23._project_conv.weight
+Param name in file: enc._blocks.23._bn2.weight
+Param name in file: enc._blocks.23._bn2.bias
+Param name in file: enc._blocks.23._bn2.running_mean
+Param name in file: enc._blocks.23._bn2.running_var
+Param name in file: enc._blocks.23._bn2.num_batches_tracked
+Param name in file: enc._blocks.24._expand_conv.weight
+Param name in file: enc._blocks.24._bn0.weight
+Param name in file: enc._blocks.24._bn0.bias
+Param name in file: enc._blocks.24._bn0.running_mean
+Param name in file: enc._blocks.24._bn0.running_var
+Param name in file: enc._blocks.24._bn0.num_batches_tracked
+Param name in file: enc._blocks.24._depthwise_conv.weight
+Param name in file: enc._blocks.24._bn1.weight
+Param name in file: enc._blocks.24._bn1.bias
+Param name in file: enc._blocks.24._bn1.running_mean
+Param name in file: enc._blocks.24._bn1.running_var
+Param name in file: enc._blocks.24._bn1.num_batches_tracked
+Param name in file: enc._blocks.24._se_reduce.weight
+Param name in file: enc._blocks.24._se_reduce.bias
+Param name in file: enc._blocks.24._se_expand.weight
+Param name in file: enc._blocks.24._se_expand.bias
+Param name in file: enc._blocks.24._project_conv.weight
+Param name in file: enc._blocks.24._bn2.weight
+Param name in file: enc._blocks.24._bn2.bias
+Param name in file: enc._blocks.24._bn2.running_mean
+Param name in file: enc._blocks.24._bn2.running_var
+Param name in file: enc._blocks.24._bn2.num_batches_tracked
+Param name in file: enc._blocks.25._expand_conv.weight
+Param name in file: enc._blocks.25._bn0.weight
+Param name in file: enc._blocks.25._bn0.bias
+Param name in file: enc._blocks.25._bn0.running_mean
+Param name in file: enc._blocks.25._bn0.running_var
+Param name in file: enc._blocks.25._bn0.num_batches_tracked
+Param name in file: enc._blocks.25._depthwise_conv.weight
+Param name in file: enc._blocks.25._bn1.weight
+Param name in file: enc._blocks.25._bn1.bias
+Param name in file: enc._blocks.25._bn1.running_mean
+Param name in file: enc._blocks.25._bn1.running_var
+Param name in file: enc._blocks.25._bn1.num_batches_tracked
+Param name in file: enc._blocks.25._se_reduce.weight
+Param name in file: enc._blocks.25._se_reduce.bias
+Param name in file: enc._blocks.25._se_expand.weight
+Param name in file: enc._blocks.25._se_expand.bias
+Param name in file: enc._blocks.25._project_conv.weight
+Param name in file: enc._blocks.25._bn2.weight
+Param name in file: enc._blocks.25._bn2.bias
+Param name in file: enc._blocks.25._bn2.running_mean
+Param name in file: enc._blocks.25._bn2.running_var
+Param name in file: enc._blocks.25._bn2.num_batches_tracked
+Param name in file: enc._blocks.26._expand_conv.weight
+Param name in file: enc._blocks.26._bn0.weight
+Param name in file: enc._blocks.26._bn0.bias
+Param name in file: enc._blocks.26._bn0.running_mean
+Param name in file: enc._blocks.26._bn0.running_var
+Param name in file: enc._blocks.26._bn0.num_batches_tracked
+Param name in file: enc._blocks.26._depthwise_conv.weight
+Param name in file: enc._blocks.26._bn1.weight
+Param name in file: enc._blocks.26._bn1.bias
+Param name in file: enc._blocks.26._bn1.running_mean
+Param name in file: enc._blocks.26._bn1.running_var
+Param name in file: enc._blocks.26._bn1.num_batches_tracked
+Param name in file: enc._blocks.26._se_reduce.weight
+Param name in file: enc._blocks.26._se_reduce.bias
+Param name in file: enc._blocks.26._se_expand.weight
+Param name in file: enc._blocks.26._se_expand.bias
+Param name in file: enc._blocks.26._project_conv.weight
+Param name in file: enc._blocks.26._bn2.weight
+Param name in file: enc._blocks.26._bn2.bias
+Param name in file: enc._blocks.26._bn2.running_mean
+Param name in file: enc._blocks.26._bn2.running_var
+Param name in file: enc._blocks.26._bn2.num_batches_tracked
+Param name in file: enc._blocks.27._expand_conv.weight
+Param name in file: enc._blocks.27._bn0.weight
+Param name in file: enc._blocks.27._bn0.bias
+Param name in file: enc._blocks.27._bn0.running_mean
+Param name in file: enc._blocks.27._bn0.running_var
+Param name in file: enc._blocks.27._bn0.num_batches_tracked
+Param name in file: enc._blocks.27._depthwise_conv.weight
+Param name in file: enc._blocks.27._bn1.weight
+Param name in file: enc._blocks.27._bn1.bias
+Param name in file: enc._blocks.27._bn1.running_mean
+Param name in file: enc._blocks.27._bn1.running_var
+Param name in file: enc._blocks.27._bn1.num_batches_tracked
+Param name in file: enc._blocks.27._se_reduce.weight
+Param name in file: enc._blocks.27._se_reduce.bias
+Param name in file: enc._blocks.27._se_expand.weight
+Param name in file: enc._blocks.27._se_expand.bias
+Param name in file: enc._blocks.27._project_conv.weight
+Param name in file: enc._blocks.27._bn2.weight
+Param name in file: enc._blocks.27._bn2.bias
+Param name in file: enc._blocks.27._bn2.running_mean
+Param name in file: enc._blocks.27._bn2.running_var
+Param name in file: enc._blocks.27._bn2.num_batches_tracked
+Param name in file: enc._blocks.28._expand_conv.weight
+Param name in file: enc._blocks.28._bn0.weight
+Param name in file: enc._blocks.28._bn0.bias
+Param name in file: enc._blocks.28._bn0.running_mean
+Param name in file: enc._blocks.28._bn0.running_var
+Param name in file: enc._blocks.28._bn0.num_batches_tracked
+Param name in file: enc._blocks.28._depthwise_conv.weight
+Param name in file: enc._blocks.28._bn1.weight
+Param name in file: enc._blocks.28._bn1.bias
+Param name in file: enc._blocks.28._bn1.running_mean
+Param name in file: enc._blocks.28._bn1.running_var
+Param name in file: enc._blocks.28._bn1.num_batches_tracked
+Param name in file: enc._blocks.28._se_reduce.weight
+Param name in file: enc._blocks.28._se_reduce.bias
+Param name in file: enc._blocks.28._se_expand.weight
+Param name in file: enc._blocks.28._se_expand.bias
+Param name in file: enc._blocks.28._project_conv.weight
+Param name in file: enc._blocks.28._bn2.weight
+Param name in file: enc._blocks.28._bn2.bias
+Param name in file: enc._blocks.28._bn2.running_mean
+Param name in file: enc._blocks.28._bn2.running_var
+Param name in file: enc._blocks.28._bn2.num_batches_tracked
+Param name in file: enc._blocks.29._expand_conv.weight
+Param name in file: enc._blocks.29._bn0.weight
+Param name in file: enc._blocks.29._bn0.bias
+Param name in file: enc._blocks.29._bn0.running_mean
+Param name in file: enc._blocks.29._bn0.running_var
+Param name in file: enc._blocks.29._bn0.num_batches_tracked
+Param name in file: enc._blocks.29._depthwise_conv.weight
+Param name in file: enc._blocks.29._bn1.weight
+Param name in file: enc._blocks.29._bn1.bias
+Param name in file: enc._blocks.29._bn1.running_mean
+Param name in file: enc._blocks.29._bn1.running_var
+Param name in file: enc._blocks.29._bn1.num_batches_tracked
+Param name in file: enc._blocks.29._se_reduce.weight
+Param name in file: enc._blocks.29._se_reduce.bias
+Param name in file: enc._blocks.29._se_expand.weight
+Param name in file: enc._blocks.29._se_expand.bias
+Param name in file: enc._blocks.29._project_conv.weight
+Param name in file: enc._blocks.29._bn2.weight
+Param name in file: enc._blocks.29._bn2.bias
+Param name in file: enc._blocks.29._bn2.running_mean
+Param name in file: enc._blocks.29._bn2.running_var
+Param name in file: enc._blocks.29._bn2.num_batches_tracked
+Param name in file: enc._blocks.30._expand_conv.weight
+Param name in file: enc._blocks.30._bn0.weight
+Param name in file: enc._blocks.30._bn0.bias
+Param name in file: enc._blocks.30._bn0.running_mean
+Param name in file: enc._blocks.30._bn0.running_var
+Param name in file: enc._blocks.30._bn0.num_batches_tracked
+Param name in file: enc._blocks.30._depthwise_conv.weight
+Param name in file: enc._blocks.30._bn1.weight
+Param name in file: enc._blocks.30._bn1.bias
+Param name in file: enc._blocks.30._bn1.running_mean
+Param name in file: enc._blocks.30._bn1.running_var
+Param name in file: enc._blocks.30._bn1.num_batches_tracked
+Param name in file: enc._blocks.30._se_reduce.weight
+Param name in file: enc._blocks.30._se_reduce.bias
+Param name in file: enc._blocks.30._se_expand.weight
+Param name in file: enc._blocks.30._se_expand.bias
+Param name in file: enc._blocks.30._project_conv.weight
+Param name in file: enc._blocks.30._bn2.weight
+Param name in file: enc._blocks.30._bn2.bias
+Param name in file: enc._blocks.30._bn2.running_mean
+Param name in file: enc._blocks.30._bn2.running_var
+Param name in file: enc._blocks.30._bn2.num_batches_tracked
+Param name in file: enc._blocks.31._expand_conv.weight
+Param name in file: enc._blocks.31._bn0.weight
+Param name in file: enc._blocks.31._bn0.bias
+Param name in file: enc._blocks.31._bn0.running_mean
+Param name in file: enc._blocks.31._bn0.running_var
+Param name in file: enc._blocks.31._bn0.num_batches_tracked
+Param name in file: enc._blocks.31._depthwise_conv.weight
+Param name in file: enc._blocks.31._bn1.weight
+Param name in file: enc._blocks.31._bn1.bias
+Param name in file: enc._blocks.31._bn1.running_mean
+Param name in file: enc._blocks.31._bn1.running_var
+Param name in file: enc._blocks.31._bn1.num_batches_tracked
+Param name in file: enc._blocks.31._se_reduce.weight
+Param name in file: enc._blocks.31._se_reduce.bias
+Param name in file: enc._blocks.31._se_expand.weight
+Param name in file: enc._blocks.31._se_expand.bias
+Param name in file: enc._blocks.31._project_conv.weight
+Param name in file: enc._blocks.31._bn2.weight
+Param name in file: enc._blocks.31._bn2.bias
+Param name in file: enc._blocks.31._bn2.running_mean
+Param name in file: enc._blocks.31._bn2.running_var
+Param name in file: enc._blocks.31._bn2.num_batches_tracked
+Param name in file: enc._conv_head.weight
+Param name in file: enc._bn1.weight
+Param name in file: enc._bn1.bias
+Param name in file: enc._bn1.running_mean
+Param name in file: enc._bn1.running_var
+Param name in file: enc._bn1.num_batches_tracked
+Param name in file: enc._fc.weight
+Param name in file: enc._fc.bias
+Param name in file: quantize_conv_t.weight
+Param name in file: quantize_conv_t.bias
+Param name in file: quantize_list_1.0.embed
+Param name in file: quantize_list_1.0.cluster_size
+Param name in file: quantize_list_1.0.embed_avg
+Param name in file: quantize_list_1.1.embed
+Param name in file: quantize_list_1.1.cluster_size
+Param name in file: quantize_list_1.1.embed_avg
+Param name in file: quantize_list_1.2.embed
+Param name in file: quantize_list_1.2.cluster_size
+Param name in file: quantize_list_1.2.embed_avg
+Param name in file: quantize_list_1.3.embed
+Param name in file: quantize_list_1.3.cluster_size
+Param name in file: quantize_list_1.3.embed_avg
+Param name in file: quantize_list_1.4.embed
+Param name in file: quantize_list_1.4.cluster_size
+Param name in file: quantize_list_1.4.embed_avg
+Param name in file: quantize_list_1.5.embed
+Param name in file: quantize_list_1.5.cluster_size
+Param name in file: quantize_list_1.5.embed_avg
+Param name in file: quantize_list_1.6.embed
+Param name in file: quantize_list_1.6.cluster_size
+Param name in file: quantize_list_1.6.embed_avg
+Param name in file: quantize_list_1.7.embed
+Param name in file: quantize_list_1.7.cluster_size
+Param name in file: quantize_list_1.7.embed_avg
+Param name in file: quantize_list_1.8.embed
+Param name in file: quantize_list_1.8.cluster_size
+Param name in file: quantize_list_1.8.embed_avg
+Param name in file: quantize_list_1.9.embed
+Param name in file: quantize_list_1.9.cluster_size
+Param name in file: quantize_list_1.9.embed_avg
+Param name in file: quantize_list_1.10.embed
+Param name in file: quantize_list_1.10.cluster_size
+Param name in file: quantize_list_1.10.embed_avg
+Param name in file: quantize_list_1.11.embed
+Param name in file: quantize_list_1.11.cluster_size
+Param name in file: quantize_list_1.11.embed_avg
+Param name in file: quantize_list_1.12.embed
+Param name in file: quantize_list_1.12.cluster_size
+Param name in file: quantize_list_1.12.embed_avg
+Param name in file: quantize_list_1.13.embed
+Param name in file: quantize_list_1.13.cluster_size
+Param name in file: quantize_list_1.13.embed_avg
+Param name in file: quantize_list_1.14.embed
+Param name in file: quantize_list_1.14.cluster_size
+Param name in file: quantize_list_1.14.embed_avg
+Param name in file: quantize_list_2.0.embed
+Param name in file: quantize_list_2.0.cluster_size
+Param name in file: quantize_list_2.0.embed_avg
+Param name in file: quantize_list_2.1.embed
+Param name in file: quantize_list_2.1.cluster_size
+Param name in file: quantize_list_2.1.embed_avg
+Param name in file: quantize_list_2.2.embed
+Param name in file: quantize_list_2.2.cluster_size
+Param name in file: quantize_list_2.2.embed_avg
+Param name in file: quantize_list_2.3.embed
+Param name in file: quantize_list_2.3.cluster_size
+Param name in file: quantize_list_2.3.embed_avg
+Param name in file: quantize_list_2.4.embed
+Param name in file: quantize_list_2.4.cluster_size
+Param name in file: quantize_list_2.4.embed_avg
+Param name in file: quantize_list_2.5.embed
+Param name in file: quantize_list_2.5.cluster_size
+Param name in file: quantize_list_2.5.embed_avg
+Param name in file: quantize_list_2.6.embed
+Param name in file: quantize_list_2.6.cluster_size
+Param name in file: quantize_list_2.6.embed_avg
+Param name in file: quantize_list_2.7.embed
+Param name in file: quantize_list_2.7.cluster_size
+Param name in file: quantize_list_2.7.embed_avg
+Param name in file: quantize_list_2.8.embed
+Param name in file: quantize_list_2.8.cluster_size
+Param name in file: quantize_list_2.8.embed_avg
+Param name in file: quantize_list_2.9.embed
+Param name in file: quantize_list_2.9.cluster_size
+Param name in file: quantize_list_2.9.embed_avg
+Param name in file: quantize_list_2.10.embed
+Param name in file: quantize_list_2.10.cluster_size
+Param name in file: quantize_list_2.10.embed_avg
+Param name in file: quantize_list_2.11.embed
+Param name in file: quantize_list_2.11.cluster_size
+Param name in file: quantize_list_2.11.embed_avg
+Param name in file: quantize_list_2.12.embed
+Param name in file: quantize_list_2.12.cluster_size
+Param name in file: quantize_list_2.12.embed_avg
+Param name in file: quantize_list_2.13.embed
+Param name in file: quantize_list_2.13.cluster_size
+Param name in file: quantize_list_2.13.embed_avg
+Param name in file: quantize_list_2.14.embed
+Param name in file: quantize_list_2.14.cluster_size
+Param name in file: quantize_list_2.14.embed_avg
+Param name in file: quantize_list_3.0.embed
+Param name in file: quantize_list_3.0.cluster_size
+Param name in file: quantize_list_3.0.embed_avg
+Param name in file: quantize_list_3.1.embed
+Param name in file: quantize_list_3.1.cluster_size
+Param name in file: quantize_list_3.1.embed_avg
+Param name in file: quantize_list_3.2.embed
+Param name in file: quantize_list_3.2.cluster_size
+Param name in file: quantize_list_3.2.embed_avg
+Param name in file: quantize_list_3.3.embed
+Param name in file: quantize_list_3.3.cluster_size
+Param name in file: quantize_list_3.3.embed_avg
+Param name in file: quantize_list_3.4.embed
+Param name in file: quantize_list_3.4.cluster_size
+Param name in file: quantize_list_3.4.embed_avg
+Param name in file: quantize_list_3.5.embed
+Param name in file: quantize_list_3.5.cluster_size
+Param name in file: quantize_list_3.5.embed_avg
+Param name in file: quantize_list_3.6.embed
+Param name in file: quantize_list_3.6.cluster_size
+Param name in file: quantize_list_3.6.embed_avg
+Param name in file: quantize_list_3.7.embed
+Param name in file: quantize_list_3.7.cluster_size
+Param name in file: quantize_list_3.7.embed_avg
+Param name in file: quantize_list_3.8.embed
+Param name in file: quantize_list_3.8.cluster_size
+Param name in file: quantize_list_3.8.embed_avg
+Param name in file: quantize_list_3.9.embed
+Param name in file: quantize_list_3.9.cluster_size
+Param name in file: quantize_list_3.9.embed_avg
+Param name in file: quantize_list_3.10.embed
+Param name in file: quantize_list_3.10.cluster_size
+Param name in file: quantize_list_3.10.embed_avg
+Param name in file: quantize_list_3.11.embed
+Param name in file: quantize_list_3.11.cluster_size
+Param name in file: quantize_list_3.11.embed_avg
+Param name in file: quantize_list_3.12.embed
+Param name in file: quantize_list_3.12.cluster_size
+Param name in file: quantize_list_3.12.embed_avg
+Param name in file: quantize_list_3.13.embed
+Param name in file: quantize_list_3.13.cluster_size
+Param name in file: quantize_list_3.13.embed_avg
+Param name in file: quantize_list_3.14.embed
+Param name in file: quantize_list_3.14.cluster_size
+Param name in file: quantize_list_3.14.embed_avg
+Param name in file: quantize_list_4.0.embed
+Param name in file: quantize_list_4.0.cluster_size
+Param name in file: quantize_list_4.0.embed_avg
+Param name in file: quantize_list_4.1.embed
+Param name in file: quantize_list_4.1.cluster_size
+Param name in file: quantize_list_4.1.embed_avg
+Param name in file: quantize_list_4.2.embed
+Param name in file: quantize_list_4.2.cluster_size
+Param name in file: quantize_list_4.2.embed_avg
+Param name in file: quantize_list_4.3.embed
+Param name in file: quantize_list_4.3.cluster_size
+Param name in file: quantize_list_4.3.embed_avg
+Param name in file: quantize_list_4.4.embed
+Param name in file: quantize_list_4.4.cluster_size
+Param name in file: quantize_list_4.4.embed_avg
+Param name in file: quantize_list_4.5.embed
+Param name in file: quantize_list_4.5.cluster_size
+Param name in file: quantize_list_4.5.embed_avg
+Param name in file: quantize_list_4.6.embed
+Param name in file: quantize_list_4.6.cluster_size
+Param name in file: quantize_list_4.6.embed_avg
+Param name in file: quantize_list_4.7.embed
+Param name in file: quantize_list_4.7.cluster_size
+Param name in file: quantize_list_4.7.embed_avg
+Param name in file: quantize_list_4.8.embed
+Param name in file: quantize_list_4.8.cluster_size
+Param name in file: quantize_list_4.8.embed_avg
+Param name in file: quantize_list_4.9.embed
+Param name in file: quantize_list_4.9.cluster_size
+Param name in file: quantize_list_4.9.embed_avg
+Param name in file: quantize_list_4.10.embed
+Param name in file: quantize_list_4.10.cluster_size
+Param name in file: quantize_list_4.10.embed_avg
+Param name in file: quantize_list_4.11.embed
+Param name in file: quantize_list_4.11.cluster_size
+Param name in file: quantize_list_4.11.embed_avg
+Param name in file: quantize_list_4.12.embed
+Param name in file: quantize_list_4.12.cluster_size
+Param name in file: quantize_list_4.12.embed_avg
+Param name in file: quantize_list_4.13.embed
+Param name in file: quantize_list_4.13.cluster_size
+Param name in file: quantize_list_4.13.embed_avg
+Param name in file: quantize_list_4.14.embed
+Param name in file: quantize_list_4.14.cluster_size
+Param name in file: quantize_list_4.14.embed_avg
+Param name in file: quantize_list_5.0.embed
+Param name in file: quantize_list_5.0.cluster_size
+Param name in file: quantize_list_5.0.embed_avg
+Param name in file: quantize_list_5.1.embed
+Param name in file: quantize_list_5.1.cluster_size
+Param name in file: quantize_list_5.1.embed_avg
+Param name in file: quantize_list_5.2.embed
+Param name in file: quantize_list_5.2.cluster_size
+Param name in file: quantize_list_5.2.embed_avg
+Param name in file: quantize_list_5.3.embed
+Param name in file: quantize_list_5.3.cluster_size
+Param name in file: quantize_list_5.3.embed_avg
+Param name in file: quantize_list_5.4.embed
+Param name in file: quantize_list_5.4.cluster_size
+Param name in file: quantize_list_5.4.embed_avg
+Param name in file: quantize_list_5.5.embed
+Param name in file: quantize_list_5.5.cluster_size
+Param name in file: quantize_list_5.5.embed_avg
+Param name in file: quantize_list_5.6.embed
+Param name in file: quantize_list_5.6.cluster_size
+Param name in file: quantize_list_5.6.embed_avg
+Param name in file: quantize_list_5.7.embed
+Param name in file: quantize_list_5.7.cluster_size
+Param name in file: quantize_list_5.7.embed_avg
+Param name in file: quantize_list_5.8.embed
+Param name in file: quantize_list_5.8.cluster_size
+Param name in file: quantize_list_5.8.embed_avg
+Param name in file: quantize_list_5.9.embed
+Param name in file: quantize_list_5.9.cluster_size
+Param name in file: quantize_list_5.9.embed_avg
+Param name in file: quantize_list_5.10.embed
+Param name in file: quantize_list_5.10.cluster_size
+Param name in file: quantize_list_5.10.embed_avg
+Param name in file: quantize_list_5.11.embed
+Param name in file: quantize_list_5.11.cluster_size
+Param name in file: quantize_list_5.11.embed_avg
+Param name in file: quantize_list_5.12.embed
+Param name in file: quantize_list_5.12.cluster_size
+Param name in file: quantize_list_5.12.embed_avg
+Param name in file: quantize_list_5.13.embed
+Param name in file: quantize_list_5.13.cluster_size
+Param name in file: quantize_list_5.13.embed_avg
+Param name in file: quantize_list_5.14.embed
+Param name in file: quantize_list_5.14.cluster_size
+Param name in file: quantize_list_5.14.embed_avg
+Param name in file: encoder.layers.0.self_attn.in_proj_weight
+Param name in file: encoder.layers.0.self_attn.in_proj_bias
+Param name in file: encoder.layers.0.self_attn.out_proj.weight
+Param name in file: encoder.layers.0.self_attn.out_proj.bias
+Param name in file: encoder.layers.0.linear1.weight
+Param name in file: encoder.layers.0.linear1.bias
+Param name in file: encoder.layers.0.linear2.weight
+Param name in file: encoder.layers.0.linear2.bias
+Param name in file: encoder.layers.0.norm1.weight
+Param name in file: encoder.layers.0.norm1.bias
+Param name in file: encoder.layers.0.norm2.weight
+Param name in file: encoder.layers.0.norm2.bias
+Param name in file: encoder.layers.1.self_attn.in_proj_weight
+Param name in file: encoder.layers.1.self_attn.in_proj_bias
+Param name in file: encoder.layers.1.self_attn.out_proj.weight
+Param name in file: encoder.layers.1.self_attn.out_proj.bias
+Param name in file: encoder.layers.1.linear1.weight
+Param name in file: encoder.layers.1.linear1.bias
+Param name in file: encoder.layers.1.linear2.weight
+Param name in file: encoder.layers.1.linear2.bias
+Param name in file: encoder.layers.1.norm1.weight
+Param name in file: encoder.layers.1.norm1.bias
+Param name in file: encoder.layers.1.norm2.weight
+Param name in file: encoder.layers.1.norm2.bias
+Param name in file: encoder.layers.2.self_attn.in_proj_weight
+Param name in file: encoder.layers.2.self_attn.in_proj_bias
+Param name in file: encoder.layers.2.self_attn.out_proj.weight
+Param name in file: encoder.layers.2.self_attn.out_proj.bias
+Param name in file: encoder.layers.2.linear1.weight
+Param name in file: encoder.layers.2.linear1.bias
+Param name in file: encoder.layers.2.linear2.weight
+Param name in file: encoder.layers.2.linear2.bias
+Param name in file: encoder.layers.2.norm1.weight
+Param name in file: encoder.layers.2.norm1.bias
+Param name in file: encoder.layers.2.norm2.weight
+Param name in file: encoder.layers.2.norm2.bias
+Param name in file: encoder.layers.3.self_attn.in_proj_weight
+Param name in file: encoder.layers.3.self_attn.in_proj_bias
+Param name in file: encoder.layers.3.self_attn.out_proj.weight
+Param name in file: encoder.layers.3.self_attn.out_proj.bias
+Param name in file: encoder.layers.3.linear1.weight
+Param name in file: encoder.layers.3.linear1.bias
+Param name in file: encoder.layers.3.linear2.weight
+Param name in file: encoder.layers.3.linear2.bias
+Param name in file: encoder.layers.3.norm1.weight
+Param name in file: encoder.layers.3.norm1.bias
+Param name in file: encoder.layers.3.norm2.weight
+Param name in file: encoder.layers.3.norm2.bias
+Param name in file: pos_embed.row_embed.weight
+Param name in file: pos_embed.col_embed.weight
+Param name in file: decoder.layers.0.self_attn.in_proj_weight
+Param name in file: decoder.layers.0.self_attn.in_proj_bias
+Param name in file: decoder.layers.0.self_attn.out_proj.weight
+Param name in file: decoder.layers.0.self_attn.out_proj.bias
+Param name in file: decoder.layers.0.multihead_attn.in_proj_weight
+Param name in file: decoder.layers.0.multihead_attn.in_proj_bias
+Param name in file: decoder.layers.0.multihead_attn.out_proj.weight
+Param name in file: decoder.layers.0.multihead_attn.out_proj.bias
+Param name in file: decoder.layers.0.linear1.weight
+Param name in file: decoder.layers.0.linear1.bias
+Param name in file: decoder.layers.0.linear2.weight
+Param name in file: decoder.layers.0.linear2.bias
+Param name in file: decoder.layers.0.norm1.weight
+Param name in file: decoder.layers.0.norm1.bias
+Param name in file: decoder.layers.0.norm2.weight
+Param name in file: decoder.layers.0.norm2.bias
+Param name in file: decoder.layers.0.norm3.weight
+Param name in file: decoder.layers.0.norm3.bias
+Param name in file: decoder.layers.1.self_attn.in_proj_weight
+Param name in file: decoder.layers.1.self_attn.in_proj_bias
+Param name in file: decoder.layers.1.self_attn.out_proj.weight
+Param name in file: decoder.layers.1.self_attn.out_proj.bias
+Param name in file: decoder.layers.1.multihead_attn.in_proj_weight
+Param name in file: decoder.layers.1.multihead_attn.in_proj_bias
+Param name in file: decoder.layers.1.multihead_attn.out_proj.weight
+Param name in file: decoder.layers.1.multihead_attn.out_proj.bias
+Param name in file: decoder.layers.1.linear1.weight
+Param name in file: decoder.layers.1.linear1.bias
+Param name in file: decoder.layers.1.linear2.weight
+Param name in file: decoder.layers.1.linear2.bias
+Param name in file: decoder.layers.1.norm1.weight
+Param name in file: decoder.layers.1.norm1.bias
+Param name in file: decoder.layers.1.norm2.weight
+Param name in file: decoder.layers.1.norm2.bias
+Param name in file: decoder.layers.1.norm3.weight
+Param name in file: decoder.layers.1.norm3.bias
+Param name in file: decoder.layers.2.self_attn.in_proj_weight
+Param name in file: decoder.layers.2.self_attn.in_proj_bias
+Param name in file: decoder.layers.2.self_attn.out_proj.weight
+Param name in file: decoder.layers.2.self_attn.out_proj.bias
+Param name in file: decoder.layers.2.multihead_attn.in_proj_weight
+Param name in file: decoder.layers.2.multihead_attn.in_proj_bias
+Param name in file: decoder.layers.2.multihead_attn.out_proj.weight
+Param name in file: decoder.layers.2.multihead_attn.out_proj.bias
+Param name in file: decoder.layers.2.linear1.weight
+Param name in file: decoder.layers.2.linear1.bias
+Param name in file: decoder.layers.2.linear2.weight
+Param name in file: decoder.layers.2.linear2.bias
+Param name in file: decoder.layers.2.norm1.weight
+Param name in file: decoder.layers.2.norm1.bias
+Param name in file: decoder.layers.2.norm2.weight
+Param name in file: decoder.layers.2.norm2.bias
+Param name in file: decoder.layers.2.norm3.weight
+Param name in file: decoder.layers.2.norm3.bias
+Param name in file: decoder.layers.3.self_attn.in_proj_weight
+Param name in file: decoder.layers.3.self_attn.in_proj_bias
+Param name in file: decoder.layers.3.self_attn.out_proj.weight
+Param name in file: decoder.layers.3.self_attn.out_proj.bias
+Param name in file: decoder.layers.3.multihead_attn.in_proj_weight
+Param name in file: decoder.layers.3.multihead_attn.in_proj_bias
+Param name in file: decoder.layers.3.multihead_attn.out_proj.weight
+Param name in file: decoder.layers.3.multihead_attn.out_proj.bias
+Param name in file: decoder.layers.3.linear1.weight
+Param name in file: decoder.layers.3.linear1.bias
+Param name in file: decoder.layers.3.linear2.weight
+Param name in file: decoder.layers.3.linear2.bias
+Param name in file: decoder.layers.3.norm1.weight
+Param name in file: decoder.layers.3.norm1.bias
+Param name in file: decoder.layers.3.norm2.weight
+Param name in file: decoder.layers.3.norm2.bias
+Param name in file: decoder.layers.3.norm3.weight
+Param name in file: decoder.layers.3.norm3.bias
+Param name in file: decoder.norm.weight
+Param name in file: decoder.norm.bias
+Param name in file: input_proj.weight
+Param name in file: input_proj.bias
+Param name in file: output_proj_list.0.weight
+Param name in file: output_proj_list.0.bias
+Param name in file: output_proj_list.1.weight
+Param name in file: output_proj_list.1.bias
+Param name in file: output_proj_list.2.weight
+Param name in file: output_proj_list.2.bias
+Param name in file: output_proj_list.3.weight
+Param name in file: output_proj_list.3.bias
+Param name in file: output_proj_list.4.weight
+Param name in file: output_proj_list.4.bias
+Param name in file: output_proj_list.5.weight
+Param name in file: output_proj_list.5.bias
+Param name in file: output_proj_list.6.weight
+Param name in file: output_proj_list.6.bias
+Param name in file: output_proj_list.7.weight
+Param name in file: output_proj_list.7.bias
+Param name in file: output_proj_list.8.weight
+Param name in file: output_proj_list.8.bias
+Param name in file: output_proj_list.9.weight
+Param name in file: output_proj_list.9.bias
+Param name in file: output_proj_list.10.weight
+Param name in file: output_proj_list.10.bias
+Param name in file: output_proj_list.11.weight
+Param name in file: output_proj_list.11.bias
+Param name in file: output_proj_list.12.weight
+Param name in file: output_proj_list.12.bias
+Param name in file: output_proj_list.13.weight
+Param name in file: output_proj_list.13.bias
+Param name in file: output_proj_list.14.weight
+Param name in file: output_proj_list.14.bias
+
+Comparison of model layers and parameter file keys:
+Matching keys (576): ['decoder.layers.0.linear1.bias', 'decoder.layers.0.linear1.weight', 'decoder.layers.0.linear2.bias', 'decoder.layers.0.linear2.weight', 'decoder.layers.0.multihead_attn.in_proj_bias', 'decoder.layers.0.multihead_attn.in_proj_weight', 'decoder.layers.0.multihead_attn.out_proj.bias', 'decoder.layers.0.multihead_attn.out_proj.weight', 'decoder.layers.0.norm1.bias', 'decoder.layers.0.norm1.weight', 'decoder.layers.0.norm2.bias', 'decoder.layers.0.norm2.weight', 'decoder.layers.0.norm3.bias', 'decoder.layers.0.norm3.weight', 'decoder.layers.0.self_attn.in_proj_bias', 'decoder.layers.0.self_attn.in_proj_weight', 'decoder.layers.0.self_attn.out_proj.bias', 'decoder.layers.0.self_attn.out_proj.weight', 'decoder.layers.1.linear1.bias', 'decoder.layers.1.linear1.weight', 'decoder.layers.1.linear2.bias', 'decoder.layers.1.linear2.weight', 'decoder.layers.1.multihead_attn.in_proj_bias', 'decoder.layers.1.multihead_attn.in_proj_weight', 'decoder.layers.1.multihead_attn.out_proj.bias', 'decoder.layers.1.multihead_attn.out_proj.weight', 'decoder.layers.1.norm1.bias', 'decoder.layers.1.norm1.weight', 'decoder.layers.1.norm2.bias', 'decoder.layers.1.norm2.weight', 'decoder.layers.1.norm3.bias', 'decoder.layers.1.norm3.weight', 'decoder.layers.1.self_attn.in_proj_bias', 'decoder.layers.1.self_attn.in_proj_weight', 'decoder.layers.1.self_attn.out_proj.bias', 'decoder.layers.1.self_attn.out_proj.weight', 'decoder.layers.2.linear1.bias', 'decoder.layers.2.linear1.weight', 'decoder.layers.2.linear2.bias', 'decoder.layers.2.linear2.weight', 'decoder.layers.2.multihead_attn.in_proj_bias', 'decoder.layers.2.multihead_attn.in_proj_weight', 'decoder.layers.2.multihead_attn.out_proj.bias', 'decoder.layers.2.multihead_attn.out_proj.weight', 'decoder.layers.2.norm1.bias', 'decoder.layers.2.norm1.weight', 'decoder.layers.2.norm2.bias', 'decoder.layers.2.norm2.weight', 'decoder.layers.2.norm3.bias', 'decoder.layers.2.norm3.weight', 'decoder.layers.2.self_attn.in_proj_bias', 'decoder.layers.2.self_attn.in_proj_weight', 'decoder.layers.2.self_attn.out_proj.bias', 'decoder.layers.2.self_attn.out_proj.weight', 'decoder.layers.3.linear1.bias', 'decoder.layers.3.linear1.weight', 'decoder.layers.3.linear2.bias', 'decoder.layers.3.linear2.weight', 'decoder.layers.3.multihead_attn.in_proj_bias', 'decoder.layers.3.multihead_attn.in_proj_weight', 'decoder.layers.3.multihead_attn.out_proj.bias', 'decoder.layers.3.multihead_attn.out_proj.weight', 'decoder.layers.3.norm1.bias', 'decoder.layers.3.norm1.weight', 'decoder.layers.3.norm2.bias', 'decoder.layers.3.norm2.weight', 'decoder.layers.3.norm3.bias', 'decoder.layers.3.norm3.weight', 'decoder.layers.3.self_attn.in_proj_bias', 'decoder.layers.3.self_attn.in_proj_weight', 'decoder.layers.3.self_attn.out_proj.bias', 'decoder.layers.3.self_attn.out_proj.weight', 'decoder.norm.bias', 'decoder.norm.weight', 'enc._blocks.0._bn1.bias', 'enc._blocks.0._bn1.weight', 'enc._blocks.0._bn2.bias', 'enc._blocks.0._bn2.weight', 'enc._blocks.0._depthwise_conv.weight', 'enc._blocks.0._project_conv.weight', 'enc._blocks.0._se_expand.bias', 'enc._blocks.0._se_expand.weight', 'enc._blocks.0._se_reduce.bias', 'enc._blocks.0._se_reduce.weight', 'enc._blocks.1._bn1.bias', 'enc._blocks.1._bn1.weight', 'enc._blocks.1._bn2.bias', 'enc._blocks.1._bn2.weight', 'enc._blocks.1._depthwise_conv.weight', 'enc._blocks.1._project_conv.weight', 'enc._blocks.1._se_expand.bias', 'enc._blocks.1._se_expand.weight', 'enc._blocks.1._se_reduce.bias', 'enc._blocks.1._se_reduce.weight', 'enc._blocks.10._bn0.bias', 'enc._blocks.10._bn0.weight', 'enc._blocks.10._bn1.bias', 'enc._blocks.10._bn1.weight', 'enc._blocks.10._bn2.bias', 'enc._blocks.10._bn2.weight', 'enc._blocks.10._depthwise_conv.weight', 'enc._blocks.10._expand_conv.weight', 'enc._blocks.10._project_conv.weight', 'enc._blocks.10._se_expand.bias', 'enc._blocks.10._se_expand.weight', 'enc._blocks.10._se_reduce.bias', 'enc._blocks.10._se_reduce.weight', 'enc._blocks.11._bn0.bias', 'enc._blocks.11._bn0.weight', 'enc._blocks.11._bn1.bias', 'enc._blocks.11._bn1.weight', 'enc._blocks.11._bn2.bias', 'enc._blocks.11._bn2.weight', 'enc._blocks.11._depthwise_conv.weight', 'enc._blocks.11._expand_conv.weight', 'enc._blocks.11._project_conv.weight', 'enc._blocks.11._se_expand.bias', 'enc._blocks.11._se_expand.weight', 'enc._blocks.11._se_reduce.bias', 'enc._blocks.11._se_reduce.weight', 'enc._blocks.12._bn0.bias', 'enc._blocks.12._bn0.weight', 'enc._blocks.12._bn1.bias', 'enc._blocks.12._bn1.weight', 'enc._blocks.12._bn2.bias', 'enc._blocks.12._bn2.weight', 'enc._blocks.12._depthwise_conv.weight', 'enc._blocks.12._expand_conv.weight', 'enc._blocks.12._project_conv.weight', 'enc._blocks.12._se_expand.bias', 'enc._blocks.12._se_expand.weight', 'enc._blocks.12._se_reduce.bias', 'enc._blocks.12._se_reduce.weight', 'enc._blocks.13._bn0.bias', 'enc._blocks.13._bn0.weight', 'enc._blocks.13._bn1.bias', 'enc._blocks.13._bn1.weight', 'enc._blocks.13._bn2.bias', 'enc._blocks.13._bn2.weight', 'enc._blocks.13._depthwise_conv.weight', 'enc._blocks.13._expand_conv.weight', 'enc._blocks.13._project_conv.weight', 'enc._blocks.13._se_expand.bias', 'enc._blocks.13._se_expand.weight', 'enc._blocks.13._se_reduce.bias', 'enc._blocks.13._se_reduce.weight', 'enc._blocks.14._bn0.bias', 'enc._blocks.14._bn0.weight', 'enc._blocks.14._bn1.bias', 'enc._blocks.14._bn1.weight', 'enc._blocks.14._bn2.bias', 'enc._blocks.14._bn2.weight', 'enc._blocks.14._depthwise_conv.weight', 'enc._blocks.14._expand_conv.weight', 'enc._blocks.14._project_conv.weight', 'enc._blocks.14._se_expand.bias', 'enc._blocks.14._se_expand.weight', 'enc._blocks.14._se_reduce.bias', 'enc._blocks.14._se_reduce.weight', 'enc._blocks.15._bn0.bias', 'enc._blocks.15._bn0.weight', 'enc._blocks.15._bn1.bias', 'enc._blocks.15._bn1.weight', 'enc._blocks.15._bn2.bias', 'enc._blocks.15._bn2.weight', 'enc._blocks.15._depthwise_conv.weight', 'enc._blocks.15._expand_conv.weight', 'enc._blocks.15._project_conv.weight', 'enc._blocks.15._se_expand.bias', 'enc._blocks.15._se_expand.weight', 'enc._blocks.15._se_reduce.bias', 'enc._blocks.15._se_reduce.weight', 'enc._blocks.16._bn0.bias', 'enc._blocks.16._bn0.weight', 'enc._blocks.16._bn1.bias', 'enc._blocks.16._bn1.weight', 'enc._blocks.16._bn2.bias', 'enc._blocks.16._bn2.weight', 'enc._blocks.16._depthwise_conv.weight', 'enc._blocks.16._expand_conv.weight', 'enc._blocks.16._project_conv.weight', 'enc._blocks.16._se_expand.bias', 'enc._blocks.16._se_expand.weight', 'enc._blocks.16._se_reduce.bias', 'enc._blocks.16._se_reduce.weight', 'enc._blocks.17._bn0.bias', 'enc._blocks.17._bn0.weight', 'enc._blocks.17._bn1.bias', 'enc._blocks.17._bn1.weight', 'enc._blocks.17._bn2.bias', 'enc._blocks.17._bn2.weight', 'enc._blocks.17._depthwise_conv.weight', 'enc._blocks.17._expand_conv.weight', 'enc._blocks.17._project_conv.weight', 'enc._blocks.17._se_expand.bias', 'enc._blocks.17._se_expand.weight', 'enc._blocks.17._se_reduce.bias', 'enc._blocks.17._se_reduce.weight', 'enc._blocks.18._bn0.bias', 'enc._blocks.18._bn0.weight', 'enc._blocks.18._bn1.bias', 'enc._blocks.18._bn1.weight', 'enc._blocks.18._bn2.bias', 'enc._blocks.18._bn2.weight', 'enc._blocks.18._depthwise_conv.weight', 'enc._blocks.18._expand_conv.weight', 'enc._blocks.18._project_conv.weight', 'enc._blocks.18._se_expand.bias', 'enc._blocks.18._se_expand.weight', 'enc._blocks.18._se_reduce.bias', 'enc._blocks.18._se_reduce.weight', 'enc._blocks.19._bn0.bias', 'enc._blocks.19._bn0.weight', 'enc._blocks.19._bn1.bias', 'enc._blocks.19._bn1.weight', 'enc._blocks.19._bn2.bias', 'enc._blocks.19._bn2.weight', 'enc._blocks.19._depthwise_conv.weight', 'enc._blocks.19._expand_conv.weight', 'enc._blocks.19._project_conv.weight', 'enc._blocks.19._se_expand.bias', 'enc._blocks.19._se_expand.weight', 'enc._blocks.19._se_reduce.bias', 'enc._blocks.19._se_reduce.weight', 'enc._blocks.2._bn0.bias', 'enc._blocks.2._bn0.weight', 'enc._blocks.2._bn1.bias', 'enc._blocks.2._bn1.weight', 'enc._blocks.2._bn2.bias', 'enc._blocks.2._bn2.weight', 'enc._blocks.2._depthwise_conv.weight', 'enc._blocks.2._expand_conv.weight', 'enc._blocks.2._project_conv.weight', 'enc._blocks.2._se_expand.bias', 'enc._blocks.2._se_expand.weight', 'enc._blocks.2._se_reduce.bias', 'enc._blocks.2._se_reduce.weight', 'enc._blocks.20._bn0.bias', 'enc._blocks.20._bn0.weight', 'enc._blocks.20._bn1.bias', 'enc._blocks.20._bn1.weight', 'enc._blocks.20._bn2.bias', 'enc._blocks.20._bn2.weight', 'enc._blocks.20._depthwise_conv.weight', 'enc._blocks.20._expand_conv.weight', 'enc._blocks.20._project_conv.weight', 'enc._blocks.20._se_expand.bias', 'enc._blocks.20._se_expand.weight', 'enc._blocks.20._se_reduce.bias', 'enc._blocks.20._se_reduce.weight', 'enc._blocks.21._bn0.bias', 'enc._blocks.21._bn0.weight', 'enc._blocks.21._bn1.bias', 'enc._blocks.21._bn1.weight', 'enc._blocks.21._bn2.bias', 'enc._blocks.21._bn2.weight', 'enc._blocks.21._depthwise_conv.weight', 'enc._blocks.21._expand_conv.weight', 'enc._blocks.21._project_conv.weight', 'enc._blocks.21._se_expand.bias', 'enc._blocks.21._se_expand.weight', 'enc._blocks.21._se_reduce.bias', 'enc._blocks.21._se_reduce.weight', 'enc._blocks.22._bn0.bias', 'enc._blocks.22._bn0.weight', 'enc._blocks.22._bn1.bias', 'enc._blocks.22._bn1.weight', 'enc._blocks.22._bn2.bias', 'enc._blocks.22._bn2.weight', 'enc._blocks.22._depthwise_conv.weight', 'enc._blocks.22._expand_conv.weight', 'enc._blocks.22._project_conv.weight', 'enc._blocks.22._se_expand.bias', 'enc._blocks.22._se_expand.weight', 'enc._blocks.22._se_reduce.bias', 'enc._blocks.22._se_reduce.weight', 'enc._blocks.23._bn0.bias', 'enc._blocks.23._bn0.weight', 'enc._blocks.23._bn1.bias', 'enc._blocks.23._bn1.weight', 'enc._blocks.23._bn2.bias', 'enc._blocks.23._bn2.weight', 'enc._blocks.23._depthwise_conv.weight', 'enc._blocks.23._expand_conv.weight', 'enc._blocks.23._project_conv.weight', 'enc._blocks.23._se_expand.bias', 'enc._blocks.23._se_expand.weight', 'enc._blocks.23._se_reduce.bias', 'enc._blocks.23._se_reduce.weight', 'enc._blocks.24._bn0.bias', 'enc._blocks.24._bn0.weight', 'enc._blocks.24._bn1.bias', 'enc._blocks.24._bn1.weight', 'enc._blocks.24._bn2.bias', 'enc._blocks.24._bn2.weight', 'enc._blocks.24._depthwise_conv.weight', 'enc._blocks.24._expand_conv.weight', 'enc._blocks.24._project_conv.weight', 'enc._blocks.24._se_expand.bias', 'enc._blocks.24._se_expand.weight', 'enc._blocks.24._se_reduce.bias', 'enc._blocks.24._se_reduce.weight', 'enc._blocks.25._bn0.bias', 'enc._blocks.25._bn0.weight', 'enc._blocks.25._bn1.bias', 'enc._blocks.25._bn1.weight', 'enc._blocks.25._bn2.bias', 'enc._blocks.25._bn2.weight', 'enc._blocks.25._depthwise_conv.weight', 'enc._blocks.25._expand_conv.weight', 'enc._blocks.25._project_conv.weight', 'enc._blocks.25._se_expand.bias', 'enc._blocks.25._se_expand.weight', 'enc._blocks.25._se_reduce.bias', 'enc._blocks.25._se_reduce.weight', 'enc._blocks.26._bn0.bias', 'enc._blocks.26._bn0.weight', 'enc._blocks.26._bn1.bias', 'enc._blocks.26._bn1.weight', 'enc._blocks.26._bn2.bias', 'enc._blocks.26._bn2.weight', 'enc._blocks.26._depthwise_conv.weight', 'enc._blocks.26._expand_conv.weight', 'enc._blocks.26._project_conv.weight', 'enc._blocks.26._se_expand.bias', 'enc._blocks.26._se_expand.weight', 'enc._blocks.26._se_reduce.bias', 'enc._blocks.26._se_reduce.weight', 'enc._blocks.27._bn0.bias', 'enc._blocks.27._bn0.weight', 'enc._blocks.27._bn1.bias', 'enc._blocks.27._bn1.weight', 'enc._blocks.27._bn2.bias', 'enc._blocks.27._bn2.weight', 'enc._blocks.27._depthwise_conv.weight', 'enc._blocks.27._expand_conv.weight', 'enc._blocks.27._project_conv.weight', 'enc._blocks.27._se_expand.bias', 'enc._blocks.27._se_expand.weight', 'enc._blocks.27._se_reduce.bias', 'enc._blocks.27._se_reduce.weight', 'enc._blocks.28._bn0.bias', 'enc._blocks.28._bn0.weight', 'enc._blocks.28._bn1.bias', 'enc._blocks.28._bn1.weight', 'enc._blocks.28._bn2.bias', 'enc._blocks.28._bn2.weight', 'enc._blocks.28._depthwise_conv.weight', 'enc._blocks.28._expand_conv.weight', 'enc._blocks.28._project_conv.weight', 'enc._blocks.28._se_expand.bias', 'enc._blocks.28._se_expand.weight', 'enc._blocks.28._se_reduce.bias', 'enc._blocks.28._se_reduce.weight', 'enc._blocks.29._bn0.bias', 'enc._blocks.29._bn0.weight', 'enc._blocks.29._bn1.bias', 'enc._blocks.29._bn1.weight', 'enc._blocks.29._bn2.bias', 'enc._blocks.29._bn2.weight', 'enc._blocks.29._depthwise_conv.weight', 'enc._blocks.29._expand_conv.weight', 'enc._blocks.29._project_conv.weight', 'enc._blocks.29._se_expand.bias', 'enc._blocks.29._se_expand.weight', 'enc._blocks.29._se_reduce.bias', 'enc._blocks.29._se_reduce.weight', 'enc._blocks.3._bn0.bias', 'enc._blocks.3._bn0.weight', 'enc._blocks.3._bn1.bias', 'enc._blocks.3._bn1.weight', 'enc._blocks.3._bn2.bias', 'enc._blocks.3._bn2.weight', 'enc._blocks.3._depthwise_conv.weight', 'enc._blocks.3._expand_conv.weight', 'enc._blocks.3._project_conv.weight', 'enc._blocks.3._se_expand.bias', 'enc._blocks.3._se_expand.weight', 'enc._blocks.3._se_reduce.bias', 'enc._blocks.3._se_reduce.weight', 'enc._blocks.30._bn0.bias', 'enc._blocks.30._bn0.weight', 'enc._blocks.30._bn1.bias', 'enc._blocks.30._bn1.weight', 'enc._blocks.30._bn2.bias', 'enc._blocks.30._bn2.weight', 'enc._blocks.30._depthwise_conv.weight', 'enc._blocks.30._expand_conv.weight', 'enc._blocks.30._project_conv.weight', 'enc._blocks.30._se_expand.bias', 'enc._blocks.30._se_expand.weight', 'enc._blocks.30._se_reduce.bias', 'enc._blocks.30._se_reduce.weight', 'enc._blocks.31._bn0.bias', 'enc._blocks.31._bn0.weight', 'enc._blocks.31._bn1.bias', 'enc._blocks.31._bn1.weight', 'enc._blocks.31._bn2.bias', 'enc._blocks.31._bn2.weight', 'enc._blocks.31._depthwise_conv.weight', 'enc._blocks.31._expand_conv.weight', 'enc._blocks.31._project_conv.weight', 'enc._blocks.31._se_expand.bias', 'enc._blocks.31._se_expand.weight', 'enc._blocks.31._se_reduce.bias', 'enc._blocks.31._se_reduce.weight', 'enc._blocks.4._bn0.bias', 'enc._blocks.4._bn0.weight', 'enc._blocks.4._bn1.bias', 'enc._blocks.4._bn1.weight', 'enc._blocks.4._bn2.bias', 'enc._blocks.4._bn2.weight', 'enc._blocks.4._depthwise_conv.weight', 'enc._blocks.4._expand_conv.weight', 'enc._blocks.4._project_conv.weight', 'enc._blocks.4._se_expand.bias', 'enc._blocks.4._se_expand.weight', 'enc._blocks.4._se_reduce.bias', 'enc._blocks.4._se_reduce.weight', 'enc._blocks.5._bn0.bias', 'enc._blocks.5._bn0.weight', 'enc._blocks.5._bn1.bias', 'enc._blocks.5._bn1.weight', 'enc._blocks.5._bn2.bias', 'enc._blocks.5._bn2.weight', 'enc._blocks.5._depthwise_conv.weight', 'enc._blocks.5._expand_conv.weight', 'enc._blocks.5._project_conv.weight', 'enc._blocks.5._se_expand.bias', 'enc._blocks.5._se_expand.weight', 'enc._blocks.5._se_reduce.bias', 'enc._blocks.5._se_reduce.weight', 'enc._blocks.6._bn0.bias', 'enc._blocks.6._bn0.weight', 'enc._blocks.6._bn1.bias', 'enc._blocks.6._bn1.weight', 'enc._blocks.6._bn2.bias', 'enc._blocks.6._bn2.weight', 'enc._blocks.6._depthwise_conv.weight', 'enc._blocks.6._expand_conv.weight', 'enc._blocks.6._project_conv.weight', 'enc._blocks.6._se_expand.bias', 'enc._blocks.6._se_expand.weight', 'enc._blocks.6._se_reduce.bias', 'enc._blocks.6._se_reduce.weight', 'enc._blocks.7._bn0.bias', 'enc._blocks.7._bn0.weight', 'enc._blocks.7._bn1.bias', 'enc._blocks.7._bn1.weight', 'enc._blocks.7._bn2.bias', 'enc._blocks.7._bn2.weight', 'enc._blocks.7._depthwise_conv.weight', 'enc._blocks.7._expand_conv.weight', 'enc._blocks.7._project_conv.weight', 'enc._blocks.7._se_expand.bias', 'enc._blocks.7._se_expand.weight', 'enc._blocks.7._se_reduce.bias', 'enc._blocks.7._se_reduce.weight', 'enc._blocks.8._bn0.bias', 'enc._blocks.8._bn0.weight', 'enc._blocks.8._bn1.bias', 'enc._blocks.8._bn1.weight', 'enc._blocks.8._bn2.bias', 'enc._blocks.8._bn2.weight', 'enc._blocks.8._depthwise_conv.weight', 'enc._blocks.8._expand_conv.weight', 'enc._blocks.8._project_conv.weight', 'enc._blocks.8._se_expand.bias', 'enc._blocks.8._se_expand.weight', 'enc._blocks.8._se_reduce.bias', 'enc._blocks.8._se_reduce.weight', 'enc._blocks.9._bn0.bias', 'enc._blocks.9._bn0.weight', 'enc._blocks.9._bn1.bias', 'enc._blocks.9._bn1.weight', 'enc._blocks.9._bn2.bias', 'enc._blocks.9._bn2.weight', 'enc._blocks.9._depthwise_conv.weight', 'enc._blocks.9._expand_conv.weight', 'enc._blocks.9._project_conv.weight', 'enc._blocks.9._se_expand.bias', 'enc._blocks.9._se_expand.weight', 'enc._blocks.9._se_reduce.bias', 'enc._blocks.9._se_reduce.weight', 'enc._bn0.bias', 'enc._bn0.weight', 'enc._bn1.bias', 'enc._bn1.weight', 'enc._conv_head.weight', 'enc._conv_stem.weight', 'enc._fc.bias', 'enc._fc.weight', 'encoder.layers.0.linear1.bias', 'encoder.layers.0.linear1.weight', 'encoder.layers.0.linear2.bias', 'encoder.layers.0.linear2.weight', 'encoder.layers.0.norm1.bias', 'encoder.layers.0.norm1.weight', 'encoder.layers.0.norm2.bias', 'encoder.layers.0.norm2.weight', 'encoder.layers.0.self_attn.in_proj_bias', 'encoder.layers.0.self_attn.in_proj_weight', 'encoder.layers.0.self_attn.out_proj.bias', 'encoder.layers.0.self_attn.out_proj.weight', 'encoder.layers.1.linear1.bias', 'encoder.layers.1.linear1.weight', 'encoder.layers.1.linear2.bias', 'encoder.layers.1.linear2.weight', 'encoder.layers.1.norm1.bias', 'encoder.layers.1.norm1.weight', 'encoder.layers.1.norm2.bias', 'encoder.layers.1.norm2.weight', 'encoder.layers.1.self_attn.in_proj_bias', 'encoder.layers.1.self_attn.in_proj_weight', 'encoder.layers.1.self_attn.out_proj.bias', 'encoder.layers.1.self_attn.out_proj.weight', 'encoder.layers.2.linear1.bias', 'encoder.layers.2.linear1.weight', 'encoder.layers.2.linear2.bias', 'encoder.layers.2.linear2.weight', 'encoder.layers.2.norm1.bias', 'encoder.layers.2.norm1.weight', 'encoder.layers.2.norm2.bias', 'encoder.layers.2.norm2.weight', 'encoder.layers.2.self_attn.in_proj_bias', 'encoder.layers.2.self_attn.in_proj_weight', 'encoder.layers.2.self_attn.out_proj.bias', 'encoder.layers.2.self_attn.out_proj.weight', 'encoder.layers.3.linear1.bias', 'encoder.layers.3.linear1.weight', 'encoder.layers.3.linear2.bias', 'encoder.layers.3.linear2.weight', 'encoder.layers.3.norm1.bias', 'encoder.layers.3.norm1.weight', 'encoder.layers.3.norm2.bias', 'encoder.layers.3.norm2.weight', 'encoder.layers.3.self_attn.in_proj_bias', 'encoder.layers.3.self_attn.in_proj_weight', 'encoder.layers.3.self_attn.out_proj.bias', 'encoder.layers.3.self_attn.out_proj.weight', 'input_proj.bias', 'input_proj.weight', 'output_proj_list.0.bias', 'output_proj_list.0.weight', 'output_proj_list.1.bias', 'output_proj_list.1.weight', 'output_proj_list.10.bias', 'output_proj_list.10.weight', 'output_proj_list.11.bias', 'output_proj_list.11.weight', 'output_proj_list.12.bias', 'output_proj_list.12.weight', 'output_proj_list.13.bias', 'output_proj_list.13.weight', 'output_proj_list.14.bias', 'output_proj_list.14.weight', 'output_proj_list.2.bias', 'output_proj_list.2.weight', 'output_proj_list.3.bias', 'output_proj_list.3.weight', 'output_proj_list.4.bias', 'output_proj_list.4.weight', 'output_proj_list.5.bias', 'output_proj_list.5.weight', 'output_proj_list.6.bias', 'output_proj_list.6.weight', 'output_proj_list.7.bias', 'output_proj_list.7.weight', 'output_proj_list.8.bias', 'output_proj_list.8.weight', 'output_proj_list.9.bias', 'output_proj_list.9.weight', 'pos_embed.col_embed.weight', 'pos_embed.row_embed.weight', 'quantize_conv_t.bias', 'quantize_conv_t.weight']
+Keys missing in model (513): ['enc._blocks.0._bn1.num_batches_tracked', 'enc._blocks.0._bn1.running_mean', 'enc._blocks.0._bn1.running_var', 'enc._blocks.0._bn2.num_batches_tracked', 'enc._blocks.0._bn2.running_mean', 'enc._blocks.0._bn2.running_var', 'enc._blocks.1._bn1.num_batches_tracked', 'enc._blocks.1._bn1.running_mean', 'enc._blocks.1._bn1.running_var', 'enc._blocks.1._bn2.num_batches_tracked', 'enc._blocks.1._bn2.running_mean', 'enc._blocks.1._bn2.running_var', 'enc._blocks.10._bn0.num_batches_tracked', 'enc._blocks.10._bn0.running_mean', 'enc._blocks.10._bn0.running_var', 'enc._blocks.10._bn1.num_batches_tracked', 'enc._blocks.10._bn1.running_mean', 'enc._blocks.10._bn1.running_var', 'enc._blocks.10._bn2.num_batches_tracked', 'enc._blocks.10._bn2.running_mean', 'enc._blocks.10._bn2.running_var', 'enc._blocks.11._bn0.num_batches_tracked', 'enc._blocks.11._bn0.running_mean', 'enc._blocks.11._bn0.running_var', 'enc._blocks.11._bn1.num_batches_tracked', 'enc._blocks.11._bn1.running_mean', 'enc._blocks.11._bn1.running_var', 'enc._blocks.11._bn2.num_batches_tracked', 'enc._blocks.11._bn2.running_mean', 'enc._blocks.11._bn2.running_var', 'enc._blocks.12._bn0.num_batches_tracked', 'enc._blocks.12._bn0.running_mean', 'enc._blocks.12._bn0.running_var', 'enc._blocks.12._bn1.num_batches_tracked', 'enc._blocks.12._bn1.running_mean', 'enc._blocks.12._bn1.running_var', 'enc._blocks.12._bn2.num_batches_tracked', 'enc._blocks.12._bn2.running_mean', 'enc._blocks.12._bn2.running_var', 'enc._blocks.13._bn0.num_batches_tracked', 'enc._blocks.13._bn0.running_mean', 'enc._blocks.13._bn0.running_var', 'enc._blocks.13._bn1.num_batches_tracked', 'enc._blocks.13._bn1.running_mean', 'enc._blocks.13._bn1.running_var', 'enc._blocks.13._bn2.num_batches_tracked', 'enc._blocks.13._bn2.running_mean', 'enc._blocks.13._bn2.running_var', 'enc._blocks.14._bn0.num_batches_tracked', 'enc._blocks.14._bn0.running_mean', 'enc._blocks.14._bn0.running_var', 'enc._blocks.14._bn1.num_batches_tracked', 'enc._blocks.14._bn1.running_mean', 'enc._blocks.14._bn1.running_var', 'enc._blocks.14._bn2.num_batches_tracked', 'enc._blocks.14._bn2.running_mean', 'enc._blocks.14._bn2.running_var', 'enc._blocks.15._bn0.num_batches_tracked', 'enc._blocks.15._bn0.running_mean', 'enc._blocks.15._bn0.running_var', 'enc._blocks.15._bn1.num_batches_tracked', 'enc._blocks.15._bn1.running_mean', 'enc._blocks.15._bn1.running_var', 'enc._blocks.15._bn2.num_batches_tracked', 'enc._blocks.15._bn2.running_mean', 'enc._blocks.15._bn2.running_var', 'enc._blocks.16._bn0.num_batches_tracked', 'enc._blocks.16._bn0.running_mean', 'enc._blocks.16._bn0.running_var', 'enc._blocks.16._bn1.num_batches_tracked', 'enc._blocks.16._bn1.running_mean', 'enc._blocks.16._bn1.running_var', 'enc._blocks.16._bn2.num_batches_tracked', 'enc._blocks.16._bn2.running_mean', 'enc._blocks.16._bn2.running_var', 'enc._blocks.17._bn0.num_batches_tracked', 'enc._blocks.17._bn0.running_mean', 'enc._blocks.17._bn0.running_var', 'enc._blocks.17._bn1.num_batches_tracked', 'enc._blocks.17._bn1.running_mean', 'enc._blocks.17._bn1.running_var', 'enc._blocks.17._bn2.num_batches_tracked', 'enc._blocks.17._bn2.running_mean', 'enc._blocks.17._bn2.running_var', 'enc._blocks.18._bn0.num_batches_tracked', 'enc._blocks.18._bn0.running_mean', 'enc._blocks.18._bn0.running_var', 'enc._blocks.18._bn1.num_batches_tracked', 'enc._blocks.18._bn1.running_mean', 'enc._blocks.18._bn1.running_var', 'enc._blocks.18._bn2.num_batches_tracked', 'enc._blocks.18._bn2.running_mean', 'enc._blocks.18._bn2.running_var', 'enc._blocks.19._bn0.num_batches_tracked', 'enc._blocks.19._bn0.running_mean', 'enc._blocks.19._bn0.running_var', 'enc._blocks.19._bn1.num_batches_tracked', 'enc._blocks.19._bn1.running_mean', 'enc._blocks.19._bn1.running_var', 'enc._blocks.19._bn2.num_batches_tracked', 'enc._blocks.19._bn2.running_mean', 'enc._blocks.19._bn2.running_var', 'enc._blocks.2._bn0.num_batches_tracked', 'enc._blocks.2._bn0.running_mean', 'enc._blocks.2._bn0.running_var', 'enc._blocks.2._bn1.num_batches_tracked', 'enc._blocks.2._bn1.running_mean', 'enc._blocks.2._bn1.running_var', 'enc._blocks.2._bn2.num_batches_tracked', 'enc._blocks.2._bn2.running_mean', 'enc._blocks.2._bn2.running_var', 'enc._blocks.20._bn0.num_batches_tracked', 'enc._blocks.20._bn0.running_mean', 'enc._blocks.20._bn0.running_var', 'enc._blocks.20._bn1.num_batches_tracked', 'enc._blocks.20._bn1.running_mean', 'enc._blocks.20._bn1.running_var', 'enc._blocks.20._bn2.num_batches_tracked', 'enc._blocks.20._bn2.running_mean', 'enc._blocks.20._bn2.running_var', 'enc._blocks.21._bn0.num_batches_tracked', 'enc._blocks.21._bn0.running_mean', 'enc._blocks.21._bn0.running_var', 'enc._blocks.21._bn1.num_batches_tracked', 'enc._blocks.21._bn1.running_mean', 'enc._blocks.21._bn1.running_var', 'enc._blocks.21._bn2.num_batches_tracked', 'enc._blocks.21._bn2.running_mean', 'enc._blocks.21._bn2.running_var', 'enc._blocks.22._bn0.num_batches_tracked', 'enc._blocks.22._bn0.running_mean', 'enc._blocks.22._bn0.running_var', 'enc._blocks.22._bn1.num_batches_tracked', 'enc._blocks.22._bn1.running_mean', 'enc._blocks.22._bn1.running_var', 'enc._blocks.22._bn2.num_batches_tracked', 'enc._blocks.22._bn2.running_mean', 'enc._blocks.22._bn2.running_var', 'enc._blocks.23._bn0.num_batches_tracked', 'enc._blocks.23._bn0.running_mean', 'enc._blocks.23._bn0.running_var', 'enc._blocks.23._bn1.num_batches_tracked', 'enc._blocks.23._bn1.running_mean', 'enc._blocks.23._bn1.running_var', 'enc._blocks.23._bn2.num_batches_tracked', 'enc._blocks.23._bn2.running_mean', 'enc._blocks.23._bn2.running_var', 'enc._blocks.24._bn0.num_batches_tracked', 'enc._blocks.24._bn0.running_mean', 'enc._blocks.24._bn0.running_var', 'enc._blocks.24._bn1.num_batches_tracked', 'enc._blocks.24._bn1.running_mean', 'enc._blocks.24._bn1.running_var', 'enc._blocks.24._bn2.num_batches_tracked', 'enc._blocks.24._bn2.running_mean', 'enc._blocks.24._bn2.running_var', 'enc._blocks.25._bn0.num_batches_tracked', 'enc._blocks.25._bn0.running_mean', 'enc._blocks.25._bn0.running_var', 'enc._blocks.25._bn1.num_batches_tracked', 'enc._blocks.25._bn1.running_mean', 'enc._blocks.25._bn1.running_var', 'enc._blocks.25._bn2.num_batches_tracked', 'enc._blocks.25._bn2.running_mean', 'enc._blocks.25._bn2.running_var', 'enc._blocks.26._bn0.num_batches_tracked', 'enc._blocks.26._bn0.running_mean', 'enc._blocks.26._bn0.running_var', 'enc._blocks.26._bn1.num_batches_tracked', 'enc._blocks.26._bn1.running_mean', 'enc._blocks.26._bn1.running_var', 'enc._blocks.26._bn2.num_batches_tracked', 'enc._blocks.26._bn2.running_mean', 'enc._blocks.26._bn2.running_var', 'enc._blocks.27._bn0.num_batches_tracked', 'enc._blocks.27._bn0.running_mean', 'enc._blocks.27._bn0.running_var', 'enc._blocks.27._bn1.num_batches_tracked', 'enc._blocks.27._bn1.running_mean', 'enc._blocks.27._bn1.running_var', 'enc._blocks.27._bn2.num_batches_tracked', 'enc._blocks.27._bn2.running_mean', 'enc._blocks.27._bn2.running_var', 'enc._blocks.28._bn0.num_batches_tracked', 'enc._blocks.28._bn0.running_mean', 'enc._blocks.28._bn0.running_var', 'enc._blocks.28._bn1.num_batches_tracked', 'enc._blocks.28._bn1.running_mean', 'enc._blocks.28._bn1.running_var', 'enc._blocks.28._bn2.num_batches_tracked', 'enc._blocks.28._bn2.running_mean', 'enc._blocks.28._bn2.running_var', 'enc._blocks.29._bn0.num_batches_tracked', 'enc._blocks.29._bn0.running_mean', 'enc._blocks.29._bn0.running_var', 'enc._blocks.29._bn1.num_batches_tracked', 'enc._blocks.29._bn1.running_mean', 'enc._blocks.29._bn1.running_var', 'enc._blocks.29._bn2.num_batches_tracked', 'enc._blocks.29._bn2.running_mean', 'enc._blocks.29._bn2.running_var', 'enc._blocks.3._bn0.num_batches_tracked', 'enc._blocks.3._bn0.running_mean', 'enc._blocks.3._bn0.running_var', 'enc._blocks.3._bn1.num_batches_tracked', 'enc._blocks.3._bn1.running_mean', 'enc._blocks.3._bn1.running_var', 'enc._blocks.3._bn2.num_batches_tracked', 'enc._blocks.3._bn2.running_mean', 'enc._blocks.3._bn2.running_var', 'enc._blocks.30._bn0.num_batches_tracked', 'enc._blocks.30._bn0.running_mean', 'enc._blocks.30._bn0.running_var', 'enc._blocks.30._bn1.num_batches_tracked', 'enc._blocks.30._bn1.running_mean', 'enc._blocks.30._bn1.running_var', 'enc._blocks.30._bn2.num_batches_tracked', 'enc._blocks.30._bn2.running_mean', 'enc._blocks.30._bn2.running_var', 'enc._blocks.31._bn0.num_batches_tracked', 'enc._blocks.31._bn0.running_mean', 'enc._blocks.31._bn0.running_var', 'enc._blocks.31._bn1.num_batches_tracked', 'enc._blocks.31._bn1.running_mean', 'enc._blocks.31._bn1.running_var', 'enc._blocks.31._bn2.num_batches_tracked', 'enc._blocks.31._bn2.running_mean', 'enc._blocks.31._bn2.running_var', 'enc._blocks.4._bn0.num_batches_tracked', 'enc._blocks.4._bn0.running_mean', 'enc._blocks.4._bn0.running_var', 'enc._blocks.4._bn1.num_batches_tracked', 'enc._blocks.4._bn1.running_mean', 'enc._blocks.4._bn1.running_var', 'enc._blocks.4._bn2.num_batches_tracked', 'enc._blocks.4._bn2.running_mean', 'enc._blocks.4._bn2.running_var', 'enc._blocks.5._bn0.num_batches_tracked', 'enc._blocks.5._bn0.running_mean', 'enc._blocks.5._bn0.running_var', 'enc._blocks.5._bn1.num_batches_tracked', 'enc._blocks.5._bn1.running_mean', 'enc._blocks.5._bn1.running_var', 'enc._blocks.5._bn2.num_batches_tracked', 'enc._blocks.5._bn2.running_mean', 'enc._blocks.5._bn2.running_var', 'enc._blocks.6._bn0.num_batches_tracked', 'enc._blocks.6._bn0.running_mean', 'enc._blocks.6._bn0.running_var', 'enc._blocks.6._bn1.num_batches_tracked', 'enc._blocks.6._bn1.running_mean', 'enc._blocks.6._bn1.running_var', 'enc._blocks.6._bn2.num_batches_tracked', 'enc._blocks.6._bn2.running_mean', 'enc._blocks.6._bn2.running_var', 'enc._blocks.7._bn0.num_batches_tracked', 'enc._blocks.7._bn0.running_mean', 'enc._blocks.7._bn0.running_var', 'enc._blocks.7._bn1.num_batches_tracked', 'enc._blocks.7._bn1.running_mean', 'enc._blocks.7._bn1.running_var', 'enc._blocks.7._bn2.num_batches_tracked', 'enc._blocks.7._bn2.running_mean', 'enc._blocks.7._bn2.running_var', 'enc._blocks.8._bn0.num_batches_tracked', 'enc._blocks.8._bn0.running_mean', 'enc._blocks.8._bn0.running_var', 'enc._blocks.8._bn1.num_batches_tracked', 'enc._blocks.8._bn1.running_mean', 'enc._blocks.8._bn1.running_var', 'enc._blocks.8._bn2.num_batches_tracked', 'enc._blocks.8._bn2.running_mean', 'enc._blocks.8._bn2.running_var', 'enc._blocks.9._bn0.num_batches_tracked', 'enc._blocks.9._bn0.running_mean', 'enc._blocks.9._bn0.running_var', 'enc._blocks.9._bn1.num_batches_tracked', 'enc._blocks.9._bn1.running_mean', 'enc._blocks.9._bn1.running_var', 'enc._blocks.9._bn2.num_batches_tracked', 'enc._blocks.9._bn2.running_mean', 'enc._blocks.9._bn2.running_var', 'enc._bn0.num_batches_tracked', 'enc._bn0.running_mean', 'enc._bn0.running_var', 'enc._bn1.num_batches_tracked', 'enc._bn1.running_mean', 'enc._bn1.running_var', 'quantize_list_1.0.cluster_size', 'quantize_list_1.0.embed', 'quantize_list_1.0.embed_avg', 'quantize_list_1.1.cluster_size', 'quantize_list_1.1.embed', 'quantize_list_1.1.embed_avg', 'quantize_list_1.10.cluster_size', 'quantize_list_1.10.embed', 'quantize_list_1.10.embed_avg', 'quantize_list_1.11.cluster_size', 'quantize_list_1.11.embed', 'quantize_list_1.11.embed_avg', 'quantize_list_1.12.cluster_size', 'quantize_list_1.12.embed', 'quantize_list_1.12.embed_avg', 'quantize_list_1.13.cluster_size', 'quantize_list_1.13.embed', 'quantize_list_1.13.embed_avg', 'quantize_list_1.14.cluster_size', 'quantize_list_1.14.embed', 'quantize_list_1.14.embed_avg', 'quantize_list_1.2.cluster_size', 'quantize_list_1.2.embed', 'quantize_list_1.2.embed_avg', 'quantize_list_1.3.cluster_size', 'quantize_list_1.3.embed', 'quantize_list_1.3.embed_avg', 'quantize_list_1.4.cluster_size', 'quantize_list_1.4.embed', 'quantize_list_1.4.embed_avg', 'quantize_list_1.5.cluster_size', 'quantize_list_1.5.embed', 'quantize_list_1.5.embed_avg', 'quantize_list_1.6.cluster_size', 'quantize_list_1.6.embed', 'quantize_list_1.6.embed_avg', 'quantize_list_1.7.cluster_size', 'quantize_list_1.7.embed', 'quantize_list_1.7.embed_avg', 'quantize_list_1.8.cluster_size', 'quantize_list_1.8.embed', 'quantize_list_1.8.embed_avg', 'quantize_list_1.9.cluster_size', 'quantize_list_1.9.embed', 'quantize_list_1.9.embed_avg', 'quantize_list_2.0.cluster_size', 'quantize_list_2.0.embed', 'quantize_list_2.0.embed_avg', 'quantize_list_2.1.cluster_size', 'quantize_list_2.1.embed', 'quantize_list_2.1.embed_avg', 'quantize_list_2.10.cluster_size', 'quantize_list_2.10.embed', 'quantize_list_2.10.embed_avg', 'quantize_list_2.11.cluster_size', 'quantize_list_2.11.embed', 'quantize_list_2.11.embed_avg', 'quantize_list_2.12.cluster_size', 'quantize_list_2.12.embed', 'quantize_list_2.12.embed_avg', 'quantize_list_2.13.cluster_size', 'quantize_list_2.13.embed', 'quantize_list_2.13.embed_avg', 'quantize_list_2.14.cluster_size', 'quantize_list_2.14.embed', 'quantize_list_2.14.embed_avg', 'quantize_list_2.2.cluster_size', 'quantize_list_2.2.embed', 'quantize_list_2.2.embed_avg', 'quantize_list_2.3.cluster_size', 'quantize_list_2.3.embed', 'quantize_list_2.3.embed_avg', 'quantize_list_2.4.cluster_size', 'quantize_list_2.4.embed', 'quantize_list_2.4.embed_avg', 'quantize_list_2.5.cluster_size', 'quantize_list_2.5.embed', 'quantize_list_2.5.embed_avg', 'quantize_list_2.6.cluster_size', 'quantize_list_2.6.embed', 'quantize_list_2.6.embed_avg', 'quantize_list_2.7.cluster_size', 'quantize_list_2.7.embed', 'quantize_list_2.7.embed_avg', 'quantize_list_2.8.cluster_size', 'quantize_list_2.8.embed', 'quantize_list_2.8.embed_avg', 'quantize_list_2.9.cluster_size', 'quantize_list_2.9.embed', 'quantize_list_2.9.embed_avg', 'quantize_list_3.0.cluster_size', 'quantize_list_3.0.embed', 'quantize_list_3.0.embed_avg', 'quantize_list_3.1.cluster_size', 'quantize_list_3.1.embed', 'quantize_list_3.1.embed_avg', 'quantize_list_3.10.cluster_size', 'quantize_list_3.10.embed', 'quantize_list_3.10.embed_avg', 'quantize_list_3.11.cluster_size', 'quantize_list_3.11.embed', 'quantize_list_3.11.embed_avg', 'quantize_list_3.12.cluster_size', 'quantize_list_3.12.embed', 'quantize_list_3.12.embed_avg', 'quantize_list_3.13.cluster_size', 'quantize_list_3.13.embed', 'quantize_list_3.13.embed_avg', 'quantize_list_3.14.cluster_size', 'quantize_list_3.14.embed', 'quantize_list_3.14.embed_avg', 'quantize_list_3.2.cluster_size', 'quantize_list_3.2.embed', 'quantize_list_3.2.embed_avg', 'quantize_list_3.3.cluster_size', 'quantize_list_3.3.embed', 'quantize_list_3.3.embed_avg', 'quantize_list_3.4.cluster_size', 'quantize_list_3.4.embed', 'quantize_list_3.4.embed_avg', 'quantize_list_3.5.cluster_size', 'quantize_list_3.5.embed', 'quantize_list_3.5.embed_avg', 'quantize_list_3.6.cluster_size', 'quantize_list_3.6.embed', 'quantize_list_3.6.embed_avg', 'quantize_list_3.7.cluster_size', 'quantize_list_3.7.embed', 'quantize_list_3.7.embed_avg', 'quantize_list_3.8.cluster_size', 'quantize_list_3.8.embed', 'quantize_list_3.8.embed_avg', 'quantize_list_3.9.cluster_size', 'quantize_list_3.9.embed', 'quantize_list_3.9.embed_avg', 'quantize_list_4.0.cluster_size', 'quantize_list_4.0.embed', 'quantize_list_4.0.embed_avg', 'quantize_list_4.1.cluster_size', 'quantize_list_4.1.embed', 'quantize_list_4.1.embed_avg', 'quantize_list_4.10.cluster_size', 'quantize_list_4.10.embed', 'quantize_list_4.10.embed_avg', 'quantize_list_4.11.cluster_size', 'quantize_list_4.11.embed', 'quantize_list_4.11.embed_avg', 'quantize_list_4.12.cluster_size', 'quantize_list_4.12.embed', 'quantize_list_4.12.embed_avg', 'quantize_list_4.13.cluster_size', 'quantize_list_4.13.embed', 'quantize_list_4.13.embed_avg', 'quantize_list_4.14.cluster_size', 'quantize_list_4.14.embed', 'quantize_list_4.14.embed_avg', 'quantize_list_4.2.cluster_size', 'quantize_list_4.2.embed', 'quantize_list_4.2.embed_avg', 'quantize_list_4.3.cluster_size', 'quantize_list_4.3.embed', 'quantize_list_4.3.embed_avg', 'quantize_list_4.4.cluster_size', 'quantize_list_4.4.embed', 'quantize_list_4.4.embed_avg', 'quantize_list_4.5.cluster_size', 'quantize_list_4.5.embed', 'quantize_list_4.5.embed_avg', 'quantize_list_4.6.cluster_size', 'quantize_list_4.6.embed', 'quantize_list_4.6.embed_avg', 'quantize_list_4.7.cluster_size', 'quantize_list_4.7.embed', 'quantize_list_4.7.embed_avg', 'quantize_list_4.8.cluster_size', 'quantize_list_4.8.embed', 'quantize_list_4.8.embed_avg', 'quantize_list_4.9.cluster_size', 'quantize_list_4.9.embed', 'quantize_list_4.9.embed_avg', 'quantize_list_5.0.cluster_size', 'quantize_list_5.0.embed', 'quantize_list_5.0.embed_avg', 'quantize_list_5.1.cluster_size', 'quantize_list_5.1.embed', 'quantize_list_5.1.embed_avg', 'quantize_list_5.10.cluster_size', 'quantize_list_5.10.embed', 'quantize_list_5.10.embed_avg', 'quantize_list_5.11.cluster_size', 'quantize_list_5.11.embed', 'quantize_list_5.11.embed_avg', 'quantize_list_5.12.cluster_size', 'quantize_list_5.12.embed', 'quantize_list_5.12.embed_avg', 'quantize_list_5.13.cluster_size', 'quantize_list_5.13.embed', 'quantize_list_5.13.embed_avg', 'quantize_list_5.14.cluster_size', 'quantize_list_5.14.embed', 'quantize_list_5.14.embed_avg', 'quantize_list_5.2.cluster_size', 'quantize_list_5.2.embed', 'quantize_list_5.2.embed_avg', 'quantize_list_5.3.cluster_size', 'quantize_list_5.3.embed', 'quantize_list_5.3.embed_avg', 'quantize_list_5.4.cluster_size', 'quantize_list_5.4.embed', 'quantize_list_5.4.embed_avg', 'quantize_list_5.5.cluster_size', 'quantize_list_5.5.embed', 'quantize_list_5.5.embed_avg', 'quantize_list_5.6.cluster_size', 'quantize_list_5.6.embed', 'quantize_list_5.6.embed_avg', 'quantize_list_5.7.cluster_size', 'quantize_list_5.7.embed', 'quantize_list_5.7.embed_avg', 'quantize_list_5.8.cluster_size', 'quantize_list_5.8.embed', 'quantize_list_5.8.embed_avg', 'quantize_list_5.9.cluster_size', 'quantize_list_5.9.embed', 'quantize_list_5.9.embed_avg']
+Keys missing in parameter file (0): []
