@@ -134,7 +134,7 @@ General structure for all datasets:
 | Dataset | Download Link                                                                                                     | Save Path                                                         |
 | :------: | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | MVTec-AD | [CostFilterAD-HVQ on MVTec-AD](https://drive.google.com/drive/folders/1vp-Sp0LUFsRYHlz2KlQnQ03gh6DyZRO8?usp=sharing) | `./Costfilter_HVQ_mvtec/experiments/MVTec-AD/checkpoint_paths/` |
-|   VisA   | [CostFilterAD-HVQ on VisA](https://drive.google.com/drive/folders/1hIXu-szb7MpkZsxGTWaqd3A_fvJVuatk?usp=drive_link)  | `./Costfilter_HVQ_visa/experiments/VISA/checkpoint_paths/`      |
+|   VisA   | [CostFilterAD-HVQ on VisA](https://drive.google.com/drive/folders/1HBblSDN25vj_x8PVSIOdiXwZUJZbWnlu?usp=drive_link)  | `./Costfilter_HVQ_visa/experiments/VISA/checkpoint_paths/`      |
 |   MPDD   | [CostFilterAD-HVQ on MPDD](https://drive.google.com/drive/folders/1NXy18oGZVYx0TubiZQwneM6WEM9ThWPc?usp=drive_link)  | `./Costfilter_HVQ_mpdd/experiments/MVTec-AD/checkpoint_paths/`  |
 |   BTAD   | [CostFilterAD-HVQ on BTAD](https://drive.google.com/drive/folders/1qsMpD47XuaSx1Tjf1f8UOQmU_tGOyEhJ?usp=drive_link)  | `./Costfilter_HVQ_btad/experiments/MVTec-AD/checkpoint_paths/`  |
 
