@@ -67,7 +67,7 @@ Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results ar
 1. The learning rate of the costfilter network (3DUNET), can be set to 0.0001 or 0.001. The former may lead to more stable training.
 2. The value of args.lamda ranges from 0 to 1 and can be tuned for better results.
 3. We report metrics corresponding to the best epoch's pth file.
-Please adjust according to your task. 
+
    
 # 📚 Cite
 
