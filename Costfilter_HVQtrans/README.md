@@ -38,6 +38,7 @@ Create a new conda environment and install required packages.
 conda create -n cosfilterad python=3.8.20
 conda activate cosfilterad 
 pip install -r requirements.txt
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
 # This environment is also compatible with CostFilter-AD + other baselines
 ```
 
