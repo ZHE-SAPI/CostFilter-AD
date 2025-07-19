@@ -132,7 +132,7 @@ General structure for all datasets:
 ```
 
 ## 3. Checkpoints
-
+Please download the pretrained .pths (Dino Model Weights and Dinomaly Baseline Weights) for different Dataset and put them to the **Save Path**. 
 ### 🔹 Dino Model Weights
 
 |         Description         | Download Link                                                                                     | Save Path       |
