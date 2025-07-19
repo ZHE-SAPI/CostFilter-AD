@@ -141,9 +141,6 @@ tifffile==2023.7.10
 timm==0.9.12
 tokenizers==0.13.3
 tomlkit==0.12.0
-torch==1.13.1+cu117
-torchaudio==0.13.1+cu117
-torchvision==0.14.1+cu117
 tqdm==4.67.0
 traitlets==5.14.3
 transformers==4.31.0
