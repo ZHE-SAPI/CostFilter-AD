@@ -4,7 +4,7 @@
 
 | [📄 Paper](https://arxiv.org/abs/2505.01476)              | [📑 Slide](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_slide_ICML2025.pdf)                                     | [🖼️ Poster](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/CostFilter-AD_poster_ICML2025.pdf) |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs&referrer=%5Bthe%20profile%20of%20Mingxiu%20Cai%5D(%2Fprofile%3Fid%3D~Mingxiu_Cai1)) |                                                                                                             |
+| [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs)) |                                                                                                             |
 
 ### **Update (07/10/2025):**
 
