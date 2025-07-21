@@ -64,6 +64,20 @@ Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results ar
 
 Modify the `data_path` in code as needed to point to your local dataset.
 
+###  DTD dataset （Describable Textures Dataset） 
+DTD dataset is essential！
+Firstly, please download the [DTD dataset](https://www.robots.ox.ac.uk/~vgg/data/dtd/) and place it under your custom `data_dtd_path`.
+Then, edit line 217 of  `/CostFilter-AD/Costfilter_Dinomaly/dataset.py` as follows:
+
+```python
+anomaly_source_paths = sorted(glob.glob("/your/data_dtd_path/images" + "/*/*.jpg")) 
+
+```
+
+> Replace `"/your/data_dtd_path"` with the actual directory where DTD is located.
+
+
+
 ### MVTec AD
 
 Download from [URL](https://www.mvtec.com/company/research/datasets/mvtec-ad).
