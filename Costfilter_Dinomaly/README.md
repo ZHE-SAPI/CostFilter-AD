@@ -39,7 +39,7 @@
 | + Ours    | **96.2** | **98.9** | **96.3** | **98.2** | **74.8** | **70.0** | **81.0** |
 
 
-## **Flexible Extensibility**
+## ⭐⭐ **Flexible Extensibility**
 
 This paper proposes a plug-in method. However, as long as you have the following:
 
