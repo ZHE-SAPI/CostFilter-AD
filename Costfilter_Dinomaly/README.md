@@ -38,6 +38,24 @@
 | Dinomaly  | 95.4           | 98.5           | 95.5           | 97.9           | 70.1           | 68.0           | 76.5           |
 | + Ours    | **96.2** | **98.9** | **96.3** | **98.2** | **74.8** | **70.0** | **81.0** |
 
+
+## **Flexible Extensibility**
+
+This paper proposes a plug-in method. However, as long as you have the following:
+
+1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, or ViT;
+
+**or**
+
+2. If you already have **features** of the **train/test images** and those of the **reconstructed/normal template images**,
+
+then you can perform global matching (e.g., cosine similarity) or local matching (e.g., L2 loss) to obtain the matching results (referred to as the cost volume in this paper). 
+
+These results can be then fed into our proposed cost filtering network to denoise the matching output. 
+
+**Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
+
+
 ## **Note:**
 
 CostFilter-AD yields comparable or greater gains when integrated with other baselines such as [GLAD](https://github.com/hyao1/GLAD/tree/main) (ECCV'24), [UniAD](https://github.com/zhiyuanyou/UniAD) (NeurIPS'22), [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS'23), and [AnomalyDINO](https://github.com/dammsi/AnomalyDINO) (WACV'25). Codes are coming.
