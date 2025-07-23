@@ -82,9 +82,6 @@ Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results ar
 3. We report metrics corresponding to the best epoch's pth file.
 
 
-# Results Preview
-![Results Preview](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Materials/Results_Preview.png)
-
 
 # Welcome to discuss
 
