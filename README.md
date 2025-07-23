@@ -10,11 +10,11 @@
 
 This paper proposes a plug-in method. Generally, as long as you have the following:
 
-1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, or ViT;
+1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, ViT or your models;
 
 **or**
 
-2. If you already have **features** of the **train/test images** and those of the **reconstructed/normal template images**,
+2. If you already have **features** (via DINO, SAM, ViT or your models) of the **train/test images** and those of the **reconstructed/normal template images**,
 
 then you can perform global matching (e.g., cosine similarity) or local matching (e.g., L2 loss) to obtain the matching results (referred to as the cost volume in this paper). 
 
