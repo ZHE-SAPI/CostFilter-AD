@@ -23,7 +23,7 @@ It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **
 👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
 
-## **Flexible Extensibility**
+## ⭐⭐ **Flexible Extensibility**
 
 This paper proposes a plug-in method. However, as long as you have the following:
 
