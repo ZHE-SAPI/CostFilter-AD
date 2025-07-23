@@ -22,6 +22,24 @@ It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **
 
 👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
+
+## **Flexible Extensibility**
+
+This paper proposes a plug-in method. However, as long as you have the following:
+
+1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, or ViT;
+
+**or**
+
+2. If you already have **features** of the **train/test images** and those of the **reconstructed/normal template images**,
+
+then you can perform global matching (e.g., cosine similarity) or local matching (e.g., L2 loss) to obtain the matching results (referred to as the cost volume in this paper). 
+
+These results can be then fed into our proposed cost filtering network to denoise the matching output. 
+
+**Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
+
+
 # **Abstract:**
 
 Unsupervised anomaly detection (UAD) seeks to localize the anomaly mask of an input image with respect to normal samples. Either by reconstructing normal counterparts (reconstruction-based) or by learning an image feature embedding space (embedding-based), existing approaches fundamentally rely on image-level or feature-level matching to derive anomaly scores. Often, such a matching process is inaccurate yet overlooked, leading to sub-optimal detection. To address this issue, we introduce the concept of cost filtering, borrowed from classical matching tasks, such as depth and flow estimation, into the UAD problem. We call this approach CostFilter-AD.
