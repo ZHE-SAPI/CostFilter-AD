@@ -34,7 +34,7 @@
 
 ## ⭐⭐ **Flexible Extensibility**
 
-This paper proposes a plug-in method. However, as long as you have the following:
+This paper proposes a plug-in method. As long as you have the following:
 
 1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, or ViT;
 
