@@ -6,23 +6,6 @@
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs)) |                                                                                                             |
 
-### **Update (07/10/2025):**
-
-We have open-sourced  **[CostFilter-AD-HVQ-Trans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans)** , built upon the [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS '23) baseline.
-
-It also delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
-
-👉 Please see the [`Costfilter_HVQtrans`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans) subfolder for code and details.
-
-### **Update (07/06/2025):**
-
-We have open-sourced  **[CostFilter-AD-Dinomaly](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly)** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
-
-It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
-
-👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
-
-
 ## ⭐⭐ **Flexible Extensibility**
 
 This paper proposes a plug-in method. However, as long as you have the following:
@@ -38,6 +21,23 @@ then you can perform global matching (e.g., cosine similarity) or local matching
 These results can be then fed into our proposed cost filtering network to denoise the matching output. 
 
 **Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
+
+
+### **Update (07/10/2025):**
+
+We have open-sourced  **[CostFilter-AD-HVQ-Trans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans)** , built upon the [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS '23) baseline.
+
+It also delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
+
+👉 Please see the [`Costfilter_HVQtrans`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans) subfolder for code and details.
+
+### **Update (07/06/2025):**
+
+We have open-sourced  **[CostFilter-AD-Dinomaly](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly)** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
+
+It delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , and  **BTAD** .
+
+👉 Please see the [`Costfilter_Dinomaly`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly) subfolder for code and details.
 
 
 # **Abstract:**
