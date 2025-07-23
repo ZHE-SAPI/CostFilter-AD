@@ -30,6 +30,26 @@
 | HVQ-Trans | 90.9        | 97.8     | 94.8        | 96.7        | 43.2     | 48.7        | **75.6** |
 | + Ours    | **93.4**    | **98.6** | **96.0**    | **97.3**    | **47.0** | **50.2**    | 74.4     |
 
+
+
+## **Flexible Extensibility**
+
+This paper proposes a plug-in method. However, as long as you have the following:
+
+1. If you have **train/test images** and either **reconstructed normal images** (in reconstruction-based methods) or randomly selected **normal train template images** (in embedding-based methods), you can extract **features** using any feature extractor such as DINO, SAM, or ViT;
+
+**or**
+
+2. If you already have **features** of the **train/test images** and those of the **reconstructed/normal template images**,
+
+then you can perform global matching (e.g., cosine similarity) or local matching (e.g., L2 loss) to obtain the matching results (referred to as the cost volume in this paper). 
+
+These results can be then fed into our proposed cost filtering network to denoise the matching output. 
+
+**Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
+
+
+
 ## 1. Environments
 
 Create a new conda environment and install required packages.
