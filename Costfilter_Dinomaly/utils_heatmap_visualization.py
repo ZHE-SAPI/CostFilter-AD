@@ -118,12 +118,6 @@ def apply_ad_scoremap(image, scoremap01, alpha=0.3, tau=0.06, blur_ks=5):
     return fused.astype(np.uint8), heat.astype(np.uint8)
 
     
-# def apply_ad_scoremap(image, scoremap, alpha=0.7):
-#     np_image = np.asarray(image, dtype=np.float)
-#     scoremap = (scoremap * 255).astype(np.uint8)
-#     scoremap = cv2.applyColorMap(scoremap, cv2.COLORMAP_JET)
-#     scoremap = cv2.cvtColor(scoremap, cv2.COLOR_BGR2RGB)
-#     return (alpha * np_image + (1 - alpha) * scoremap).astype(np.uint8), scoremap.astype(np.uint8)
 
 
 def global_cosine_hm_percent_pred1(a, b, p=0.9, factor=0.):
@@ -137,12 +131,6 @@ def global_cosine_hm_percent_pred1(a, b, p=0.9, factor=0.):
         with torch.no_grad():
             point_dist = 1 - cos_loss(a_, b_).unsqueeze(1)  # [B, 1, H, W]
 
-        # # 计算 top-p 的阈值
-        # thresh = torch.topk(point_dist.reshape(-1), k=int(point_dist.numel() * (1 - p)))[0][-1]
-
-        # # 注册 hook（低于阈值的位置抑制梯度）
-        # partial_func = partial(modify_grad, inds=point_dist < thresh, factor=factor)
-        # b_.register_hook(partial_func)
 
         loss_maps.append(point_dist)  # shape [B, H, W]
 
@@ -152,26 +140,6 @@ def global_cosine_hm_percent_pred1(a, b, p=0.9, factor=0.):
 
 
 
-# def global_cosine_hm_percent_pred1(a, b, p=0.9, factor=0.):
-#     cos_loss = torch.nn.CosineSimilarity()
-#     loss = 0
-#     for item in range(len(a)):
-#         a_ = a[item].detach()
-#         b_ = b[item]
-#         with torch.no_grad():
-#             point_dist = 1 - cos_loss(a_, b_).unsqueeze(1)
-#         # mean_dist = point_dist.mean()
-#         # std_dist = point_dist.reshape(-1).std()
-#         thresh = torch.topk(point_dist.reshape(-1), k=int(point_dist.numel() * (1 - p)))[0][-1]
-
-#         loss += torch.mean(1 - cos_loss(a_.reshape(a_.shape[0], -1),
-#                                         b_.reshape(b_.shape[0], -1)))
-
-#         partial_func = partial(modify_grad, inds=point_dist < thresh, factor=factor)
-#         b_.register_hook(partial_func)
-
-#     loss = loss / len(a)
-#     return loss
 
 
 def regional_cosine_hm_percent(a, b, p=0.9, factor=0.):
@@ -457,8 +425,7 @@ def evaluation_batch(model, model_unet, dataloader, device, _class_=None, max_ra
     gaussian_kernel = get_gaussian_kernel(kernel_size=5, sigma=4).to(device)
 
     starter, ender = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
-    # pred_max_heap = []  # 保存 pred_max 的前 50 大值（使用最小堆）
-    # pred_min_heap = []  # 保存 pred_min 的前 50 小值（使用最大堆，取负值存入）
+    
     with torch.no_grad():
         # for img, gt, label, img_path in dataloader:
         for img, gt, label, img_path in tqdm(dataloader):
@@ -562,18 +529,7 @@ def evaluation_batch(model, model_unet, dataloader, device, _class_=None, max_ra
             min_similarity_map_all_bat[:, 0, :, :] = nn.UpsamplingBilinear2d(size=(64, 64))(pred1).squeeze(1)
             min_similarity_map_all_bat[:, 1, :, :] = nn.UpsamplingBilinear2d(size=(64, 64))(pred1).squeeze(1)
 
-            # out_pred_= True
-            # if out_pred_==True:
-            #     min_similarity_map_all_bat = min_anomaly_map.squeeze() # batch_size,4,64,64
-            #     print("min_similarity_map_all_bat[:, 0, :, :].shape", min_similarity_map_all_bat[:, 0, :, :].shape) # [16, 64, 64]
-            #     min_similarity_map_all_bat[:, 0, :, :] = ((torch.mean(min_anomaly_map, dim=1) + 0.1 * nn.UpsamplingBilinear2d(size=(64, 64))(pred1))/70).squeeze(1)
-            # else:
-            #     min_similarity_map_all_bat = min_anomaly_map.permute(1,0,2,3) # [1, 4, 32, 32]
-            #     # print("min_similarity_map_all_bat[:, 0, :, :].shape", min_similarity_map_all_bat[:, 0, :, :].shape) # [16, 64, 64]
-            #     # print("torch.mean(min_anomaly_map, dim=0).unsqueeze(1).shape", torch.mean(min_anomaly_map, dim=0).shape) # [1, 64, 64]
-            #     min_similarity_map_all_bat[:, 0, :, :] = (torch.mean(min_anomaly_map, dim=0) + 0.1 * nn.UpsamplingBilinear2d(size=(64, 64))(pred1).squeeze(1))/40
-            # print("Max value min_similarity_map_all_bat[:, 0, :, :]:", min_similarity_map_all_bat[:, 0, :, :].max().item())  
-            # print("Min value: min_similarity_map_all_bat[:, 0, :, :]", min_similarity_map_all_bat[:, 0, :, :].min().item())  
+            
             pred_ori = pred1 # [batch_size, 1, 224, 224]
                         
                         
@@ -589,17 +545,6 @@ def evaluation_batch(model, model_unet, dataloader, device, _class_=None, max_ra
             anomaly_maps = (anomaly_maps1*lamda + pred_ori*(1-lamda))
             print('anomaly_maps.shape', anomaly_maps.shape) #  [1, 1, 392, 392]
             
-
-
-            
-            # print('pred_ori.max().item()', pred_ori.max().item()) 
-            # print('pred_ori.min().item()', pred_ori.min().item()) 
-
-            # print('anomaly_maps1.max().item()', anomaly_maps1.max().item()) 
-            # print('anomaly_maps1.min().item()', anomaly_maps1.min().item()) 
-
-
-
             pred_max = pred_ceshi.max().item()
             pred_min = pred_ceshi.min().item()
 
@@ -607,64 +552,13 @@ def evaluation_batch(model, model_unet, dataloader, device, _class_=None, max_ra
             sigma = 6
             kernel_size = 2 * int(4 * sigma + 0.5) + 1
 
-            # # 更新 pred_max_heap
-            # if len(pred_max_heap) < 150:
-            #     heapq.heappush(pred_max_heap, pred_max)  # 如果堆中少于 50 个值，直接加入
-            # else:
-            #     heapq.heappushpop(pred_max_heap, pred_max)  # 加入新值并移除堆中最小值
-
-            # # 更新 pred_min_heap
-            # if len(pred_min_heap) < 150:
-            #     heapq.heappush(pred_min_heap, -pred_min)  # 存入负值，模拟最大堆
-            # else:
-            #     heapq.heappushpop(pred_min_heap, -pred_min)  # 加入新值并移除堆中最大值
-
-
-
-
-
-
-
-
-
-
-            # anomaly_map = anomaly_map - anomaly_map.mean(dim=[1, 2, 3]).view(-1, 1, 1, 1)
 
             if resize_mask is not None:
                 anomaly_maps = F.interpolate(anomaly_maps, size=resize_mask, mode='bilinear', align_corners=False)
                 gt = F.interpolate(gt, size=resize_mask, mode='nearest')
             print('resize_mask', resize_mask)
 
-            # print('anomaly_maps1.max().item()', anomaly_maps1.max().item()) 
-            # print('anomaly_maps1.min().item()', anomaly_maps1.min().item()) 
-
-
-
-
-            # for i_ in range(1): # anomaly_maps.shape[0]
-                
-            #     print('anomaly_maps[i_].shape', anomaly_maps[i_].shape)
-
-            #     sample_pred = np.squeeze(anomaly_maps[i_].detach().cpu().numpy())
-            #     # sample_pred = np.squeeze(sample_pred * 255)
-            #     print('sample_pred.shape0', sample_pred.shape)
-            #     cv2.imwrite(f"./test_mvtec/pred_{i_}_{a__}.png",(normalize_max_min(sample_pred)*255).astype(np.uint8))
-
-
-            #     sample = gt[i_].detach().cpu().numpy().squeeze() * 255
-            #     print('sample.shape', sample.shape)
-            #     cv2.imwrite(f"./test_mvtec/mask_{i_}_{a__}.png",sample)
-
-
-            #     sample = reverse_normalization(img[i_])
-            #     sample = sample.cpu().numpy().transpose(0, 2, 3, 1)[0] * 255
-            #     print('sample.shape1', sample.shape)
-            #     cv2.imwrite(f"./test_mvtec/gt_images_test_{i_}_{a__}.png", sample)
-
-
-            #     heatmap_fused, heatmap = apply_ad_scoremap(sample, normalize_max_min(sample_pred))
-            #     cv2.imwrite(f"./test_mvtec/heatmap_test_{i_}_{a__}.png", cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR))
-            #     cv2.imwrite(f"./test_mvtec/heatmap_fused_test_{i_}_{a__}.png", cv2.cvtColor(heatmap_fused, cv2.COLOR_RGB2BGR))
+            
             for i_ in range(1):  # anomaly_maps.shape[0]
                 print('anomaly_maps[i_].shape', anomaly_maps[i_].shape)
 
@@ -728,12 +622,6 @@ def evaluation_batch(model, model_unet, dataloader, device, _class_=None, max_ra
         f1_px = f1_score_max(gt_list_px, pr_list_px)
 
 
-        # pred_max_top50 = sorted(pred_max_heap, reverse=True)  # 最大堆中保存的就是 Top 50 最大值
-        # pred_min_top50 = sorted([-val for val in pred_min_heap])  # 还原负值，得到 Top 50 最小值
-
-        # # 打印最终结果
-        # print("Top 50 pred_max:", pred_max_top50)
-        # print("Top 50 pred_min:", pred_min_top50)
 
     return [auroc_sp, ap_sp, f1_sp, auroc_px, ap_px, f1_px, aupro_px]
 
