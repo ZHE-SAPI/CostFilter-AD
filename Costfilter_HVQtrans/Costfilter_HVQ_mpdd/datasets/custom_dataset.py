@@ -324,7 +324,7 @@ class CustomDataset(BaseDataset):
             texture_source_img = cv2.imread(anomaly_path_list[idx])
             texture_source_img = cv2.cvtColor(texture_source_img, cv2.COLOR_BGR2RGB)
             anomaly_source_img = cv2.resize(texture_source_img, self.input_size).astype(np.float32)
-            anomaly_source_img = aug(image=img) ### 增强异常源图像
+            anomaly_source_img = aug(image=anomaly_source_img) ### 增强异常源图像
         else:
             structure_source_img = aug(image=img)
 
