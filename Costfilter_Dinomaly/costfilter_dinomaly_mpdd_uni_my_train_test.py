@@ -460,7 +460,7 @@ def test_only(item_list, model_paths):
             for item, test_data in zip(item_list, test_data_list):
                 test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=False,
                                                               num_workers=4)
-                results = evaluation_batch(model, model_unet, test_dataloader, device, max_ratio=0.01, resize_mask=256, lamda=0.017)
+                results = evaluation_batch(model, model_unet, test_dataloader, device, max_ratio=0.01, resize_mask=392, lamda=0.017)
                 auroc_sp, ap_sp, f1_sp, auroc_px, ap_px, f1_px, aupro_px = results
 
                 auroc_sp_list.append(auroc_sp)
