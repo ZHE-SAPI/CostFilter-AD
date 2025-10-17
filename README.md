@@ -24,6 +24,11 @@ These results can be then fed into our proposed cost filtering network to denois
 
 **Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
 
+### **Update (17/10/2025):**
+We have extended **CostFilter-AD** to **Unified Unsupervised Anomaly Detection via Matching Cost Filtering**, covering **Unimodal RGB-3D**， **Multimodal RGB-3D** and **Multimodal RGB-Text** UAD scenarios.  
+For detailed methodology and results, please refer to our paper:  
+📄 [arXiv:2510.03363](https://arxiv.org/abs/2510.03363)
+<img width="1085" height="843" alt="1760710773808" src="https://github.com/user-attachments/assets/e0fead5e-8c9d-4465-9c2e-4bac546f03e9" />
 
 ### **Update (07/10/2025):**
 
