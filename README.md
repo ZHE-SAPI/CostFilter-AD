@@ -115,4 +115,14 @@ If you find our work helpful, please consider **citing our paper** and giving us
   location  = {Vancouver, Canada},
   note      = {arXiv preprint arXiv:2505.01476}
 }
+
+
+@article{zhang2025ucf,
+  title={Unified Unsupervised Anomaly Detection via Matching Cost Filtering},
+  author={Zhang, Zhe and Cai, Mingxiu and Wu, Gaochang and Zhang, Jing and Liu, Lingqiao and Tao, Dacheng and Chai, Tianyou and Zhu, Xiatian},
+  journal={arXiv preprint arXiv:2510.03363},
+  year={2025}
+}
+
+
 ```
