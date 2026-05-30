@@ -6,7 +6,7 @@
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | [🌐 ICML Site](https://icml.cc/virtual/2025/poster/46359) | [🔍 OpenReview](https://openreview.net/forum?id=6p2wsBeYSs) |              [🚀 中文解读](https://mp.weixin.qq.com/s/K7qGfdJ-QUP-pDFKuA5lxQ)                                                                                               |
 
-|  [Arxiv,latest version](https://arxiv.org/abs/2505.01476) |              [Arxiv,latest version,pdf](https://arxiv.org/pdf/2505.01476)            |                                                                      
+|  [Arxiv,latest version](https://arxiv.org/abs/2505.01476) |              [Arxiv,latest version,pdf](https://arxiv.org/pdf/2505.01476)            |      [Journal extended paper](https://arxiv.org/abs/2510.03363)   |                                                               
 
 ## ⭐⭐ **Flexible Extensibility**
 
