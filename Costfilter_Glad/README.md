@@ -66,6 +66,9 @@ Please keep the folder names consistent with the paths used in the training and 
 Since we provide the pre-trained `.pth` weights, you can directly run the testing scripts after placing the required feature files and weights in the directories above.
 
 ## 4. Testing and Training
+```bash
+conda activate cosfilterad 
+```
 
 ### MVTec
 
