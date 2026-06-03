@@ -25,7 +25,7 @@ These results can be then fed into our proposed cost filtering network to denois
 **Extensive experiments demonstrate the general effectiveness of our cost filtering method.**
 
 ## ⭐⭐ **Updates**
-### **Update (10/17/2025):**
+### **Update (October 17, 2025):**
 We have extended **CostFilter-AD** to **Unified Unsupervised Anomaly Detection via Matching Cost Filtering**, covering **Unimodal RGB-3D**， **Multimodal RGB-3D** and **Multimodal RGB-Text** UAD scenarios.  
 
 Comprehensive experiments on **22** diverse benchmarks demonstrate the efficacy of UCF in enhancing a variety of UAD methods, consistently achieving new state-of-the-art results in both unimodal (RGB) and multimodal (RGB-3D, RGB-Text) UAD scenarios.
@@ -34,7 +34,13 @@ Please refer to our paper for details:  📄 [arXiv:2510.03363](https://arxiv.or
 
 <img width="1085" height="843" alt="1760710773808" src="https://github.com/user-attachments/assets/e0fead5e-8c9d-4465-9c2e-4bac546f03e9" />
 
-### **Update (07/10/2025):**
+### **Update (June 3, 2026):**
+
+We have open-sourced  **[CostFilter-AD-Glad]([https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Glad))** , built upon the [Glad](https://github.com/hyao1/GLAD/tree/main) (ECCV '24) baseline.
+
+
+
+### **Update (July 10, 2025):**
 
 We have open-sourced  **[CostFilter-AD-HVQ-Trans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans)** , built upon the [HVQ-Trans](https://github.com/RuiyingLu/HVQ-Trans) (NeurIPS '23) baseline.
 
@@ -42,7 +48,7 @@ It also delivers significant gains on  **MVTec-AD** ,  **VisA** ,  **MPDD** , an
 
 👉 Please see the [`Costfilter_HVQtrans`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans) subfolder for code and details.
 
-### **Update (07/06/2025):**
+### **Update (July 6, 2025):**
 
 We have open-sourced  **[CostFilter-AD-Dinomaly](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Dinomaly)** , built upon the [Dinomaly](https://github.com/guojiajeremy/Dinomaly/tree/master) (CVPR '25) baseline.
 
