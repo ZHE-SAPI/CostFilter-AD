@@ -36,8 +36,9 @@ Please refer to our paper for details:  📄 [arXiv:2510.03363](https://arxiv.or
 
 ### **Update (June 3, 2026):**
 
-We have open-sourced  **[CostFilter-AD-Glad]([https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_HVQtrans](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Glad))** , built upon the [Glad](https://github.com/hyao1/GLAD/tree/main) (ECCV '24) baseline.
+We have open-sourced  **[CostFilter-AD-Glad](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Glad))** , built upon the [Glad](https://github.com/hyao1/GLAD/tree/main) (ECCV '24) baseline.
 
+👉 Please see the [`Costfilter_Glad`](https://github.com/ZHE-SAPI/CostFilter-AD/tree/main/Costfilter_Glad) subfolder for code and details.
 
 
 ### **Update (July 10, 2025):**
