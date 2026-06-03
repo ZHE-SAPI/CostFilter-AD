@@ -1,4 +1,4 @@
-# CostFilter-AD Plug-in for GLAD
+# CostFilter-AD Plug-in for [GLAD](https://github.com/hyao1/GLAD/tree/main)
 
 This repository provides the CostFilter-AD plug-in implementation for GLAD.
 
@@ -6,7 +6,7 @@ CostFilter-AD is trained as a lightweight filtering network on top of GLAD. Runn
 
 ## 1. Pre-computed GLAD Features
 
-Download the pre-computed `.pt` feature archives from Quark Drive:
+Download the pre-computed `.pt` feature archives from [Quark Drive](https://pan.quark.cn/s/8e28955c3012?pwd=wBi3):
 
 ```text
 Link: https://pan.quark.cn/s/8e28955c3012?pwd=wBi3
@@ -24,7 +24,7 @@ For the training splits, extract both ZIP files into the same target directory.
 
 ## 2. Pre-trained Weights
 
-Download the pre-trained weights from Baidu Netdisk:
+Download the pre-trained weights from [Baidu Netdisk](https://pan.baidu.com/s/1ujsll7yinB-HaJMT0G-mzw?pwd=pjk5):
 
 ```text
 Link: https://pan.baidu.com/s/1ujsll7yinB-HaJMT0G-mzw?pwd=pjk5
