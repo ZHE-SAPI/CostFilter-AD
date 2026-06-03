@@ -1,38 +1,106 @@
-# CostFilterAD + GLAD Integration
-This is the core code of CostFilterAD + [GLAD](https://github.com/hyao1/GLAD/tree/main) Integration. 
+# CostFilter-AD Plug-in for GLAD
 
-The key is line 544-612 for anomaly volume construction and line 615-773 for anomaly volume filtering of [main_multi_glad_dino_3d.py](https://github.com/ZHE-SAPI/CostFilter-AD/blob/main/Costfilter_Glad/Costfilter_Glad_Mvtecad/main_multi_glad_dino_3d.py)
+This repository provides the CostFilter-AD plug-in implementation for GLAD.
 
+CostFilter-AD is trained as a lightweight filtering network on top of GLAD. Running GLAD diffusion inference again during every training epoch would be inefficient. Therefore, we pre-compute the GLAD reconstruction features for the training and test images and save them as `.pt` files. During training and evaluation, CostFilter-AD directly loads these saved `.pt` files.
 
-The complete code can be released at the end of August. Thank you.
+## 1. Pre-computed GLAD Features
 
-##  Setup
+Download the pre-computed `.pt` feature archives from Quark Drive:
 
-Navigate to the working directory before running any scripts:
-
-```bash
-cd your_path/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad
+```text
+Link: https://pan.quark.cn/s/8e28955c3012?pwd=wBi3
+Password: wBi3
 ```
 
----
+| Dataset | Split | Archive files | Extract to |
+|---|---|---|---|
+| MVTec | Train | `train_save_path_Glad_mvtecad1.zip`<br>`train_save_path_Glad_mvtecad2.zip` | `./Costfilter_Glad_Mvtecad/train_save_path_Glad_mvtecad/` |
+| MVTec | Test | `test_save_path_Glad_mvtecad.zip` | `./Costfilter_Glad_Mvtecad/test_save_path/` |
+| VisA | Train | `train_save_path_1234_VlSA1.zip`<br>`train_save_path_1234_VlSA2.zip` | `./Costfilter_Glad_VisA/train_save_path_1234_VlSA/` |
+| VisA | Test | `test_save_path_1234_VlSA.zip` | `./Costfilter_Glad_VisA/test_save_path_1234_VlSA/` |
 
-##  Training
+For the training splits, extract both ZIP files into the same target directory.
 
-To train the integrated model:
+## 2. Pre-trained Weights
 
-```bash
-nohup bash train_multi_dino_3d.sh > train_costfilter_glad_mvtecad.log 2>&1 &
+Download the pre-trained weights from Baidu Netdisk:
+
+```text
+Link: https://pan.baidu.com/s/1ujsll7yinB-HaJMT0G-mzw?pwd=pjk5
+Password: pjk5
 ```
 
----
+| Folder or file | Role | Place to |
+|---|---|---|
+| `checkpoints_path_mvtec/` | CostFilter-AD weights for MVTec | `./Costfilter_Glad_Mvtecad/checkpoints_path/` |
+| `checkpoints_path_visa/` | CostFilter-AD weights for VisA | `./Costfilter_Glad_VisA/checkpoints_path/` |
+| `CompVis/` | GLAD open-source weights | `./Costfilter_Glad_Mvtecad/` and `./Costfilter_Glad_VisA/` |
+| `model/` | GLAD open-source weights | `./Costfilter_Glad_Mvtecad/`  |
+| `model_Glad/` | GLAD open-source weights | `./Costfilter_Glad_VisA/` |
 
-##  Testing
+`checkpoints_path` contains the `.pth` weights trained by CostFilter-AD. `CompVis`, `model`, and `model_Glad` contain the GLAD-related open-source weights. Since CostFilter-AD is a plug-in method for GLAD, all the above weights are required.
 
-To evaluate the model:
+## 3. Expected Directory Layout
+
+After downloading and extracting the files, the directory layout should be similar to the following:
+
+```text
+Costfilter_Glad_Mvtecad/
+├── checkpoints_path/
+├── CompVis/
+├── model/
+├── train_save_path_Glad_mvtecad/
+└── test_save_path/
+
+Costfilter_Glad_VisA/
+├── checkpoints_path/
+├── CompVis/
+├── model_Glad/
+├── train_save_path_1234_VlSA/
+└── test_save_path_1234_VlSA/
+```
+
+Please keep the folder names consistent with the paths used in the training and testing scripts.
+
+Since we provide the pre-trained `.pth` weights, you can directly run the testing scripts after placing the required feature files and weights in the directories above.
+
+## 4. Testing and Training
+
+### MVTec
 
 ```bash
-nohup bash test_multi_dino_gauss_3d_qianghua.sh > test_costfilter_glad_mvtecad.log 2>&1 &
+cd xxxx/Costfilter_Glad_Mvtecad
+```
+
+Test:
+
+```bash
+bash test_multi_dino_gauss_3d_qianghua.sh
+```
+
+Train:
+
+```bash
+bash train_multi_dino_3d.sh
+```
+
+### VisA
+
+```bash
+cd xxxx/Costfilter_Glad_VisA
+```
+
+Test:
+
+```bash
+bash test_multi_dino_gauss_3d_qianghua.sh
+```
+
+Train:
+
+```bash
+bash train_multi_dino_3d.sh
 ```
 
 
----
