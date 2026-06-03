@@ -23,8 +23,8 @@ import bitsandbytes as bnb
 
 from dataset.dataset_multiclass import MVTecDataset
 
-
 from creat_model import model
+
 from sklearn.metrics import roc_auc_score, precision_recall_curve, average_precision_score
 
 from utilize.utilize import normalize, fix_seeds, compute_pro, reconstruction
@@ -37,14 +37,19 @@ import cv2
 import random
 import warnings
 from loss import FocalLoss, SSIM, SoftIoULoss, FocalLoss_gamma
+
 from unet3d_att_dino_channel_test_48_min import DiscriminativeSubNetwork_3d_att_dino_channel
+
 from torch.cuda.amp import autocast, GradScaler
 from PIL.ImageOps import exif_transpose
 from PIL import Image
 from torch.utils.data import Dataset
+from sklearn.decomposition import PCA
 
 warnings.filterwarnings("ignore")
 logger = get_logger(__name__)
+
+import threading
 
 
 def parse_args(input_args=None):
@@ -182,12 +187,15 @@ def predict_eps(
     while len(sqrt_one_minus_alpha_prod.shape) < len(x_0_anomaly.shape):
         sqrt_one_minus_alpha_prod = sqrt_one_minus_alpha_prod.unsqueeze(-1)
 
-    eps = (sqrt_alpha_prod * x_0_anomaly + sqrt_one_minus_alpha_prod * noise - sqrt_alpha_prod * x_0_normal) / sqrt_one_minus_alpha_prod
+    eps = (
+                  sqrt_alpha_prod * x_0_anomaly + sqrt_one_minus_alpha_prod * noise - sqrt_alpha_prod * x_0_normal) / sqrt_one_minus_alpha_prod
     return eps.to(torch.float32)
+
 
 def log_losses_tensorboard(writer, current_losses, i_iter):
     for loss_name, loss_value in current_losses.items():
         writer.add_scalar(f'data/{loss_name}', to_numpy(loss_value), i_iter)
+
 
 def to_numpy(tensor):
     if isinstance(tensor, (int, float)):
@@ -195,22 +203,6 @@ def to_numpy(tensor):
     else:
         return tensor.data.cpu().numpy()
 
-
-def weights_init_2d(m):
-    if isinstance(m, nn.Conv2d):
-        nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-        if m.bias is not None:
-            nn.init.constant_(m.bias, 0)
-    elif isinstance(m, nn.BatchNorm2d):
-        nn.init.constant_(m.weight, 1)
-        nn.init.constant_(m.bias, 0)
-    elif isinstance(m, nn.Conv3d):
-        nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
-        if m.bias is not None:
-            nn.init.constant_(m.bias, 0)
-    elif isinstance(m, nn.BatchNorm3d):
-        nn.init.constant_(m.weight, 1)
-        nn.init.constant_(m.bias, 0)
 
 def weights_init_3d(m):
     if isinstance(m, nn.Conv3d):
@@ -230,7 +222,6 @@ def weights_init_3d(m):
 
 
 def reverse_normalization(normalized_image):
-
     mean = torch.tensor([0.5, 0.5, 0.5], dtype=torch.float32).to(normalized_image.device)
     std = torch.tensor([0.5, 0.5, 0.5], dtype=torch.float32).to(normalized_image.device)
 
@@ -240,9 +231,8 @@ def reverse_normalization(normalized_image):
 
     # 反向归一化
     original_image = normalized_image * std[None, :, None, None] + mean[None, :, None, None]
-    
-    return original_image
 
+    return original_image
 
 
 class CustomDataset(Dataset):
@@ -250,32 +240,27 @@ class CustomDataset(Dataset):
         self.directory = directory
         self.files = [f for f in os.listdir(directory) if f.endswith('.pt')]
         self.device = device
-    
+
     def __len__(self):
         return len(self.files)
-    
+
     def __getitem__(self, idx):
         # 加载.pt文件
         file_path = os.path.join(self.directory, self.files[idx])
         data_dict = torch.load(file_path, map_location='cpu')
-        
-        # 提取需要的数据
-        # latents_all = data_dict["latents_all"].to(self.device)
 
         anomaly_images = data_dict["batch"]["anomaly_images"].to(self.device)
-        anomaly_masks = data_dict["batch"]["anomaly_masks"].to(self.device) 
+        anomaly_masks = data_dict["batch"]["anomaly_masks"].to(self.device)
         instance_label = data_dict["batch"]["instance_label"].to(self.device)
         instance_path = data_dict["batch"]["instance_path"]
         idx_hou = data_dict["batch"]["idx_hou"]
         reconstruct_latent = data_dict["batch"]["reconstruct_latent"].to(self.device)
-
 
         instance_image = Image.open(instance_path)
         instance_image = exif_transpose(instance_image)
         if not instance_image.mode == "RGB":
             instance_image = instance_image.convert("RGB")
         instance_image = self.transformer_compose(instance_image).to(self.device)
-         
 
         latents_all = [torch.tensor(latent).to(self.device) for latent in data_dict["latents_all"]]
         return latents_all, instance_image, anomaly_images, anomaly_masks, instance_label, instance_path, idx_hou, reconstruct_latent
@@ -287,16 +272,14 @@ class CustomDataset_dict(Dataset):
         self.files = [f for f in os.listdir(directory) if f.endswith('.pt')]
         self.device = device
         self.resize = resolution
+
     def __len__(self):
         return len(self.files)
-    
+
     def __getitem__(self, idx):
         # 加载.pt文件
         file_path = os.path.join(self.directory, self.files[idx])
         data_dict = torch.load(file_path, map_location='cpu')
-        
-        # 提取需要的数据
-        # latents_all = data_dict["latents_all"].to(self.device)
 
         anomaly_images = data_dict["batch"]["anomaly_images"]
         anomaly_masks = data_dict["batch"]["anomaly_masks"]
@@ -307,8 +290,11 @@ class CustomDataset_dict(Dataset):
         
         latents_all = [torch.tensor(latent) for latent in data_dict["latents_all"]]
         
-         
-        instance_image = anomaly_images.clone()
+        instance_image = Image.open(data_dict["batch"]["instance_path"][0])
+        instance_image = exif_transpose(instance_image)
+        if not instance_image.mode == "RGB":
+            instance_image = instance_image.convert("RGB")
+        instance_image = self.transformer_compose(instance_image)
 
         return latents_all, instance_image, anomaly_images, anomaly_masks, instance_label, instance_path, idx_hou, reconstruct_latent
 
@@ -320,63 +306,8 @@ class CustomDataset_dict(Dataset):
         return tensor
 
     def transformer_compose(self, image, mask=None):
-        transforms_resize = transforms.Resize((self.resize, self.resize), interpolation=transforms.InterpolationMode.BILINEAR)
-        transforms_to_tensor = transforms.ToTensor()
-        mean = (0.5, 0.5, 0.5)
-        std = (0.5, 0.5, 0.5)
-        transforms_normalize = transforms.Normalize(mean, std)
-
-        image = transforms_resize(image)
-        image = transforms_to_tensor(image)
-        image = transforms_normalize(image)
-
-        if mask:
-            mask = transforms_resize(mask)
-            mask = transforms_to_tensor(mask)
-            return image, mask
-        return image
-
-
-
-
-class CustomDataset_dict_test(Dataset):
-    def __init__(self, directory, device, resolution):
-        self.directory = directory
-        self.files = [f for f in os.listdir(directory) if f.endswith('.pt')]
-        self.device = device
-        self.resize = resolution
-    def __len__(self):
-        return len(self.files)
-    
-    def __getitem__(self, idx):
-        # 加载.pt文件
-        file_path = os.path.join(self.directory, self.files[idx])
-        data_dict = torch.load(file_path, map_location='cpu')
-        
-        image_input = data_dict["batch"]["image_input"]
-        anomaly_mask = data_dict["batch"]["anomaly_mask"]
-        object_mask = data_dict["batch"]["object_mask"]
-        instance_path = data_dict["batch"]["instance_path"]
-        instance_label = data_dict["batch"]["instance_label"]
-
-        idx_hou = self.pad_tensor(torch.tensor(data_dict["batch"]["idx_hou"]).squeeze()).unsqueeze(0)
-        reconstruct_latent = data_dict["batch"]["reconstruct_latent"]
-        
-        latents_all = [torch.tensor(latent) for latent in data_dict["latents_all"]]
-        
-        instance_image = image_input
-
-        return latents_all, instance_image, image_input, anomaly_mask, instance_label, instance_path, idx_hou, reconstruct_latent, object_mask
-
-    def pad_tensor(self, tensor, target_length=25):
-        
-        if tensor.size(0) < target_length:
-            padding = target_length - tensor.size(0)  # 计算需要填充的长度
-            tensor = F.pad(tensor, (padding, 0))  # 在前面填充，后面不填充
-        return tensor
-
-    def transformer_compose(self, image, mask=None):
-        transforms_resize = transforms.Resize((self.resize, self.resize), interpolation=transforms.InterpolationMode.BILINEAR)
+        transforms_resize = transforms.Resize((self.resize, self.resize),
+                                              interpolation=transforms.InterpolationMode.BILINEAR)
         
         transforms_to_tensor = transforms.ToTensor()
         
@@ -396,15 +327,71 @@ class CustomDataset_dict_test(Dataset):
             return image, mask
         return image
 
- 
 
+class CustomDataset_dict_test(Dataset):
+    def __init__(self, directory, device, resolution):
+        self.directory = directory
+        self.files = [f for f in os.listdir(directory) if f.endswith('.pt')]
+        self.device = device
+        self.resize = resolution
 
+    def __len__(self):
+        return len(self.files)
+
+    def __getitem__(self, idx):
+        # 加载.pt文件
+        file_path = os.path.join(self.directory, self.files[idx])
+        data_dict = torch.load(file_path, map_location='cpu')
+
+        image_input = data_dict["batch"]["image_input"]
+        anomaly_mask = data_dict["batch"]["anomaly_mask"]
+        object_mask = data_dict["batch"]["object_mask"]
+        instance_path = data_dict["batch"]["instance_path"]
+        instance_label = data_dict["batch"]["instance_label"]
+
+        idx_hou = self.pad_tensor(torch.tensor(data_dict["batch"]["idx_hou"]).squeeze()).unsqueeze(0)
+        reconstruct_latent = data_dict["batch"]["reconstruct_latent"]
+        
+        latents_all = [torch.tensor(latent) for latent in data_dict["latents_all"]]
+        
+        instance_image = image_input
+
+        return latents_all, instance_image, image_input, anomaly_mask, instance_label, instance_path, idx_hou, reconstruct_latent, object_mask
+
+    def pad_tensor(self, tensor, target_length=25):
+        # 如果张量的长度小于目标长度
+        if tensor.size(0) < target_length:
+            padding = target_length - tensor.size(0)  # 计算需要填充的长度
+            tensor = F.pad(tensor, (padding, 0))  # 在前面填充，后面不填充
+        return tensor
+
+    def transformer_compose(self, image, mask=None):
+        transforms_resize = transforms.Resize((self.resize, self.resize),
+                                              interpolation=transforms.InterpolationMode.BILINEAR)
+        
+        transforms_to_tensor = transforms.ToTensor()
+        
+        mean = (0.5, 0.5, 0.5)
+        std = (0.5, 0.5, 0.5)
+        transforms_normalize = transforms.Normalize(mean, std)
+
+        image = transforms_resize(image)
+        
+        image = transforms_to_tensor(image)
+        image = transforms_normalize(image)
+
+        if mask:
+            mask = transforms_resize(mask)
+            mask = transforms_to_tensor(mask)
+            
+            return image, mask
+        return image
 
 
 def get_class_labels(instance_path, device):
     """
     根据路径从 CLSNAMES 中匹配类别，并返回类别索引的 Tensor。
-    
+
     :param instance_path: list 或 iterable，包含图像路径
     :param CLSNAMES: list，包含类别名称的列表
     :param clsname_to_index: dict，类别名称到索引的映射
@@ -414,23 +401,83 @@ def get_class_labels(instance_path, device):
     # 初始化分类标签
     cls_labels = []
 
-    for path in instance_path[0]:  # 遍历所有路径
+    for path in instance_path:  # 遍历所有路径
         matched = False  # 标记是否找到匹配类别
         for cls_name in CLSNAMES:
+
             if cls_name in path:  # 判断类别是否出现在路径中
 
                 cls_labels.append(clsname_to_index[cls_name])
                 matched = True
                 break
-        
+
         if not matched:
             print(f"Warning: No matching class found for path {path}")
             cls_labels.append(-1)  # 如果没有匹配类别，用 -1 表示未知类别
 
     # 将类别标签转换为 Tensor 并转移到指定设备
     cls_labels_tensor = torch.tensor(cls_labels, dtype=torch.long).to(device)
-    
+
     return cls_labels_tensor
+
+
+def augment_image(img_ref, augmentation="rotate", angles=[0, 45, 90, 135, 180, 225, 270, 315]):  #
+    """
+    Augmentation of images, currently just rotation.
+    Supports input as PyTorch tensor with shape (3, H, W).
+    """
+    imgs = []
+
+    # 检查输入是否为 PyTorch 张量，并转换为 NumPy 格式
+    if isinstance(img_ref, torch.Tensor):
+        img_ref_np = tensor_to_numpy(img_ref)
+    else:
+        raise ValueError("Input img_ref must be a PyTorch Tensor with shape (3, H, W).")
+
+    # 执行旋转增强
+    if augmentation == "rotate":
+        for angle in angles:
+            rotated_img = rotate_image(img_ref_np, angle)  # 执行旋转
+
+            rotated_img_tensor = numpy_to_tensor(rotated_img).to(device)  # 转回 PyTorch Tensor
+
+            imgs.append(rotated_img_tensor)
+    return imgs
+
+
+def rotate_image(image, angle):
+    """
+    Rotate an image using OpenCV.
+    Input image should have shape (H, W, C).
+    """
+    image_center = tuple(np.array(image.shape[1::-1]) / 2)  # 图像中心点
+    rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
+    result = cv2.warpAffine(image, rot_mat, image.shape[1::-1],
+                            flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    return result
+
+
+def tensor_to_numpy(tensor):
+    """
+    Converts a PyTorch tensor (3, H, W) to a NumPy array (H, W, C) with uint8 values.
+    Tensor values are expected to be in [0.0, 1.0].
+    """
+    tensor = tensor.cpu().clone()  # 确保在 CPU 上
+    
+    tensor = tensor.permute(1, 2, 0).numpy()  # 这样计算更精确
+    return tensor
+
+
+def numpy_to_tensor(image):
+    """
+    Converts a NumPy array (H, W, C) with uint8 values to a PyTorch tensor (3, H, W).
+    Image values are converted to [0.0, 1.0].
+    """
+    # image = torch.tensor(image).float() / 255.0  # 转换为 float32 并归一化到 [0, 1]
+    image = torch.tensor(image).float()  # 转换为 float32 并归一化到 [0, 1]
+    image = image.permute(2, 0, 1)  # 转换为 CHW 格式
+    
+    return image
 
 
 def compute_dynamic_gamma(cls_out, target, dino_resolution, num_classes=15):
@@ -438,67 +485,153 @@ def compute_dynamic_gamma(cls_out, target, dino_resolution, num_classes=15):
     Compute gamma dynamically for each image based on classification output (cls_out).
     The idea is to increase gamma (focus on hard examples) when classification confidence is low,
     and decrease gamma (focus on easy examples) when confidence is high.
-    
+
     Additionally, if the classification is wrong, increase gamma to focus more on hard examples.
     """
-    difficult_classes = ['hazelnut', 'capsule', 'wood', 'cable', 'pill', 'screw', 'transistor', 'zipper']
-    
+
+    # Define difficult classes that should always have high gamma (set to 4)
+    difficult_classes = ['candle',
+                'capsules',
+                'cashew',
+                'macaroni1',
+                'macaroni2',
+                'pcb1',
+                'pcb2',
+                'pcb3',
+                'pcb4',
+                ]
+
     # Create a mapping of class index to class name (reverse the clsname_to_index mapping)
     clsname_to_index = {name: idx for idx, name in enumerate([
-        'hazelnut', 'capsule', 'grid', 'carpet', 'leather', 'tile', 'wood', 'bottle', 
-        'cable', 'metal_nut', 'pill', 'screw', 'toothbrush', 'transistor', 'zipper'
+        'candle',
+                'capsules',
+                'cashew',
+                'chewinggum',
+                'macaroni1',
+                'macaroni2',
+                'pcb1',
+                'pcb2',
+                'pcb3',
+                'pcb4',
+                'pipe_fryum',
+                'fryum',
     ])}
 
 
+
     batch_size = cls_out.shape[0]
-  
-    predicted_classes = cls_out.max(dim=1)[1]  # shape: [batch_size]
     
+    predicted_classes = cls_out.max(dim=1)[1]  # shape: [batch_size]
+
     # Check if the prediction is correct
     correct_prediction = (predicted_classes == target)  # shape: [batch_size]
     
-
     gamma = 3.0 - cls_out.max(dim=1).values  # Max prob from cls_out to determine focus level
     gamma = torch.clamp(gamma, min=1.5)
-   
+
+    # Set gamma to 4 for the difficult classes
     for i in range(batch_size):
         predicted_class_idx = predicted_classes[i].item()  # Get the predicted class index for the i-th sample
         predicted_class_name = list(clsname_to_index.keys())[predicted_class_idx]  # Get the class name
-        
+
+        # If the predicted class is one of the difficult ones, set gamma to 4
         if predicted_class_name in difficult_classes:
             gamma[i] = 3.5  # Set all gamma values for this sample to 4 (you can customize it per class if needed)
+            # print('predicted_class_name', predicted_class_name)
 
+
+    # If the prediction is incorrect, increase gamma for that image
+    # For simplicity, let's set gamma to a higher value if the prediction is wrong
     gamma[~correct_prediction] = 3.5  # Increase gamma for misclassified images (e.g., 4.0)
-   
+
     return gamma  # Shape [batch_size]
 
 
-def train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, weight_dtype, val_dataloader, args, device, class_name, checkpoint_step):
-    model = DiscriminativeSubNetwork_3d_att_dino_channel(in_channels=1024, out_channels=2, base_channels=48).to(device)
+def compute_background_mask(img_features, grid_size, threshold=10, masking_type=False, kernel_size=3, border=0.2):
+    # Kernel size for morphological operations should be odd
+    if isinstance(img_features, torch.Tensor):
+        img_features = img_features.cpu().detach().numpy()
+    pca = PCA(n_components=1, svd_solver='randomized')
+    first_pc = pca.fit_transform(img_features.astype(np.float32))
 
+    if masking_type == True:
+        mask = first_pc > threshold
+        m = mask.reshape(grid_size)[int(grid_size[0] * border):int(grid_size[0] * (1 - border)),
+            int(grid_size[1] * border):int(grid_size[1] * (1 - border))]
+        
+        if m.sum() <= m.size * 0.35:
+            mask = - first_pc > threshold
+        # postprocess mask, fill small holes in the mask, enlarge slightly
+        mask = cv2.dilate(mask.astype(np.uint8), np.ones((kernel_size, kernel_size), np.uint8)).astype(bool)
+        mask = cv2.morphologyEx(mask.astype(np.uint8), cv2.MORPH_CLOSE,
+                                np.ones((kernel_size, kernel_size), np.uint8)).astype(bool)
+    elif masking_type == False:
+        mask = np.ones_like(first_pc, dtype=bool)
+
+    return mask.squeeze()
+
+
+def get_object_name_from_path(instance_images_paths, masking_default):
+    """
+    从图像路径中提取 object_name，匹配 masking_default 字典中的键。
+
+    Args:
+        instance_images_paths (list): 包含图像路径的列表。
+        masking_default (dict): 包含 object_name 及其对应 masking 值的字典。
+
+    Returns:
+        list: 包含匹配 object_name 的列表。
+    """
+    object_names = []
+    # 遍历所有路径
+    for path in instance_images_paths:
+        matched = False
+        for key in masking_default.keys():
+            if f"/{key}/" in path:  # 判断路径中是否包含 key
+                object_names.append(key)
+                matched = True
+                break  # 找到匹配的 key 就退出当前循环
+        if not matched:
+            object_names.append(None)  # 如果没有匹配项，追加 None
+
+    return object_names
+
+
+def train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, weight_dtype, val_dataloader, args, device,
+                                     class_name, checkpoint_step):
+    # global faiss_resources
+    model = DiscriminativeSubNetwork_3d_att_dino_channel(in_channels=1024, out_channels=2, base_channels=48).to(device)
     model = model.float()
     optimizer = torch.optim.Adam([{"params": model.parameters(), "lr": 0.001}], betas=(0.9, 0.98))
 
-    checkpoint_path = os.path.join('./checkpoints_path/epoch_0_0_fscratch_channel48min.pth')
+    cong0_train_warm = False
+    
+    checkpoint_path = os.path.join(
+        './epoch_2_0_fscratch_anomalydino_num0_rand4.pth')
 
     if not os.path.exists(checkpoint_path):
-        model.apply(weights_init_2d)
+        model.apply(weights_init_3d)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
 
         start_epoch = 0
 
-
     elif os.path.exists(checkpoint_path):
-        print('resume', checkpoint_path)
-        checkpoint = torch.load(checkpoint_path)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        start_epoch = checkpoint['epoch'] + 1  # 从下一个 epoch 开始
-        scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
+
+        
+        if cong0_train_warm:
+            checkpoint = torch.load(checkpoint_path)
+            model.load_state_dict(checkpoint['model_state_dict'])
+            start_epoch = 0 
+        else:
+            print('resume', checkpoint_path)
+            checkpoint = torch.load(checkpoint_path)
+            model.load_state_dict(checkpoint['model_state_dict'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            start_epoch = checkpoint['epoch']  # 
+            scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
     print('start_epoch', start_epoch)
 
-
-    loss_focal = FocalLoss_gamma() # FocalLoss()
+    loss_focal = FocalLoss_gamma()  # FocalLoss()
     loss_l2 = torch.nn.modules.loss.MSELoss()
     loss_ssim = SSIM()
     criterion = nn.CrossEntropyLoss()
@@ -527,217 +660,314 @@ def train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, weight_d
 
         index_mapping = [[0, 3, 6, 9], [1, 4, 7, 10], [2, 5, 8, 11]]
 
+        # masking_default = {
+        #     'bottle': False,
+        #     'cable': False,
+        #     'capsule': True,
+        #     'carpet': False,
+        #     'grid': False,
+        #     'hazelnut': True,
+        #     'leather': False,
+        #     'metal_nut': False,
+        #     'pill': True,
+        #     'screw': True,
+        #     'tile': False,
+        #     'toothbrush': True,
+        #     'transistor': False,
+        #     'wood': False,
+        #     'zipper': False
+        # }
+
+        masking_default = {
+                "candle": True,
+                "capsules": True,
+                "cashew": True,
+                "chewinggum": True,
+                
+                "macaroni1": True,
+                "macaroni2": True,
+                "pcb1": True,
+                "pcb2": True,
+                "pcb3": True,
+                "pcb4": True,
+                "pipe_fryum": True,
+                "fryum": True,
+            }
+       
         for idx_, batch in enumerate(tqdm(val_dataloader, desc="Processing batches")):
 
-            start_time = time.time()
-            latents_all, instance_image, image_input, anomaly_mask, instance_label, instance_path, denoise_s_hou1, reconstruct_latent = batch
-
-            instance_image = instance_image.squeeze().to(device)
-            image_input = image_input.squeeze().to(device)
-            anomaly_mask = anomaly_mask.to(device)
-            instance_label = instance_label.to(device)
-            denoise_s_hou1 = denoise_s_hou1.to(device)
-            reconstruct_latent = reconstruct_latent.squeeze().to(device)
-
-
-            batch_size = image_input.shape[0]  
-            denoise_s_hou  = [None] * batch_size
-
-            class_labels = get_class_labels(instance_path, device)
-           
-            for j in range(batch_size):
-                denoise_s_hou[j] = denoise_s_hou1[j][denoise_s_hou1[j] != 0]
-           
             a_ += 1
+
+            anomaly_images = batch["anomaly_images"].to(device)
+            anomaly_mask = batch["anomaly_masks"].to(device)
+            instance_path = batch["instance_path"]
+            instance_label = batch["instance_label"].to(device)
+
+            features_ref_3_bat = batch["features_ref_3"].to(device, torch.float16)
+            features_ref_6_bat = batch["features_ref_6"].to(device, torch.float16)
+            features_ref_9_bat = batch["features_ref_9"].to(device, torch.float16)
+            features_ref_12_bat = batch["features_ref_12"].to(device, torch.float16)
+            features_ref_bat = batch["features_ref_path"]
+
             
-            result  = [None] * batch_size
-            idx_hou1 = [None] * batch_size
-            idx_hou2 = [None] * batch_size
-            for j in range(batch_size): 
-                
-                if len(denoise_s_hou[j]) > 2:
-                    denoise_s_hou[j] = denoise_s_hou[j][:-1]
-               
-                if len(denoise_s_hou[j]) > 2:
-                    # 随机选择 2 个元素的索引
-                    indices = torch.randperm(len(denoise_s_hou[j]), device=denoise_s_hou[j].device)[:2]
-                    idx_hou1[j], idx_hou2[j] = denoise_s_hou[j][indices[0]], denoise_s_hou[j][indices[1]]
-                else:
-                    # 如果元素少于 2 个，选择最后一个元素重复作为两个索引
-                    idx_hou1[j], idx_hou2[j] = denoise_s_hou[j][-1], denoise_s_hou[j][-1]
+            batch_size = anomaly_images.shape[0]
+            class_labels = get_class_labels(instance_path, device)
 
-                result[j] = [latents_all[idx_hou1[j]][j, :, :, :].squeeze(), latents_all[idx_hou2[j]][j, :, :, :].squeeze()]
-            result = torch.stack([torch.stack(sublist) for sublist in result])
-            with torch.no_grad():
-               
-                reconstruct_images = val_pipe.vae.decode(reconstruct_latent.to(device) / val_pipe.vae.config.scaling_factor, return_dict=False)[0]
-                result_qian = val_pipe.vae.decode(result[:,0,:,:,:].to(device) / val_pipe.vae.config.scaling_factor, return_dict=False)[0]
-                result_hou = val_pipe.vae.decode(result[:,1,:,:,:].to(device) / val_pipe.vae.config.scaling_factor, return_dict=False)[0]
+            object_name = get_object_name_from_path(instance_path, masking_default)
 
-                image_input_512 = torch.nn.functional.interpolate(image_input, size=512, mode='bilinear', align_corners=True)
-                
-                all_images = torch.cat([image_input_512, result_qian, result_hou, reconstruct_images], dim=0)
+            mask_ref_images = False
+            
+            min_similarity_map_all_3 = []
+            anomaly_map_all_bat_3 = []
 
-                all_images = torch.nn.functional.interpolate(all_images, size=args.dino_resolution, mode='bilinear', align_corners=True)
-                all_images = transform(all_images)
+            min_similarity_map_all_6 = []
+            anomaly_map_all_bat_6 = []
 
-                _, patch_tokens = dino_model(all_images.to(dtype=weight_dtype)) 
-               
-                _, dino_features = dino_model(transform(image_input).to(dtype=weight_dtype)) 
-                patch_tokens_all= []
-                
-                for i in range(len(patch_tokens)):
-                    image_input_512 = patch_tokens[i][0:batch_size]
-                    result_qian  = patch_tokens[i][batch_size:batch_size*2]
-                    result_hou  = patch_tokens[i][batch_size*2:batch_size*3]
-                    reconstruct_images  = patch_tokens[i][batch_size*3:batch_size*4]
-                    patch_tokens_a = [None]*batch_size
-                   
-                    for j in range(batch_size):
-                        patch_tokens_a[j] = torch.cat([image_input_512[j].unsqueeze(0), result_qian[j].unsqueeze(0), result_hou[j].unsqueeze(0), reconstruct_images[j].unsqueeze(0)], dim=0)
-                    patch_tokens_all.append(patch_tokens_a)
+            min_similarity_map_all_9 = []
+            anomaly_map_all_bat_9 = []
 
+            min_similarity_map_all_12 = []
+            anomaly_map_all_bat_12 = []
 
-            model.train()
+            dino_feature_all = []
+
             sigma = 6
             kernel_size = 2 * int(4 * sigma + 0.5) + 1
             b, n, c = 1, 1024, 768
             h = int(n ** 0.5)
-            
-            anomaly_map_all_bat = []
-            min_similarity_map_all_bat = []
 
-            for bat in range(batch_size):
-                min_similarity_map_all = []
-                anomaly_map_all = []
-                anomaly_maps111 = torch.zeros((b, 1, args.dino_resolution, args.dino_resolution)).to(device) # b=1
-                min_similarity_map_all_1 = torch.zeros(3, 4, 32, 32).to(device) 
-                for idx in range(len(patch_tokens_all)): # 4
-                    anomaly_map_list = []
-                    for i in range(patch_tokens_all[0][0].shape[0]-1): # 0 1 2
-                       
-                        pi = patch_tokens_all[idx][bat][0].unsqueeze(0)[:, 1:, :]
-                        pr = patch_tokens_all[idx][bat][i+1].unsqueeze(0)[:, 1:, :]
+            for i_tem in range(batch_size):
 
-                        pi = pi / torch.norm(pi, p=2, dim=-1, keepdim=True)
-                        pr = pr / torch.norm(pr, p=2, dim=-1, keepdim=True)
+                start_time = time.time()
+                features_ref_3 = features_ref_3_bat[i_tem]
+                features_ref_6 = features_ref_6_bat[i_tem]
+                features_ref_9 = features_ref_9_bat[i_tem]
+                features_ref_12 = features_ref_12_bat[i_tem]
 
-                        cos0 = torch.bmm(pi, pr.permute(0, 2, 1))
-                        
-                        anomaly_map1, _ = torch.min(1 - cos0, dim=-1)
-                        
-                        min_similarity_map_all.append(anomaly_map1.view(1, 32, 32))
-                        anomaly_map11 = F.interpolate(anomaly_map1.reshape(-1, 1, h, h), size=args.dino_resolution, mode='bilinear', align_corners=True) 
-                       
-                        pre_min_dim = 1024 # 48
-                        one_minus_cos0 = 1 - cos0
-
-                        _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
-                        
-                        selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
-                        anomal_map_3d = selected_values.view(1, 32, 32, pre_min_dim).unsqueeze(1)
-                       
-                        if i ==2:
-                            anomaly_maps111 += anomaly_map11
-                        
-                        anomaly_map_list.append(anomal_map_3d)
-                      
-                    anomaly_map_combined = torch.cat(anomaly_map_list, dim=1) 
-                    anomaly_map_all.append(anomaly_map_combined)
-
-                anomaly_maps_all1 = torch.stack(anomaly_map_all).squeeze().view(12, 32, 32, pre_min_dim) # view之前 [4, 1, 3, 32, 32, 1024]
-                anomaly_maps_all1 = F.interpolate(anomaly_maps_all1.permute(0, 3, 1, 2), size=64, mode='bilinear', align_corners=True)
-                anomaly_maps_all1 = anomaly_maps_all1.view(4, 3, pre_min_dim, 64, 64).permute(1, 2, 0, 3, 4)
-
-                min_similarity_map_all = torch.stack(min_similarity_map_all).squeeze()
-
-                for i_ in range(3):
-                    for j_ in range(4):
-                        min_similarity_map_all_1[i_, j_] = min_similarity_map_all[index_mapping[i_][j_]]
-
-
-                anomaly_maps111 = gaussian_blur2d(anomaly_maps111/4.0, kernel_size=(kernel_size, kernel_size), sigma=(sigma, sigma))[:, 0]
-                anomaly_maps_np = anomaly_maps111.detach().cpu().numpy()
                 
+                img_2 = torch.nn.functional.interpolate(anomaly_images[i_tem].unsqueeze(0), size=args.dino_resolution,
+                                                        mode='bilinear', align_corners=True)
+                img_2 = transform(img_2)
+                with torch.no_grad():
+                    _, patch_tokens_features2 = dino_model(img_2.to(dtype=weight_dtype))
 
-                if torch.isnan(anomaly_maps_all1).any() or torch.isinf(anomaly_maps_all1).any():
-                    print("Input tensor contains NaN or Inf anomaly_maps_all1")
+                    patch_tokens_features2 = [feature[:, 1:, :].squeeze(0).cpu().numpy() for feature in
+                                              patch_tokens_features2]
+                    dino_feature_all.append(torch.tensor(patch_tokens_features2).to(device))
 
-                min_similarity_map_all_bat.append(min_similarity_map_all_1)
-                anomaly_map_all_bat.append(anomaly_maps_all1)
+                    masking = masking_default[object_name[i_tem]]
+                    
+                    if masking:
+                        mask2 = compute_background_mask(patch_tokens_features2[-1].squeeze(), (32, 32), threshold=3,
+                                                        masking_type=masking)
+                    else:
+                        mask2 = np.ones(patch_tokens_features2[-1].squeeze().shape[0], dtype=bool)
+                    
+                    features_anomal_3 = torch.tensor(patch_tokens_features2[0]).unsqueeze(0).to(device, torch.float16) # patch_tokens_features2[0][mask2]
+                    features_anomal_6 = torch.tensor(patch_tokens_features2[1]).unsqueeze(0).to(device, torch.float16)
+                    features_anomal_9 = torch.tensor(patch_tokens_features2[2]).unsqueeze(0).to(device, torch.float16)
+                    features_anomal_12 = torch.tensor(patch_tokens_features2[3]).unsqueeze(0).to(device, torch.float16)
+                    
+                    features_ref_3 = torch.tensor(features_ref_3).unsqueeze(0).to(device, torch.float16)
+                    features_ref_6 = torch.tensor(features_ref_6).unsqueeze(0).to(device, torch.float16)
+                    features_ref_9 = torch.tensor(features_ref_9).unsqueeze(0).to(device, torch.float16)
+                    features_ref_12 = torch.tensor(features_ref_12).unsqueeze(0).to(device, torch.float16)
+
+                    features_anomal_3 = features_anomal_3 / torch.norm(features_anomal_3, p=2, dim=-1, keepdim=True)
+                    features_ref_3 = features_ref_3 / torch.norm(features_ref_3, p=2, dim=-1, keepdim=True)
+                    cos0 = torch.bmm(features_anomal_3, features_ref_3.permute(0, 2, 1))
+                    
+                    one_minus_cos0 = 1 - cos0
+
+                    anomaly_map_3, _ = torch.min(one_minus_cos0, dim=-1)
+                    
+                    min_similarity_map_all_3.append(anomaly_map_3.view(1, 32, 32))
+
+                    pre_min_dim = 1024  # 48
+                    _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
+
+                    selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
+                    anomal_map_3d = selected_values.view(1, 32, 32, pre_min_dim).unsqueeze(1)
+                    anomaly_map_all_bat_3.append(anomal_map_3d)
+
+                    features_anomal_6 = features_anomal_6 / torch.norm(features_anomal_6, p=2, dim=-1, keepdim=True)
+                    features_ref_6 = features_ref_6 / torch.norm(features_ref_6, p=2, dim=-1, keepdim=True)
+                    cos0 = torch.bmm(features_anomal_6, features_ref_6.permute(0, 2, 1))
+                    
+                    one_minus_cos0 = 1 - cos0
+
+                    anomaly_map_6, _ = torch.min(one_minus_cos0, dim=-1)
+                    
+                    min_similarity_map_all_6.append(anomaly_map_6.view(1, 32, 32))
+
+                    pre_min_dim = 1024  # 48
+                    _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
+
+                    selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
+                    anomal_map_3d = selected_values.view(1, 32, 32, pre_min_dim).unsqueeze(1)
+                    anomaly_map_all_bat_6.append(anomal_map_3d)
+
+                    features_anomal_9 = features_anomal_9 / torch.norm(features_anomal_9, p=2, dim=-1, keepdim=True)
+                    features_ref_9 = features_ref_9 / torch.norm(features_ref_9, p=2, dim=-1, keepdim=True)
+                    cos0 = torch.bmm(features_anomal_9, features_ref_9.permute(0, 2, 1))
+                   
+                    one_minus_cos0 = 1 - cos0
+
+                    anomaly_map_9, _ = torch.min(one_minus_cos0, dim=-1)
+                   
+                    min_similarity_map_all_9.append(anomaly_map_9.view(1, 32, 32))
+
+                    pre_min_dim = 1024  # 48
+                    _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
+
+                    selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
+                    anomal_map_3d = selected_values.view(1, 32, 32, pre_min_dim).unsqueeze(1)
+                    anomaly_map_all_bat_9.append(anomal_map_3d)
+
+                    features_anomal_12 = features_anomal_12 / torch.norm(features_anomal_12, p=2, dim=-1, keepdim=True)
+                    features_ref_12 = features_ref_12 / torch.norm(features_ref_12, p=2, dim=-1, keepdim=True)
+                    cos0 = torch.bmm(features_anomal_12, features_ref_12.permute(0, 2, 1))
+                   
+                    one_minus_cos0 = 1 - cos0
+
+                    anomaly_map_12, _ = torch.min(one_minus_cos0, dim=-1)
+                    
+                    min_similarity_map_all_12.append(anomaly_map_12.view(1, 32, 32))
+
+                    pre_min_dim = 1024  # 48
+                    _, indices = torch.topk(one_minus_cos0, pre_min_dim, dim=-1, largest=False, sorted=False)
+
+                    selected_values = torch.gather(one_minus_cos0, dim=-1, index=torch.sort(indices, dim=-1)[0])
+                    anomal_map_3d = selected_values.view(1, 32, 32, pre_min_dim).unsqueeze(1)
+                    anomaly_map_all_bat_12.append(anomal_map_3d)
+
+                    elapsed_time = time.time() - start_time
+                    start_time = time.time()
+
+            elapsed_time = time.time() - start_time
+            start_time = time.time()
+
+            min_similarity_map_all_3 = torch.stack(min_similarity_map_all_3)
+            anomaly_map_all_bat_3 = torch.stack(anomaly_map_all_bat_3)
+            min_similarity_map_all_6 = torch.stack(min_similarity_map_all_6)
+            anomaly_map_all_bat_6 = torch.stack(anomaly_map_all_bat_6)
+            min_similarity_map_all_9 = torch.stack(min_similarity_map_all_9)
+            anomaly_map_all_bat_9 = torch.stack(anomaly_map_all_bat_9)
+            min_similarity_map_all_12 = torch.stack(min_similarity_map_all_12)
+            anomaly_map_all_bat_12 = torch.stack(anomaly_map_all_bat_12)
+
+            anomaly_maps_all = torch.cat(
+                [anomaly_map_all_bat_3.squeeze(1),
+                 anomaly_map_all_bat_6.squeeze(1),
+                 anomaly_map_all_bat_9.squeeze(1),
+                 anomaly_map_all_bat_12.squeeze(1)],
+                dim=1)  # Shape: [8, 4, 32, 32, 1024]
+
+            anomaly_maps_all = anomaly_maps_all.permute(0, 4, 1, 2, 3)  # Rearrange dimensions
+
+            anomaly_map_all_bat = F.interpolate(
+                anomaly_maps_all.reshape(-1, 4, 32, 32),
+                size=(64, 64),
+                mode='bilinear',
+                align_corners=False).reshape(8, 1024, 4, 64, 64)
+
+
+            min_similarity_maps_all = torch.cat(
+                [min_similarity_map_all_3,
+                 min_similarity_map_all_6,
+                 min_similarity_map_all_9,
+                 min_similarity_map_all_12],
+                dim=1)  # Shape: [8, 4, 32, 32]
+
+            min_similarity_map_all_bat = F.interpolate(
+                min_similarity_maps_all,
+                size=(64, 64),
+                mode='bilinear',
+                align_corners=False)
+
+            dino_features = [[] for _ in range(4)]
+
+            for batch in dino_feature_all:  # 遍历 batch_size 个元素
+                for layer_idx in range(4):
+                    dino_features[layer_idx].append(batch[layer_idx])
+
+            for layer_idx in range(4):
+                dino_features[layer_idx] = torch.stack(dino_features[layer_idx], dim=0).float().to(device)
+
+            
+            model.train()
+
+            elapsed_time = time.time() - start_time
+            start_time = time.time()
+
+            optimizer.zero_grad()
+
+            output, cls_out = model(anomaly_map_all_bat.float().to(device), dino_features,
+                                    min_similarity_map_all_bat.float().to(device))
+
+            classification_loss = criterion(cls_out, class_labels.long())
+
+            output_focl = torch.softmax(output, dim=1)
            
-            anomaly_map_all_bat = torch.stack(anomaly_map_all_bat).float().permute(1, 0, 2, 3, 4, 5).contiguous()
+            output_focl = F.interpolate(output_focl, size=args.dino_resolution, mode='bilinear',
+                                        align_corners=True)  # Shape: [4, 2, 256, 256]
 
-            min_similarity_map_all_bat = torch.stack(min_similarity_map_all_bat).float()
+            anomaly_prob = output_focl[:, 1, :, :].unsqueeze(1)
 
-            min_similarity_map_all_bat = F.interpolate(min_similarity_map_all_bat.view(8, -1, 32, 32), size=64, mode='bilinear', align_corners=True).view(8, 3, 4, 64, 64) 
+            gamma = compute_dynamic_gamma(cls_out, class_labels.float(), args.dino_resolution, num_classes=15).to(
+                device)
             
-            anomaly_mask = anomaly_mask.squeeze(1).float() # .repeat(4, 1, 1, 1)
+            loss_images = []
+            for i in range(batch_size):
+                loss_i = loss_focal(output_focl.float()[i:i + 1], anomaly_mask.float()[i:i + 1],
+                                    gamma[i])  # For each image, slice the batch
+                loss_images.append(loss_i)
 
-            dino_features = [feature[:, 1:, :].float() for feature in dino_features]
-            
-            
-            for i_all in range(anomaly_map_all_bat.shape[0]):
-                optimizer.zero_grad()
-                output, cls_out = model(anomaly_map_all_bat[i_all], dino_features, min_similarity_map_all_bat[:, i_all])
-     
-                classification_loss = criterion(cls_out, class_labels.long())
+            Focal_loss = sum(loss_images) / len(loss_images)
+           
+            ssim_loss = loss_ssim(anomaly_prob.float(), anomaly_mask.float())
 
-                output_focl = torch.softmax(output, dim=1)
-                output_focl = F.interpolate(output_focl, size=args.dino_resolution, mode='bilinear', align_corners=True)  # Shape: [4, 2, 256, 256]
+            l2_loss = loss_l2(anomaly_prob.float(), anomaly_mask.float())
 
-                anomaly_prob = output_focl[:, 1, :, :].unsqueeze(1)
+            SIOU_loss = SoftIoULoss(anomaly_prob.float(), anomaly_mask.float())
 
-                # Calculate dynamic gamma based on classification output
-                gamma = compute_dynamic_gamma(cls_out, class_labels.float(), args.dino_resolution, num_classes=15).to(device)
+            alpha, beta, gamma, yita = 1.0, 0.2, 1.0, 0.1
+            segmentation_loss = alpha * Focal_loss + beta * ssim_loss + gamma * l2_loss + yita * SIOU_loss
+           
+            loss = segmentation_loss + 0.5 * classification_loss
 
-                loss_images = []
-                for i in range(batch_size):
-                    loss_i = loss_focal(output_focl.float()[i:i+1], anomaly_mask.float()[i:i+1], gamma[i])  # For each image, slice the batch
-                    loss_images.append(loss_i)
+            if torch.isnan(loss) or torch.isinf(loss):
+                print(f"Skipping batch {idx_} due to invalid loss: {loss}")
+                print('instance_path', instance_path)
+                continue  # 跳过当前 batch
 
-                Focal_loss = sum(loss_images) / len(loss_images)
+            loss.backward()
 
-                ssim_loss = loss_ssim(anomaly_prob.float(), anomaly_mask.float())
+            optimizer.step()  # 执行优化步骤
 
-                l2_loss = loss_l2(anomaly_prob.float(), anomaly_mask.float())
+            a__tensornoaed += 1
 
-                SIOU_loss = SoftIoULoss(anomaly_prob.float(), anomaly_mask.float())
+            # 准确率计算
+            predicted_classes = torch.argmax(cls_out, dim=1)
+            correct_predictions = (predicted_classes == class_labels).sum().item()
+            total_samples = class_labels.size(0)
+            train_accuracy = correct_predictions / total_samples
 
-                alpha, beta, gamma, yita = 1.0, 0.2, 1.0, 0.1
-                segmentation_loss = alpha * Focal_loss + beta * ssim_loss + gamma * l2_loss + yita * SIOU_loss
-                
-                loss = segmentation_loss + 0.5 * classification_loss 
-
-                if torch.isnan(loss) or torch.isinf(loss):
-                    print(f"Skipping batch {idx_} due to invalid loss: {loss}")
-                    print('instance_path', instance_path)
-                    continue  # 跳过当前 batch
-
-                loss.backward() 
-                optimizer.step()  # 执行优化步骤
-
-                a__tensornoaed += 1
-
-                # 准确率计算
-                predicted_classes = torch.argmax(cls_out, dim=1)
-                correct_predictions = (predicted_classes == class_labels).sum().item()
-                total_samples = class_labels.size(0)
-                train_accuracy = correct_predictions / total_samples
-
-                current_losses = {'Focal_loss': alpha * Focal_loss, 'sum_anomaly_prob':torch.sum(anomaly_prob), 'ssim_loss': beta * ssim_loss, 'l2_loss': gamma * l2_loss, 'SIOU_loss': yita * SIOU_loss, 'cls_loss': 0.5 * classification_loss, 'seg_loss': segmentation_loss, 'train_accuracy': train_accuracy, } # 0.5 * ce_loss
-                log_losses_tensorboard(writer, current_losses, a__tensornoaed)
+            current_losses = {'Focal_loss': alpha * Focal_loss, 'sum_anomaly_prob': torch.sum(anomaly_prob),
+                              'ssim_loss': beta * ssim_loss, 'l2_loss': gamma * l2_loss, 'SIOU_loss': yita * SIOU_loss,
+                              'cls_loss': 0.5 * classification_loss, 'seg_loss': segmentation_loss,
+                              'train_accuracy': train_accuracy, }  # 0.5 * ce_loss
+            log_losses_tensorboard(writer, current_losses, a__tensornoaed)
 
             anomaly_maps2 = output_focl[:, 1, :, :].unsqueeze(1).detach()
-
-            if args.v != 0:
-                distance_map = torch.mean(torch.abs(transform(image_input) - reconstruct_images), dim=1, keepdim=True)
-                anomaly_maps2 = anomaly_maps2 + args.v * torch.max(anomaly_maps2) / torch.max(distance_map) * distance_map
-
-            anomaly_maps_np = anomaly_maps2.detach().cpu().numpy()
             
-            if idx_ % 300 == 0:
-                checkpoint_path = os.path.join('./checkpoints_path', f'epoch_{epoch + 1}_{idx_}_fscratch_channel48min.pth')
+            anomaly_maps_np = anomaly_maps2.detach().cpu().numpy()
+
+            elapsed_time = time.time() - start_time
+           
+            if idx_!=0 and idx_ % 540 == 0:
+                checkpoint_path = os.path.join('./checkpoints_path',
+                                               f'epoch_{epoch + 1}_{idx_}_fscratch_anomalydino_num0_rand4.pth')
                 torch.save({
                     'epoch': epoch,
                     'model_state_dict': model.state_dict(),
@@ -746,18 +976,9 @@ def train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, weight_d
                 }, checkpoint_path)
                 print(f'Saved checkpoint for epoch {epoch + 1} of {idx_} at {checkpoint_path}')
 
-            if idx_ % 2000 == 0:
-                scheduler.step(loss)
+        scheduler.step(loss)
 
-        checkpoint_path = os.path.join('./checkpoints_path', f'epoch_{epoch + 1}_fscratch_channel48min.pth')
-        torch.save({
-            'epoch': epoch,
-            'model_state_dict': model.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict(),
-            'lr': optimizer.param_groups[0]['lr'],
-        }, checkpoint_path)
-        print(f'Saved checkpoint for epoch {epoch + 1} at {checkpoint_path}')
-            
+        torch.cuda.empty_cache()
 
 
 def load_vae(vae):
@@ -770,19 +991,20 @@ def load_vae(vae):
         vae_path = None
 
     if vae_path:
-        sd = torch.load(vae_path)["state_dict"]
+        sd = torch.load(vae_path, map_location='cpu')["state_dict"]
         print(f"load vae in test :{vae_path}")
 
         keys = list(sd.keys())
         for k in keys:
             if "loss" in k:
                 del sd[k]
-        vae.load_state_dict(sd, map_location='cpu')
+        vae.load_state_dict(sd) #  vae.load_state_dict(sd, map_location='cpu')
     return vae
 
 
 def load_test_model(args, weight_dtype):
-    dino_model = get_vit_encoder(vit_arch="vit_base", vit_model="dino", vit_patch_size=8, enc_type_feats=None).to(device, dtype=weight_dtype)
+    dino_model = get_vit_encoder(vit_arch="vit_base", vit_model="dino", vit_patch_size=8, enc_type_feats=None).to(
+        device, dtype=weight_dtype)
     dino_model.eval()
 
     val_pipe = StableDiffusionPipeline.from_pretrained(
@@ -922,19 +1144,22 @@ if __name__ == "__main__":
     args = parse_args()
     # device = torch.device("cuda")
     import os
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
     dino_model, val_pipe = load_test_model(args, torch.float16)
     dino_frozen = copy.deepcopy(dino_model)
 
     args.output_dir = os.path.join('model', args.instance_data_dir.split('/')[-1] + '_' + args.output_dir + f"_{args.seed}")
+    print('args.output_dir', args.output_dir)
 
-    writer = SummaryWriter(log_dir='./logs')
+
+    writer = SummaryWriter(
+        log_dir='./logs')
     if args.train:
         main(args, "")
     else:
-        if 'Mvtecad' in args.instance_data_dir:
+        if 'MVTec-AD' in args.instance_data_dir:
             args.input_threshold = 0.45
             args.denoise_step = 650
             args.min_step = 350
@@ -991,7 +1216,7 @@ if __name__ == "__main__":
                 'capsules',
                 'cashew',
                 'chewinggum',
-                'fryum',
+                
                 'macaroni1',
                 'macaroni2',
                 'pcb1',
@@ -999,6 +1224,7 @@ if __name__ == "__main__":
                 'pcb3',
                 'pcb4',
                 'pipe_fryum',
+                'fryum',
             ]
         elif 'PCBBank' in args.instance_data_dir:
             args.input_threshold = 0.2
@@ -1026,8 +1252,8 @@ if __name__ == "__main__":
 
 
         val_pipe.unet.load_state_dict(
-            torch.load("./model/MVTec_AD_dino_multi/MVTec-AD_20000step_bs32_eps_anomaly2_multiclass_0_1234/checkpoint-20000/pytorch_model.bin", map_location='cpu')
-        )
+                torch.load("./model_Glad/Multi-class_VisA/VisA_20000step_bs32_eps_anomaly2_multiclass_0_1234/checkpoint-20000/pytorch_model.bin", map_location="cpu"))
+
 
         val_pipe.unet.to(device).to(dtype=torch.float16)
         val_pipe.vae = load_vae(val_pipe.vae).to(device)
@@ -1040,43 +1266,56 @@ if __name__ == "__main__":
         train_2d_save = False
         test_2d_save = False
 
-        train_2d_dino  = True
-        test_2d_dino  = False
+        train_2d_dino = True
+        test_2d_dino = False
 
         if train_2d_dino:
-
             CLSNAMES = [
-                'hazelnut',
-                "capsule",
-                'grid',
-                'carpet',
-                'leather',
-                'tile',
-                'wood',
-                'bottle',
-                'cable',
-                'metal_nut',
-                'pill',
-                'screw',
-                'toothbrush',
-                'transistor',
-                'zipper',
+                'candle',
+                'capsules',
+                'cashew',
+                'chewinggum',
+                
+                'macaroni1',
+                'macaroni2',
+                'pcb1',
+                'pcb2',
+                'pcb3',
+                'pcb4',
+                'pipe_fryum',
+                'fryum',
             ]
+
+
             clsname_to_index = {name: idx for idx, name in enumerate(CLSNAMES)}
 
+            tokenizer = AutoTokenizer.from_pretrained(
+                args.pretrained_model_name_or_path,
+                subfolder="tokenizer",
+                use_fast=False,
+            )
             fix_seeds(args.seed)
 
-            data_directory = './train_save_path_Glad_mvtecad'
-            train_cost_dataset = CustomDataset_dict(data_directory, device, args.resolution)
-            
-            train_cost_dataloader = DataLoader(
-                train_cost_dataset,
+            train_dataset = MVTecDataset(  # MVTecDataset1   MVTecDataset
+                instance_data_root=args.instance_data_dir,
+                instance_prompt=args.instance_prompt,
+                class_name="",
+                tokenizer=tokenizer,
+                resize=args.resolution,
+                img_size=args.resolution,
+                # anomaly_path=args.anomaly_data_dir,
+                train=True
+            )
+
+            train_dataloader = DataLoader(
+                train_dataset,
                 batch_size=8,
-                shuffle=True,  # 如果需要随机打乱数据
-                num_workers=4,  # 根据你的机器调整
+                shuffle=True,
+                num_workers=4, 
+                drop_last=True,
                 pin_memory=True,
-                drop_last=True
-                )
+            )
 
+            train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, torch.float16, train_dataloader, args,
+                                             device, None, checkpoint_step)
 
-            train_2dunet_dino_triloss_volume(dino_model, dino_frozen, val_pipe, torch.float16, train_cost_dataloader, args, device, None, checkpoint_step)

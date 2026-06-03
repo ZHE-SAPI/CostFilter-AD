@@ -1,0 +1,1804 @@
+nohup: ignoring input
+The config attributes {'safety_checker': ['stable_diffusion', 'StableDiffusionSafetyChecker']} were passed to StableDiffusionPipeline, but are not expected and will be ignored. Please verify your model_index.json configuration file.
+Keyword arguments {'safety_checker': ['stable_diffusion', 'StableDiffusionSafetyChecker']} are not expected by StableDiffusionPipeline and will be ignored.
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  3.41it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:00<00:00,  3.16it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.29it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.42it/s]
+Test checkpoint step 20000 Mon Aug 25 03:34:03 2025
+/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad
+Namespace(adam_beta1=0.9, adam_beta2=0.999, adam_epsilon=1e-08, adam_weight_decay=0.01, anomaly_data_dir='/hdd/Datasets/dtd', checkpointing_steps=200, class_name='', dataloader_num_workers=8, denoise_step=650, dino_resolution=256, dino_save_path=None, gradient_accumulation_steps=1, gradient_checkpointing=False, inference_step=25, input_threshold=0.45, instance_data_dir='/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad', instance_prompt='a photo of sks', learning_rate=5e-06, logging_dir='logs', lr_num_cycles=1, lr_power=1.0, lr_scheduler='constant', lr_warmup_steps=500, max_grad_norm=1.0, max_train_steps=None, min_step=350, mixed_precision='no', output_dir='model/Costfilter_Glad_Mvtecad_/model/MVTec_AD_dino_multi/MVTec-AD_20000step_bs32_eps_anomaly2_multiclass_0_1234', pre_compute_text_embeddings=True, pretrained_model_name_or_path='CompVis/stable-diffusion-v1-4', resolution=256, scale_lr=False, seed=1234, test_batch_size=1, text='', train=None, train_batch_size=32, use_8bit_adam=False, v=0)
+Loading model weights from: ./checkpoints_path/epoch_4_900_fscratch_channel48min.pth
+加载模型: ./checkpoints_path/epoch_4_900_fscratch_channel48min.pth
+hazelnut input_threshold is 0.45 650 350 0
+test:hazelnut
+Processing batches:   0%|          | 0/55 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/55 [00:03<03:33,  3.96s/it]Processing batches:   4%|▎         | 2/55 [00:04<01:39,  1.88s/it]Processing batches:   5%|▌         | 3/55 [00:04<01:03,  1.22s/it]Processing batches:   7%|▋         | 4/55 [00:05<00:46,  1.09it/s]Processing batches:   9%|▉         | 5/55 [00:05<00:37,  1.34it/s]Processing batches:  11%|█         | 6/55 [00:06<00:31,  1.56it/s]Processing batches:  13%|█▎        | 7/55 [00:06<00:27,  1.73it/s]Processing batches:  15%|█▍        | 8/55 [00:07<00:25,  1.86it/s]Processing batches:  16%|█▋        | 9/55 [00:07<00:23,  1.97it/s]Processing batches:  18%|█▊        | 10/55 [00:07<00:21,  2.05it/s]Processing batches:  20%|██        | 11/55 [00:08<00:20,  2.11it/s]Processing batches:  22%|██▏       | 12/55 [00:08<00:19,  2.15it/s]Processing batches:  24%|██▎       | 13/55 [00:09<00:19,  2.17it/s]Processing batches:  25%|██▌       | 14/55 [00:09<00:18,  2.19it/s]Processing batches:  27%|██▋       | 15/55 [00:10<00:18,  2.21it/s]Processing batches:  29%|██▉       | 16/55 [00:10<00:17,  2.22it/s]Processing batches:  31%|███       | 17/55 [00:11<00:17,  2.23it/s]Processing batches:  33%|███▎      | 18/55 [00:11<00:16,  2.24it/s]Processing batches:  35%|███▍      | 19/55 [00:11<00:16,  2.24it/s]Processing batches:  36%|███▋      | 20/55 [00:12<00:15,  2.25it/s]Processing batches:  38%|███▊      | 21/55 [00:12<00:15,  2.25it/s]Processing batches:  40%|████      | 22/55 [00:13<00:14,  2.26it/s]Processing batches:  42%|████▏     | 23/55 [00:13<00:14,  2.25it/s]Processing batches:  44%|████▎     | 24/55 [00:14<00:13,  2.26it/s]Processing batches:  45%|████▌     | 25/55 [00:14<00:13,  2.26it/s]Processing batches:  47%|████▋     | 26/55 [00:15<00:12,  2.26it/s]Processing batches:  49%|████▉     | 27/55 [00:15<00:12,  2.26it/s]Processing batches:  51%|█████     | 28/55 [00:15<00:11,  2.26it/s]Processing batches:  53%|█████▎    | 29/55 [00:16<00:11,  2.26it/s]Processing batches:  55%|█████▍    | 30/55 [00:16<00:11,  2.26it/s]Processing batches:  56%|█████▋    | 31/55 [00:17<00:10,  2.27it/s]Processing batches:  58%|█████▊    | 32/55 [00:17<00:10,  2.26it/s]Processing batches:  60%|██████    | 33/55 [00:18<00:09,  2.26it/s]Processing batches:  62%|██████▏   | 34/55 [00:18<00:09,  2.26it/s]Processing batches:  64%|██████▎   | 35/55 [00:19<00:08,  2.26it/s]Processing batches:  65%|██████▌   | 36/55 [00:19<00:08,  2.26it/s]Processing batches:  67%|██████▋   | 37/55 [00:19<00:07,  2.25it/s]Processing batches:  69%|██████▉   | 38/55 [00:20<00:07,  2.26it/s]Processing batches:  71%|███████   | 39/55 [00:20<00:07,  2.26it/s]Processing batches:  73%|███████▎  | 40/55 [00:21<00:06,  2.26it/s]Processing batches:  75%|███████▍  | 41/55 [00:21<00:06,  2.26it/s]Processing batches:  76%|███████▋  | 42/55 [00:22<00:05,  2.27it/s]Processing batches:  78%|███████▊  | 43/55 [00:22<00:05,  2.27it/s]Processing batches:  80%|████████  | 44/55 [00:22<00:04,  2.26it/s]Processing batches:  82%|████████▏ | 45/55 [00:23<00:04,  2.25it/s]Processing batches:  84%|████████▎ | 46/55 [00:23<00:04,  2.25it/s]Processing batches:  85%|████████▌ | 47/55 [00:24<00:03,  2.25it/s]Processing batches:  87%|████████▋ | 48/55 [00:24<00:03,  2.26it/s]Processing batches:  89%|████████▉ | 49/55 [00:25<00:02,  2.26it/s]Processing batches:  91%|█████████ | 50/55 [00:25<00:02,  2.25it/s]Processing batches:  93%|█████████▎| 51/55 [00:26<00:01,  2.26it/s]Processing batches:  95%|█████████▍| 52/55 [00:26<00:01,  2.25it/s]Processing batches:  96%|█████████▋| 53/55 [00:26<00:00,  2.25it/s]Processing batches:  98%|█████████▊| 54/55 [00:27<00:00,  2.25it/s]Processing batches: 100%|██████████| 55/55 [00:27<00:00,  2.25it/s]Processing batches: 100%|██████████| 55/55 [00:28<00:00,  1.96it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9971/0.9985/0.9928/0.9908/0.7303/0.6655/0.9355-----
+a_: 55
+capsule input_threshold is 0.45 650 350 0
+test:capsule
+Processing batches:   0%|          | 0/66 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/66 [00:01<01:43,  1.59s/it]Processing batches:   3%|▎         | 2/66 [00:02<00:58,  1.09it/s]Processing batches:   5%|▍         | 3/66 [00:02<00:44,  1.43it/s]Processing batches:   6%|▌         | 4/66 [00:02<00:37,  1.67it/s]Processing batches:   8%|▊         | 5/66 [00:03<00:33,  1.84it/s]Processing batches:   9%|▉         | 6/66 [00:03<00:30,  1.96it/s]Processing batches:  11%|█         | 7/66 [00:04<00:28,  2.05it/s]Processing batches:  12%|█▏        | 8/66 [00:04<00:27,  2.09it/s]Processing batches:  14%|█▎        | 9/66 [00:05<00:26,  2.13it/s]Processing batches:  15%|█▌        | 10/66 [00:05<00:25,  2.17it/s]Processing batches:  17%|█▋        | 11/66 [00:06<00:25,  2.19it/s]Processing batches:  18%|█▊        | 12/66 [00:06<00:24,  2.21it/s]Processing batches:  20%|█▉        | 13/66 [00:06<00:23,  2.22it/s]Processing batches:  21%|██        | 14/66 [00:07<00:23,  2.21it/s]Processing batches:  23%|██▎       | 15/66 [00:07<00:22,  2.22it/s]Processing batches:  24%|██▍       | 16/66 [00:08<00:22,  2.22it/s]Processing batches:  26%|██▌       | 17/66 [00:08<00:22,  2.22it/s]Processing batches:  27%|██▋       | 18/66 [00:09<00:21,  2.23it/s]Processing batches:  29%|██▉       | 19/66 [00:09<00:21,  2.23it/s]Processing batches:  30%|███       | 20/66 [00:10<00:20,  2.24it/s]Processing batches:  32%|███▏      | 21/66 [00:10<00:20,  2.24it/s]Processing batches:  33%|███▎      | 22/66 [00:10<00:19,  2.24it/s]Processing batches:  35%|███▍      | 23/66 [00:11<00:19,  2.24it/s]Processing batches:  36%|███▋      | 24/66 [00:11<00:18,  2.24it/s]Processing batches:  38%|███▊      | 25/66 [00:12<00:18,  2.24it/s]Processing batches:  39%|███▉      | 26/66 [00:12<00:17,  2.23it/s]Processing batches:  41%|████      | 27/66 [00:13<00:17,  2.24it/s]Processing batches:  42%|████▏     | 28/66 [00:13<00:16,  2.24it/s]Processing batches:  44%|████▍     | 29/66 [00:14<00:16,  2.24it/s]Processing batches:  45%|████▌     | 30/66 [00:14<00:16,  2.24it/s]Processing batches:  47%|████▋     | 31/66 [00:14<00:15,  2.24it/s]Processing batches:  48%|████▊     | 32/66 [00:15<00:15,  2.24it/s]Processing batches:  50%|█████     | 33/66 [00:15<00:14,  2.24it/s]Processing batches:  52%|█████▏    | 34/66 [00:16<00:14,  2.23it/s]Processing batches:  53%|█████▎    | 35/66 [00:16<00:13,  2.23it/s]Processing batches:  55%|█████▍    | 36/66 [00:17<00:13,  2.22it/s]Processing batches:  56%|█████▌    | 37/66 [00:17<00:13,  2.22it/s]Processing batches:  58%|█████▊    | 38/66 [00:18<00:12,  2.22it/s]Processing batches:  59%|█████▉    | 39/66 [00:18<00:12,  2.21it/s]Processing batches:  61%|██████    | 40/66 [00:19<00:11,  2.22it/s]Processing batches:  62%|██████▏   | 41/66 [00:19<00:11,  2.22it/s]Processing batches:  64%|██████▎   | 42/66 [00:19<00:10,  2.22it/s]Processing batches:  65%|██████▌   | 43/66 [00:20<00:10,  2.23it/s]Processing batches:  67%|██████▋   | 44/66 [00:20<00:09,  2.23it/s]Processing batches:  68%|██████▊   | 45/66 [00:21<00:09,  2.23it/s]Processing batches:  70%|██████▉   | 46/66 [00:21<00:09,  2.22it/s]Processing batches:  71%|███████   | 47/66 [00:22<00:08,  2.21it/s]Processing batches:  73%|███████▎  | 48/66 [00:22<00:08,  2.22it/s]Processing batches:  74%|███████▍  | 49/66 [00:23<00:07,  2.23it/s]Processing batches:  76%|███████▌  | 50/66 [00:23<00:07,  2.23it/s]Processing batches:  77%|███████▋  | 51/66 [00:23<00:06,  2.24it/s]Processing batches:  79%|███████▉  | 52/66 [00:24<00:06,  2.24it/s]Processing batches:  80%|████████  | 53/66 [00:24<00:05,  2.22it/s]Processing batches:  82%|████████▏ | 54/66 [00:25<00:05,  2.22it/s]Processing batches:  83%|████████▎ | 55/66 [00:25<00:04,  2.23it/s]Processing batches:  85%|████████▍ | 56/66 [00:26<00:04,  2.23it/s]Processing batches:  86%|████████▋ | 57/66 [00:26<00:04,  2.24it/s]Processing batches:  88%|████████▊ | 58/66 [00:27<00:03,  2.24it/s]Processing batches:  89%|████████▉ | 59/66 [00:27<00:03,  2.25it/s]Processing batches:  91%|█████████ | 60/66 [00:27<00:02,  2.25it/s]Processing batches:  92%|█████████▏| 61/66 [00:28<00:02,  2.25it/s]Processing batches:  94%|█████████▍| 62/66 [00:28<00:01,  2.25it/s]Processing batches:  95%|█████████▌| 63/66 [00:29<00:01,  2.26it/s]Processing batches:  97%|█████████▋| 64/66 [00:29<00:00,  2.26it/s]min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+Processing batches:  98%|█████████▊| 65/66 [00:30<00:00,  2.26it/s]Processing batches: 100%|██████████| 66/66 [00:30<00:00,  2.26it/s]Processing batches: 100%|██████████| 66/66 [00:30<00:00,  2.14it/s]
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9438/0.9878/0.9545/0.9915/0.5195/0.5159/0.9468-----
+a_: 121
+cable input_threshold is 0.45 650 350 0
+test:cable
+Processing batches:   0%|          | 0/75 [00:00<?, ?it/s]Processing batches:   1%|▏         | 1/75 [00:01<01:58,  1.60s/it]Processing batches:   3%|▎         | 2/75 [00:02<01:07,  1.09it/s]Processing batches:   4%|▍         | 3/75 [00:02<00:50,  1.42it/s]Processing batches:   5%|▌         | 4/75 [00:02<00:42,  1.66it/s]Processing batches:   7%|▋         | 5/75 [00:03<00:38,  1.83it/s]Processing batches:   8%|▊         | 6/75 [00:03<00:35,  1.95it/s]Processing batches:   9%|▉         | 7/75 [00:04<00:33,  2.03it/s]Processing batches:  11%|█         | 8/75 [00:04<00:31,  2.09it/s]Processing batches:  12%|█▏        | 9/75 [00:05<00:30,  2.14it/s]Processing batches:  13%|█▎        | 10/75 [00:05<00:29,  2.18it/s]Processing batches:  15%|█▍        | 11/75 [00:06<00:29,  2.20it/s]Processing batches:  16%|█▌        | 12/75 [00:06<00:28,  2.20it/s]Processing batches:  17%|█▋        | 13/75 [00:06<00:28,  2.21it/s]Processing batches:  19%|█▊        | 14/75 [00:07<00:27,  2.22it/s]Processing batches:  20%|██        | 15/75 [00:07<00:26,  2.23it/s]Processing batches:  21%|██▏       | 16/75 [00:08<00:26,  2.24it/s]Processing batches:  23%|██▎       | 17/75 [00:08<00:25,  2.24it/s]Processing batches:  24%|██▍       | 18/75 [00:09<00:25,  2.24it/s]Processing batches:  25%|██▌       | 19/75 [00:09<00:24,  2.24it/s]Processing batches:  27%|██▋       | 20/75 [00:10<00:24,  2.24it/s]Processing batches:  28%|██▊       | 21/75 [00:10<00:24,  2.24it/s]Processing batches:  29%|██▉       | 22/75 [00:10<00:23,  2.24it/s]Processing batches:  31%|███       | 23/75 [00:11<00:23,  2.24it/s]Processing batches:  32%|███▏      | 24/75 [00:11<00:22,  2.22it/s]Processing batches:  33%|███▎      | 25/75 [00:12<00:22,  2.23it/s]Processing batches:  35%|███▍      | 26/75 [00:12<00:21,  2.23it/s]Processing batches:  36%|███▌      | 27/75 [00:13<00:21,  2.22it/s]Processing batches:  37%|███▋      | 28/75 [00:13<00:21,  2.22it/s]Processing batches:  39%|███▊      | 29/75 [00:14<00:20,  2.23it/s]Processing batches:  40%|████      | 30/75 [00:14<00:20,  2.23it/s]Processing batches:  41%|████▏     | 31/75 [00:15<00:19,  2.23it/s]Processing batches:  43%|████▎     | 32/75 [00:15<00:19,  2.24it/s]Processing batches:  44%|████▍     | 33/75 [00:15<00:18,  2.23it/s]Processing batches:  45%|████▌     | 34/75 [00:16<00:18,  2.23it/s]Processing batches:  47%|████▋     | 35/75 [00:16<00:18,  2.21it/s]Processing batches:  48%|████▊     | 36/75 [00:17<00:17,  2.20it/s]Processing batches:  49%|████▉     | 37/75 [00:17<00:17,  2.21it/s]Processing batches:  51%|█████     | 38/75 [00:18<00:16,  2.22it/s]Processing batches:  52%|█████▏    | 39/75 [00:18<00:16,  2.22it/s]Processing batches:  53%|█████▎    | 40/75 [00:19<00:15,  2.22it/s]Processing batches:  55%|█████▍    | 41/75 [00:19<00:15,  2.22it/s]Processing batches:  56%|█████▌    | 42/75 [00:19<00:14,  2.22it/s]Processing batches:  57%|█████▋    | 43/75 [00:20<00:14,  2.22it/s]Processing batches:  59%|█████▊    | 44/75 [00:20<00:13,  2.22it/s]Processing batches:  60%|██████    | 45/75 [00:21<00:13,  2.22it/s]Processing batches:  61%|██████▏   | 46/75 [00:21<00:13,  2.22it/s]Processing batches:  63%|██████▎   | 47/75 [00:22<00:12,  2.22it/s]Processing batches:  64%|██████▍   | 48/75 [00:22<00:12,  2.23it/s]Processing batches:  65%|██████▌   | 49/75 [00:23<00:11,  2.23it/s]Processing batches:  67%|██████▋   | 50/75 [00:23<00:11,  2.23it/s]Processing batches:  68%|██████▊   | 51/75 [00:24<00:10,  2.23it/s]Processing batches:  69%|██████▉   | 52/75 [00:24<00:10,  2.23it/s]Processing batches:  71%|███████   | 53/75 [00:24<00:09,  2.24it/s]Processing batches:  72%|███████▏  | 54/75 [00:25<00:09,  2.24it/s]Processing batches:  73%|███████▎  | 55/75 [00:25<00:08,  2.24it/s]Processing batches:  75%|███████▍  | 56/75 [00:26<00:08,  2.24it/s]Processing batches:  76%|███████▌  | 57/75 [00:26<00:08,  2.24it/s]Processing batches:  77%|███████▋  | 58/75 [00:27<00:07,  2.24it/s]Processing batches:  79%|███████▊  | 59/75 [00:27<00:07,  2.24it/s]Processing batches:  80%|████████  | 60/75 [00:28<00:06,  2.25it/s]Processing batches:  81%|████████▏ | 61/75 [00:28<00:06,  2.24it/s]Processing batches:  83%|████████▎ | 62/75 [00:28<00:05,  2.23it/s]Processing batches:  84%|████████▍ | 63/75 [00:29<00:05,  2.24it/s]Processing batches:  85%|████████▌ | 64/75 [00:29<00:04,  2.23it/s]min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+Processing batches:  87%|████████▋ | 65/75 [00:30<00:04,  2.24it/s]Processing batches:  88%|████████▊ | 66/75 [00:30<00:04,  2.24it/s]Processing batches:  89%|████████▉ | 67/75 [00:31<00:03,  2.24it/s]Processing batches:  91%|█████████ | 68/75 [00:31<00:03,  2.25it/s]Processing batches:  92%|█████████▏| 69/75 [00:32<00:02,  2.24it/s]Processing batches:  93%|█████████▎| 70/75 [00:32<00:02,  2.24it/s]Processing batches:  95%|█████████▍| 71/75 [00:32<00:01,  2.24it/s]Processing batches:  96%|█████████▌| 72/75 [00:33<00:01,  2.23it/s]Processing batches:  97%|█████████▋| 73/75 [00:33<00:00,  2.23it/s]Processing batches:  99%|█████████▊| 74/75 [00:34<00:00,  2.24it/s]Processing batches: 100%|██████████| 75/75 [00:34<00:00,  2.24it/s]Processing batches: 100%|██████████| 75/75 [00:34<00:00,  2.15it/s]
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9818/0.9889/0.9519/0.9618/0.6762/0.6209/0.9087-----
+a_: 196
+screw input_threshold is 0.45 650 350 0
+test:screw
+Processing batches:   0%|          | 0/80 [00:00<?, ?it/s]Processing batches:   1%|▏         | 1/80 [00:01<02:09,  1.63s/it]Processing batches:   2%|▎         | 2/80 [00:02<01:13,  1.06it/s]Processing batches:   4%|▍         | 3/80 [00:02<00:54,  1.40it/s]Processing batches:   5%|▌         | 4/80 [00:02<00:46,  1.65it/s]Processing batches:   6%|▋         | 5/80 [00:03<00:41,  1.82it/s]Processing batches:   8%|▊         | 6/80 [00:03<00:37,  1.96it/s]Processing batches:   9%|▉         | 7/80 [00:04<00:35,  2.05it/s]Processing batches:  10%|█         | 8/80 [00:04<00:33,  2.12it/s]Processing batches:  11%|█▏        | 9/80 [00:05<00:32,  2.18it/s]Processing batches:  12%|█▎        | 10/80 [00:05<00:31,  2.22it/s]Processing batches:  14%|█▍        | 11/80 [00:06<00:30,  2.23it/s]Processing batches:  15%|█▌        | 12/80 [00:06<00:30,  2.24it/s]Processing batches:  16%|█▋        | 13/80 [00:06<00:29,  2.25it/s]Processing batches:  18%|█▊        | 14/80 [00:07<00:29,  2.26it/s]Processing batches:  19%|█▉        | 15/80 [00:07<00:28,  2.25it/s]Processing batches:  20%|██        | 16/80 [00:08<00:28,  2.24it/s]Processing batches:  21%|██▏       | 17/80 [00:08<00:28,  2.24it/s]Processing batches:  22%|██▎       | 18/80 [00:09<00:27,  2.24it/s]Processing batches:  24%|██▍       | 19/80 [00:09<00:27,  2.24it/s]Processing batches:  25%|██▌       | 20/80 [00:10<00:26,  2.24it/s]Processing batches:  26%|██▋       | 21/80 [00:10<00:26,  2.24it/s]Processing batches:  28%|██▊       | 22/80 [00:10<00:25,  2.23it/s]Processing batches:  29%|██▉       | 23/80 [00:11<00:25,  2.24it/s]Processing batches:  30%|███       | 24/80 [00:11<00:25,  2.24it/s]Processing batches:  31%|███▏      | 25/80 [00:12<00:24,  2.23it/s]Processing batches:  32%|███▎      | 26/80 [00:12<00:24,  2.22it/s]Processing batches:  34%|███▍      | 27/80 [00:13<00:23,  2.21it/s]Processing batches:  35%|███▌      | 28/80 [00:13<00:23,  2.22it/s]Processing batches:  36%|███▋      | 29/80 [00:14<00:22,  2.22it/s]Processing batches:  38%|███▊      | 30/80 [00:14<00:22,  2.25it/s]Processing batches:  39%|███▉      | 31/80 [00:14<00:21,  2.26it/s]Processing batches:  40%|████      | 32/80 [00:15<00:21,  2.27it/s]Processing batches:  41%|████▏     | 33/80 [00:15<00:20,  2.28it/s]Processing batches:  42%|████▎     | 34/80 [00:16<00:20,  2.29it/s]Processing batches:  44%|████▍     | 35/80 [00:16<00:19,  2.30it/s]Processing batches:  45%|████▌     | 36/80 [00:17<00:19,  2.30it/s]Processing batches:  46%|████▋     | 37/80 [00:17<00:18,  2.30it/s]Processing batches:  48%|████▊     | 38/80 [00:17<00:18,  2.30it/s]Processing batches:  49%|████▉     | 39/80 [00:18<00:17,  2.28it/s]Processing batches:  50%|█████     | 40/80 [00:18<00:17,  2.28it/s]Processing batches:  51%|█████▏    | 41/80 [00:19<00:17,  2.27it/s]Processing batches:  52%|█████▎    | 42/80 [00:19<00:16,  2.26it/s]Processing batches:  54%|█████▍    | 43/80 [00:20<00:16,  2.26it/s]Processing batches:  55%|█████▌    | 44/80 [00:20<00:15,  2.25it/s]Processing batches:  56%|█████▋    | 45/80 [00:21<00:15,  2.25it/s]Processing batches:  57%|█████▊    | 46/80 [00:21<00:15,  2.25it/s]Processing batches:  59%|█████▉    | 47/80 [00:21<00:14,  2.25it/s]Processing batches:  60%|██████    | 48/80 [00:22<00:14,  2.25it/s]Processing batches:  61%|██████▏   | 49/80 [00:22<00:13,  2.25it/s]Processing batches:  62%|██████▎   | 50/80 [00:23<00:13,  2.25it/s]Processing batches:  64%|██████▍   | 51/80 [00:23<00:12,  2.25it/s]Processing batches:  65%|██████▌   | 52/80 [00:24<00:12,  2.25it/s]Processing batches:  66%|██████▋   | 53/80 [00:24<00:11,  2.25it/s]Processing batches:  68%|██████▊   | 54/80 [00:25<00:11,  2.25it/s]Processing batches:  69%|██████▉   | 55/80 [00:25<00:11,  2.25it/s]Processing batches:  70%|███████   | 56/80 [00:26<00:10,  2.24it/s]Processing batches:  71%|███████▏  | 57/80 [00:26<00:10,  2.25it/s]Processing batches:  72%|███████▎  | 58/80 [00:26<00:09,  2.24it/s]Processing batches:  74%|███████▍  | 59/80 [00:27<00:09,  2.25it/s]Processing batches:  75%|███████▌  | 60/80 [00:27<00:08,  2.25it/s]Processing batches:  76%|███████▋  | 61/80 [00:28<00:08,  2.25it/s]Processing batches:  78%|███████▊  | 62/80 [00:28<00:08,  2.25it/s]Processing batches:  79%|███████▉  | 63/80 [00:29<00:07,  2.25it/s]Processing batches:  80%|████████  | 64/80 [00:29<00:07,  2.25it/s]min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+Processing batches:  81%|████████▏ | 65/80 [00:29<00:06,  2.25it/s]Processing batches:  82%|████████▎ | 66/80 [00:30<00:06,  2.26it/s]Processing batches:  84%|████████▍ | 67/80 [00:30<00:05,  2.26it/s]Processing batches:  85%|████████▌ | 68/80 [00:31<00:05,  2.25it/s]Processing batches:  86%|████████▋ | 69/80 [00:31<00:04,  2.25it/s]Processing batches:  88%|████████▊ | 70/80 [00:32<00:04,  2.25it/s]Processing batches:  89%|████████▉ | 71/80 [00:32<00:03,  2.25it/s]Processing batches:  90%|█████████ | 72/80 [00:33<00:03,  2.25it/s]Processing batches:  91%|█████████▏| 73/80 [00:33<00:03,  2.25it/s]Processing batches:  92%|█████████▎| 74/80 [00:33<00:02,  2.26it/s]Processing batches:  94%|█████████▍| 75/80 [00:34<00:02,  2.26it/s]Processing batches:  95%|█████████▌| 76/80 [00:34<00:01,  2.24it/s]Processing batches:  96%|█████████▋| 77/80 [00:35<00:01,  2.25it/s]Processing batches:  98%|█████████▊| 78/80 [00:35<00:00,  2.24it/s]Processing batches:  99%|█████████▉| 79/80 [00:36<00:00,  2.23it/s]Processing batches: 100%|██████████| 80/80 [00:36<00:00,  2.24it/s]Processing batches: 100%|██████████| 80/80 [00:36<00:00,  2.17it/s]
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9563/0.9869/0.9442/0.9959/0.4382/0.4097/0.9669-----
+a_: 276
+transistor input_threshold is 0.45 650 350 0
+test:transistor
+Processing batches:   0%|          | 0/50 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/50 [00:01<01:19,  1.63s/it]Processing batches:   4%|▍         | 2/50 [00:02<00:44,  1.07it/s]Processing batches:   6%|▌         | 3/50 [00:02<00:33,  1.40it/s]Processing batches:   8%|▊         | 4/50 [00:02<00:27,  1.65it/s]Processing batches:  10%|█         | 5/50 [00:03<00:24,  1.83it/s]Processing batches:  12%|█▏        | 6/50 [00:03<00:22,  1.95it/s]Processing batches:  14%|█▍        | 7/50 [00:04<00:21,  2.04it/s]Processing batches:  16%|█▌        | 8/50 [00:04<00:19,  2.10it/s]Processing batches:  18%|█▊        | 9/50 [00:05<00:19,  2.15it/s]Processing batches:  20%|██        | 10/50 [00:05<00:18,  2.17it/s]Processing batches:  22%|██▏       | 11/50 [00:06<00:17,  2.19it/s]Processing batches:  24%|██▍       | 12/50 [00:06<00:17,  2.20it/s]Processing batches:  26%|██▌       | 13/50 [00:06<00:16,  2.21it/s]Processing batches:  28%|██▊       | 14/50 [00:07<00:16,  2.22it/s]Processing batches:  30%|███       | 15/50 [00:07<00:15,  2.23it/s]Processing batches:  32%|███▏      | 16/50 [00:08<00:15,  2.22it/s]Processing batches:  34%|███▍      | 17/50 [00:08<00:14,  2.22it/s]Processing batches:  36%|███▌      | 18/50 [00:09<00:14,  2.22it/s]Processing batches:  38%|███▊      | 19/50 [00:09<00:13,  2.23it/s]Processing batches:  40%|████      | 20/50 [00:10<00:13,  2.23it/s]Processing batches:  42%|████▏     | 21/50 [00:10<00:13,  2.23it/s]Processing batches:  44%|████▍     | 22/50 [00:11<00:12,  2.23it/s]Processing batches:  46%|████▌     | 23/50 [00:11<00:12,  2.23it/s]Processing batches:  48%|████▊     | 24/50 [00:11<00:11,  2.23it/s]Processing batches:  50%|█████     | 25/50 [00:12<00:11,  2.23it/s]Processing batches:  52%|█████▏    | 26/50 [00:12<00:10,  2.23it/s]Processing batches:  54%|█████▍    | 27/50 [00:13<00:10,  2.23it/s]Processing batches:  56%|█████▌    | 28/50 [00:13<00:09,  2.22it/s]Processing batches:  58%|█████▊    | 29/50 [00:14<00:09,  2.23it/s]Processing batches:  60%|██████    | 30/50 [00:14<00:08,  2.23it/s]Processing batches:  62%|██████▏   | 31/50 [00:15<00:08,  2.22it/s]Processing batches:  64%|██████▍   | 32/50 [00:15<00:08,  2.21it/s]Processing batches:  66%|██████▌   | 33/50 [00:15<00:07,  2.21it/s]Processing batches:  68%|██████▊   | 34/50 [00:16<00:07,  2.22it/s]Processing batches:  70%|███████   | 35/50 [00:16<00:06,  2.22it/s]Processing batches:  72%|███████▏  | 36/50 [00:17<00:06,  2.22it/s]Processing batches:  74%|███████▍  | 37/50 [00:17<00:05,  2.22it/s]Processing batches:  76%|███████▌  | 38/50 [00:18<00:05,  2.21it/s]Processing batches:  78%|███████▊  | 39/50 [00:18<00:04,  2.21it/s]Processing batches:  80%|████████  | 40/50 [00:19<00:04,  2.19it/s]Processing batches:  82%|████████▏ | 41/50 [00:19<00:04,  2.20it/s]Processing batches:  84%|████████▍ | 42/50 [00:20<00:03,  2.21it/s]Processing batches:  86%|████████▌ | 43/50 [00:20<00:03,  2.22it/s]Processing batches:  88%|████████▊ | 44/50 [00:20<00:02,  2.22it/s]Processing batches:  90%|█████████ | 45/50 [00:21<00:02,  2.23it/s]Processing batches:  92%|█████████▏| 46/50 [00:21<00:01,  2.23it/s]Processing batches:  94%|█████████▍| 47/50 [00:22<00:01,  2.23it/s]Processing batches:  96%|█████████▌| 48/50 [00:22<00:00,  2.24it/s]Processing batches:  98%|█████████▊| 49/50 [00:23<00:00,  2.24it/s]Processing batches: 100%|██████████| 50/50 [00:23<00:00,  2.23it/s]Processing batches: 100%|██████████| 50/50 [00:23<00:00,  2.10it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9942/0.9916/0.9524/0.8955/0.5918/0.5753/0.8496-----
+a_: 326
+wood input_threshold is 0.45 650 350 0
+test:wood
+Processing batches:   0%|          | 0/39 [00:00<?, ?it/s]Processing batches:   3%|▎         | 1/39 [00:01<01:02,  1.63s/it]Processing batches:   5%|▌         | 2/39 [00:02<00:34,  1.07it/s]Processing batches:   8%|▊         | 3/39 [00:02<00:25,  1.41it/s]Processing batches:  10%|█         | 4/39 [00:02<00:21,  1.65it/s]Processing batches:  13%|█▎        | 5/39 [00:03<00:18,  1.83it/s]Processing batches:  15%|█▌        | 6/39 [00:03<00:16,  1.95it/s]Processing batches:  18%|█▊        | 7/39 [00:04<00:15,  2.03it/s]Processing batches:  21%|██        | 8/39 [00:04<00:14,  2.09it/s]Processing batches:  23%|██▎       | 9/39 [00:05<00:14,  2.13it/s]Processing batches:  26%|██▌       | 10/39 [00:05<00:13,  2.17it/s]Processing batches:  28%|██▊       | 11/39 [00:06<00:12,  2.19it/s]Processing batches:  31%|███       | 12/39 [00:06<00:12,  2.20it/s]Processing batches:  33%|███▎      | 13/39 [00:06<00:11,  2.21it/s]Processing batches:  36%|███▌      | 14/39 [00:07<00:11,  2.21it/s]Processing batches:  38%|███▊      | 15/39 [00:07<00:10,  2.22it/s]Processing batches:  41%|████      | 16/39 [00:08<00:10,  2.22it/s]Processing batches:  44%|████▎     | 17/39 [00:08<00:09,  2.22it/s]Processing batches:  46%|████▌     | 18/39 [00:09<00:09,  2.23it/s]Processing batches:  49%|████▊     | 19/39 [00:09<00:08,  2.23it/s]Processing batches:  51%|█████▏    | 20/39 [00:10<00:08,  2.23it/s]Processing batches:  54%|█████▍    | 21/39 [00:10<00:08,  2.22it/s]Processing batches:  56%|█████▋    | 22/39 [00:11<00:07,  2.22it/s]Processing batches:  59%|█████▉    | 23/39 [00:11<00:07,  2.23it/s]Processing batches:  62%|██████▏   | 24/39 [00:11<00:06,  2.23it/s]Processing batches:  64%|██████▍   | 25/39 [00:12<00:06,  2.24it/s]Processing batches:  67%|██████▋   | 26/39 [00:12<00:05,  2.24it/s]Processing batches:  69%|██████▉   | 27/39 [00:13<00:05,  2.23it/s]Processing batches:  72%|███████▏  | 28/39 [00:13<00:04,  2.24it/s]Processing batches:  74%|███████▍  | 29/39 [00:14<00:04,  2.24it/s]Processing batches:  77%|███████▋  | 30/39 [00:14<00:04,  2.25it/s]Processing batches:  79%|███████▉  | 31/39 [00:15<00:03,  2.26it/s]Processing batches:  82%|████████▏ | 32/39 [00:15<00:03,  2.25it/s]Processing batches:  85%|████████▍ | 33/39 [00:15<00:02,  2.25it/s]Processing batches:  87%|████████▋ | 34/39 [00:16<00:02,  2.25it/s]Processing batches:  90%|████████▉ | 35/39 [00:16<00:01,  2.25it/s]Processing batches:  92%|█████████▏| 36/39 [00:17<00:01,  2.25it/s]Processing batches:  95%|█████████▍| 37/39 [00:17<00:00,  2.24it/s]Processing batches:  97%|█████████▋| 38/39 [00:18<00:00,  2.24it/s]Processing batches: 100%|██████████| 39/39 [00:18<00:00,  2.24it/s]Processing batches: 100%|██████████| 39/39 [00:18<00:00,  2.08it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.988/0.9965/0.9667/0.9765/0.7987/0.7258/0.9166-----
+a_: 365
+grid input_threshold is 0.45 650 350 0
+test:grid
+Processing batches:   0%|          | 0/39 [00:00<?, ?it/s]Processing batches:   3%|▎         | 1/39 [00:01<01:02,  1.63s/it]Processing batches:   5%|▌         | 2/39 [00:02<00:34,  1.07it/s]Processing batches:   8%|▊         | 3/39 [00:02<00:25,  1.40it/s]Processing batches:  10%|█         | 4/39 [00:02<00:21,  1.65it/s]Processing batches:  13%|█▎        | 5/39 [00:03<00:18,  1.83it/s]Processing batches:  15%|█▌        | 6/39 [00:03<00:16,  1.95it/s]Processing batches:  18%|█▊        | 7/39 [00:04<00:15,  2.05it/s]Processing batches:  21%|██        | 8/39 [00:04<00:14,  2.11it/s]Processing batches:  23%|██▎       | 9/39 [00:05<00:13,  2.16it/s]Processing batches:  26%|██▌       | 10/39 [00:05<00:13,  2.18it/s]Processing batches:  28%|██▊       | 11/39 [00:06<00:12,  2.21it/s]Processing batches:  31%|███       | 12/39 [00:06<00:12,  2.22it/s]Processing batches:  33%|███▎      | 13/39 [00:06<00:11,  2.23it/s]Processing batches:  36%|███▌      | 14/39 [00:07<00:11,  2.23it/s]Processing batches:  38%|███▊      | 15/39 [00:07<00:10,  2.24it/s]Processing batches:  41%|████      | 16/39 [00:08<00:10,  2.25it/s]Processing batches:  44%|████▎     | 17/39 [00:08<00:09,  2.25it/s]Processing batches:  46%|████▌     | 18/39 [00:09<00:09,  2.25it/s]Processing batches:  49%|████▊     | 19/39 [00:09<00:08,  2.25it/s]Processing batches:  51%|█████▏    | 20/39 [00:10<00:08,  2.25it/s]Processing batches:  54%|█████▍    | 21/39 [00:10<00:07,  2.25it/s]Processing batches:  56%|█████▋    | 22/39 [00:10<00:07,  2.25it/s]Processing batches:  59%|█████▉    | 23/39 [00:11<00:07,  2.25it/s]Processing batches:  62%|██████▏   | 24/39 [00:11<00:06,  2.24it/s]Processing batches:  64%|██████▍   | 25/39 [00:12<00:06,  2.24it/s]Processing batches:  67%|██████▋   | 26/39 [00:12<00:05,  2.24it/s]Processing batches:  69%|██████▉   | 27/39 [00:13<00:05,  2.24it/s]Processing batches:  72%|███████▏  | 28/39 [00:13<00:04,  2.24it/s]Processing batches:  74%|███████▍  | 29/39 [00:14<00:04,  2.25it/s]Processing batches:  77%|███████▋  | 30/39 [00:14<00:03,  2.25it/s]Processing batches:  79%|███████▉  | 31/39 [00:14<00:03,  2.25it/s]Processing batches:  82%|████████▏ | 32/39 [00:15<00:03,  2.25it/s]Processing batches:  85%|████████▍ | 33/39 [00:15<00:02,  2.25it/s]Processing batches:  87%|████████▋ | 34/39 [00:16<00:02,  2.25it/s]Processing batches:  90%|████████▉ | 35/39 [00:16<00:01,  2.25it/s]Processing batches:  92%|█████████▏| 36/39 [00:17<00:01,  2.25it/s]Processing batches:  95%|█████████▍| 37/39 [00:17<00:00,  2.24it/s]Processing batches:  97%|█████████▋| 38/39 [00:18<00:00,  2.25it/s]Processing batches: 100%|██████████| 39/39 [00:18<00:00,  2.24it/s]Processing batches: 100%|██████████| 39/39 [00:18<00:00,  2.09it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9959/0.4751/0.5108/0.9814-----
+a_: 404
+carpet input_threshold is 0.45 650 350 0
+test:carpet
+Processing batches:   0%|          | 0/58 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/58 [00:01<01:32,  1.62s/it]Processing batches:   3%|▎         | 2/58 [00:02<00:52,  1.08it/s]Processing batches:   5%|▌         | 3/58 [00:02<00:38,  1.41it/s]Processing batches:   7%|▋         | 4/58 [00:02<00:32,  1.66it/s]Processing batches:   9%|▊         | 5/58 [00:03<00:28,  1.84it/s]Processing batches:  10%|█         | 6/58 [00:03<00:26,  1.96it/s]Processing batches:  12%|█▏        | 7/58 [00:04<00:24,  2.04it/s]Processing batches:  14%|█▍        | 8/58 [00:04<00:23,  2.10it/s]Processing batches:  16%|█▌        | 9/58 [00:05<00:22,  2.15it/s]Processing batches:  17%|█▋        | 10/58 [00:05<00:22,  2.18it/s]Processing batches:  19%|█▉        | 11/58 [00:06<00:21,  2.20it/s]Processing batches:  21%|██        | 12/58 [00:06<00:20,  2.22it/s]Processing batches:  22%|██▏       | 13/58 [00:06<00:20,  2.23it/s]Processing batches:  24%|██▍       | 14/58 [00:07<00:19,  2.24it/s]Processing batches:  26%|██▌       | 15/58 [00:07<00:19,  2.25it/s]Processing batches:  28%|██▊       | 16/58 [00:08<00:18,  2.25it/s]Processing batches:  29%|██▉       | 17/58 [00:08<00:18,  2.25it/s]Processing batches:  31%|███       | 18/58 [00:09<00:17,  2.24it/s]Processing batches:  33%|███▎      | 19/58 [00:09<00:17,  2.25it/s]Processing batches:  34%|███▍      | 20/58 [00:10<00:16,  2.24it/s]Processing batches:  36%|███▌      | 21/58 [00:10<00:16,  2.24it/s]Processing batches:  38%|███▊      | 22/58 [00:10<00:15,  2.25it/s]Processing batches:  40%|███▉      | 23/58 [00:11<00:15,  2.25it/s]Processing batches:  41%|████▏     | 24/58 [00:11<00:15,  2.25it/s]Processing batches:  43%|████▎     | 25/58 [00:12<00:14,  2.25it/s]Processing batches:  45%|████▍     | 26/58 [00:12<00:14,  2.25it/s]Processing batches:  47%|████▋     | 27/58 [00:13<00:13,  2.24it/s]Processing batches:  48%|████▊     | 28/58 [00:13<00:13,  2.24it/s]Processing batches:  50%|█████     | 29/58 [00:14<00:12,  2.24it/s]Processing batches:  52%|█████▏    | 30/58 [00:14<00:12,  2.24it/s]Processing batches:  53%|█████▎    | 31/58 [00:14<00:12,  2.25it/s]Processing batches:  55%|█████▌    | 32/58 [00:15<00:11,  2.24it/s]Processing batches:  57%|█████▋    | 33/58 [00:15<00:11,  2.24it/s]Processing batches:  59%|█████▊    | 34/58 [00:16<00:10,  2.24it/s]Processing batches:  60%|██████    | 35/58 [00:16<00:10,  2.24it/s]Processing batches:  62%|██████▏   | 36/58 [00:17<00:09,  2.24it/s]Processing batches:  64%|██████▍   | 37/58 [00:17<00:09,  2.24it/s]Processing batches:  66%|██████▌   | 38/58 [00:18<00:08,  2.25it/s]Processing batches:  67%|██████▋   | 39/58 [00:18<00:08,  2.24it/s]Processing batches:  69%|██████▉   | 40/58 [00:18<00:08,  2.24it/s]Processing batches:  71%|███████   | 41/58 [00:19<00:07,  2.24it/s]Processing batches:  72%|███████▏  | 42/58 [00:19<00:07,  2.25it/s]Processing batches:  74%|███████▍  | 43/58 [00:20<00:06,  2.25it/s]Processing batches:  76%|███████▌  | 44/58 [00:20<00:06,  2.25it/s]Processing batches:  78%|███████▊  | 45/58 [00:21<00:05,  2.25it/s]Processing batches:  79%|███████▉  | 46/58 [00:21<00:05,  2.25it/s]Processing batches:  81%|████████  | 47/58 [00:22<00:04,  2.25it/s]Processing batches:  83%|████████▎ | 48/58 [00:22<00:04,  2.26it/s]Processing batches:  84%|████████▍ | 49/58 [00:22<00:03,  2.26it/s]Processing batches:  86%|████████▌ | 50/58 [00:23<00:03,  2.26it/s]Processing batches:  88%|████████▊ | 51/58 [00:23<00:03,  2.25it/s]Processing batches:  90%|████████▉ | 52/58 [00:24<00:02,  2.25it/s]Processing batches:  91%|█████████▏| 53/58 [00:24<00:02,  2.25it/s]Processing batches:  93%|█████████▎| 54/58 [00:25<00:01,  2.25it/s]Processing batches:  95%|█████████▍| 55/58 [00:25<00:01,  2.25it/s]Processing batches:  97%|█████████▋| 56/58 [00:26<00:00,  2.25it/s]Processing batches:  98%|█████████▊| 57/58 [00:26<00:00,  2.26it/s]Processing batches: 100%|██████████| 58/58 [00:26<00:00,  2.26it/s]Processing batches: 100%|██████████| 58/58 [00:27<00:00,  2.14it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9996/0.9999/0.9944/0.991/0.7596/0.6965/0.9739-----
+a_: 462
+leather input_threshold is 0.45 650 350 0
+test:leather
+Processing batches:   0%|          | 0/62 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/62 [00:01<01:37,  1.61s/it]Processing batches:   3%|▎         | 2/62 [00:02<00:55,  1.08it/s]Processing batches:   5%|▍         | 3/62 [00:02<00:41,  1.42it/s]Processing batches:   6%|▋         | 4/62 [00:02<00:34,  1.66it/s]Processing batches:   8%|▊         | 5/62 [00:03<00:31,  1.84it/s]Processing batches:  10%|▉         | 6/62 [00:03<00:28,  1.96it/s]Processing batches:  11%|█▏        | 7/62 [00:04<00:26,  2.05it/s]Processing batches:  13%|█▎        | 8/62 [00:04<00:25,  2.11it/s]Processing batches:  15%|█▍        | 9/62 [00:05<00:24,  2.15it/s]Processing batches:  16%|█▌        | 10/62 [00:05<00:23,  2.19it/s]Processing batches:  18%|█▊        | 11/62 [00:06<00:23,  2.21it/s]Processing batches:  19%|█▉        | 12/62 [00:06<00:22,  2.22it/s]Processing batches:  21%|██        | 13/62 [00:06<00:21,  2.23it/s]Processing batches:  23%|██▎       | 14/62 [00:07<00:21,  2.23it/s]Processing batches:  24%|██▍       | 15/62 [00:07<00:21,  2.24it/s]Processing batches:  26%|██▌       | 16/62 [00:08<00:20,  2.24it/s]Processing batches:  27%|██▋       | 17/62 [00:08<00:20,  2.24it/s]Processing batches:  29%|██▉       | 18/62 [00:09<00:19,  2.24it/s]Processing batches:  31%|███       | 19/62 [00:09<00:19,  2.24it/s]Processing batches:  32%|███▏      | 20/62 [00:10<00:18,  2.23it/s]Processing batches:  34%|███▍      | 21/62 [00:10<00:18,  2.23it/s]Processing batches:  35%|███▌      | 22/62 [00:10<00:17,  2.23it/s]Processing batches:  37%|███▋      | 23/62 [00:11<00:17,  2.23it/s]Processing batches:  39%|███▊      | 24/62 [00:11<00:17,  2.23it/s]Processing batches:  40%|████      | 25/62 [00:12<00:16,  2.23it/s]Processing batches:  42%|████▏     | 26/62 [00:12<00:16,  2.23it/s]Processing batches:  44%|████▎     | 27/62 [00:13<00:15,  2.22it/s]Processing batches:  45%|████▌     | 28/62 [00:13<00:15,  2.23it/s]Processing batches:  47%|████▋     | 29/62 [00:14<00:14,  2.24it/s]Processing batches:  48%|████▊     | 30/62 [00:14<00:14,  2.24it/s]Processing batches:  50%|█████     | 31/62 [00:14<00:13,  2.24it/s]Processing batches:  52%|█████▏    | 32/62 [00:15<00:13,  2.24it/s]Processing batches:  53%|█████▎    | 33/62 [00:15<00:12,  2.24it/s]Processing batches:  55%|█████▍    | 34/62 [00:16<00:12,  2.24it/s]Processing batches:  56%|█████▋    | 35/62 [00:16<00:12,  2.24it/s]Processing batches:  58%|█████▊    | 36/62 [00:17<00:11,  2.23it/s]Processing batches:  60%|█████▉    | 37/62 [00:17<00:11,  2.23it/s]Processing batches:  61%|██████▏   | 38/62 [00:18<00:10,  2.23it/s]Processing batches:  63%|██████▎   | 39/62 [00:18<00:10,  2.24it/s]Processing batches:  65%|██████▍   | 40/62 [00:19<00:09,  2.24it/s]Processing batches:  66%|██████▌   | 41/62 [00:19<00:09,  2.24it/s]Processing batches:  68%|██████▊   | 42/62 [00:19<00:08,  2.24it/s]Processing batches:  69%|██████▉   | 43/62 [00:20<00:08,  2.24it/s]Processing batches:  71%|███████   | 44/62 [00:20<00:08,  2.24it/s]Processing batches:  73%|███████▎  | 45/62 [00:21<00:07,  2.24it/s]Processing batches:  74%|███████▍  | 46/62 [00:21<00:07,  2.25it/s]Processing batches:  76%|███████▌  | 47/62 [00:22<00:06,  2.25it/s]Processing batches:  77%|███████▋  | 48/62 [00:22<00:06,  2.25it/s]Processing batches:  79%|███████▉  | 49/62 [00:23<00:05,  2.25it/s]Processing batches:  81%|████████  | 50/62 [00:23<00:05,  2.24it/s]Processing batches:  82%|████████▏ | 51/62 [00:23<00:04,  2.24it/s]Processing batches:  84%|████████▍ | 52/62 [00:24<00:04,  2.23it/s]Processing batches:  85%|████████▌ | 53/62 [00:24<00:04,  2.23it/s]Processing batches:  87%|████████▋ | 54/62 [00:25<00:03,  2.23it/s]Processing batches:  89%|████████▊ | 55/62 [00:25<00:03,  2.24it/s]Processing batches:  90%|█████████ | 56/62 [00:26<00:02,  2.23it/s]Processing batches:  92%|█████████▏| 57/62 [00:26<00:02,  2.23it/s]Processing batches:  94%|█████████▎| 58/62 [00:27<00:01,  2.23it/s]Processing batches:  95%|█████████▌| 59/62 [00:27<00:01,  2.23it/s]Processing batches:  97%|█████████▋| 60/62 [00:27<00:00,  2.22it/s]Processing batches:  98%|█████████▊| 61/62 [00:28<00:00,  2.23it/s]Processing batches: 100%|██████████| 62/62 [00:28<00:00,  2.23it/s]Processing batches: 100%|██████████| 62/62 [00:29<00:00,  2.14it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9957/0.6177/0.5861/0.9746-----
+a_: 524
+tile input_threshold is 0.45 650 350 0
+test:tile
+Processing batches:   0%|          | 0/58 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/58 [00:01<01:32,  1.62s/it]Processing batches:   3%|▎         | 2/58 [00:02<00:52,  1.07it/s]Processing batches:   5%|▌         | 3/58 [00:02<00:38,  1.41it/s]Processing batches:   7%|▋         | 4/58 [00:02<00:32,  1.65it/s]Processing batches:   9%|▊         | 5/58 [00:03<00:29,  1.82it/s]Processing batches:  10%|█         | 6/58 [00:03<00:26,  1.95it/s]Processing batches:  12%|█▏        | 7/58 [00:04<00:25,  2.04it/s]Processing batches:  14%|█▍        | 8/58 [00:04<00:23,  2.10it/s]Processing batches:  16%|█▌        | 9/58 [00:05<00:22,  2.15it/s]Processing batches:  17%|█▋        | 10/58 [00:05<00:22,  2.18it/s]Processing batches:  19%|█▉        | 11/58 [00:06<00:21,  2.20it/s]Processing batches:  21%|██        | 12/58 [00:06<00:20,  2.21it/s]Processing batches:  22%|██▏       | 13/58 [00:06<00:20,  2.22it/s]Processing batches:  24%|██▍       | 14/58 [00:07<00:19,  2.23it/s]Processing batches:  26%|██▌       | 15/58 [00:07<00:19,  2.23it/s]Processing batches:  28%|██▊       | 16/58 [00:08<00:18,  2.24it/s]Processing batches:  29%|██▉       | 17/58 [00:08<00:18,  2.24it/s]Processing batches:  31%|███       | 18/58 [00:09<00:17,  2.25it/s]Processing batches:  33%|███▎      | 19/58 [00:09<00:17,  2.25it/s]Processing batches:  34%|███▍      | 20/58 [00:10<00:16,  2.25it/s]Processing batches:  36%|███▌      | 21/58 [00:10<00:16,  2.25it/s]Processing batches:  38%|███▊      | 22/58 [00:10<00:16,  2.25it/s]Processing batches:  40%|███▉      | 23/58 [00:11<00:15,  2.25it/s]Processing batches:  41%|████▏     | 24/58 [00:11<00:15,  2.24it/s]Processing batches:  43%|████▎     | 25/58 [00:12<00:14,  2.24it/s]Processing batches:  45%|████▍     | 26/58 [00:12<00:14,  2.24it/s]Processing batches:  47%|████▋     | 27/58 [00:13<00:13,  2.24it/s]Processing batches:  48%|████▊     | 28/58 [00:13<00:13,  2.25it/s]Processing batches:  50%|█████     | 29/58 [00:14<00:12,  2.25it/s]Processing batches:  52%|█████▏    | 30/58 [00:14<00:12,  2.25it/s]Processing batches:  53%|█████▎    | 31/58 [00:14<00:11,  2.25it/s]Processing batches:  55%|█████▌    | 32/58 [00:15<00:11,  2.25it/s]Processing batches:  57%|█████▋    | 33/58 [00:15<00:11,  2.25it/s]Processing batches:  59%|█████▊    | 34/58 [00:16<00:10,  2.25it/s]Processing batches:  60%|██████    | 35/58 [00:16<00:10,  2.25it/s]Processing batches:  62%|██████▏   | 36/58 [00:17<00:09,  2.25it/s]Processing batches:  64%|██████▍   | 37/58 [00:17<00:09,  2.25it/s]Processing batches:  66%|██████▌   | 38/58 [00:18<00:08,  2.25it/s]Processing batches:  67%|██████▋   | 39/58 [00:18<00:08,  2.24it/s]Processing batches:  69%|██████▉   | 40/58 [00:18<00:08,  2.24it/s]Processing batches:  71%|███████   | 41/58 [00:19<00:07,  2.24it/s]Processing batches:  72%|███████▏  | 42/58 [00:19<00:07,  2.24it/s]Processing batches:  74%|███████▍  | 43/58 [00:20<00:06,  2.25it/s]Processing batches:  76%|███████▌  | 44/58 [00:20<00:06,  2.25it/s]Processing batches:  78%|███████▊  | 45/58 [00:21<00:05,  2.25it/s]Processing batches:  79%|███████▉  | 46/58 [00:21<00:05,  2.25it/s]Processing batches:  81%|████████  | 47/58 [00:22<00:04,  2.25it/s]Processing batches:  83%|████████▎ | 48/58 [00:22<00:04,  2.25it/s]Processing batches:  84%|████████▍ | 49/58 [00:22<00:03,  2.26it/s]Processing batches:  86%|████████▌ | 50/58 [00:23<00:03,  2.26it/s]Processing batches:  88%|████████▊ | 51/58 [00:23<00:03,  2.25it/s]Processing batches:  90%|████████▉ | 52/58 [00:24<00:02,  2.24it/s]Processing batches:  91%|█████████▏| 53/58 [00:24<00:02,  2.23it/s]Processing batches:  93%|█████████▎| 54/58 [00:25<00:01,  2.23it/s]Processing batches:  95%|█████████▍| 55/58 [00:25<00:01,  2.23it/s]Processing batches:  97%|█████████▋| 56/58 [00:26<00:00,  2.23it/s]Processing batches:  98%|█████████▊| 57/58 [00:26<00:00,  2.23it/s]Processing batches: 100%|██████████| 58/58 [00:27<00:00,  2.23it/s]Processing batches: 100%|██████████| 58/58 [00:27<00:00,  2.14it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9932/0.9207/0.8714/0.9817-----
+a_: 582
+bottle input_threshold is 0.45 650 350 0
+test:bottle
+Processing batches:   0%|          | 0/41 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/41 [00:01<01:05,  1.63s/it]Processing batches:   5%|▍         | 2/41 [00:02<00:36,  1.07it/s]Processing batches:   7%|▋         | 3/41 [00:02<00:26,  1.41it/s]Processing batches:  10%|▉         | 4/41 [00:02<00:22,  1.65it/s]Processing batches:  12%|█▏        | 5/41 [00:03<00:19,  1.83it/s]Processing batches:  15%|█▍        | 6/41 [00:03<00:17,  1.95it/s]Processing batches:  17%|█▋        | 7/41 [00:04<00:16,  2.04it/s]Processing batches:  20%|█▉        | 8/41 [00:04<00:15,  2.11it/s]Processing batches:  22%|██▏       | 9/41 [00:05<00:14,  2.15it/s]Processing batches:  24%|██▍       | 10/41 [00:05<00:14,  2.17it/s]Processing batches:  27%|██▋       | 11/41 [00:06<00:13,  2.20it/s]Processing batches:  29%|██▉       | 12/41 [00:06<00:13,  2.21it/s]Processing batches:  32%|███▏      | 13/41 [00:06<00:12,  2.22it/s]Processing batches:  34%|███▍      | 14/41 [00:07<00:12,  2.23it/s]Processing batches:  37%|███▋      | 15/41 [00:07<00:11,  2.24it/s]Processing batches:  39%|███▉      | 16/41 [00:08<00:11,  2.23it/s]Processing batches:  41%|████▏     | 17/41 [00:08<00:10,  2.24it/s]Processing batches:  44%|████▍     | 18/41 [00:09<00:10,  2.24it/s]Processing batches:  46%|████▋     | 19/41 [00:09<00:09,  2.25it/s]Processing batches:  49%|████▉     | 20/41 [00:10<00:09,  2.25it/s]Processing batches:  51%|█████     | 21/41 [00:10<00:08,  2.25it/s]Processing batches:  54%|█████▎    | 22/41 [00:10<00:08,  2.25it/s]Processing batches:  56%|█████▌    | 23/41 [00:11<00:07,  2.25it/s]Processing batches:  59%|█████▊    | 24/41 [00:11<00:07,  2.26it/s]Processing batches:  61%|██████    | 25/41 [00:12<00:07,  2.26it/s]Processing batches:  63%|██████▎   | 26/41 [00:12<00:06,  2.25it/s]Processing batches:  66%|██████▌   | 27/41 [00:13<00:06,  2.25it/s]Processing batches:  68%|██████▊   | 28/41 [00:13<00:05,  2.25it/s]Processing batches:  71%|███████   | 29/41 [00:14<00:05,  2.25it/s]Processing batches:  73%|███████▎  | 30/41 [00:14<00:04,  2.25it/s]Processing batches:  76%|███████▌  | 31/41 [00:14<00:04,  2.25it/s]Processing batches:  78%|███████▊  | 32/41 [00:15<00:04,  2.25it/s]Processing batches:  80%|████████  | 33/41 [00:15<00:03,  2.24it/s]Processing batches:  83%|████████▎ | 34/41 [00:16<00:03,  2.24it/s]Processing batches:  85%|████████▌ | 35/41 [00:16<00:02,  2.24it/s]Processing batches:  88%|████████▊ | 36/41 [00:17<00:02,  2.24it/s]Processing batches:  90%|█████████ | 37/41 [00:17<00:01,  2.25it/s]Processing batches:  93%|█████████▎| 38/41 [00:18<00:01,  2.24it/s]Processing batches:  95%|█████████▌| 39/41 [00:18<00:00,  2.24it/s]Processing batches:  98%|█████████▊| 40/41 [00:18<00:00,  2.24it/s]Processing batches: 100%|██████████| 41/41 [00:19<00:00,  2.24it/s]Processing batches: 100%|██████████| 41/41 [00:19<00:00,  2.09it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9821/0.7838/0.7067/0.9387-----
+a_: 623
+metal_nut input_threshold is 0.45 650 350 0
+test:metal_nut
+Processing batches:   0%|          | 0/57 [00:00<?, ?it/s]Processing batches:   2%|▏         | 1/57 [00:01<01:31,  1.63s/it]Processing batches:   4%|▎         | 2/57 [00:02<00:51,  1.07it/s]Processing batches:   5%|▌         | 3/57 [00:02<00:38,  1.40it/s]Processing batches:   7%|▋         | 4/57 [00:02<00:32,  1.64it/s]Processing batches:   9%|▉         | 5/57 [00:03<00:28,  1.82it/s]Processing batches:  11%|█         | 6/57 [00:03<00:26,  1.94it/s]Processing batches:  12%|█▏        | 7/57 [00:04<00:24,  2.03it/s]Processing batches:  14%|█▍        | 8/57 [00:04<00:23,  2.09it/s]Processing batches:  16%|█▌        | 9/57 [00:05<00:22,  2.13it/s]Processing batches:  18%|█▊        | 10/57 [00:05<00:21,  2.15it/s]Processing batches:  19%|█▉        | 11/57 [00:06<00:21,  2.18it/s]Processing batches:  21%|██        | 12/57 [00:06<00:20,  2.20it/s]Processing batches:  23%|██▎       | 13/57 [00:07<00:19,  2.21it/s]Processing batches:  25%|██▍       | 14/57 [00:07<00:19,  2.23it/s]Processing batches:  26%|██▋       | 15/57 [00:07<00:18,  2.23it/s]Processing batches:  28%|██▊       | 16/57 [00:08<00:18,  2.24it/s]Processing batches:  30%|██▉       | 17/57 [00:08<00:18,  2.22it/s]Processing batches:  32%|███▏      | 18/57 [00:09<00:17,  2.22it/s]Processing batches:  33%|███▎      | 19/57 [00:09<00:17,  2.22it/s]Processing batches:  35%|███▌      | 20/57 [00:10<00:16,  2.23it/s]Processing batches:  37%|███▋      | 21/57 [00:10<00:16,  2.23it/s]Processing batches:  39%|███▊      | 22/57 [00:11<00:15,  2.23it/s]Processing batches:  40%|████      | 23/57 [00:11<00:15,  2.23it/s]Processing batches:  42%|████▏     | 24/57 [00:11<00:14,  2.23it/s]Processing batches:  44%|████▍     | 25/57 [00:12<00:14,  2.22it/s]Processing batches:  46%|████▌     | 26/57 [00:12<00:13,  2.22it/s]Processing batches:  47%|████▋     | 27/57 [00:13<00:13,  2.21it/s]Processing batches:  49%|████▉     | 28/57 [00:13<00:13,  2.21it/s]Processing batches:  51%|█████     | 29/57 [00:14<00:12,  2.21it/s]Processing batches:  53%|█████▎    | 30/57 [00:14<00:12,  2.21it/s]Processing batches:  54%|█████▍    | 31/57 [00:15<00:11,  2.21it/s]Processing batches:  56%|█████▌    | 32/57 [00:15<00:11,  2.22it/s]Processing batches:  58%|█████▊    | 33/57 [00:15<00:10,  2.23it/s]Processing batches:  60%|█████▉    | 34/57 [00:16<00:10,  2.23it/s]Processing batches:  61%|██████▏   | 35/57 [00:16<00:09,  2.24it/s]Processing batches:  63%|██████▎   | 36/57 [00:17<00:09,  2.21it/s]Processing batches:  65%|██████▍   | 37/57 [00:17<00:09,  2.22it/s]Processing batches:  67%|██████▋   | 38/57 [00:18<00:08,  2.22it/s]Processing batches:  68%|██████▊   | 39/57 [00:18<00:08,  2.23it/s]Processing batches:  70%|███████   | 40/57 [00:19<00:07,  2.23it/s]Processing batches:  72%|███████▏  | 41/57 [00:19<00:07,  2.24it/s]Processing batches:  74%|███████▎  | 42/57 [00:20<00:06,  2.24it/s]Processing batches:  75%|███████▌  | 43/57 [00:20<00:06,  2.25it/s]Processing batches:  77%|███████▋  | 44/57 [00:20<00:05,  2.25it/s]Processing batches:  79%|███████▉  | 45/57 [00:21<00:05,  2.25it/s]Processing batches:  81%|████████  | 46/57 [00:21<00:04,  2.25it/s]Processing batches:  82%|████████▏ | 47/57 [00:22<00:04,  2.25it/s]Processing batches:  84%|████████▍ | 48/57 [00:22<00:04,  2.25it/s]Processing batches:  86%|████████▌ | 49/57 [00:23<00:03,  2.25it/s]Processing batches:  88%|████████▊ | 50/57 [00:23<00:03,  2.25it/s]Processing batches:  89%|████████▉ | 51/57 [00:24<00:02,  2.25it/s]Processing batches:  91%|█████████ | 52/57 [00:24<00:02,  2.25it/s]Processing batches:  93%|█████████▎| 53/57 [00:24<00:01,  2.25it/s]Processing batches:  95%|█████████▍| 54/57 [00:25<00:01,  2.24it/s]Processing batches:  96%|█████████▋| 55/57 [00:25<00:00,  2.25it/s]Processing batches:  98%|█████████▊| 56/57 [00:26<00:00,  2.25it/s]Processing batches: 100%|██████████| 57/57 [00:26<00:00,  2.25it/s]Processing batches: 100%|██████████| 57/57 [00:26<00:00,  2.12it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9887/0.9133/0.8667/0.9633-----
+a_: 680
+pill input_threshold is 0.45 650 350 0
+test:pill
+Processing batches:   0%|          | 0/83 [00:00<?, ?it/s]Processing batches:   1%|          | 1/83 [00:01<02:13,  1.63s/it]Processing batches:   2%|▏         | 2/83 [00:02<01:15,  1.07it/s]Processing batches:   4%|▎         | 3/83 [00:02<00:56,  1.41it/s]Processing batches:   5%|▍         | 4/83 [00:02<00:47,  1.65it/s]Processing batches:   6%|▌         | 5/83 [00:03<00:42,  1.82it/s]Processing batches:   7%|▋         | 6/83 [00:03<00:39,  1.95it/s]Processing batches:   8%|▊         | 7/83 [00:04<00:37,  2.03it/s]Processing batches:  10%|▉         | 8/83 [00:04<00:35,  2.09it/s]Processing batches:  11%|█         | 9/83 [00:05<00:34,  2.14it/s]Processing batches:  12%|█▏        | 10/83 [00:05<00:33,  2.17it/s]Processing batches:  13%|█▎        | 11/83 [00:06<00:32,  2.19it/s]Processing batches:  14%|█▍        | 12/83 [00:06<00:32,  2.21it/s]Processing batches:  16%|█▌        | 13/83 [00:06<00:31,  2.22it/s]Processing batches:  17%|█▋        | 14/83 [00:07<00:30,  2.23it/s]Processing batches:  18%|█▊        | 15/83 [00:07<00:30,  2.24it/s]Processing batches:  19%|█▉        | 16/83 [00:08<00:29,  2.24it/s]Processing batches:  20%|██        | 17/83 [00:08<00:29,  2.25it/s]Processing batches:  22%|██▏       | 18/83 [00:09<00:28,  2.25it/s]Processing batches:  23%|██▎       | 19/83 [00:09<00:28,  2.25it/s]Processing batches:  24%|██▍       | 20/83 [00:10<00:27,  2.26it/s]Processing batches:  25%|██▌       | 21/83 [00:10<00:27,  2.26it/s]Processing batches:  27%|██▋       | 22/83 [00:10<00:27,  2.25it/s]Processing batches:  28%|██▊       | 23/83 [00:11<00:26,  2.26it/s]Processing batches:  29%|██▉       | 24/83 [00:11<00:26,  2.26it/s]Processing batches:  30%|███       | 25/83 [00:12<00:25,  2.25it/s]Processing batches:  31%|███▏      | 26/83 [00:12<00:25,  2.25it/s]Processing batches:  33%|███▎      | 27/83 [00:13<00:24,  2.25it/s]Processing batches:  34%|███▎      | 28/83 [00:13<00:24,  2.25it/s]Processing batches:  35%|███▍      | 29/83 [00:14<00:24,  2.25it/s]Processing batches:  36%|███▌      | 30/83 [00:14<00:23,  2.24it/s]Processing batches:  37%|███▋      | 31/83 [00:14<00:23,  2.24it/s]Processing batches:  39%|███▊      | 32/83 [00:15<00:22,  2.24it/s]Processing batches:  40%|███▉      | 33/83 [00:15<00:22,  2.24it/s]Processing batches:  41%|████      | 34/83 [00:16<00:21,  2.24it/s]Processing batches:  42%|████▏     | 35/83 [00:16<00:21,  2.24it/s]Processing batches:  43%|████▎     | 36/83 [00:17<00:21,  2.23it/s]Processing batches:  45%|████▍     | 37/83 [00:17<00:20,  2.23it/s]Processing batches:  46%|████▌     | 38/83 [00:18<00:20,  2.24it/s]Processing batches:  47%|████▋     | 39/83 [00:18<00:19,  2.24it/s]Processing batches:  48%|████▊     | 40/83 [00:18<00:19,  2.24it/s]Processing batches:  49%|████▉     | 41/83 [00:19<00:18,  2.23it/s]Processing batches:  51%|█████     | 42/83 [00:19<00:18,  2.24it/s]Processing batches:  52%|█████▏    | 43/83 [00:20<00:17,  2.24it/s]Processing batches:  53%|█████▎    | 44/83 [00:20<00:17,  2.24it/s]Processing batches:  54%|█████▍    | 45/83 [00:21<00:16,  2.24it/s]Processing batches:  55%|█████▌    | 46/83 [00:21<00:16,  2.24it/s]Processing batches:  57%|█████▋    | 47/83 [00:22<00:16,  2.24it/s]Processing batches:  58%|█████▊    | 48/83 [00:22<00:15,  2.24it/s]Processing batches:  59%|█████▉    | 49/83 [00:23<00:15,  2.24it/s]Processing batches:  60%|██████    | 50/83 [00:23<00:14,  2.24it/s]Processing batches:  61%|██████▏   | 51/83 [00:23<00:14,  2.24it/s]Processing batches:  63%|██████▎   | 52/83 [00:24<00:13,  2.23it/s]Processing batches:  64%|██████▍   | 53/83 [00:24<00:13,  2.24it/s]Processing batches:  65%|██████▌   | 54/83 [00:25<00:12,  2.24it/s]Processing batches:  66%|██████▋   | 55/83 [00:25<00:12,  2.24it/s]Processing batches:  67%|██████▋   | 56/83 [00:26<00:12,  2.23it/s]Processing batches:  69%|██████▊   | 57/83 [00:26<00:11,  2.24it/s]Processing batches:  70%|██████▉   | 58/83 [00:27<00:11,  2.23it/s]Processing batches:  71%|███████   | 59/83 [00:27<00:10,  2.24it/s]Processing batches:  72%|███████▏  | 60/83 [00:27<00:10,  2.24it/s]Processing batches:  73%|███████▎  | 61/83 [00:28<00:09,  2.24it/s]Processing batches:  75%|███████▍  | 62/83 [00:28<00:09,  2.24it/s]Processing batches:  76%|███████▌  | 63/83 [00:29<00:08,  2.24it/s]Processing batches:  77%|███████▋  | 64/83 [00:29<00:08,  2.24it/s]min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+Processing batches:  78%|███████▊  | 65/83 [00:30<00:08,  2.24it/s]Processing batches:  80%|███████▉  | 66/83 [00:30<00:07,  2.24it/s]Processing batches:  81%|████████  | 67/83 [00:31<00:07,  2.24it/s]Processing batches:  82%|████████▏ | 68/83 [00:31<00:06,  2.24it/s]Processing batches:  83%|████████▎ | 69/83 [00:31<00:06,  2.24it/s]Processing batches:  84%|████████▍ | 70/83 [00:32<00:05,  2.24it/s]Processing batches:  86%|████████▌ | 71/83 [00:32<00:05,  2.24it/s]Processing batches:  87%|████████▋ | 72/83 [00:33<00:04,  2.24it/s]Processing batches:  88%|████████▊ | 73/83 [00:33<00:04,  2.24it/s]Processing batches:  89%|████████▉ | 74/83 [00:34<00:04,  2.24it/s]Processing batches:  90%|█████████ | 75/83 [00:34<00:03,  2.24it/s]Processing batches:  92%|█████████▏| 76/83 [00:35<00:03,  2.24it/s]Processing batches:  93%|█████████▎| 77/83 [00:35<00:02,  2.24it/s]Processing batches:  94%|█████████▍| 78/83 [00:35<00:02,  2.24it/s]Processing batches:  95%|█████████▌| 79/83 [00:36<00:01,  2.25it/s]Processing batches:  96%|█████████▋| 80/83 [00:36<00:01,  2.25it/s]Processing batches:  98%|█████████▊| 81/83 [00:37<00:00,  2.25it/s]Processing batches:  99%|█████████▉| 82/83 [00:37<00:00,  2.25it/s]Processing batches: 100%|██████████| 83/83 [00:38<00:00,  2.24it/s]Processing batches: 100%|██████████| 83/83 [00:38<00:00,  2.16it/s]
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9676/0.9934/0.9821/0.9758/0.6288/0.659/0.966-----
+a_: 763
+toothbrush input_threshold is 0.45 650 350 0
+test:toothbrush
+Processing batches:   0%|          | 0/21 [00:00<?, ?it/s]Processing batches:   5%|▍         | 1/21 [00:01<00:32,  1.61s/it]Processing batches:  10%|▉         | 2/21 [00:02<00:17,  1.08it/s]Processing batches:  14%|█▍        | 3/21 [00:02<00:12,  1.42it/s]Processing batches:  19%|█▉        | 4/21 [00:02<00:10,  1.66it/s]Processing batches:  24%|██▍       | 5/21 [00:03<00:08,  1.84it/s]Processing batches:  29%|██▊       | 6/21 [00:03<00:07,  1.96it/s]Processing batches:  33%|███▎      | 7/21 [00:04<00:06,  2.05it/s]Processing batches:  38%|███▊      | 8/21 [00:04<00:06,  2.11it/s]Processing batches:  43%|████▎     | 9/21 [00:05<00:05,  2.15it/s]Processing batches:  48%|████▊     | 10/21 [00:05<00:05,  2.19it/s]Processing batches:  52%|█████▏    | 11/21 [00:06<00:04,  2.21it/s]Processing batches:  57%|█████▋    | 12/21 [00:06<00:04,  2.22it/s]Processing batches:  62%|██████▏   | 13/21 [00:06<00:03,  2.23it/s]Processing batches:  67%|██████▋   | 14/21 [00:07<00:03,  2.24it/s]Processing batches:  71%|███████▏  | 15/21 [00:07<00:02,  2.23it/s]Processing batches:  76%|███████▌  | 16/21 [00:08<00:02,  2.24it/s]Processing batches:  81%|████████  | 17/21 [00:08<00:01,  2.24it/s]Processing batches:  86%|████████▌ | 18/21 [00:09<00:01,  2.25it/s]Processing batches:  90%|█████████ | 19/21 [00:09<00:00,  2.25it/s]Processing batches:  95%|█████████▌| 20/21 [00:10<00:00,  2.26it/s]Processing batches: 100%|██████████| 21/21 [00:10<00:00,  2.26it/s]Processing batches: 100%|██████████| 21/21 [00:10<00:00,  1.98it/s]
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:1.0/1.0/1.0/0.9918/0.4622/0.5679/0.9622-----
+a_: 784
+zipper input_threshold is 0.45 650 350 0
+test:zipper
+Processing batches:   0%|          | 0/75 [00:00<?, ?it/s]Processing batches:   1%|▏         | 1/75 [00:01<01:58,  1.60s/it]Processing batches:   3%|▎         | 2/75 [00:02<01:07,  1.09it/s]Processing batches:   4%|▍         | 3/75 [00:02<00:50,  1.42it/s]Processing batches:   5%|▌         | 4/75 [00:02<00:42,  1.66it/s]Processing batches:   7%|▋         | 5/75 [00:03<00:38,  1.83it/s]Processing batches:   8%|▊         | 6/75 [00:03<00:35,  1.96it/s]Processing batches:   9%|▉         | 7/75 [00:04<00:33,  2.04it/s]Processing batches:  11%|█         | 8/75 [00:04<00:31,  2.10it/s]Processing batches:  12%|█▏        | 9/75 [00:05<00:30,  2.14it/s]Processing batches:  13%|█▎        | 10/75 [00:05<00:30,  2.16it/s]Processing batches:  15%|█▍        | 11/75 [00:06<00:29,  2.18it/s]Processing batches:  16%|█▌        | 12/75 [00:06<00:28,  2.20it/s]Processing batches:  17%|█▋        | 13/75 [00:06<00:27,  2.22it/s]Processing batches:  19%|█▊        | 14/75 [00:07<00:27,  2.22it/s]Processing batches:  20%|██        | 15/75 [00:07<00:27,  2.22it/s]Processing batches:  21%|██▏       | 16/75 [00:08<00:26,  2.21it/s]Processing batches:  23%|██▎       | 17/75 [00:08<00:26,  2.21it/s]Processing batches:  24%|██▍       | 18/75 [00:09<00:25,  2.22it/s]Processing batches:  25%|██▌       | 19/75 [00:09<00:25,  2.23it/s]Processing batches:  27%|██▋       | 20/75 [00:10<00:24,  2.23it/s]Processing batches:  28%|██▊       | 21/75 [00:10<00:24,  2.24it/s]Processing batches:  29%|██▉       | 22/75 [00:10<00:23,  2.24it/s]Processing batches:  31%|███       | 23/75 [00:11<00:23,  2.22it/s]Processing batches:  32%|███▏      | 24/75 [00:11<00:22,  2.22it/s]Processing batches:  33%|███▎      | 25/75 [00:12<00:22,  2.23it/s]Processing batches:  35%|███▍      | 26/75 [00:12<00:22,  2.22it/s]Processing batches:  36%|███▌      | 27/75 [00:13<00:21,  2.23it/s]Processing batches:  37%|███▋      | 28/75 [00:13<00:21,  2.23it/s]Processing batches:  39%|███▊      | 29/75 [00:14<00:20,  2.24it/s]Processing batches:  40%|████      | 30/75 [00:14<00:20,  2.23it/s]Processing batches:  41%|████▏     | 31/75 [00:15<00:19,  2.23it/s]Processing batches:  43%|████▎     | 32/75 [00:15<00:19,  2.23it/s]Processing batches:  44%|████▍     | 33/75 [00:15<00:18,  2.24it/s]Processing batches:  45%|████▌     | 34/75 [00:16<00:18,  2.24it/s]Processing batches:  47%|████▋     | 35/75 [00:16<00:17,  2.25it/s]Processing batches:  48%|████▊     | 36/75 [00:17<00:17,  2.25it/s]Processing batches:  49%|████▉     | 37/75 [00:17<00:16,  2.25it/s]Processing batches:  51%|█████     | 38/75 [00:18<00:16,  2.25it/s]Processing batches:  52%|█████▏    | 39/75 [00:18<00:16,  2.25it/s]Processing batches:  53%|█████▎    | 40/75 [00:19<00:15,  2.24it/s]Processing batches:  55%|█████▍    | 41/75 [00:19<00:15,  2.24it/s]Processing batches:  56%|█████▌    | 42/75 [00:19<00:14,  2.24it/s]Processing batches:  57%|█████▋    | 43/75 [00:20<00:14,  2.24it/s]Processing batches:  59%|█████▊    | 44/75 [00:20<00:13,  2.24it/s]Processing batches:  60%|██████    | 45/75 [00:21<00:13,  2.23it/s]Processing batches:  61%|██████▏   | 46/75 [00:21<00:12,  2.24it/s]Processing batches:  63%|██████▎   | 47/75 [00:22<00:12,  2.24it/s]Processing batches:  64%|██████▍   | 48/75 [00:22<00:12,  2.24it/s]Processing batches:  65%|██████▌   | 49/75 [00:23<00:11,  2.24it/s]Processing batches:  67%|██████▋   | 50/75 [00:23<00:11,  2.24it/s]Processing batches:  68%|██████▊   | 51/75 [00:23<00:10,  2.23it/s]Processing batches:  69%|██████▉   | 52/75 [00:24<00:10,  2.23it/s]Processing batches:  71%|███████   | 53/75 [00:24<00:09,  2.23it/s]Processing batches:  72%|███████▏  | 54/75 [00:25<00:09,  2.22it/s]Processing batches:  73%|███████▎  | 55/75 [00:25<00:09,  2.21it/s]Processing batches:  75%|███████▍  | 56/75 [00:26<00:08,  2.20it/s]Processing batches:  76%|███████▌  | 57/75 [00:26<00:08,  2.20it/s]Processing batches:  77%|███████▋  | 58/75 [00:27<00:07,  2.20it/s]Processing batches:  79%|███████▊  | 59/75 [00:27<00:07,  2.20it/s]Processing batches:  80%|████████  | 60/75 [00:28<00:06,  2.21it/s]Processing batches:  81%|████████▏ | 61/75 [00:28<00:06,  2.22it/s]Processing batches:  83%|████████▎ | 62/75 [00:28<00:05,  2.22it/s]Processing batches:  84%|████████▍ | 63/75 [00:29<00:05,  2.22it/s]Processing batches:  85%|████████▌ | 64/75 [00:29<00:04,  2.22it/s]min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+Processing batches:  87%|████████▋ | 65/75 [00:30<00:04,  2.22it/s]Processing batches:  88%|████████▊ | 66/75 [00:30<00:04,  2.22it/s]Processing batches:  89%|████████▉ | 67/75 [00:31<00:03,  2.22it/s]Processing batches:  91%|█████████ | 68/75 [00:31<00:03,  2.23it/s]Processing batches:  92%|█████████▏| 69/75 [00:32<00:02,  2.23it/s]Processing batches:  93%|█████████▎| 70/75 [00:32<00:02,  2.23it/s]Processing batches:  95%|█████████▍| 71/75 [00:32<00:01,  2.23it/s]Processing batches:  96%|█████████▌| 72/75 [00:33<00:01,  2.22it/s]Processing batches:  97%|█████████▋| 73/75 [00:33<00:00,  2.22it/s]Processing batches:  99%|█████████▊| 74/75 [00:34<00:00,  2.22it/s]Processing batches: 100%|██████████| 75/75 [00:34<00:00,  2.23it/s]Processing batches: 100%|██████████| 75/75 [00:34<00:00,  2.15it/s]
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+min_similarity_map_all_bat.shape0 torch.Size([2, 3, 4, 64, 64])
+anomaly_map_all_bat.shape0 torch.Size([3, 2, 1024, 4, 64, 64])
+test-------- I-AUROC/I-AP/I-F1-max/P-AUROC/P-AP/P-F1-max/PRO:0.9931/0.9982/0.9784/0.9743/0.6426/0.6229/0.9353-----
+a_: 859
+mean: [98.81       99.61133333 98.116      98.00333333 66.39       64.00733333
+ 94.67466667]

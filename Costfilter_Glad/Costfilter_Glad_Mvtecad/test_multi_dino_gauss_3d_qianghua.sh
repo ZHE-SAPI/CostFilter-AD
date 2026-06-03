@@ -1,5 +1,5 @@
 
-export INSTANCE_DIR='your_path/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad'     # VisA   MPDD   MVTec-AD  PCBBank
+export INSTANCE_DIR='/home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad'     # VisA   MPDD   MVTec-AD  PCBBank
 export OUTPUT_DIR="/model/MVTec_AD_dino_multi/MVTec-AD_20000step_bs32_eps_anomaly2_multiclass_0"
 export SEED=1234
 
@@ -15,6 +15,6 @@ python main_multi_glad_dino_gauss_3d_qianghua.py \
 
 
 
-# cd your_path/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad
+# cd /home/sysmanager/customer/Desktop/ZZ/anomaly/CostFilterAD/Costfilter_Glad/Costfilter_Glad_Mvtecad
 
-# nohup bash test_multi_dino_gauss_3d_qianghua.sh > test_costfilter_glad_mvtecad.log 2>&1 &
+# nohup bash test_multi_dino_gauss_3d_qianghua.sh > test_costfilter_glad_mvtecad_0.40.6.log 2>&1 &
