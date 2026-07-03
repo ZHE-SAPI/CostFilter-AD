@@ -94,10 +94,7 @@ pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --e
 
 Experiments can be conducted on A100 (80GB or 40GB) and GV100 (32GB); results are consistent across GPUs.
 
-# Notes
-1. The learning rate of the costfilter network (3DUNET), can be set to 0.0001 or 0.001. The former may lead to more stable training.
-2. The value of args.lamda ranges from 0 to 1 and can be tuned for better results.
-3. We report metrics corresponding to the best epoch's pth file.
+
 
 
 
